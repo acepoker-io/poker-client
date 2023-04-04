@@ -1,0 +1,137 @@
+.register-content {
+  width: 100%;
+}
+.register-content .otp-form h1,
+.register-content .otp-form p {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.register-content .rigister-tab {
+  padding-top: 20px;
+}
+.register-content .form-group {
+  padding-bottom: 20px;
+}
+.register-content .otp-form h1 {
+  font-size: 24px;
+}
+.register-content .form-group input {
+  background: transparent;
+  border-radius: 30px;
+  border: 1px solid #393939;
+  font-size: 14px;
+  color: var(--text-white);
+}
+
+.register-content .form-details {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px 0px;
+}
+
+.form-details .reg-name,
+.form-details .reg-mail {
+  width: 49%;
+}
+
+.reg-form h1,
+.reg-form p {
+  margin: 0;
+  text-align: left;
+}
+.register-content .reg-form input {
+  background: transparent;
+  border-radius: 30px;
+  border: 1px solid #393939;
+  font-size: 14px;
+  padding: 10px 12px;
+  color: white;
+}
+.create-account .reg-form h1 {
+  font-size: 24px;
+}
+.register-content .create-account .reg-form h1,
+.register-content .create-account .reg-form p {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.phoneRecaptcha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+/********** phone step **********/
+.create-phoneinput h1 {
+  text-align: left;
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.home-banner-auth .create-phoneinput p {
+  text-align: left;
+  padding: 0;
+}
+.home-banner-auth .create-phoneinput .step-1 {
+  margin: 20px 0px;
+}
+.home-banner-auth .create-phoneinput .step-1 button,
+.home-banner-auth .create-phoneinput .step-1 button:hover,
+.home-banner-auth .create-phoneinput .step-1 button:focus,
+.home-banner-auth .step-2 button,
+.home-banner-auth .step-2 button:hover,
+.home-banner-auth .step-2 button:focus,
+.home-banner-auth .create-account button,
+.home-banner-auth .create-account button:hover,
+.home-banner-auth .create-account button:focus {
+  height: 50px;
+  font-weight: 600;
+}
+.home-banner-auth .agreebox input {
+  padding: 0px !important;
+  height: 20px !important;
+  width: 20px !important;
+  margin: 0;
+}
+.home-banner-auth .agreebox {
+  margin-top: 10px;
+  display: flex;
+}
+.home-banner-auth-btn b {
+  padding-right: 5px;
+}
+
+.otp-form .home-banner-auth-btn .btn:last-child {
+  font-size: 18px;
+  font-weight: 700 !important;
+}
+.inputPhoneNumber input {
+  align-items: center !important;
+  background: var(--input-bg) !important;
+  border: 1px solid #25282e !important;
+  border-radius: 30px !important;
+  color: var(--placeholder-color) !important;
+  display: flex !important;
+  font-size: 14px !important;
+  height: 44px !important;
+  width: 100% !important;
+  padding-left: 60px !important;
+}
+.create-phoneinput .react-tel-input .selected-flag {
+  padding-left: 20px !important;
+}
+.kep-login-facebook{
+  width: 100%;
+  height: 64px !important;
+  border-radius: 30px !important ;
+  font-weight: 500 !important;
+  text-transform: capitalize !important;
+}
+.login-form .kep-login-facebook{
+  height: 42.6px !important;
+  padding: 0px !important;
+}
