@@ -1,0 +1,783 @@
+.bet-wrapper {
+  position: fixed;
+  right: -350px;
+  top: 0;
+  bottom: 0;
+  background: #333;
+  max-width: 350px;
+  width: 100%;
+  transition: all 0.5s;
+  background: url(../../assets/black.png);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+  border-left: 1px solid #2c2929;
+  /* box-shadow: 0px 10px 40px #ffffff1c; */
+  z-index: 99999;
+}
+
+.bet-wrapper::before {
+  content: "";
+  background: #0a142991;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bet-wrapper.expand {
+  right: 0;
+}
+
+.bet-button {
+  position: fixed;
+  right: 0px;
+  top: 15px;
+}
+
+.bet-button span img {
+  height: 13px;
+  margin-top: 8px;
+  filter: invert(1);
+}
+
+.bet-container {
+  position: relative;
+}
+
+.bet-header {
+  padding: 20px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #2c2929;
+  background: #0f121b;
+}
+
+.bet-content {
+  padding: 20px;
+}
+
+.bet-header span {
+  cursor: pointer;
+}
+
+.bet-button span {
+  background: #10790e;
+  padding: 12px 10px;
+  display: inline-block;
+  border-radius: 17px;
+  font-size: 14px;
+  transition: all 0.5s;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-orientation: mixed;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.bet-button span i {
+  font-weight: 600;
+}
+
+.bet-header span img {
+  width: 25px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked+.slider {
+  background-color: #07974f;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #07974f;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(100px);
+  -ms-transform: translateX(100px);
+  transform: translateX(100px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.bet-switch {
+  margin-bottom: 20px;
+}
+
+.switch-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 0px 10px;
+}
+
+.bet-form .form-control,
+.bet-form .form-control:focus {
+  background: #161b27;
+  color: #fff;
+  border: 1px solid #312c2c;
+  font-size: 14px;
+  padding: 10px 15px;
+  height: auto;
+}
+
+.bet-form .btn,
+.bet-form .btn:hover,
+.bet-form .btn:focus {
+  width: 100%;
+  background: #ff9800;
+  border-color: #ff9800;
+  color: #000;
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 100px;
+  box-shadow: none;
+  border-bottom: 5px solid #ff9800;
+  border-top: 5px solid #ff9800;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+
+.bet-form .form-control:focus {
+  box-shadow: none;
+}
+
+.bet-form label {
+  font-size: 14px;
+}
+
+.switch-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  padding: 0px 10px;
+}
+
+.bet-listing {
+  height: calc(100vh - 270px);
+  overflow-y: auto;
+  width: 100%;
+}
+
+.bet-listing::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
+  background-color: #191b25;
+}
+
+.bet-listing::-webkit-scrollbar {
+  width: 5px;
+  background-color: #222530;
+}
+
+.bet-listing::-webkit-scrollbar-thumb {
+  background-color: #222530;
+}
+
+.bet-player {
+  background: #161b27;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #312c2c;
+  margin-bottom: 10px;
+}
+
+.bet-player-info {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.bet-player-pic img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.bet-player-name {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 50px);
+}
+
+.bet-player-title h5 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.bet-player-title span {
+  font-size: 12px;
+}
+
+.bet-player-title {
+  padding-left: 10px;
+}
+
+.bet-result {
+  width: 50px;
+  text-align: center;
+}
+
+.bet-result span {
+  font-size: 12px;
+  color: #ff9800;
+}
+
+.bet-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #312c2c;
+  padding-top: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.bet-challenger {
+  width: 45%;
+}
+
+.bet-vs {
+  padding: 0px 5px;
+  font-size: 12px;
+}
+
+.bet-challenger img {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.bet-challenger span {
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.bet-footer .bet-challenger:last-child {
+  text-align: right;
+}
+
+.bet-challenger .btn,
+.bet-challenger .btn:hover,
+.bet-challenger .btn:focus {
+  background: #efefef;
+  border-color: #efefef;
+  color: #000;
+  font-size: 12px;
+  padding: 5px 15px;
+  border-radius: 100px;
+  box-shadow: none;
+  letter-spacing: 0.5px;
+}
+
+.bet-player.win {
+  background-color: #07974f;
+}
+
+.bet-player.loss {
+  background-color: #932222;
+}
+
+.bet-player.resume {
+  background-color: #ff9800;
+}
+
+.game-not-started {
+  text-align: center;
+  margin-top: 35vh;
+}
+
+.game-not-started img {
+  width: 160px;
+  position: relative;
+}
+
+.game-not-started p {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* .game-msg p {
+    background-color: #a46b1cba;
+    padding: 14px 60px;
+    width: 100%;
+    z-index: 999999999;
+    position: relative;
+    font-size: 26px;
+    text-shadow: 0px 3px 10px #0e0e0e;
+    border-radius: 0;
+    font-weight: 400;
+    background: linear-gradient(to left, #cc6600 80%, #cf6e0e00 100%);
+    border: 3px solid #cc6600;
+    border-left: none;
+    border-right: none;
+} */
+
+.bet-challenger .bet-winner {
+  background-color: #046104;
+  border-radius: 25px;
+  width: fit-content;
+  padding: 2px 12px;
+  margin: 0px auto;
+}
+
+.bet-form .form-control option {
+  font-family: "Russo One", sans-serif !important;
+  font-weight: bolder !important;
+  -moz-font-family: "Russo One", sans-serif !important;
+  font: inherit;
+}
+
+.bet-player .btn-primary:disabled {
+  background: #fff;
+  border-color: #fff;
+  color: #999;
+}
+
+.disable-btn {
+  cursor: not-allowed;
+}
+
+/* .raise-inputRange .input-range__label-container {
+  display: none;
+} */
+.raiseBet-container .close-bet {
+  position: absolute;
+  right: 2%;
+  color: #000000;
+  font-weight: 700;
+  cursor: pointer;
+  top: 9%;
+  transform: translateY(-50%);
+  background: #f9ff00;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-content: center;
+  line-height: 0px;
+  font-size: 17px;
+}
+
+.raiseBet-container .bet-view {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+
+.raiseBet-container .bet-view button {
+  background: #f9ff00;
+  border-radius: 30px;
+  min-width: 43px;
+  padding: 1px 0px;
+  margin: 0px 5px;
+  color: #361302;
+  border-top: 2px solid #ffff42;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-weight: 700;
+  height: 28px;
+}
+
+.raiseBet-container .bet-view button:hover {
+  background: #dde101;
+  border-radius: 30px;
+  min-width: 43px;
+  padding: 1px 0px;
+  margin: 0px 5px;
+  color: #361302;
+  border-top: 2px solid #ffff42;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.5s;
+  font-weight: 700;
+  height: 28px;
+}
+
+.raiseBet-container .bet-view::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid #151515;
+  position: absolute;
+  bottom: -10px;
+  left: 70%;
+}
+
+.raiseBet-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: -190px;
+  left: -150%;
+  background: #151515;
+  padding: 15px;
+  border-radius: 20px;
+  padding-right: 25px;
+  min-width: 340px;
+  z-index: 99999999;
+}
+
+.raiseBet-container .raise-inputRange {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.raiseBet-container .raise-inputRange .input-range__slider {
+  appearance: none;
+  background: #f9ff00 !important;
+  border: 1px solid #f9ff01 !important;
+  border-radius: 100%;
+  cursor: pointer;
+  display: block;
+  height: 20px !important;
+  width: 20px !important;
+  margin-left: -0.5rem;
+  margin-top: -9px;
+  outline: none;
+  position: absolute;
+  top: 50%;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.raiseBet-container .raise-inputRange .input-range__track {
+  background: #eeeeee;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: block;
+  height: 10px !important;
+  position: relative;
+  transition: left 0.3s ease-out, width 0.3s ease-out;
+}
+
+.raiseBet-container .input-range__slider-container {
+  top: 30% !important;
+}
+
+.raiseBet-container .input-range__track.input-range__track--active {
+  background: #f9ff00;
+}
+
+.raiseBet-container .raise-inputRange span {
+  font-size: 12px;
+  font-family: inherit;
+  color: #fff;
+}
+
+/* advance action btn  */
+.advaceActionBtn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.advaceActionBtn-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 5px;
+}
+
+.advaceActionBtn-container .form-check {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+  margin: 0px 3px 3px 0px;
+}
+
+.advaceActionBtn-container .form-check-input {
+  width: 16px;
+  height: 16px;
+  -webkit-appearance: none;
+  cursor: pointer;
+  margin-top: 4px;
+  border: 1px solid #b4b61e;
+  border-radius: 50%;
+  background-color: #5e625d70 !important;
+}
+
+.advaceActionBtn-container .form-check-input:checked {
+  background-color: #c05454 !important;
+  border: 3.5px solid #ddd;
+}
+
+.advaceActionBtn-container .form-check-label {
+  margin-top: 6px;
+}
+
+form.customBet-amount {
+  width: 100%;
+  background: #2a2a2a;
+  padding: 10px 16px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form.customBet-amount .form-group {
+  margin-bottom: 0px !important;
+}
+
+form.customBet-amount .form-control,
+form.customBet-amount .form-control:active,
+form.customBet-amount .form-control:focus {
+  width: 90px;
+  background: #35363a;
+  border: 1px solid #4e4e4e;
+  margin-top: 2px;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: none !important;
+}
+
+.customBet-amount button.btn.btn-primary,
+.customBet-amount button.btn.btn-primary:active,
+.customBet-amount button.btn.btn-primary:focus {
+  background-color: #f9ff00 !important;
+  border-color: #f9ff00 !important;
+  border-radius: 4px;
+  color: black !important;
+  font-weight: 600;
+  letter-spacing: 4px;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: none !important;
+  height: 28px;
+}
+
+.footer-btn .callBtn-amount {
+  color: #f9ff00;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.callBtn-amount-none {
+  display: none;
+}
+
+.input-range__label--max .input-range__label-container {
+  left: 15% !important;
+}
+
+.customBet-amount .raiseSliderCustom {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-width: 200px;
+  margin-top: 12px;
+}
+
+.form-check-inline {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 0;
+  margin-right: 1px;
+}
+
+.inputRange-Box {
+  position: relative;
+  max-width: calc(100% - 110px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-range {
+  height: 1rem;
+  position: relative;
+  width: 94% !important;
+  margin-left: 8px;
+}
+
+.inputRangeSlider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+span.input-range__label.input-range__label--min,
+span.input-range__label.input-range__label--max {
+  display: none;
+}
+
+@media only screen and (min-device-width: 280px) and (max-device-width: 767px) and (orientation: portrait) {
+  .raiseBet-container {
+    top: -176px;
+    left: -248%;
+    scale: 0.9;
+  }
+
+  .raiseBet-container .bet-view::before {
+    bottom: -10px;
+    left: 275px;
+  }
+
+  /* .bet-view {
+    padding: 6px 2px;
+  }
+  .bet-view::before {
+    left: 135px;
+  }
+  .raise-inputRange .input-range__track {
+    height: 6px !important;
+  }
+  .input-range__slider-container {
+    top: 60% !important;
+  } */
+}
+
+@media only screen and (min-device-width: 280px) and (max-device-width: 991px) and (orientation: landscape) {
+  .raiseBet-container {
+    top: -166px;
+    left: -130%;
+    scale: 0.75;
+  }
+
+  .raiseBet-container .bet-view::before {
+    bottom: -10px;
+    left: 180px;
+  }
+
+  .chatHistory-icon {
+    scale: 0.8;
+    scale: 0.8;
+    position: absolute;
+    bottom: -2px;
+  }
+
+  .advaceActionBtn-container .form-check-input {
+    width: 10px;
+    height: 10px;
+    margin-left: -13px;
+  }
+
+  .advaceActionBtn-container .form-check-label {
+    margin-top: 3px;
+  }
+
+  .advaceActionBtn-container .footer-btn {
+    width: 100px;
+    height: 35px;
+  }
+
+  .playerMssgtoDisplay p {
+    font-size: 10px;
+    font-weight: 300;
+  }
+
+  .playerName {
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .advaceActionBtn-container .form-check {
+    margin: 0px 3px 0px 0px;
+  }
+}
+
+@media only screen and (min-device-width: 280px) and (max-device-width: 767px) and (orientation: portrait) {
+  /* .chatHistory-icon img {
+    width: 30px;
+    height: 30px;
+  } */
+
+  .advaceActionBtn-container button {
+    padding: 0px 1px;
+    width: 80%;
+  }
+
+  .containerFor-chatHistory {
+    position: fixed;
+    bottom: 1%;
+    left: 1%;
+  }
+
+  .advaceActionBtn-container .form-check {
+    margin: 0px 3px 0px 0px;
+  }
+
+  .advaceActionBtn-container .form-check-input {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    margin-top: 0.3rem;
+    margin-left: -14px;
+  }
+
+  .advaceActionBtn-container .form-check-label {
+    margin-top: 3.5px;
+  }
+
+  .advaceActionBtn-container .footer-btn {
+    width: 95px;
+    height: 40px;
+    margin: 0px 0px;
+  }
+
+  .advaceActionBtn-container .form-check-input:checked {
+    background-color: #c05454 !important;
+    border: 2px solid #ddd;
+  }
+}

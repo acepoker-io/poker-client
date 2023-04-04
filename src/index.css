@@ -1,0 +1,30 @@
+@import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap";
+
+body {
+  font-family: 'Poppins', sans-serif !important;
+  margin: 0;
+  padding: 0;
+  color: #ddd !important;
+  background: #1b1b1b !important;
+}
+
+@media screen and (max-width: 1920px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1320px !important;
+  }
+}
+::-moz-selection {
+  color: rgb(0, 0, 0) !important;
+  background: #f9ff00 !important;
+}
+
+::selection {
+  color: rgb(0, 0, 0) !important;
+  background: #f9ff00 !important;
+}
