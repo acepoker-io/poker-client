@@ -1,26 +1,22 @@
 {
   "local": {
-    "landingServerUrl": "https://dev-api.scrooge.casino/v1",
-    "serverUrl": "http://localhost:3002",
-    "landingClient": "http://localhost:3000",
-    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073"
+    "serverUrl": "http://localhost:3005",
+    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
+    "clientUrl":"https://beta.wptpoker.io"
   },
   "production": {
-    "landingServerUrl": "https://api.scrooge.casino/v1",
-    "serverUrl": "https://poker-api.scrooge.casino",
-    "landingClient": "https://scrooge.casino/",
-    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073"
+    "serverUrl": "https://api.wptpoker.io",
+    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
+    "clientUrl":"https://beta.wptpoker.io"
   },
   "development": {
-    "landingServerUrl": "https://dev-api.scrooge.casino/v1",
-    "serverUrl": "https://devpoker-api.scrooge.casino",
-    "landingClient": "https://dev.scrooge.casino/",
-    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073"
+    "serverUrl": "https://api.wptpoker.io",
+    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
+    "clientUrl":"https://beta.wptpoker.io"
   },
   "staging": {
-    "landingServerUrl": "https://beta-api.scrooge.casino/v1",
-    "serverUrl": "https://betapoker-api.scrooge.casino",
-    "landingClient": "https://beta.scrooge.casino/",
-    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073"
+    "serverUrl": "https://api.wptpoker.io",
+    "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
+    "clientUrl":"https://beta.wptpoker.io"
   }
 }
