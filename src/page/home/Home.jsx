@@ -10,14 +10,14 @@ import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
 import casino from "../../assets/game/placeholder.png";
-import casino1 from "../../assets/game/logo-poker.png";
+//import casino1 from "../../assets/game/logo-poker.png";
 import { pokerInstance, tournamentInstance } from "../../utils/axios.config";
 import Homesvg from "../../assets/home.svg";
 // import axios from "axios";
 import toast from "react-hot-toast";
-import Select from "react-select";
+//import Select from "react-select";
 import { useMemo } from "react";
-import { FaInfoCircle, FaUser, FaTrophy, FaCoins } from "react-icons/fa";
+import { FaInfoCircle, /* FaUser, FaTrophy, FaCoins */ } from "react-icons/fa";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { socket } from "../../config/socketConnection";
@@ -26,11 +26,11 @@ import { landingClient } from "../../config/keys";
 import UserContext from "../../context/UserContext";
 import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
-import CONSTANTS from "../../config/contants";
-import { getCookie } from "../../utils/cookieUtil";
+// import CONSTANTS from "../../config/contants";
+// import { getCookie } from "../../utils/cookieUtil";
 // import feeIcon from "../../assets/images/feeIcon.png"
-import ranking from "../../assets/images/ranking.png"
-import { dateFormat, timeFormat } from "../../utils/utils";//, getTime
+// import ranking from "../../assets/images/ranking.png"
+// import { dateFormat, timeFormat } from "../../utils/utils";//, getTime
 let userId;
 const Home = () => {
   // inital state
@@ -52,25 +52,25 @@ const Home = () => {
   const [show, setShow] = useState(false);
   const [errors, setErrors] = useState({});
   const [pokerRooms, setPokerRooms] = useState([]);
-  const [tournaments, setTournaments] = useState([]);
+  //const [tournaments, setTournaments] = useState([]);
   const [key, setKey] = useState("home");
   const history = useHistory();
   const [allUsers, setAllUsers] = useState([]);
   const [showSpinner, setShowSpinner] = useState(false);
   // utils function
-  const checkUserInGame = async () => {
-    let userData = await axios({
-      method: "get",
-      url: `${CONSTANTS.landingServerUrl}/users/checkUserInGame`,
-      headers: { authorization: `Bearer ${getCookie("token")}` },
-    });
-    if (userData?.data) {
-      setUserInAnyGame(userData.data)
-    }
-  }
-  useEffect(() => {
-    checkUserInGame()
-  }, [])
+  // const checkUserInGame = async () => {
+  //   let userData = await axios({
+  //     method: "get",
+  //     url: `${CONSTANTS.landingServerUrl}/users/checkUserInGame`,
+  //     headers: { authorization: `Bearer ${getCookie("token")}` },
+  //   });
+  //   if (userData?.data) {
+  //     setUserInAnyGame(userData.data)
+  //   }
+  // }
+  // useEffect(() => {
+  //   checkUserInGame()
+  // }, [])
   const handleShow = () => {
     setShow(!show);
     setGameState({ ...gameInit });
@@ -170,10 +170,11 @@ const Home = () => {
     } else if (gameState.minchips <= 0) {
       err.maxchips = "Minimum bet cant be less then or equal to 0";
       valid = false;
-    } else if (!gameState.public && !gameState.invitedUsers.length) {
-      err.invitedPlayer = "Please invite some player if table is private.";
-      valid = false;
-    }
+    } 
+    // else if (!gameState.public && !gameState.invitedUsers.length) {
+    //   err.invitedPlayer = "Please invite some player if table is private.";
+    //   valid = false;
+    // }
 
     if (checkIfExist) {
       err.gameName = "Game name is already exist.";
@@ -224,18 +225,18 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    socket.on("updatePlayerList", (data) => {
-      setTournaments(data);
-    });
-    socket.on("tournamentUpdate", (data) => {
-      const { updateTournament } = data;
-      if (updateTournament) {
-        getTournamentDetails();
-      }
-    });
-    socket.on("tournamentCreated", data => {
-      setTournaments(data.tournaments)
-    })
+    // socket.on("updatePlayerList", (data) => {
+    //   setTournaments(data);
+    // });
+    // socket.on("tournamentUpdate", (data) => {
+    //   const { updateTournament } = data;
+    //   if (updateTournament) {
+    //     getTournamentDetails();
+    //   }
+    // });
+    // socket.on("tournamentCreated", data => {
+    //   setTournaments(data.tournaments)
+    // })
 
     socket.on("NoTournamentFound", (data) => {
       toast.error("No tournament found", { id: 'no-tournament' });
@@ -247,9 +248,9 @@ const Home = () => {
 
   const checkAuth = async () => {
     const data = await userUtils.getAuthUserData();
-    if (!data.success) {
-      return (window.location.href = `${landingClient}`);
-    }
+    // if (!data.success) {
+    //   return (window.location.href = `${landingClient}`);
+    // }
     setLoader(false);
     setUserData({ ...data?.data?.user });
   };
@@ -268,20 +269,20 @@ const Home = () => {
     })();
   }, []);
 
-  const getTournamentDetails = async () => {
-    try {
-      const response = await tournamentInstance().get("/tournaments");
-      const { status } = response;
-      if (status === 200) {
-        const { tournaments } = response.data;
-        setTournaments(tournaments || []);
-      }
-    } catch (error) { }
-  };
+  // const getTournamentDetails = async () => {
+  //   try {
+  //     const response = await tournamentInstance().get("/tournaments");
+  //     const { status } = response;
+  //     if (status === 200) {
+  //       const { tournaments } = response.data;
+  //       setTournaments(tournaments || []);
+  //     }
+  //   } catch (error) { }
+  // };
 
-  useEffect(() => {
-    getTournamentDetails();
-  }, []);
+  // useEffect(() => {
+  //   getTournamentDetails();
+  // }, []);
 
   const options = useMemo(
     () =>
@@ -296,9 +297,9 @@ const Home = () => {
   );
 
 
-  const filterTournaments = tournaments.filter((el) =>
-    el.name.toLowerCase().includes(searchText.toLowerCase())
-  );
+  // const filterTournaments = tournaments.filter((el) =>
+  //   el.name.toLowerCase().includes(searchText.toLowerCase())
+  // );
 
   const [openCardHeight, setOpenCardHeight] = useState(150);
   const pokerCard = useRef(null);
@@ -394,7 +395,7 @@ const Home = () => {
                   </div>
                 )}
               </Tab>
-              <Tab eventKey="2" title="Poker Tournament Tables">
+              {/* <Tab eventKey="2" title="Poker Tournament Tables">
 
                 {filterTournaments.length > 0 ? (
                   <div className="home-poker-card">
@@ -421,7 +422,7 @@ const Home = () => {
                     </div>
                   </div>
                 )}
-              </Tab>
+              </Tab> */}
             </Tabs>
           </div>
         </div>
@@ -429,86 +430,86 @@ const Home = () => {
     </div>
   );
 };
-const customStyles = {
-  option: (provided) => ({
-    ...provided,
-    background: "#000",
-    color: "#ddd",
-    fontWeight: "400",
-    fontSize: "16px",
-    padding: "10px 20px",
-    lineHeight: "16px",
-    cursor: "pointer",
-    borderRadius: "4px",
-    borderBottom: "1px solid #141414",
-    ":hover": {
-      background: "#141414",
-      borderRadius: "4px",
-    },
-  }),
-  menu: (provided) => ({
-    ...provided,
-    background: "#000",
-    borderRadius: "30px",
-    padding: "10px 20px",
-    border: "2px solid transparent",
-  }),
-  control: () => ({
-    background: "#000",
-    border: "2px solid #000",
-    borderRadius: "30px",
-    color: "#fff",
-    display: "flex",
-    alignItem: "center",
-    height: "41",
-    margin: "2px 0",
-    boxShadow: " 0 2px 10px #000000a5",
-    cursor: "pointer",
-    ":hover": {
-      background: "#000",
-      // border: "2px solid #306CFE",
-    },
-  }),
-  singleValue: (provided) => ({
-    ...provided,
-    color: "#fff",
-    fontWeight: "400",
-    fontSize: "14px",
-    lineHeight: "16px",
-  }),
-  indicatorSeparator: (provided) => ({
-    ...provided,
-    display: "none",
-  }),
-  placeholder: (provided) => ({
-    ...provided,
-    fontWeight: "400",
-    fontSize: "14px",
-    lineHeight: "19px",
-    color: "#858585c7",
-  }),
-  input: (provided) => ({
-    ...provided,
-    // height: "38px",
-    color: "fff",
-  }),
-  valueContainer: (provided) => ({
-    ...provided,
-    padding: "2px 20px",
-  }),
-  indicatorsContainer: (provided) => ({
-    ...provided,
-    paddingRight: "20px",
-    color: "#858585c7",
-  }),
-  svg: (provided) => ({
-    ...provided,
-    fill: "#858585c7 !important",
-    ":hover": {
-      fill: "#858585c7 !important",
-    },
-  }),
-};
+// const customStyles = {
+//   option: (provided) => ({
+//     ...provided,
+//     background: "#000",
+//     color: "#ddd",
+//     fontWeight: "400",
+//     fontSize: "16px",
+//     padding: "10px 20px",
+//     lineHeight: "16px",
+//     cursor: "pointer",
+//     borderRadius: "4px",
+//     borderBottom: "1px solid #141414",
+//     ":hover": {
+//       background: "#141414",
+//       borderRadius: "4px",
+//     },
+//   }),
+//   menu: (provided) => ({
+//     ...provided,
+//     background: "#000",
+//     borderRadius: "30px",
+//     padding: "10px 20px",
+//     border: "2px solid transparent",
+//   }),
+//   control: () => ({
+//     background: "#000",
+//     border: "2px solid #000",
+//     borderRadius: "30px",
+//     color: "#fff",
+//     display: "flex",
+//     alignItem: "center",
+//     height: "41",
+//     margin: "2px 0",
+//     boxShadow: " 0 2px 10px #000000a5",
+//     cursor: "pointer",
+//     ":hover": {
+//       background: "#000",
+//       // border: "2px solid #306CFE",
+//     },
+//   }),
+//   singleValue: (provided) => ({
+//     ...provided,
+//     color: "#fff",
+//     fontWeight: "400",
+//     fontSize: "14px",
+//     lineHeight: "16px",
+//   }),
+//   indicatorSeparator: (provided) => ({
+//     ...provided,
+//     display: "none",
+//   }),
+//   placeholder: (provided) => ({
+//     ...provided,
+//     fontWeight: "400",
+//     fontSize: "14px",
+//     lineHeight: "19px",
+//     color: "#858585c7",
+//   }),
+//   input: (provided) => ({
+//     ...provided,
+//     // height: "38px",
+//     color: "fff",
+//   }),
+//   valueContainer: (provided) => ({
+//     ...provided,
+//     padding: "2px 20px",
+//   }),
+//   indicatorsContainer: (provided) => ({
+//     ...provided,
+//     paddingRight: "20px",
+//     color: "#858585c7",
+//   }),
+//   svg: (provided) => ({
+//     ...provided,
+//     fill: "#858585c7 !important",
+//     ":hover": {
+//       fill: "#858585c7 !important",
+//     },
+//   }),
+// };
 const CreateTable = ({
   show,
   handleShow,
@@ -592,7 +593,7 @@ const CreateTable = ({
             )}
           </div>
         </Form.Group>
-        <div className="searchSelectDropdown">
+        {/* <div className="searchSelectDropdown">
           <Form.Label>Invite Users</Form.Label>
           <Select
             isMulti
@@ -603,9 +604,9 @@ const CreateTable = ({
           {!!errors?.invitedPlayer && (
             <p className="text-danger">{errors?.invitedPlayer}</p>
           )}
-        </div>
+        </div> */}
         <div className="createGameCheckHand">
-          <Form.Check
+          {/* <Form.Check
             inline
             label="Public Game"
             name="public"
@@ -613,7 +614,7 @@ const CreateTable = ({
             id={"public"}
             onChange={handleChange}
             checked={values.public}
-          />
+          /> */}
           <Form.Check
             inline
             label="Auto Hand"
@@ -901,125 +902,125 @@ const GameTable = ({
   );
 };
 
-const GameTournament = ({
-  data,
-  gameType,
-  getTournamentDetails,
-  height,
-  setUserData,
-  tableId,
-}) => {
-  const history = useHistory();
+// const GameTournament = ({
+//   data,
+//   gameType,
+//   getTournamentDetails,
+//   height,
+//   setUserData,
+//   tableId,
+// }) => {
+//   const history = useHistory();
 
 
-  useEffect(() => {
-    socket.on("alreadyInTournament", (data) => {
-      const { message, code } = data;
-      if (code === 200) {
-        if (data?.user && Object.keys(data?.user)?.length > 0) {
-          setUserData(data?.user);
-        }
-        toast.success(message, { id: "Nofull" });
-      } else {
-        toast.error(message, { id: "full" });
-      }
-    });
-    socket.on("notEnoughAmount", (data) => {
-      const { message, code } = data;
-      if (code === 200) {
-        toast.success(message, { id: "Nofull" });
-      } else {
-        toast.error(message, { id: "full" });
-      }
-    });
+//   useEffect(() => {
+//     socket.on("alreadyInTournament", (data) => {
+//       const { message, code } = data;
+//       if (code === 200) {
+//         if (data?.user && Object.keys(data?.user)?.length > 0) {
+//           setUserData(data?.user);
+//         }
+//         toast.success(message, { id: "Nofull" });
+//       } else {
+//         toast.error(message, { id: "full" });
+//       }
+//     });
+//     socket.on("notEnoughAmount", (data) => {
+//       const { message, code } = data;
+//       if (code === 200) {
+//         toast.success(message, { id: "Nofull" });
+//       } else {
+//         toast.error(message, { id: "full" });
+//       }
+//     });
 
-    socket.on("tournamentSlotFull", (data) => {
-      toast.error('Tournament slot is full', { id: 'slot-full' });
-    })
-  }, []);
+//     socket.on("tournamentSlotFull", (data) => {
+//       toast.error('Tournament slot is full', { id: 'slot-full' });
+//     })
+//   }, []);
 
-  const joinTournament = async (tournamentId, fees) => {
-    socket.emit("joinTournament", {
-      tournamentId: tournamentId,
-      userId: userId,
-      fees,
-    });
-    setTimeout(() => {
-      getTournamentDetails();
-    }, 1000);
-  };
+//   const joinTournament = async (tournamentId, fees) => {
+//     socket.emit("joinTournament", {
+//       tournamentId: tournamentId,
+//       userId: userId,
+//       fees,
+//     });
+//     setTimeout(() => {
+//       getTournamentDetails();
+//     }, 1000);
+//   };
 
-  const enterRoom = async (tournamentId) => {
-    const res = await tournamentInstance().post("/enterroom", {
-      tournamentId: tournamentId,
-    });
-    if (res.data.code === 200) {
-      let roomid = res.data.roomId;
-      history.push({
-        pathname: "/table",
-        search: "?gamecollection=poker&tableid=" + roomid,
-      });
-    } else {
-      // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
-    }
-  };
-  const handleFlip = (tournamentId) => {
-    history.push(`/leaderboard?tournamentId=${tournamentId}`)
-  };
-  const ifUserJoind = () => {
-    let getData = data?.rooms?.find((el) =>
-      el?.players?.find((el) => el?.userid === userId)
-    );
+//   const enterRoom = async (tournamentId) => {
+//     const res = await tournamentInstance().post("/enterroom", {
+//       tournamentId: tournamentId,
+//     });
+//     if (res.data.code === 200) {
+//       let roomid = res.data.roomId;
+//       history.push({
+//         pathname: "/table",
+//         search: "?gamecollection=poker&tableid=" + roomid,
+//       });
+//     } else {
+//       // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
+//     }
+//   };
+//   const handleFlip = (tournamentId) => {
+//     history.push(`/leaderboard?tournamentId=${tournamentId}`)
+//   };
+//   const ifUserJoind = () => {
+//     let getData = data?.rooms?.find((el) =>
+//       el?.players?.find((el) => el?.userid === userId)
+//     );
 
-    return getData;
-  };
-  // var startDateTime = new Date(data?.tournamentDate).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' });
+//     return getData;
+//   };
+//   // var startDateTime = new Date(data?.tournamentDate).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' });
 
-  return (
-    <>
-      <div className="pokerTournament-tableCard">
-        <div className="tableCard-imgDetail">
-          <img src={casino1} className="tournamentImg" alt="" />
-          <div className="tournamentCard-nameDetail">
-            <h6>{dateFormat(data.startDate)}, Start at {timeFormat(data.tournamentDate)}</h6>
-            <h2>{data?.name}</h2>
-            {data?.isStart ? <p className="tournamentRunning">Tournament Running ...</p> : data?.isFinished ? <p className="tournamentFinished">Tournament Finished ...</p> : <p>Not started ...</p>}
-          </div>
-        </div>
-        <div className="tournamentCard-extraDetail">
-          <div className="cardTournament-Fee">
-            <p>Entry Fee</p>
-            <div className="extraDetail-container">
-              <FaCoins
-              />
-              {data?.tournamentFee}
-            </div>
-          </div>
-          <div className="cardTournament-Fee">
-            <p>Participants</p>
-            <div className="extraDetail-container">
-              <FaUser />
-              {data?.havePlayers}
-            </div>
-          </div>
-          <div className="cardTournament-Fee">
-            <p>Prize Pool</p>
-            <div className="extraDetail-container">
-              <FaTrophy />
-              10
-            </div>
-          </div>
-        </div>
-        <div className="tournamentCard-buttonDetail">
-          {ifUserJoind() ? <Button type="text" onClick={() => enterRoom(data?._id)}>Enter game</Button> : <Button type="text" onClick={() =>
-            joinTournament(data?._id, data?.tournamentFee)
-          }>join game</Button>}
-          <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} />
-        </div>
-      </div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div className="pokerTournament-tableCard">
+//         <div className="tableCard-imgDetail">
+//           <img src={casino1} className="tournamentImg" alt="" />
+//           <div className="tournamentCard-nameDetail">
+//             <h6>{dateFormat(data.startDate)}, Start at {timeFormat(data.tournamentDate)}</h6>
+//             <h2>{data?.name}</h2>
+//             {data?.isStart ? <p className="tournamentRunning">Tournament Running ...</p> : data?.isFinished ? <p className="tournamentFinished">Tournament Finished ...</p> : <p>Not started ...</p>}
+//           </div>
+//         </div>
+//         <div className="tournamentCard-extraDetail">
+//           <div className="cardTournament-Fee">
+//             <p>Entry Fee</p>
+//             <div className="extraDetail-container">
+//               <FaCoins
+//               />
+//               {data?.tournamentFee}
+//             </div>
+//           </div>
+//           <div className="cardTournament-Fee">
+//             <p>Participants</p>
+//             <div className="extraDetail-container">
+//               <FaUser />
+//               {data?.havePlayers}
+//             </div>
+//           </div>
+//           <div className="cardTournament-Fee">
+//             <p>Prize Pool</p>
+//             <div className="extraDetail-container">
+//               <FaTrophy />
+//               10
+//             </div>
+//           </div>
+//         </div>
+//         <div className="tournamentCard-buttonDetail">
+//           {ifUserJoind() ? <Button type="text" onClick={() => enterRoom(data?._id)}>Enter game</Button> : <Button type="text" onClick={() =>
+//             joinTournament(data?._id, data?.tournamentFee)
+//           }>join game</Button>}
+//           <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} />
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
 const AvatarGroup = ({ imgArr }) => {
   return (
     <div className="poker-avatar-box">

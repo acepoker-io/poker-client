@@ -23,13 +23,12 @@ import coin1 from '../../assets/images/profile/coin-1.png';
 import tag1 from '../../assets/images/profile/tag.png';
 import tag2 from '../../assets/images/profile/tag2.png';
 import { socket } from '../../config/socketConnection';
-import firebase from '../../config/firebase';
 import ApplePay from './ApplePay';
 import PayPal from './payPal';
 import './buyPopup.css';
 
 const CheckoutForm = (props) => {
-  const [idToken, setIdToken] = useState('');
+  // const [idToken, setIdToken] = useState('');
   const [confirmState, setConfirmState] = useState(false);
   const [stripebox, setStripebox] = useState(true);
   const [stripeCard, setStripeCard] = useState(false);
@@ -40,13 +39,13 @@ const CheckoutForm = (props) => {
   const [card, setcard] = useState('');
   const [complete, setComplete] = useState(false);
 
-  useEffect(() => {
-    const getIdToken = async () => {
-      const token = await firebase.auth().currentUser.getIdToken();
-      setIdToken(token);
-    };
-    getIdToken();
-  }, []);
+  // useEffect(() => {
+  //   const getIdToken = async () => {
+  //     const token = await firebase.auth().currentUser.getIdToken();
+  //     setIdToken(token);
+  //   };
+  //   getIdToken();
+  // }, []);
 
   useEffect(() => {
     socket.on('CoinsAdded', () => {
@@ -104,7 +103,7 @@ const CheckoutForm = (props) => {
                     values.paymentValue / 100
                   },payMethod=card,cardNr=${card}`,
                 },
-                headers: { idtoken: idToken },
+                // headers: { idtoken: idToken },
               })
               .then((response) => {
                 if (
@@ -328,7 +327,7 @@ const CheckoutForm = (props) => {
             {isChrome ? (
               <GooglePay
                 uid={props.values.uid}
-                idToken={idToken}
+                // idToken={idToken}
                 paymentValue={props.values.paymentValue}
                 handleSuccess={() => {
                   setPermitionState(true).setStripeCard(false);
@@ -344,7 +343,7 @@ const CheckoutForm = (props) => {
             {isSafari ? (
               <ApplePay
                 uid={props.values.uid}
-                idToken={idToken}
+                // idToken={idToken}
                 paymentValue={props.values.paymentValue}
                 handleSuccess={() => {
                   setPermitionState(true).setStripeCard(false);
@@ -359,7 +358,7 @@ const CheckoutForm = (props) => {
             )}
             <PayPal
               uid={props.values.uid}
-              idToken={idToken}
+              // idToken={idToken}
               paymentValue={props.values.paymentValue}
               handleSuccess={() => {
                 setPermitionState(true).setStripeCard(false);

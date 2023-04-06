@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 import React, { useContext, useState, /* useRef */ } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -9,20 +9,21 @@ import FacebookLogin from "react-facebook-login";
 import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 // import PhoneInput from "react-phone-number-input";
 // import PhoneInput from "react-phone-input-2";
-import "react-phone-number-input/style.css";
+// import "react-phone-number-input/style.css";
 import { toast } from "react-toastify";
 // import axios from "axios";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { authInstance } from "../../config/axios";
-import logo from "../asset/image/header/logo.png";
+// import { authInstance } from "../../config/axios";
+import logo from "../../assets/game/logo.png";
 // import userImg from "../asset/image/LoginBackground/user.svg";
 import "./Login.css";
-import Layout from "../layout/layout";
+//import Layout from "../layout/layout";
 // import MyReCaptcha from "./Recaptcha";
-import UserContext from "../../context/userContext";
+import UserContext from "../../context/UserContext";
 // import GlobalButton from "../global/button/globalButton";
 import { manualLoginSchema } from "../../utils/validationSchema";
-import Loader from "../pageLoader/loader";
+import Loader from '../pageLoader/loader'
+import axios from "axios";
 
 function Login() {
   // let captchaa;
@@ -130,7 +131,7 @@ function Login() {
           facebookName: response.name,
           facebookEmail: response.email ? response.email : "",
         };
-        const res = await authInstance().post("/facebookLogin", payload);
+        const res = await axios.post("/facebookLogin", payload);
         const {
           status,
           data: {
@@ -157,7 +158,7 @@ function Login() {
   };
 
   return (
-    <Layout>
+    // <Layout>
       <div className="login account-create">
         <div className="login-section">
           <div className="container">
@@ -293,7 +294,7 @@ function Login() {
           </div>
         </div>
       </div>
-    </Layout>
+    // </Layout> 
   );
 }
 
@@ -314,7 +315,7 @@ function LoginButton() {
         accessToken: info.access_token,
       };
       setLoader(true);
-      const res = await authInstance().post("/googleLogin", profilePayload, {
+      const res = await axios.post("/googleLogin", profilePayload, {
         withCredentials: true,
         credentials: "include",
       });

@@ -14,7 +14,7 @@ import Proptypes from "prop-types";
 // import { toast } from "react-toastify";
 import { toast } from "react-toastify";
 import googleicon from "../asset/image/home/google.svg";
-import "react-phone-number-input/style.css";
+// import "react-phone-number-input/style.css";
 import { PhoneVerifySchema } from "../../utils/validationSchema";
 import { authInstance, twilllioInstance } from "../../config/axios";
 import UserContext from "../../context/userContext";

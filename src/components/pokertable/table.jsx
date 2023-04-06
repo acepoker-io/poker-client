@@ -223,13 +223,13 @@ const PokerTable = (props) => {
         !urlParams.get("token") &&
         !getCookie("token")
       ) {
-        return (window.location.href = `${CONSTANTS.landingClient}`);
+        return (window.location.href = `/`);
       }
 
       user = await userUtils.getAuthUserData();
 
       if (!user.success) {
-        return (window.location.href = `${CONSTANTS.landingClient}`);
+        return (window.location.href = `/`);
       }
       userId = user?.data.user?.id;
       let table = urlParams.get("tableid");

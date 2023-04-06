@@ -5,7 +5,7 @@ import { Form, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 // import moment from "moment";
 import { toast } from "react-toastify";
-import { authInstance } from "../../config/axios";
+//import { authInstance } from "../../config/axios";
 // import sms from "../asset/image/LoginBackground/sms.svg";
 
 // import logo from "../asset/image/header/logo.svg";
@@ -13,7 +13,8 @@ import { authInstance } from "../../config/axios";
 // import google from "../asset/image/LoginBackground/google.svg";
 // import key from "../asset/image/LoginBackground/key.svg";
 import "./Register.css";
-import UserContext from "../../context/userContext";
+import UserContext from "../../context/UserContext";
+import axios from "axios";
 
 // eslint-disable-next-line operator-linebreak
 const emailRegex =
@@ -60,7 +61,7 @@ function CreateAccount({ phone, setPhone }) {
         phone,
         termsAccept: termsWatch,
       };
-      const { data } = await authInstance().post("/registerUser", payload, {
+      const { data } = await axios.post("/registerUser", payload, {
         withCredentials: true,
         credentials: "include",
       });
