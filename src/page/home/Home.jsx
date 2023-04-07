@@ -9,7 +9,7 @@ import "./home.css";
 import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
-import casino from "../../assets/game/placeholder.png";
+import casino from "../../assets/game/logo.png";
 //import casino1 from "../../assets/game/logo-poker.png";
 import { pokerInstance, tournamentInstance } from "../../utils/axios.config";
 import Homesvg from "../../assets/home.svg";
@@ -799,7 +799,7 @@ const GameTable = ({
         >
           {!cardFlip && gameType === "Poker" ? (
             <div className="tournamentCard-front">
-              <img src={casino} alt="" />
+              <img src={casino} alt="" style={{widows:"170px",height:'170px'}}/>
               <div className="tournamentFront-info">
                 <h4>{gameType === "Poker" ? data?.gameName : data.name}</h4>
                 {gameType === "Poker" ? (
