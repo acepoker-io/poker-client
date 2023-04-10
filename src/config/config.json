@@ -1,6 +1,6 @@
 {
   "local": {
-    "serverUrl": "http://localhost:3005",
+    "serverUrl": "http://localhost:3004",
     "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
     "clientUrl":"https://beta.wptpoker.io"
   },
