@@ -398,7 +398,7 @@ input:checked+.slider:before {
   cursor: pointer;
   top: 9%;
   transform: translateY(-50%);
-  background: #f9ff00;
+  background: #dc3545;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -415,7 +415,7 @@ input:checked+.slider:before {
 }
 
 .raiseBet-container .bet-view button {
-  background: #f9ff00;
+  background: #dc3545;
   border-radius: 30px;
   min-width: 43px;
   padding: 1px 0px;
@@ -482,7 +482,7 @@ input:checked+.slider:before {
 
 .raiseBet-container .raise-inputRange .input-range__slider {
   appearance: none;
-  background: #f9ff00 !important;
+  background: #dc3545 !important;
   border: 1px solid #f9ff01 !important;
   border-radius: 100%;
   cursor: pointer;
@@ -512,7 +512,7 @@ input:checked+.slider:before {
 }
 
 .raiseBet-container .input-range__track.input-range__track--active {
-  background: #f9ff00;
+  background: #dc3545;
 }
 
 .raiseBet-container .raise-inputRange span {
@@ -592,8 +592,8 @@ form.customBet-amount .form-control:focus {
 .customBet-amount button.btn.btn-primary,
 .customBet-amount button.btn.btn-primary:active,
 .customBet-amount button.btn.btn-primary:focus {
-  background-color: #f9ff00 !important;
-  border-color: #f9ff00 !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
   border-radius: 4px;
   color: black !important;
   font-weight: 600;
@@ -605,7 +605,7 @@ form.customBet-amount .form-control:focus {
 }
 
 .footer-btn .callBtn-amount {
-  color: #f9ff00;
+  color: #dc3545;
   font-size: 14px;
   font-weight: 500;
 }
