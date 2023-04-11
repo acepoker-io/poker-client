@@ -34,7 +34,7 @@
   width: 25px;
   height: 25px;
   color: black;
-  background: #f9ff00;
+  background: #dc3545;
   text-align: center;
   line-height: 44px;
   border-radius: 100%;
@@ -120,12 +120,12 @@ i.fa.fa-sign-out {
 .chat-search.chat-input .form-inline .btn-primary,
 .chat-search.chat-input .form-inline .btn-primary:hover,
 .chat-search.chat-input .form-inline .btn-primary:focus {
-  background: #f9ff00;
+  background: #dc3545;
   color: #000;
   font-size: 20px;
   width: 50px;
   height: 40px;
-  border-color: #f9ff00;
+  border-color: #dc3545;
   box-shadow: none;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
@@ -163,7 +163,7 @@ i.fa.fa-sign-out {
 }
 
 .chat-back:hover {
-  background: #f9ff00;
+  background: #dc3545;
 }
 
 .triangle-isosceles.left {
@@ -349,7 +349,7 @@ span.msg-limit {
   position: absolute;
   width: 25px;
   height: 25px;
-  background-color: #f9ff00;
+  background-color: #dc3545;
   border-radius: 50%;
   color: black;
   top: -8px;
@@ -371,7 +371,7 @@ span.msg-limit {
   width: 100%;
   font-size: 12px;
   cursor: pointer;
-  color: #f9ff00;
+  color: #dc3545;
 }
 
 .chatBubble-typing {
