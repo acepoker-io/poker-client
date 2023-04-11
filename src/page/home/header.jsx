@@ -15,7 +15,7 @@ import Register from './registerPage';
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
 const Header = ({ userData, handleShow }) => {
-    const { user, setUser } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext);
     const renderWallet = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             This is your token balance, and can be used for betting.
@@ -81,6 +81,13 @@ const Header = ({ userData, handleShow }) => {
         }
     };
 
+    const handleLogOut = () => {
+        console.log("logout executed");
+        localStorage.clear();
+        // history.push("/");
+        window.location.href = "/";
+    }
+
     //   const chainChanged = () => {
     //     setAccount(null);
     //     setBalance(null);
@@ -96,7 +103,8 @@ const Header = ({ userData, handleShow }) => {
                         </a>
                     </div>
                     <div className="create-game-box">
-                        {user ? <><a href={`${landingClient}profile`}>
+                        {user ? <>
+                            {/* <a href={`${landingClient}profile`}>
                             <div className="create-game-box-avtar">
                                 <img
                                     src={
@@ -107,7 +115,7 @@ const Header = ({ userData, handleShow }) => {
                                 />
                                 <h5>{user?.username}</h5>
                             </div>
-                        </a>
+                        </a> */}
                             <div className="walletTicket-box">
                                 <div className="pokerWallet-box">
                                     <img src={token} alt="" className="pokerWallet" />
@@ -141,6 +149,12 @@ const Header = ({ userData, handleShow }) => {
                                 onClick={handleShow}
                             >
                                 Create Game
+                            </button><button
+                                type="button"
+                                className="create-game-boxBtn"
+                                onClick={handleLogOut}
+                            >
+                                Logout
                             </button></> :
                             <>
                                 <button type="button"
