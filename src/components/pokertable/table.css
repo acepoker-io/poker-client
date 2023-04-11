@@ -24,17 +24,18 @@
 }
 
 .poker-bg {
-  background: url(../../assets/game/poker-bg.jpg);
+  /* background: url(../../assets/game/poker-bg.jpg);
   background-repeat: no-repeat;
   background-position: top;
-  background-size: cover;
+  background-size: cover; */
+  background: linear-gradient(90deg, rgba(25, 0, 3, 1) 0%, rgba(103, 20, 28, 1) 50%, rgba(25, 0, 3, 1) 100%);
   position: relative;
 }
 
 input:checked {
-  background-color: #f9ff00 !important;
-  border-color: #f9ff00 !important;
-  accent-color: #f9ff00 !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  accent-color: #dc3545 !important;
 }
 
 .poker-bg::before {
@@ -63,11 +64,11 @@ input:checked {
 }
 
 .poker-table-bg {
-  background: url(../../assets/game/poker-table.png);
+  background: url(../../assets/game/table-bg.png);
   width: 100%;
-  height: 460px;
+  height: 480px;
   position: relative;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   /* top: -50px; */
@@ -92,12 +93,12 @@ input:checked {
 .sub-btn.text-center .btn-primary:disabled {
   color: #000000 !important;
   background-color: #ccd000 !important;
-  border-color: #f9ff00 !important;
+  border-color: #dc3545 !important;
 }
 
 .close-btn .btn:active {
-  background-color: #f9ff00 !important;
-  border-color: #f9ff00 !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
 }
 
 .table-card img {
@@ -1866,8 +1867,8 @@ input:checked {
 }
 
 .player-box.currentPlayerChance .player-pic img {
-  border: 3px solid #f9ff00;
-  box-shadow: 0px 0px 10px 5px #f9ff00;
+  border: 3px solid #dc3545;
+  box-shadow: 0px 0px 10px 5px #dc3545;
 }
 
 .players.player4 .player-chip {
@@ -2333,9 +2334,9 @@ input:checked {
 }
 
 .showCardIn-fold .form-check-input:checked {
-  background-color: #f9ff00 !important;
-  border-color: #f9ff00 !important;
-  color: #f9ff00 !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #dc3545 !important;
 }
 
 .showCardIn-fold input {
@@ -2494,7 +2495,7 @@ input:checked {
   transform: translateX(-50%);
   opacity: 0;
   white-space: nowrap;
-  color: #f9ff00;
+  color: #dc3545;
   animation-name: bottomFadeOut;
   animation-delay: 0ms;
   animation-duration: 1.5s;
@@ -2536,7 +2537,7 @@ input:checked {
   white-space: nowrap;
   transform: translateX(-50%);
   opacity: 0;
-  color: #f9ff00;
+  color: #dc3545;
   animation-name: downFadeOut;
   animation-delay: 0ms;
   animation-duration: 1.5s;
@@ -3328,12 +3329,13 @@ input:checked {
   top: 10px;
   right: 10px;
   z-index: 999;
-  background: #131721db;
+  background: #550011;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #191e2b;
+  border: 1px solid #550011;
   max-width: 350px;
   width: 100%;
+  box-shadow: 0px 0px 10px 0px #55001197;
   /* animation: shake 1.5s cubic-bezier(.36,.07,.19,.97) both infinite;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
@@ -3838,9 +3840,9 @@ p.joined-player {
 .close-btn .btn,
 .close-btn .btn:hover,
 .close-btn .btn:focus {
-  background: #f9ff00;
+  background: #dc3545;
   color: #000 !important;
-  border-color: #f9ff00;
+  border-color: #dc3545;
   font-weight: 600 !important;
   letter-spacing: 0.5px;
   font-size: 14px;
@@ -4010,7 +4012,7 @@ button.sign-in.btn.btn-primary:focus {
 }
 
 .friends-popup .modal-content {
-  background: #141414;
+  background: #fff;
 }
 
 .friends-popup .modal-header {
@@ -4079,7 +4081,7 @@ button.sign-in.btn.btn-primary:focus {
 }
 
 .friends-popup .close {
-  color: #c7c7c7;
+  color: #131313;
   text-shadow: none;
   font-weight: 400;
   font-size: 30px;
@@ -4189,7 +4191,7 @@ ul.btn-list>li span.close-icon {
   position: absolute;
   right: 10px;
   top: -30px;
-  background: #f9ff00;
+  background: #dc3545;
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -4271,7 +4273,8 @@ ul.btn-list>li>button>img {
 }
 
 .logo--bottom-image img {
-  width: 150px;
+  width: 100px;
+  margin: 10px;
 }
 
 .players .player-pic {
@@ -4529,10 +4532,10 @@ ul.btn-list>li>button>img {
 
 .btn-gold {
   font-size: 12px !important;
-  background: #f9ff00 !important;
+  background: #dc3545 !important;
   border-radius: 20px !important;
   height: 21px;
-  border-color: #f9ff00 !important;
+  border-color: #dc3545 !important;
   padding: 0px 5px !important;
 }
 
@@ -4554,11 +4557,11 @@ ul.btn-list>li>button>img {
 
 .btn-gold:hover,
 .btn-gold:focus {
-  background: #f9ff00 !important;
+  background: #dc3545 !important;
   color: #fff;
-  border: 1px solid #f9ff00 !important;
+  border: 1px solid #dc3545 !important;
   box-shadow: 0 0 50px 0 hsl(0deg 0% 100% / 30%) !important;
-  border-color: #f9ff00 !important;
+  border-color: #dc3545 !important;
 }
 
 /********* progress bar *********/
@@ -5048,7 +5051,7 @@ img.coinWinning-animation {
   }
 
   .footer-btn .callBtn-amount {
-    color: #f9ff00;
+    color: #dc3545;
     font-size: 12px;
     font-weight: 500;
   }
@@ -6981,7 +6984,7 @@ img.coinWinning-animation {
     bottom: 111%;
     transform: translateX(-50%);
     opacity: 0;
-    color: #f9ff00;
+    color: #dc3545;
     animation-name: bottomFadeOut;
     animation-delay: 5ms;
     animation-duration: 3s;
@@ -10062,7 +10065,7 @@ img.coinWinning-animation {
     bottom: 111%;
     transform: translateX(-50%);
     opacity: 0;
-    color: #f9ff00;
+    color: #dc3545;
     animation-name: bottomFadeOut;
     animation-delay: 5ms;
     animation-duration: 3s;
@@ -10481,11 +10484,11 @@ img.coinWinning-animation {
 
 @supports (-webkit-touch-callout: none) {
   .backToHome button {
-    background: #f9ff00;
+    background: #dc3545;
     width: 44px;
     height: 44px;
     color: black;
-    border: 1px solid #f9ff00;
+    border: 1px solid #dc3545;
     border-radius: 50%;
     box-shadow: 0px 0px 15px 2px rgb(48, 48, 48);
   }
@@ -10496,8 +10499,8 @@ img.coinWinning-animation {
   }
 
   input:checked {
-    background-color: #f9ff00 !important;
-    border-color: #f9ff00 !important;
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
     accent-color: #0600ff !important;
     filter: invert(1);
   }
@@ -10618,11 +10621,11 @@ img.coinWinning-animation {
 }
 
 .backToHome button {
-  background: #f9ff00;
+  background: #dc3545;
   width: 44px;
   height: 44px;
   color: black;
-  border: 1px solid #f9ff00;
+  border: 1px solid #dc3545;
   border-radius: 50%;
   box-shadow: 0px 0px 15px 2px rgb(48, 48, 48);
 }
@@ -10673,7 +10676,7 @@ img.coinWinning-animation {
 }
 
 .stats-details span {
-  color: #f9ff00;
+  color: #dc3545;
   font-size: 18px;
   max-width: 160px;
   display: flex;
