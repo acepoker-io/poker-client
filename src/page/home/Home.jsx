@@ -170,7 +170,7 @@ const Home = () => {
     } else if (gameState.minchips <= 0) {
       err.maxchips = "Minimum bet cant be less then or equal to 0";
       valid = false;
-    } 
+    }
     // else if (!gameState.public && !gameState.invitedUsers.length) {
     //   err.invitedPlayer = "Please invite some player if table is private.";
     //   valid = false;
@@ -646,6 +646,8 @@ const GameTable = ({
   setUserData,
   tableId,
 }) => {
+
+  const { user } = useContext(UserContext);
   const history = useHistory();
   const redirectToTable = () => {
     socket.emit("checkAlreadyInGame", { userId, tableId });
@@ -727,7 +729,7 @@ const GameTable = ({
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
+    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
   };
 
   const [cardFlip, setCardFlip] = useState(false);
@@ -791,22 +793,22 @@ const GameTable = ({
   return (
     <>
       <div className="tournamentCard" ref={wrapperRef}>
-        <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} />
+        {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null}
         <div
           className={`tournamentCard-inner
-         ${cardFlip && gameType === "Poker" ? "rotate" : ""}
+         ${ cardFlip && gameType === "Poker" ? "rotate" : "" }
          `}
         >
           {!cardFlip && gameType === "Poker" ? (
             <div className="tournamentCard-front">
-              <img src={casino} alt="" style={{widows:"170px",height:'170px'}}/>
+              <img src={casino} alt="" style={{ widows: "170px", height: '170px' }} />
               <div className="tournamentFront-info">
                 <h4>{gameType === "Poker" ? data?.gameName : data.name}</h4>
-                {gameType === "Poker" ? (
-                  <button onClick={redirectToTable} type="submit">
+                {gameType === "Poker" && user ? (
+                  <button onClick={redirectToTable} type="submit" disabled={user ? false : true}>
                     Join Game
                   </button>
-                ) : (
+                ) : user ? (
                   <div className="btn-grid">
                     {" "}
                     {!data?.isFinished ? (
@@ -835,7 +837,7 @@ const GameTable = ({
                       </div>
                     )}
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           ) : (
