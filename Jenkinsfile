@@ -6,6 +6,7 @@ pipeline {
         nodejs(cacheLocationStrategy: workspace(), nodeJSInstallationName: 'Nodejs16') {
         sh '''ls
 pwd
+rm -rf node_modules package-lock.json
 rm -rf build/
 rm -rf pokerbuild.tar.gz
 npm install --force
