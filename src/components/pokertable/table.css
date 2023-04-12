@@ -24,11 +24,7 @@
 }
 
 .poker-bg {
-  /* background: url(../../assets/game/poker-bg.jpg);
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover; */
-  background: linear-gradient(90deg, rgba(25, 0, 3, 1) 0%, rgba(103, 20, 28, 1) 50%, rgba(25, 0, 3, 1) 100%);
+  background: linear-gradient(90deg, #190003 0%, #4e070b 50%, #190003 100%);
   position: relative;
 }
 
@@ -123,8 +119,9 @@ input:checked {
 }
 
 .CircularProgressbar .CircularProgressbar-path {
-  stroke: #eade3acc;
+  stroke: #04c9f4;
   transition: stroke-dashoffset 2s ease 0s;
+  stroke-width: 4px !important;
 }
 
 .table-card .winner-card {
@@ -1606,49 +1603,48 @@ input:checked {
 }
 
 .player1 {
-  bottom: -1%;
-  left: 50%;
+  bottom: -8%;
+  left: 45.5%;
   transform: translateX(-50%);
 }
 
 .player2 {
-  bottom: -20px;
+  bottom: 20px;
   right: 75%;
   transform: translateX(75%);
 }
 
 .player3 {
-  /* bottom: 90px; */
-  left: 2%;
-  bottom: 20%;
+  left: 10%;
+  bottom: 44%;
 }
 
 .player4 {
   top: -12%;
-  left: 2%;
+  left: 23%;
 }
 
 .player5 {
-  top: -25%;
-  left: 25%;
+  top: -24%;
+  left: 53%;
   transform: translateX(-25%);
 }
 
 .player6 {
-  top: -25%;
+  top: -12%;
   left: 75%;
   transform: translateX(-75%);
 }
 
 .player7 {
   left: 97%;
-  top: -12%;
+  top: 24%;
   transform: translateX(-100%);
 }
 
 .player8 {
-  right: 2%;
-  bottom: 20%;
+  right: 22%;
+  bottom: 4%;
 }
 
 .player9 {
@@ -1715,7 +1711,8 @@ input:checked {
   top: 40px;
 }
 
-.player1 .player-info {
+
+.player-info {
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -1723,40 +1720,33 @@ input:checked {
   text-align: start;
   padding: 2px 8px;
   position: absolute;
-  width: 270px;
+  width: 220px;
   height: 85px;
   z-index: -2;
   margin: 0px auto;
-  top: 80%;
+  top: 85%;
   left: -10%;
   transform: translate(-50%, -50%);
+  border: 3px solid #454851;
+  background: #31333f;
+  border-radius: 60px;
 }
 
-.player-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0px 8px;
-  position: relative;
-  background: #31333f;
-  width: 130px;
-  height: 40px;
-  z-index: 9;
-  border-radius: 60px;
-  overflow: hidden;
-  border: 3px solid #454851;
-  /* border: 3px solid #04d3fa; */
+.player6 .player-info,
+.player7 .player-info,
+.player8 .player-info {
+  left: 106%;
+  align-items: flex-end;
+}
 
-  /* box-shadow: 0px 4px 4px #000000a8; */
-  margin: 0px auto;
-  top: 25px;
-  /* top: 10px; */
+.player1 .player-info {
+  top: 80%;
+  left: 106%;
+  align-items: flex-end;
 }
 
 .player-info.progressActive {
-  background: #cbcbcb00 !important;
+  /* background: #cbcbcb00 !important; */
 }
 
 .tentative-action-btn.form-check.form-check-inline {
@@ -1847,7 +1837,7 @@ input:checked {
 } */
 
 .player1 .player-badge {
-  right: -24px;
+  /* right: -24px; */
 }
 
 /* .player1 .player-info {
@@ -1881,8 +1871,8 @@ input:checked {
 }
 
 .player-box.currentPlayerChance .player-pic img {
-  border: 3px solid #dc3545;
-  box-shadow: 0px 0px 10px 5px #dc3545;
+  /* border: 3px solid #dc3545;
+  box-shadow: 0px 0px 10px 5px #dc3545; */
 }
 
 .players.player4 .player-chip {
@@ -2598,6 +2588,7 @@ input:checked {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff !important;
 }
 
 .player-chip .chipNumber-img {
@@ -2631,7 +2622,6 @@ input:checked {
 } */
 
 .player-badge {
-  background: url(../../assets/game/badge.png);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2643,10 +2633,15 @@ input:checked {
   background-position: center;
   position: absolute;
   font-size: 16px;
-  right: -25px;
-  bottom: 6px;
+  right: 88px;
+  bottom: 48px;
   padding-left: 3px;
   z-index: 9;
+  color: #fff !important;
+}
+
+.player-badge img {
+  width: 35px;
 }
 
 .play-pause-button {
@@ -2692,30 +2687,26 @@ input:checked {
 }
 
 .show-card img {
-  width: 65px;
-  /* width: 50px; */
-  margin: 0px 2px;
+  width: 48px;
+  margin: 0px auto;
   box-shadow: 0px 8px 10px #00000075;
-  /* transform: rotate(-50deg) translateY(10px); */
+  border-radius: 4px;
 }
-
-/* .show-card img:last-child {
-  transform: rotate(-25deg) translateY(-3px);
-} */
 
 .show-card {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(40px, 1fr));
+  display: flex;
+  justify-content: center;
   position: absolute;
-  left: 50%;
+  left: 120%;
   transform: translateX(-50%);
-  /* top: -70px; */
-  top: 8px;
+  top: 14px;
   padding-right: 25px;
-  z-index: -1;
+  z-index: -3;
+  align-items: center;
+  gap: 4px;
 }
 
-.show-card img:first-child {
+/* .show-card img:first-child {
   -webkit-rotate: -18deg !important;
   rotate: -18deg !important;
 }
@@ -2723,31 +2714,29 @@ input:checked {
 .show-card img:last-child {
   rotate: 18deg !important;
   -webkit-rotate: 18deg !important;
-}
-
-/* .player-card img:last-child {
-  transform: rotate(-25deg) translateY(-3px);
 } */
 
 .player-card {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(40px, 1fr));
+  display: flex;
+  justify-content: center;
   position: absolute;
-  left: 50%;
+  left: 125%;
   transform: translateX(-50%);
-  top: 8px;
+  top: 14px;
   padding-right: 25px;
-  z-index: -1;
+  z-index: -3;
+  align-items: center;
+  gap: 4px;
 }
 
 .player-card img {
-  width: 65px;
+  width: 48px;
   margin: 0px auto;
   box-shadow: 0px 8px 10px #00000075;
-  /* transform: rotate(-50deg) translateY(10px); */
+  border-radius: 4px;
 }
 
-.player-card img:first-child {
+/* .player-card img:first-child {
   rotate: -18deg !important;
   -webkit-rotate: -18deg !important;
 }
@@ -2755,7 +2744,7 @@ input:checked {
 .player-card img:last-child {
   rotate: 18deg !important;
   -webkit-rotate: 18deg !important;
-}
+} */
 
 .player-timer div {
   position: absolute !important;
@@ -3340,20 +3329,16 @@ input:checked {
 
 .start-game-btn {
   position: fixed;
-  top: 10px;
+  top: 8px;
   right: 10px;
   z-index: 999;
-  background: #550011;
-  padding: 20px;
+  background: #1a0104;
+  padding: 10px 20px 20px;
   border-radius: 10px;
-  border: 1px solid #550011;
-  max-width: 350px;
+  border: 1px solid #1a0104;
+  max-width: 325px;
   width: 100%;
   box-shadow: 0px 0px 10px 0px #55001197;
-  /* animation: shake 1.5s cubic-bezier(.36,.07,.19,.97) both infinite;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px; */
 }
 
 @keyframes shake {
@@ -4287,7 +4272,7 @@ ul.btn-list>li>button>img {
 }
 
 .logo--bottom-image img {
-  width: 100px;
+  width: 90px;
   margin: 10px;
 }
 

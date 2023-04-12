@@ -481,7 +481,7 @@ input[type='number'] {
   padding: 5px 6px 6px;
   background: #f5f3f3;
   gap: 10px;
-  max-width: 208px;
+  max-width: 190px;
   border: 1px solid #eae0e0;
   box-shadow: inset 0 0px 10px 0 rgb(224 212 212 / 47%);
 }
@@ -1263,7 +1263,7 @@ a.nav-link.active {
   }
 
   .casino-logo img {
-    width: 120px;
+    width: 85px;
   }
 
   .casino-popup .modal-header {
