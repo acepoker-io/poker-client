@@ -1668,6 +1668,7 @@ input:checked {
   left: 50%;
   transform: translate(-50%, -51%);
   object-fit: cover;
+  border: 3px solid #454851;
 }
 
 .player1 .player-pic video {
@@ -1694,10 +1695,13 @@ input:checked {
 .player-box {
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .player-pic {
-  background: url(../../assets/players-bg.png);
+  /* background: url(../../assets/players-bg.png); */
   width: 100%;
   text-align: center;
   height: 120px;
@@ -1713,16 +1717,19 @@ input:checked {
 
 .player1 .player-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: start;
   padding: 2px 8px;
-  position: relative;
-  width: 140px;
-  height: 45px;
-  z-index: 9;
+  position: absolute;
+  width: 270px;
+  height: 85px;
+  z-index: -2;
   margin: 0px auto;
+  top: 80%;
+  left: -10%;
+  transform: translate(-50%, -50%);
 }
 
 .player-info {
@@ -1733,14 +1740,16 @@ input:checked {
   text-align: center;
   padding: 0px 8px;
   position: relative;
-  background: #cbcbcb;
+  background: #31333f;
   width: 130px;
   height: 40px;
   z-index: 9;
   border-radius: 60px;
   overflow: hidden;
-  border: 3px solid #101010;
-  box-shadow: 0px 4px 4px #000000a8;
+  border: 3px solid #454851;
+  /* border: 3px solid #04d3fa; */
+
+  /* box-shadow: 0px 4px 4px #000000a8; */
   margin: 0px auto;
   top: 25px;
   /* top: 10px; */
@@ -1759,26 +1768,31 @@ input:checked {
 }
 
 .player-info h4 {
-  font-size: 13px;
-  text-transform: lowercase;
+  font-size: 16px;
+  text-transform: capitalize;
   margin: 0;
-  font-weight: 700;
-  color: #111111;
-  width: 100%;
+  font-weight: 400;
+  color: #ddd;
+  width: 66%;
   letter-spacing: 0.5px;
   z-index: 9;
   position: relative;
+  text-align: center;
+  margin-top: 4px;
 }
 
 .player-info p {
-  font-size: 10px;
+  font-size: 20px;
   margin: 0;
-  color: #111111;
-  width: 100%;
+  color: #ffffff;
+  width: 66%;
   letter-spacing: 0.5px;
   z-index: 9;
   position: relative;
-  font-weight: 700;
+  font-weight: 800;
+  text-align: center;
+  border-bottom: 1px solid #4b4747;
+  padding-bottom: 4px;
 }
 
 .players.player1 {
@@ -1821,7 +1835,7 @@ input:checked {
 .player1 .player-pic {
   width: 145px;
   height: 145px;
-  background: url(../../assets/winner-player.png);
+  /* background: url(../../assets/winner-player.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -4306,8 +4320,8 @@ ul.btn-list>li>button>img {
 
 .player1 .player-pic img,
 .player1 .player-pic video {
-  width: 115px !important;
-  height: 115px !important;
+  width: 100px !important;
+  height: 100px !important;
   /* z-index: -1; */
 }
 
@@ -9344,7 +9358,7 @@ img.coinWinning-animation {
 
   .poker-table-bg:before {
     content: "";
-    background: url(../../assets/game/logo-poker.png);
+    background: url(../../assets/game/tableLogo.png);
     width: 80px;
     height: 61px;
     background-repeat: no-repeat;
