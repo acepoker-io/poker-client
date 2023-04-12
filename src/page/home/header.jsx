@@ -104,18 +104,19 @@ const Header = ({ userData, handleShow }) => {
                     </div>
                     <div className="create-game-box">
                         {user ? <>
-                            {/* <a href={`${landingClient}profile`}>
+                            {/* <a href={`${landingClient}profile`}> */}
                             <div className="create-game-box-avtar">
-                                <img
+                                {/* <img
                                     src={
                                         user?.profile ||
                                         "https://i.pinimg.com/736x/06/d0/00/06d00052a36c6788ba5f9eeacb2c37c3.jpg"
                                     }
                                     alt=""
-                                />
+                                /> */}
+                                <h6>User Name</h6>
                                 <h5>{user?.username}</h5>
                             </div>
-                        </a> */}
+                            {/* </a> */}
                             <div className="walletTicket-box">
                                 <div className="pokerWallet-box">
                                     <img src={token} alt="" className="pokerWallet" />
