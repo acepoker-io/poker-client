@@ -1,5 +1,5 @@
 .buy-coins-modal .modal-dialog {
-  max-width: 720px!important;
+  max-width: 720px !important;
 }
 
 .buy-coins-list {
@@ -36,13 +36,13 @@
 }
 
 .buy-coins-box:hover {
-  border: 1px solid #f9ff00;
+  border: 1px solid #dc3545;
   box-shadow: 0px 0px 30px rgb(185 161 30 / 50%);
 }
 
-.buy-coins-list .buy-coins-box:hover button{
-  background: #f9ff00;
-  border: 1px solid #f9ff00;
+.buy-coins-list .buy-coins-box:hover button {
+  background: #dc3545;
+  border: 1px solid #dc3545;
 }
 
 .buy-coins-list .lv-coins-box:hover {
@@ -66,9 +66,10 @@
   border: 1px solid #30323c;
 }
 
-.buy-coins-list .buy-coins-box button:hover, .buy-coins-list .buy-coins-box button:focus{
-  background: #f9ff00;
-  border: 1px solid #f9ff00;
+.buy-coins-list .buy-coins-box button:hover,
+.buy-coins-list .buy-coins-box button:focus {
+  background: #dc3545;
+  border: 1px solid #dc3545;
   box-shadow: none;
 }
 
@@ -104,6 +105,7 @@
   height: 100%;
   width: 100%;
 }
+
 .buy-coins-modal .modal-header .close {
   padding: 0px !important;
   margin-left: auto;
@@ -112,6 +114,7 @@
   right: 8px;
   margin: 0;
 }
+
 .buy-coins-modal .modal-body {
   padding: 10px;
 }
