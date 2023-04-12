@@ -518,9 +518,9 @@ const CreateTable = ({
   values,
   createTable,
   errors,
-  options,
+  // options,
   showSpinner,
-  handleChnageInviteUsers,
+  // handleChnageInviteUsers,
 }) => {
   return (
     <Modal show={show} onHide={handleShow} centered className="casino-popup">
