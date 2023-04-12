@@ -119,9 +119,9 @@ input:checked {
 }
 
 .CircularProgressbar .CircularProgressbar-path {
-  stroke: #04c9f4;
+  stroke: #01a8ae;
   transition: stroke-dashoffset 2s ease 0s;
-  stroke-width: 4px !important;
+  stroke-width: 8px !important;
 }
 
 .table-card .winner-card {
@@ -1660,7 +1660,7 @@ input:checked {
   object-position: center;
   border-radius: 100%;
   position: absolute;
-  top: 49%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -51%);
   object-fit: cover;
@@ -1732,6 +1732,7 @@ input:checked {
   border-radius: 60px;
 }
 
+.player1 .player-info,
 .player6 .player-info,
 .player7 .player-info,
 .player8 .player-info {
@@ -1739,14 +1740,8 @@ input:checked {
   align-items: flex-end;
 }
 
-.player1 .player-info {
-  top: 80%;
-  left: 106%;
-  align-items: flex-end;
-}
-
 .player-info.progressActive {
-  /* background: #cbcbcb00 !important; */
+  border: 4px solid #01a8ae;
 }
 
 .tentative-action-btn.form-check.form-check-inline {
@@ -1860,10 +1855,8 @@ input:checked {
 } */
 
 .players.player1 .player-pic {
-  /* height: 200px;
-  width: 200px; */
-  height: 130px;
-  width: 130px;
+  height: 110px;
+  width: 110px;
 }
 
 .playerChated {
