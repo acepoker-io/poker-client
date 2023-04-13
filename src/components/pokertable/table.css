@@ -24,11 +24,7 @@
 }
 
 .poker-bg {
-  /* background: url(../../assets/game/poker-bg.jpg);
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover; */
-  background: linear-gradient(90deg, rgba(25, 0, 3, 1) 0%, rgba(103, 20, 28, 1) 50%, rgba(25, 0, 3, 1) 100%);
+  background: linear-gradient(90deg, #190003 0%, #4e070b 50%, #190003 100%);
   position: relative;
 }
 
@@ -102,7 +98,7 @@ input:checked {
 }
 
 .table-card img {
-  width: 55px;
+  width: 48px;
   margin: 0px 4px;
   transition: all 0.5s;
 }
@@ -123,18 +119,18 @@ input:checked {
 }
 
 .CircularProgressbar .CircularProgressbar-path {
-  stroke: #eade3acc;
+  stroke: #05ccf6;
   transition: stroke-dashoffset 2s ease 0s;
+  stroke-width: 8px !important;
 }
 
 .table-card .winner-card {
-  /* width: 65px; */
-  width: 57px;
+  width: 51px;
 }
 
 .table-blindLevel {
   position: absolute;
-  top: 46%;
+  top: 45%;
   left: 32%;
   transform: translate(-50%, -50%);
   background: transparent;
@@ -1606,49 +1602,48 @@ input:checked {
 }
 
 .player1 {
-  bottom: -1%;
-  left: 50%;
+  bottom: -8%;
+  left: 45.5%;
   transform: translateX(-50%);
 }
 
 .player2 {
-  bottom: -20px;
+  bottom: 20px;
   right: 75%;
   transform: translateX(75%);
 }
 
 .player3 {
-  /* bottom: 90px; */
-  left: 2%;
-  bottom: 20%;
+  left: 10%;
+  bottom: 44%;
 }
 
 .player4 {
   top: -12%;
-  left: 2%;
+  left: 23%;
 }
 
 .player5 {
-  top: -25%;
-  left: 25%;
+  top: -24%;
+  left: 53%;
   transform: translateX(-25%);
 }
 
 .player6 {
-  top: -25%;
+  top: -12%;
   left: 75%;
   transform: translateX(-75%);
 }
 
 .player7 {
-  left: 97%;
-  top: -12%;
+  left: 90%;
+  top: 24%;
   transform: translateX(-100%);
 }
 
 .player8 {
-  right: 2%;
-  bottom: 20%;
+  right: 22%;
+  bottom: 4%;
 }
 
 .player9 {
@@ -1664,10 +1659,11 @@ input:checked {
   object-position: center;
   border-radius: 100%;
   position: absolute;
-  top: 49%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -51%);
   object-fit: cover;
+  border: 3px solid #454851;
 }
 
 .player1 .player-pic video {
@@ -1694,10 +1690,13 @@ input:checked {
 .player-box {
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
 .player-pic {
-  background: url(../../assets/players-bg.png);
+  /* background: url(../../assets/players-bg.png); */
   width: 100%;
   text-align: center;
   height: 120px;
@@ -1711,43 +1710,37 @@ input:checked {
   top: 40px;
 }
 
-.player1 .player-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 2px 8px;
-  position: relative;
-  width: 140px;
-  height: 45px;
-  z-index: 9;
-  margin: 0px auto;
-}
 
 .player-info {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0px 8px;
-  position: relative;
-  background: #cbcbcb;
-  width: 130px;
-  height: 40px;
-  z-index: 9;
-  border-radius: 60px;
-  overflow: hidden;
-  border: 3px solid #101010;
-  box-shadow: 0px 4px 4px #000000a8;
+  align-items: flex-start;
+  text-align: start;
+  padding: 2px 8px;
+  position: absolute;
+  width: 220px;
+  height: 85px;
+  z-index: -2;
   margin: 0px auto;
-  top: 25px;
-  /* top: 10px; */
+  top: 85%;
+  left: -10%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #454851;
+  background: #31333f;
+  border-radius: 60px;
+}
+
+.player1 .player-info,
+.player6 .player-info,
+.player7 .player-info,
+.player8 .player-info {
+  left: 110%;
+  align-items: flex-end;
 }
 
 .player-info.progressActive {
-  background: #cbcbcb00 !important;
+  border: 4px solid #05ccf6;
 }
 
 .tentative-action-btn.form-check.form-check-inline {
@@ -1759,26 +1752,31 @@ input:checked {
 }
 
 .player-info h4 {
-  font-size: 13px;
-  text-transform: lowercase;
+  font-size: 16px;
+  text-transform: capitalize;
   margin: 0;
-  font-weight: 700;
-  color: #111111;
-  width: 100%;
+  font-weight: 400;
+  color: #ddd;
+  width: 66%;
   letter-spacing: 0.5px;
   z-index: 9;
   position: relative;
+  text-align: center;
+  margin-top: 4px;
 }
 
 .player-info p {
-  font-size: 10px;
+  font-size: 20px;
   margin: 0;
-  color: #111111;
-  width: 100%;
+  color: #ffffff;
+  width: 66%;
   letter-spacing: 0.5px;
   z-index: 9;
   position: relative;
-  font-weight: 700;
+  font-weight: 800;
+  text-align: center;
+  border-bottom: 1px solid #4b4747;
+  padding-bottom: 4px;
 }
 
 .players.player1 {
@@ -1821,7 +1819,7 @@ input:checked {
 .player1 .player-pic {
   width: 145px;
   height: 145px;
-  background: url(../../assets/winner-player.png);
+  /* background: url(../../assets/winner-player.png); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1833,7 +1831,7 @@ input:checked {
 } */
 
 .player1 .player-badge {
-  right: -24px;
+  /* right: -24px; */
 }
 
 /* .player1 .player-info {
@@ -1856,10 +1854,8 @@ input:checked {
 } */
 
 .players.player1 .player-pic {
-  /* height: 200px;
-  width: 200px; */
-  height: 130px;
-  width: 130px;
+  height: 110px;
+  width: 110px;
 }
 
 .playerChated {
@@ -1867,15 +1863,15 @@ input:checked {
 }
 
 .player-box.currentPlayerChance .player-pic img {
-  border: 3px solid #dc3545;
-  box-shadow: 0px 0px 10px 5px #dc3545;
+  /* border: 3px solid #dc3545;
+  box-shadow: 0px 0px 10px 5px #dc3545; */
 }
 
 .players.player4 .player-chip {
   position: absolute;
   width: 100%;
-  bottom: -40%;
-  right: -100%;
+  bottom: -63%;
+  right: -77%;
   animation: slideLeft4 0.4s;
 }
 
@@ -1912,8 +1908,8 @@ input:checked {
 .players.player8 .player-chip {
   position: absolute;
   width: 100%;
-  bottom: 60%;
-  left: -100%;
+  bottom: 62%;
+  left: -70%;
   animation: slideRight8 0.4s;
 }
 
@@ -1923,8 +1919,8 @@ input:checked {
 
 @keyframes mergeP8 {
   from {
-    bottom: 60%;
-    left: -100%;
+    bottom: 62%;
+    left: -70%;
     opacity: 1;
   }
 
@@ -1989,7 +1985,7 @@ input:checked {
   position: absolute;
   width: 100%;
   right: -100%;
-  top: 8%;
+  top: 70%;
   animation: slideLeft3 0.4s;
 }
 
@@ -2000,7 +1996,7 @@ input:checked {
 @keyframes mergeP3 {
   from {
     right: -100%;
-    top: 8%;
+    top: 70%;
     opacity: 1;
   }
 
@@ -2054,9 +2050,9 @@ input:checked {
 .players.player2 .player-chip {
   position: absolute;
   width: 100%;
-  top: -20%;
-  left: 0%;
-  transform: translateY(-23%);
+  top: 15%;
+  left: 90%;
+  transform: translateY(-25%);
   animation: travelUp 0.4s;
 }
 
@@ -2066,8 +2062,8 @@ input:checked {
 
 @keyframes mergeP2 {
   from {
-    top: -20%;
-    left: 0%;
+    top: 15%;
+    left: 90%;
     opacity: 1;
   }
 
@@ -2081,8 +2077,8 @@ input:checked {
 .players.player1 .player-chip {
   position: absolute;
   width: 100%;
-  top: -12%;
-  left: 0%;
+  top: -36%;
+  left: 60%;
   transform: translateY(-50%);
   animation: travelUpCenter 0.4s;
 }
@@ -2106,9 +2102,8 @@ input:checked {
 .players.player5 .player-chip {
   position: absolute;
   width: 100%;
-  bottom: -56%;
-  /* bottom: -70px; */
-  left: 0%;
+  bottom: -92%;
+  left: -56%;
   transform: translateY(-25%);
   animation: travelDown 0.4s;
 }
@@ -2119,8 +2114,8 @@ input:checked {
 
 @keyframes mergeP5 {
   from {
-    bottom: -56%;
-    left: 0%;
+    bottom: -92%;
+    left: -56%;
     opacity: 1;
   }
 
@@ -2134,9 +2129,8 @@ input:checked {
 .players.player6 .player-chip {
   position: absolute;
   width: 100%;
-  /* bottom: -70px; */
-  left: 0%;
-  bottom: -65%;
+  left: -62%;
+  bottom: -78%;
   transform: translateY(-50%);
   animation: travelDownCenter 0.4s;
 }
@@ -2147,7 +2141,8 @@ input:checked {
 
 @keyframes mergeP6 {
   from {
-    bottom: -65%;
+    left: -62%;
+    bottom: -78%;
     opacity: 1;
   }
 
@@ -2161,7 +2156,7 @@ input:checked {
 .players.player7 .player-chip {
   position: absolute;
   width: 100%;
-  bottom: -52%;
+  bottom: -15%;
   left: -100%;
   transform: translateY(-25%);
   animation: slideRight7 0.4s;
@@ -2173,7 +2168,7 @@ input:checked {
 
 @keyframes mergeP7 {
   from {
-    bottom: -52%;
+    bottom: -15%;
     left: -100%;
     opacity: 1;
   }
@@ -2362,22 +2357,37 @@ input:checked {
   align-items: center;
   width: 100%;
   max-width: 800px;
-  margin: 0px auto;
+  margin: 4px auto;
 }
 
 .footer-btn {
-  background: url(../../assets/game/btn-bg.png);
   text-align: center;
   width: 140px;
-  height: 63px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 42px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0px;
+  border-radius: 30px;
+  margin: 0px 6px;
+}
+
+.footer-container .footer-btn:first-child {
+  background: #4da956;
+  border: 1px solid #4da956;
+  box-shadow: 0px 2px 8px 0px #1c5322;
+}
+
+.footer-container .footer-btn:nth-child(2) {
+  background: #5b72e2;
+  border: 1px solid #5b72e2;
+  box-shadow: 0px 2px 8px 0px #3f51aaac;
+}
+
+.footer-container .footer-btn:last-child {
+  background: #ddaa34;
+  border: 1px solid #ddaa34;
+  box-shadow: 0px 2px 8px 0px #916e1eb3;
 }
 
 .footer-btn .btn,
@@ -2385,7 +2395,8 @@ input:checked {
 .footer-btn .btn:focus {
   background: transparent;
   color: #fff;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 700;
   line-height: 15px;
   border: none;
   outline: none;
@@ -2395,6 +2406,7 @@ input:checked {
   margin-top: -4px;
   padding: 0px 5px;
   height: 40px;
+  border-radius: 30px;
 }
 
 .footer-btn .btn:hover {
@@ -2445,28 +2457,37 @@ input:checked {
   transform: translate(2%, -30%);
 }
 
+.total-pot-money img {
+  width: 30px;
+  height: 30px;
+}
+
 .total-pot-money span {
-  background: url(../../assets/game/total-pot.png);
+  /* background: url(../../assets/game/total-pot.png); */
   text-align: center;
   width: 120px;
-  height: 46px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 36px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
   color: #fff;
+  background: #dc3545;
+  border-radius: 30px;
+  padding: 2px 4px;
 }
 
 .total-pot-money span p {
-  margin: 1px 8px 0px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: 700;
   text-align: center;
+  margin: 0px;
 }
 
 /* .total-pot-money span::before {
@@ -2486,14 +2507,14 @@ input:checked {
 .player3 .player-action,
 .player8 .player-action,
 .player9 .player-action {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: 1px;
   position: absolute;
   left: 50%;
   bottom: 111%;
   transform: translateX(-50%);
-  opacity: 0;
+  /* opacity: 0; */
   white-space: nowrap;
   color: #dc3545;
   animation-name: bottomFadeOut;
@@ -2501,6 +2522,13 @@ input:checked {
   animation-duration: 1.5s;
   text-transform: capitalize;
   z-index: 9999999;
+  background: #fff;
+  border-radius: 30px;
+  height: 24px;
+  padding: 6px 8px;
+  margin: 0px;
+  display: grid;
+  place-content: center;
 }
 
 @keyframes bottomFadeOut {
@@ -2527,12 +2555,11 @@ input:checked {
 .player5 .player-action,
 .player6 .player-action,
 .player7 .player-action {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   letter-spacing: 1px;
   position: absolute;
   left: 50%;
-  /* bottom: 250%; */
   bottom: -40%;
   white-space: nowrap;
   transform: translateX(-50%);
@@ -2543,6 +2570,13 @@ input:checked {
   animation-duration: 1.5s;
   text-transform: capitalize;
   z-index: 9999999;
+  background: #fff;
+  border-radius: 30px;
+  height: 24px;
+  padding: 6px 8px;
+  margin: 0px;
+  display: grid;
+  place-content: center;
 }
 
 @keyframes downFadeOut {
@@ -2566,58 +2600,37 @@ input:checked {
 }
 
 .player-chip {
+  position: relative;
   text-align: center;
   z-index: 9;
-}
-
-.player-chip span {
-  background: url(../../assets/game/btn-bg.png);
-  text-align: center;
   max-width: 100px;
   width: 100%;
-  height: 45px;
-  margin: 0px auto;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
+  height: 34px;
+  background: #ddd;
+  border-radius: 30px;
+  box-shadow: 0px 2px 8px #000000a3;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2px 6px;
 }
 
-.player-chip .chipNumber-img {
+.player-chip img {
+  width: 30px;
+}
+
+.player-chip span {
+  text-align: center;
+  margin: 0px auto;
   display: flex;
   align-items: center;
-  position: relative;
-  width: 100%;
-}
+  justify-content: center;
+  color: #000 !important;
+  font-weight: 800;
 
-.player-chip .chipNumber-img p {
-  font-size: 12px;
-  color: rgb(255, 255, 255);
-  padding: 2px 0px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  margin-bottom: 0px !important;
-  width: 100%;
 }
-
-/* .player-chip span::before {
-  content: "";
-  background: url(../../assets/chips.png);
-  text-align: center;
-  width: 42px;
-  height: 29px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  left: -20px;
-} */
 
 .player-badge {
-  background: url(../../assets/game/badge.png);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2629,10 +2642,23 @@ input:checked {
   background-position: center;
   position: absolute;
   font-size: 16px;
-  right: -25px;
-  bottom: 6px;
+  right: -16px;
+  bottom: -32px;
   padding-left: 3px;
   z-index: 9;
+  color: #fff !important;
+}
+
+.player1 .player-badge,
+.player6 .player-badge,
+.player7 .player-badge,
+.player8 .player-badge {
+  right: 104px;
+  bottom: 30px;
+}
+
+.player-badge img {
+  width: 30px;
 }
 
 .play-pause-button {
@@ -2678,30 +2704,33 @@ input:checked {
 }
 
 .show-card img {
-  width: 65px;
-  /* width: 50px; */
-  margin: 0px 2px;
+  width: 48px;
+  margin: 0px auto;
   box-shadow: 0px 8px 10px #00000075;
-  /* transform: rotate(-50deg) translateY(10px); */
+  border-radius: 4px;
 }
-
-/* .show-card img:last-child {
-  transform: rotate(-25deg) translateY(-3px);
-} */
 
 .show-card {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(40px, 1fr));
+  display: flex;
+  justify-content: center;
   position: absolute;
-  left: 50%;
+  left: 116%;
   transform: translateX(-50%);
-  /* top: -70px; */
-  top: 8px;
+  top: 14px;
   padding-right: 25px;
-  z-index: -1;
+  z-index: -3;
+  align-items: center;
+  gap: 4px;
 }
 
-.show-card img:first-child {
+.player2 .show-card,
+.player3 .show-card,
+.player4 .show-card,
+.player5 .show-card {
+  left: -14%;
+}
+
+/* .show-card img:first-child {
   -webkit-rotate: -18deg !important;
   rotate: -18deg !important;
 }
@@ -2709,31 +2738,36 @@ input:checked {
 .show-card img:last-child {
   rotate: 18deg !important;
   -webkit-rotate: 18deg !important;
-}
-
-/* .player-card img:last-child {
-  transform: rotate(-25deg) translateY(-3px);
 } */
 
 .player-card {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(40px, 1fr));
+  display: flex;
+  justify-content: center;
   position: absolute;
-  left: 50%;
+  left: 125%;
   transform: translateX(-50%);
-  top: 8px;
+  top: 14px;
   padding-right: 25px;
-  z-index: -1;
+  z-index: -3;
+  align-items: center;
+  gap: 4px;
+}
+
+.player2 .player-card,
+.player3 .player-card,
+.player4 .player-card,
+.player5 .player-card {
+  left: -14%;
 }
 
 .player-card img {
-  width: 65px;
+  width: 48px;
   margin: 0px auto;
   box-shadow: 0px 8px 10px #00000075;
-  /* transform: rotate(-50deg) translateY(10px); */
+  border-radius: 4px;
 }
 
-.player-card img:first-child {
+/* .player-card img:first-child {
   rotate: -18deg !important;
   -webkit-rotate: -18deg !important;
 }
@@ -2741,7 +2775,7 @@ input:checked {
 .player-card img:last-child {
   rotate: 18deg !important;
   -webkit-rotate: 18deg !important;
-}
+} */
 
 .player-timer div {
   position: absolute !important;
@@ -2813,7 +2847,7 @@ input:checked {
 }
 
 .winner-show .players {
-  filter: brightness(0.4);
+  filter: brightness(0.8);
 }
 
 .winner-show .players.winner-player {
@@ -3326,20 +3360,16 @@ input:checked {
 
 .start-game-btn {
   position: fixed;
-  top: 10px;
+  top: 8px;
   right: 10px;
   z-index: 999;
-  background: #550011;
-  padding: 20px;
+  background: #1a0104;
+  padding: 10px 20px 20px;
   border-radius: 10px;
-  border: 1px solid #550011;
-  max-width: 350px;
+  border: 1px solid #1a0104;
+  max-width: 325px;
   width: 100%;
   box-shadow: 0px 0px 10px 0px #55001197;
-  /* animation: shake 1.5s cubic-bezier(.36,.07,.19,.97) both infinite;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px; */
 }
 
 @keyframes shake {
@@ -4273,7 +4303,7 @@ ul.btn-list>li>button>img {
 }
 
 .logo--bottom-image img {
-  width: 100px;
+  width: 90px;
   margin: 10px;
 }
 
@@ -4306,8 +4336,8 @@ ul.btn-list>li>button>img {
 
 .player1 .player-pic img,
 .player1 .player-pic video {
-  width: 115px !important;
-  height: 115px !important;
+  width: 100px !important;
+  height: 100px !important;
   /* z-index: -1; */
 }
 
@@ -4683,7 +4713,7 @@ img.coinWinning-animation {
 
 .card-animate {
   perspective: 1000px;
-  width: 55px;
+  width: 51px;
   height: 70px;
   position: relative;
 }
@@ -9344,7 +9374,7 @@ img.coinWinning-animation {
 
   .poker-table-bg:before {
     content: "";
-    background: url(../../assets/game/logo-poker.png);
+    background: url(../../assets/game/tableLogo.png);
     width: 80px;
     height: 61px;
     background-repeat: no-repeat;
