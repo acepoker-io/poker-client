@@ -51,6 +51,11 @@ import sb from "../../assets/game/sb.png"
 import bb from "../../assets/game/bb.png"
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import blue from "../../assets/coin-1.png"
+import black from "../../assets/coin-2.png"
+import red from "../../assets/coin-3.png"
+import green from "../../assets/coin-4.png"
+import chipspokercard from "../../assets/spade-chip.png"
 
 const getQueryParams = () => {
   const url = new URLSearchParams(window.location.search);
@@ -1082,29 +1087,29 @@ const PokerTable = (props) => {
         availablePosition = [0];
         break;
       case 2:
-        availablePosition = [0, 5];
+        availablePosition = [0, 4];
         break;
       case 3:
-        availablePosition = [0, 4, 5];
+        availablePosition = [0, 3, 5];
         break;
       case 4:
-        availablePosition = [0, 2, 4, 7];
+        availablePosition = [0, 2, 4, 6];
         break;
       case 5:
-        availablePosition = [0, 2, 4, 5, 7];
+        availablePosition = [0, 1, 3, 5, 7];
         break;
       case 6:
-        availablePosition = [0, 2, 3, 4, 6, 7];
+        availablePosition = [0, 1, 3, 4, 5, 7];
         break;
       case 7:
-        availablePosition = [0, 1, 2, 3, 6, 7, 8];
+        availablePosition = [0, 1, 2, 3, 4, 5, 6];
         break;
       case 8:
-        availablePosition = [0, 1, 2, 3, 4, 6, 7, 8];
+        availablePosition = [0, 1, 2, 3, 4, 5, 6, 7];
         break;
-      case 9:
-        availablePosition = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-        break;
+      // case 9:
+      //   availablePosition = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+      //   break;
       // case 10:
       //   availablePosition = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
       //   break;
@@ -2407,6 +2412,7 @@ const Players = ({
 
           {playerData && playerData.pot > 0 && playerData !== undefined ? (
             <div className="player-chip">
+              {playerData?.pot <= 500 ? <img src={red} alt="red" /> : playerData?.pot <= 5000 && playerData?.pot > 20000 ? <img src={green} alt="green" /> : playerData?.pot <= 20000 && playerData?.pot > 5000 ? <img src={blue} alt="blue" /> : playerData?.pot < 20000 ? <img src={black} alt="black" /> : ""}
               <span>{numFormatter(playerData && playerData?.pot)}</span>
             </div>
           ) : (
@@ -2465,11 +2471,13 @@ const TablePotMoney = ({ tablePot, sidePots, activeWinnerPlayersPot }) => {
     <div className="pot-money">
       {sidePots.length ? sidePots.map(sidePot => (
         <div className={`total-pot-money animate__animated animate__fadeIn ${activeWinnerPlayersPot?.potPlayer?.length === sidePot?.players?.length ? `winnPlayer${activeWinnerPlayersPot.availablePosition + 1}` : ''}`}>
-          <span className={`pots-${sidePots.length}`}><p>{numFormatter(sidePot.pot)}</p></span>
+
+          <span className={`pots-${sidePots.length}`}><img src={chipspokercard} alt="" /><p>{numFormatter(sidePot.pot)}</p></span>
         </div>
       )) :
         <div className={`total-pot-money animate__animated animate__fadeIn winnPlayer${activeWinnerPlayersPot.availablePosition + 1}`}>
           <span className="pots-1">
+            <img src={chipspokercard} alt="" />
             <p>{numFormatter(tablePot && tablePot)}</p>
           </span>
         </div>}
