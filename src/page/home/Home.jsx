@@ -42,6 +42,7 @@ const Home = () => {
     autohand: true,
     sitInAmount: "",
     invitedUsers: [],
+    password:''
   };
   // States
   const { userInAnyGame, setUserInAnyGame } = useContext(UserContext);//userInAnyGame,
@@ -125,6 +126,10 @@ const Home = () => {
       err.gameName = "Game name is required.";
       valid = false;
     }
+    // if (gameState.password === "") {
+    //   err.password = "Game name is required.";
+    //   valid = false;
+    // }
     if (gameState.gameName.trim() === "") {
       err.gameName = "Game name is required.";
       valid = false;
@@ -606,16 +611,30 @@ const CreateTable = ({
             <p className="text-danger">{errors?.invitedPlayer}</p>
           )}
         </div> */}
+        {values.public && <Form.Group className="form-group" controlId="formPlaintextPassword">
+          <Form.Label>Enter password</Form.Label>
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="123456"
+            onChange={handleChange}
+            value={values.password}
+          />
+          {!!errors?.password && (
+            <p className="text-danger">{errors?.password}</p>
+          )}
+        </Form.Group>}
+        
         <div className="createGameCheckHand">
-          {/* <Form.Check
+          <Form.Check
             inline
-            label="Public Game"
+            label="Private Game"
             name="public"
             type="checkbox"
             id={"public"}
             onChange={handleChange}
             checked={values.public}
-          /> */}
+          />
           <Form.Check
             inline
             label="Auto Hand"
