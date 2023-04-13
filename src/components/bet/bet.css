@@ -605,9 +605,9 @@ form.customBet-amount .form-control:focus {
 }
 
 .footer-btn .callBtn-amount {
-  color: #dc3545;
-  font-size: 14px;
-  font-weight: 500;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .callBtn-amount-none {
