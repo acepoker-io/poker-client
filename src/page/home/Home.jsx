@@ -730,7 +730,7 @@ const GameTable = ({
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
+    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
   };
 
   const [cardFlip, setCardFlip] = useState(false);
@@ -797,7 +797,7 @@ const GameTable = ({
         {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null}
         <div
           className={`tournamentCard-inner
-         ${ cardFlip && gameType === "Poker" ? "rotate" : "" }
+         ${cardFlip && gameType === "Poker" ? "rotate" : ""}
          `}
         >
           {!cardFlip && gameType === "Poker" ? (
@@ -848,8 +848,10 @@ const GameTable = ({
               ) : (
                 ""
               )}
+              <h4>Created At: <span>{getTime(data?.createdAt)}</span></h4>
               <h4>
                 people joined :{" "}
+                {console.log("data", data)}
                 <span>
                   {(gameType === "Tournament"
                     ? data?.rooms?.filter((el) => el?.players)[0]?.players
@@ -857,6 +859,7 @@ const GameTable = ({
                     : data?.players?.length) || 0}
                 </span>
               </h4>
+              <h4>SB/BB : <span>{data?.smallBlind}{"/"}{data?.bigBlind}</span></h4>
               {gameType === "Tournament" ? (
                 <h4>
                   Fee : <span>{data?.tournamentFee}</span>
