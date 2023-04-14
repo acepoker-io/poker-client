@@ -11,13 +11,13 @@ import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
 import casino from "../../assets/game/logo.png";
 //import casino1 from "../../assets/game/logo-poker.png";
-import { pokerInstance, tournamentInstance } from "../../utils/axios.config";
+import { pokerInstance } from "../../utils/axios.config";
 import Homesvg from "../../assets/home.svg";
 // import axios from "axios";
 import { toast } from "react-toastify";
 //import Select from "react-select";
 import { useMemo } from "react";
-import { FaInfoCircle, /* FaUser, FaTrophy, FaCoins */ } from "react-icons/fa";
+import { FaCoins, FaUser,} from "react-icons/fa";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { socket } from "../../config/socketConnection";
@@ -27,7 +27,7 @@ import UserContext from "../../context/UserContext";
 import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
- //import CONSTANTS from "../../config/contants";
+//import CONSTANTS from "../../config/contants";
 // import { getCookie } from "../../utils/cookieUtil";
 // import feeIcon from "../../assets/images/feeIcon.png"
 // import ranking from "../../assets/images/ranking.png"
@@ -43,7 +43,7 @@ const Home = () => {
     autohand: true,
     sitInAmount: "",
     invitedUsers: [],
-    password:''
+    password: ''
   };
   // States
   const { userInAnyGame, setUserInAnyGame } = useContext(UserContext);//userInAnyGame,
@@ -61,15 +61,15 @@ const Home = () => {
   const [showSpinner, setShowSpinner] = useState(false);
   // utils function
   const checkUserInGame = async () => {
-    try{
-      let userData=await pokerInstance().get('checkUserInGame')
+    try {
+      let userData = await pokerInstance().get('checkUserInGame')
       if (userData?.data) {
         setUserInAnyGame(userData.data)
       }
-    }catch(err){
-    toast.error("Internal server error",{toastId:"checkInGame"})
+    } catch (err) {
+      toast.error("Internal server error", { toastId: "checkInGame" })
     }
-    
+
   }
   useEffect(() => {
     checkUserInGame()
@@ -137,7 +137,7 @@ const Home = () => {
       valid = false;
     }
     if (gameState.public) {
-      if(gameState.password===''){
+      if (gameState.password === '') {
         err.password = "Password is required.";
         valid = false;
       }
@@ -632,7 +632,7 @@ const CreateTable = ({
             <p className="text-danger">{errors?.password}</p>
           )}
         </Form.Group>}
-        
+
         <div className="createGameCheckHand">
           <Form.Check
             inline
@@ -675,10 +675,10 @@ const GameTable = ({
   tableId,
 }) => {
   const { user } = useContext(UserContext);
-  const [verifyPassword,setVerifyPassword]=useState(false)
+  const [verifyPassword, setVerifyPassword] = useState(false)
   const history = useHistory();
   const redirectToTable = (table) => {
-    if(table?.password){
+    if (table?.password) {
       setVerifyPassword(true)
       return
     }
@@ -726,31 +726,31 @@ const GameTable = ({
     });
   }, []);
 
-  const joinTournament = async (tournamentId, fees) => {
-    socket.emit("joinTournament", {
-      tournamentId: tournamentId,
-      userId: userId,
-      fees,
-    });
-    setTimeout(() => {
-      getTournamentDetails();
-    }, 1000);
-  };
+  // const joinTournament = async (tournamentId, fees) => {
+  //   socket.emit("joinTournament", {
+  //     tournamentId: tournamentId,
+  //     userId: userId,
+  //     fees,
+  //   });
+  //   setTimeout(() => {
+  //     getTournamentDetails();
+  //   }, 1000);
+  // };
 
-  const enterRoom = async (tournamentId) => {
-    const res = await tournamentInstance().post("/enterroom", {
-      tournamentId: tournamentId,
-    });
-    if (res.data.code === 200) {
-      let roomid = res.data.roomId;
-      history.push({
-        pathname: "/table",
-        search: "?gamecollection=poker&tableid=" + roomid,
-      });
-    } else {
+  // const enterRoom = async (tournamentId) => {
+  //   const res = await tournamentInstance().post("/enterroom", {
+  //     tournamentId: tournamentId,
+  //   });
+  //   if (res.data.code === 200) {
+  //     let roomid = res.data.roomId;
+  //     history.push({
+  //       pathname: "/table",
+  //       search: "?gamecollection=poker&tableid=" + roomid,
+  //     });
+  //   } else {
       // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
-    }
-  };
+  //   }
+  // };
 
   const getTime = (time) => {
     let d = new Date(time);
@@ -765,39 +765,39 @@ const GameTable = ({
   };
 
   const [cardFlip, setCardFlip] = useState(false);
-  const [dateState, setDateState] = useState();
-  const handleFlip = (tDate) => {
-    setCardFlip(!cardFlip);
-    countDownData(tDate);
-  };
-  const countDownData = (tDate) => {
-    var x = setInterval(() => {
-      let countDownDate = new Date(tDate).getTime();
-      var now = new Date().getTime();
-      var distance = countDownDate - now;
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      setDateState({
-        days,
-        hours,
-        minutes,
-        seconds,
-      });
-      if (distance < 0) {
-        clearInterval(x);
-        setDateState({
-          days: "0",
-          hours: "0",
-          minutes: "0",
-          seconds: "0",
-        });
-      }
-    }, 1000);
-  };
+  // const [dateState, setDateState] = useState();
+  // const handleFlip = (tDate) => {
+  //   setCardFlip(!cardFlip);
+  //   countDownData(tDate);
+  // };
+  // const countDownData = (tDate) => {
+  //   var x = setInterval(() => {
+  //     let countDownDate = new Date(tDate).getTime();
+  //     var now = new Date().getTime();
+  //     var distance = countDownDate - now;
+  //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //     var hours = Math.floor(
+  //       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //     );
+  //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  //     setDateState({
+  //       days,
+  //       hours,
+  //       minutes,
+  //       seconds,
+  //     });
+  //     if (distance < 0) {
+  //       clearInterval(x);
+  //       setDateState({
+  //         days: "0",
+  //         hours: "0",
+  //         minutes: "0",
+  //         seconds: "0",
+  //       });
+  //     }
+  //   }, 1000);
+  // };
 
   const wrapperRef = useRef();
 
@@ -816,63 +816,118 @@ const GameTable = ({
   };
   useOutsideAlerter(wrapperRef);
 
-  const ifUserJoind = () => {
-    let getData = data?.rooms?.find((el) =>
-      el?.players?.find((el) => el?.userid === userId)
-    );
-    return getData;
-  };
+  // const ifUserJoind = () => {
+  //   let getData = data?.rooms?.find((el) =>
+  //     el?.players?.find((el) => el?.userid === userId)
+  //   );
+  //   return getData;
+  // };
   return (
     <>
-      <div className="tournamentCard" ref={wrapperRef}>
-        {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null}
+      <div className="tournamentCard" ref={wrapperRef} >
+        {/* {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null} */}
         <div
           className={`tournamentCard-inner
          ${cardFlip && gameType === "Poker" ? "rotate" : ""}
          `}
         >
-          <VerifyPasswordPopup verifyPassword={verifyPassword} userId={userId} tableId={tableId} setVerifyPassword={setVerifyPassword}/>
+          <VerifyPasswordPopup verifyPassword={verifyPassword} userId={userId} tableId={tableId} setVerifyPassword={setVerifyPassword} />
           {!cardFlip && gameType === "Poker" ? (
-            <div className="tournamentCard-front">
-              <img src={casino} alt="" style={{ widows: "170px", height: '170px' }} />
-              <div className="tournamentFront-info">
-                <h4>{gameType === "Poker" ? data?.gameName : data.name}</h4>
-                {gameType === "Poker" && user ? (
-                  <button onClick={()=>redirectToTable(data)} type="submit" disabled={user ? false : true}>
-                    Join Game
-                  </button>
-                ) : user ? (
-                  <div className="btn-grid">
-                    {" "}
-                    {!data?.isFinished ? (
-                      <button
-                        disabled={ifUserJoind()}
-                        onClick={() =>
-                          joinTournament(data?._id, data?.tournamentFee)
-                        }
-                        type="submit"
-                      >
-                        Join Game
-                      </button>
-                    ) : null}
-                    {ifUserJoind() && !data?.isFinished ? (
-                      <button
-                        onClick={() => enterRoom(data?._id)}
-                        type="submit"
-                      >
-                        Enter Game
-                      </button>
-                    ) : null}
-                    {data?.isFinished && (
-                      <div className="tournamentRanking">
-                        <h6>Tournament Finished</h6>
-                        <Button>Check Ranking</Button>
-                      </div>
-                    )}
+            <>
+              <div className="pokerTournament-tableCard">
+                <div className="tableCard-imgDetail">
+                  <img src={casino} className="tournamentImg" alt="" />
+                  <div className="tournamentCard-nameDetail">
+                    <h6>{getTime(data?.createdAt)}</h6>
+                    <h2>{gameType === "Poker" ? data?.gameName : data.name}</h2>
+                    <p>
+                      people joined :{" "}
+                      <span>
+                        {(gameType === "Tournament"
+                          ? data?.rooms?.filter((el) => el?.players)[0]?.players
+                            ?.length || 0
+                          : data?.players?.length) || 0}
+                      </span>
+                    </p>
                   </div>
-                ) : null}
+                </div>
+                <div className="tournamentCard-extraDetail">
+                  <div className="cardTournament-Fee">
+                    <p>SB/BB</p>
+                    <div className="extraDetail-container">
+                      <FaCoins
+                      />
+                      {data?.smallBlind}{"/"}{data?.bigBlind}
+                    </div>
+                  </div>
+                  <div className="cardTournament-Fee">
+                    <p>Table Type</p>
+                    <div className="extraDetail-container">
+                      <FaUser />
+                      {data.password ? "Private" : "Public"}
+                    </div>
+                  </div>
+
+                </div>
+                <div className="tournamentCard-buttonDetail">
+                  {gameType === "Poker" && user ? (<Button onClick={() => redirectToTable(data)} type="submit" disabled={user ? false : true}>join game</Button>) : ""}
+                </div>
               </div>
-            </div>
+
+              {/* <div className="tournamentCard-front">
+                <img className="cardlogo" src={casino} alt="" style={{ widows: "170px", height: '95px' }} />
+                <div className="tournamentFront-info">
+                  <h4 className="tableName">{gameType === "Poker" ? data?.gameName : data.name}</h4>
+
+                  <h4>Created At: <span>{getTime(data?.createdAt)}</span></h4>
+                  <h4>
+                    people joined :{" "}
+                    <span>
+                      {(gameType === "Tournament"
+                        ? data?.rooms?.filter((el) => el?.players)[0]?.players
+                          ?.length || 0
+                        : data?.players?.length) || 0}
+                    </span>
+                  </h4>
+                  <h4>SB/BB : <span>{data?.smallBlind}{"/"}{data?.bigBlind}</span></h4>
+                  <h4>Table Type: <span>{data.password ? "Private" : "Public"}</span></h4>
+                  {gameType === "Poker" && user ? (
+                    <button onClick={() => redirectToTable(data)} type="submit" disabled={user ? false : true}>
+                      Join Game
+                    </button>
+                  ) : user ? (
+                    <div className="btn-grid">
+                      {" "}
+                      {!data?.isFinished ? (
+                        <button
+                          disabled={ifUserJoind()}
+                          onClick={() =>
+                            joinTournament(data?._id, data?.tournamentFee)
+                          }
+                          type="submit"
+                        >
+                          Join Game
+                        </button>
+                      ) : null}
+                      {ifUserJoind() && !data?.isFinished ? (
+                        <button
+                          onClick={() => enterRoom(data?._id)}
+                          type="submit"
+                        >
+                          Enter Game
+                        </button>
+                      ) : null}
+                      {data?.isFinished && (
+                        <div className="tournamentRanking">
+                          <h6>Tournament Finished</h6>
+                          <Button>Check Ranking</Button>
+                        </div>
+                      )}
+                    </div>
+                  ) : null}
+                </div>
+              </div> */}
+            </>
           ) : (
             <div className="tournamentCard-back" style={{ height: height }}>
               {gameType === "Poker" ? (
@@ -892,7 +947,7 @@ const GameTable = ({
                 </span>
               </h4>
               <h4>SB/BB : <span>{data?.smallBlind}{"/"}{data?.bigBlind}</span></h4>
-              <h4>Table Type: <span>{data.password?"Private":"Public"}</span></h4>
+              <h4>Table Type: <span>{data.password ? "Private" : "Public"}</span></h4>
               {gameType === "Tournament" ? (
                 <h4>
                   Fee : <span>{data?.tournamentFee}</span>
@@ -909,7 +964,7 @@ const GameTable = ({
               )}
               {gameType === "Tournament" ? (
                 <>
-                  <div id="clockdiv">
+                  {/* <div id="clockdiv">
                     <h4>
                       Days
                       <span class="days">{dateState?.days || "0"}</span>
@@ -928,7 +983,7 @@ const GameTable = ({
                       Seconds
                       <span class="seconds">{dateState?.seconds || "0"}</span>
                     </h4>
-                  </div>
+                  </div> */}
                 </>
               ) : (
                 ""
@@ -954,27 +1009,27 @@ const GameTable = ({
 
 //   useEffect(() => {
 //     socket.on("alreadyInTournament", (data) => {
-//       const { message, code } = data;
+//       const {message, code} = data;
 //       if (code === 200) {
 //         if (data?.user && Object.keys(data?.user)?.length > 0) {
 //           setUserData(data?.user);
 //         }
-//         toast.success(message, { id: "Nofull" });
+//         toast.success(message, {id: "Nofull" });
 //       } else {
-//         toast.error(message, { id: "full" });
+//         toast.error(message, {id: "full" });
 //       }
 //     });
 //     socket.on("notEnoughAmount", (data) => {
-//       const { message, code } = data;
+//       const {message, code} = data;
 //       if (code === 200) {
-//         toast.success(message, { id: "Nofull" });
+//         toast.success(message, {id: "Nofull" });
 //       } else {
-//         toast.error(message, { id: "full" });
+//         toast.error(message, {id: "full" });
 //       }
 //     });
 
 //     socket.on("tournamentSlotFull", (data) => {
-//       toast.error('Tournament slot is full', { id: 'slot-full' });
+//       toast.error('Tournament slot is full', {id: 'slot-full' });
 //     })
 //   }, []);
 
@@ -1000,7 +1055,7 @@ const GameTable = ({
 //         search: "?gamecollection=poker&tableid=" + roomid,
 //       });
 //     } else {
-//       // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
+//       // toast.error(toast.success(res.data.msg, {containerId: 'B' }))
 //     }
 //   };
 //   const handleFlip = (tournamentId) => {
@@ -1013,7 +1068,7 @@ const GameTable = ({
 
 //     return getData;
 //   };
-//   // var startDateTime = new Date(data?.tournamentDate).toLocaleString(undefined, { timeZone: 'Asia/Kolkata' });
+//   // var startDateTime = new Date(data?.tournamentDate).toLocaleString(undefined, {timeZone: 'Asia/Kolkata' });
 
 //   return (
 //     <>
@@ -1060,6 +1115,7 @@ const GameTable = ({
 //     </>
 //   );
 // };
+
 const AvatarGroup = ({ imgArr }) => {
   return (
     <div className="poker-avatar-box">
