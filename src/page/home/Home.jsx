@@ -14,7 +14,7 @@ import casino from "../../assets/game/logo.png";
 import { pokerInstance, tournamentInstance } from "../../utils/axios.config";
 import Homesvg from "../../assets/home.svg";
 // import axios from "axios";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 //import Select from "react-select";
 import { useMemo } from "react";
 import { FaInfoCircle, /* FaUser, FaTrophy, FaCoins */ } from "react-icons/fa";

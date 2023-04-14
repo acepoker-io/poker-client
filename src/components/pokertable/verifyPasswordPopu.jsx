@@ -5,7 +5,7 @@ import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import { pokerInstance } from "../../utils/axios.config";
 import { socket } from "../../config/socketConnection";
 import { useHistory } from "react-router-dom";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 const VerifyPasswordPopup = ({
   verifyPassword,
   userId,
@@ -41,6 +41,7 @@ const VerifyPasswordPopup = ({
     });
       }
     }catch(err){
+      console.log("Error--->",err?.response)
       setLoading(false)
       toast.error(err?.response?.data?.message || "Internal server error", { id: "create-table-error" });
     }
