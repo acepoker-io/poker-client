@@ -136,6 +136,12 @@ const Home = () => {
       err.gameName = "Game name is required.";
       valid = false;
     }
+    if (gameState.public) {
+      if(gameState.password===''){
+        err.password = "Password is required.";
+        valid = false;
+      }
+    }
     if (!userData?.wallet || gameState.minchips > userData?.wallet) {
       err.minchips = "You don't have enough balance in your wallet.";
       valid = false;

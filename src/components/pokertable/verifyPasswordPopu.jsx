@@ -18,6 +18,9 @@ const VerifyPasswordPopup = ({
   const [error, setError] = useState("");
   const joinGame = async (e) => {
     e.preventDefault();
+    if(password==='' || !password){
+      setError("Please enter password")
+    }
     try{
       setLoading(true)
       const res=await pokerInstance().post('/verifyPrivateTable',{tableId,password})
