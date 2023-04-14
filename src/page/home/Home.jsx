@@ -26,7 +26,8 @@ import { landingClient } from "../../config/keys";
 import UserContext from "../../context/UserContext";
 import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
-// import CONSTANTS from "../../config/contants";
+import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
+ //import CONSTANTS from "../../config/contants";
 // import { getCookie } from "../../utils/cookieUtil";
 // import feeIcon from "../../assets/images/feeIcon.png"
 // import ranking from "../../assets/images/ranking.png"
@@ -59,19 +60,20 @@ const Home = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [showSpinner, setShowSpinner] = useState(false);
   // utils function
-  // const checkUserInGame = async () => {
-  //   let userData = await axios({
-  //     method: "get",
-  //     url: `${CONSTANTS.landingServerUrl}/users/checkUserInGame`,
-  //     headers: { authorization: `Bearer ${getCookie("token")}` },
-  //   });
-  //   if (userData?.data) {
-  //     setUserInAnyGame(userData.data)
-  //   }
-  // }
-  // useEffect(() => {
-  //   checkUserInGame()
-  // }, [])
+  const checkUserInGame = async () => {
+    try{
+      let userData=await pokerInstance().get('checkUserInGame')
+      if (userData?.data) {
+        setUserInAnyGame(userData.data)
+      }
+    }catch(err){
+    toast.error("Internal server error",{toastId:"checkInGame"})
+    }
+    
+  }
+  useEffect(() => {
+    checkUserInGame()
+  }, [])
   const handleShow = () => {
     setShow(!show);
     setGameState({ ...gameInit });
@@ -628,7 +630,7 @@ const CreateTable = ({
         <div className="createGameCheckHand">
           <Form.Check
             inline
-            label="Private Game"
+            label="Create Password"
             name="public"
             type="checkbox"
             id={"public"}
@@ -666,10 +668,14 @@ const GameTable = ({
   setUserData,
   tableId,
 }) => {
-
   const { user } = useContext(UserContext);
+  const [verifyPassword,setVerifyPassword]=useState(false)
   const history = useHistory();
-  const redirectToTable = () => {
+  const redirectToTable = (table) => {
+    if(table?.password){
+      setVerifyPassword(true)
+      return
+    }
     socket.emit("checkAlreadyInGame", { userId, tableId });
     socket.on("userAlreadyInGame", (value) => {
       const { message, join } = value;
@@ -819,13 +825,14 @@ const GameTable = ({
          ${cardFlip && gameType === "Poker" ? "rotate" : ""}
          `}
         >
+          <VerifyPasswordPopup verifyPassword={verifyPassword} userId={userId} tableId={tableId} setVerifyPassword={setVerifyPassword}/>
           {!cardFlip && gameType === "Poker" ? (
             <div className="tournamentCard-front">
               <img src={casino} alt="" style={{ widows: "170px", height: '170px' }} />
               <div className="tournamentFront-info">
                 <h4>{gameType === "Poker" ? data?.gameName : data.name}</h4>
                 {gameType === "Poker" && user ? (
-                  <button onClick={redirectToTable} type="submit" disabled={user ? false : true}>
+                  <button onClick={()=>redirectToTable(data)} type="submit" disabled={user ? false : true}>
                     Join Game
                   </button>
                 ) : user ? (
@@ -879,6 +886,7 @@ const GameTable = ({
                 </span>
               </h4>
               <h4>SB/BB : <span>{data?.smallBlind}{"/"}{data?.bigBlind}</span></h4>
+              <h4>Table Type: <span>{data.password?"Private":"Public"}</span></h4>
               {gameType === "Tournament" ? (
                 <h4>
                   Fee : <span>{data?.tournamentFee}</span>
