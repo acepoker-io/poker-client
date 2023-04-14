@@ -6,7 +6,7 @@ import './bet.css';
 import { socket } from '../../config/socketConnection';
 // import firebase from '../../config/firebase';
 import logo from '../../assets/chat/logocoin.png';
-import toast from 'react-hot-toast';
+import {toast} from 'react-toastify';
 
 const Bet = ({
   view,

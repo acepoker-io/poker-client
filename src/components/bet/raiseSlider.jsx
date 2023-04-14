@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputRange from "react-input-range";
 import { Form, Button } from "react-bootstrap";
-import toast from "react-hot-toast";
+import {toast} from 'react-toastify';
 import numFormatter from "../../utils/utils";
 
 const RaiseSlider = ({ currentPlayer, SliderAction, roomData, remainingTime }) => {

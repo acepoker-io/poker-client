@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
 import { Button, Form, Spinner } from "react-bootstrap";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import "animate.css";
 import "react-circular-progressbar/dist/styles.css";
 import front from "../../assets/game/Black-Card.png";

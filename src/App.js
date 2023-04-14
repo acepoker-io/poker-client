@@ -36,7 +36,6 @@ const App = () => {
   }, []);
 
   console.log("user ==>", user);
-
   return (
     <div className="App">
       <UserContext.Provider
@@ -69,7 +68,6 @@ const App = () => {
             </Route>
           </Switch>
         </Router>
-
         <ToastContainer />
       </UserContext.Provider>
       <div className="abc">

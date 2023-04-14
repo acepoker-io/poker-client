@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import toast from 'react-hot-toast';
+import { toast } from "react-toastify";
 import Select from 'react-select';
 import { socket } from '../../config/socketConnection';
 import contants from '../../config/contants';
