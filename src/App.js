@@ -9,8 +9,8 @@ import {
 import PokerTable from "./components/pokertable/table";
 import "animate.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./page/home/Home";
 import UserContext from "./context/UserContext";
 import LeaderBoard from "./page/home/leaderBoard";
@@ -38,32 +38,33 @@ const App = () => {
   console.log("user ==>", user);
 
   return (
-    <div className='App'>
+    <div className="App">
       <UserContext.Provider
         value={{
           userInAnyGame,
           setUserInAnyGame,
           user,
           setUser,
-        }}>
+        }}
+      >
         <Router>
           <Switch>
-            <Route exact path='/'>
+            <Route exact path="/">
               <Home />
             </Route>
-            <Route exact path='/register'>
+            <Route exact path="/register">
               <CreateAccount />
             </Route>
-            <Route exact path='/login'>
+            <Route exact path="/login">
               <Login />
             </Route>
-            <Route exact path='/leaderboard'>
+            <Route exact path="/leaderboard">
               <LeaderBoard />
             </Route>
-            <Route exact path='/table'>
+            <Route exact path="/table">
               <PokerTable />
             </Route>
-            <Route path='*'>
+            <Route path="*">
               <Error404 />
             </Route>
           </Switch>
@@ -71,15 +72,15 @@ const App = () => {
 
         <ToastContainer />
       </UserContext.Provider>
-      {/* <div className='abc'>
-        <Toaster
-          position='top-right'
+      <div className="abc">
+        <ToastContainer
+          position="top-right"
           reverseOrder={false}
           toastOptions={{
-            className: 'custom-toast',
+            className: "custom-toast",
           }}
         />
-      </div> */}
+      </div>
     </div>
   );
 };

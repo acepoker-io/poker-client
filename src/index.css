@@ -6,6 +6,7 @@
 [data-bs-theme=light] {
   --bs-pink: #d52839;
   --bs-red: #dc3545;
+  --bs-body: #f8f8f8;
   --bs-yellow: #ffc107;
   --bs-green: #198754;
   --bs-teal: #20c997;
@@ -24,7 +25,7 @@ body {
   margin: 0;
   padding: 0;
   color: #000000 !important;
-  background: #fff !important;
+  background: #f8f8f8 !important;
 }
 
 @media screen and (max-width: 1920px) {
