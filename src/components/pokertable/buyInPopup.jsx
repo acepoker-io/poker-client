@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import toast from 'react-hot-toast';
+import { toast } from "react-toastify";
 import StripePayment from '../stripe/stripe';
 import { socket } from '../../config/socketConnection';
 
