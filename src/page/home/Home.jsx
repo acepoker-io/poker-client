@@ -10,28 +10,20 @@ import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
 import casino from "../../assets/game/logo.png";
-//import casino1 from "../../assets/game/logo-poker.png";
 import { pokerInstance } from "../../utils/axios.config";
-import Homesvg from "../../assets/home.svg";
-// import axios from "axios";
 import { toast } from "react-toastify";
-//import Select from "react-select";
 import { useMemo } from "react";
-import { FaCoins, FaUser,} from "react-icons/fa";
+import { FaCoins, FaUser, } from "react-icons/fa";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { socket } from "../../config/socketConnection";
 import axios from "axios";
-import { landingClient } from "../../config/keys";
 import UserContext from "../../context/UserContext";
 import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
-//import CONSTANTS from "../../config/contants";
-// import { getCookie } from "../../utils/cookieUtil";
-// import feeIcon from "../../assets/images/feeIcon.png"
-// import ranking from "../../assets/images/ranking.png"
-// import { dateFormat, timeFormat } from "../../utils/utils";//, getTime
+import Footer from "./footer";
+
 let userId;
 const Home = () => {
   // inital state
@@ -352,12 +344,7 @@ const Home = () => {
       <div className="home-poker-card">
         <div className="container">
           <div className="poker-table-header">
-            <div className="backtoHome">
-              <a href={landingClient}>
-                <img src={Homesvg} alt="home" />
-                Home
-              </a>
-            </div>
+            <h2 className="lobbyHeader-title">Open Tables</h2>
 
             <div className="poker-tableSearch-box">
               <div className="poker-tableSearch">
@@ -380,7 +367,7 @@ const Home = () => {
               onSelect={(k) => setKey(k)}
               className="mb-3"
             >
-              <Tab eventKey="home" title="Poker Open Tables">
+              <Tab eventKey="home" title="">
                 {filterRoom.length > 0 ? (
                   <>
                     <div className="home-poker-card-grid">
@@ -441,6 +428,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
@@ -748,7 +736,7 @@ const GameTable = ({
   //       search: "?gamecollection=poker&tableid=" + roomid,
   //     });
   //   } else {
-      // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
+  // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
   //   }
   // };
 

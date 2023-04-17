@@ -1,5 +1,8 @@
 @import "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+
 
 
 :root,
@@ -21,15 +24,18 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   color: #000000 !important;
-  background: #f8f8f8 !important;
+  background: url("./assets/new/half-bg.jpg") rgba(162, 162, 162, 0.712);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: darken;
 }
 
 @media screen and (max-width: 1920px) {
-
   .container,
   .container-lg,
   .container-md,
