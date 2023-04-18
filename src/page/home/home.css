@@ -421,7 +421,7 @@ input[type='number'] {
   border-radius: 30px;
   font-size: 14px;
   height: 42px;
-  box-shadow: 0px 0px 10px #808080c4;
+  box-shadow: 0px 0px 10px #000424b0;
 }
 
 .poker-table-header .form-control:active,
@@ -486,7 +486,7 @@ input[type='number'] {
   border: 1px solid #ddd;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 0px 0px 10px #808080c4;
+  box-shadow: 0px 0px 10px #000527a3;
 }
 
 h2.lobbyHeader-title {
@@ -1113,8 +1113,8 @@ a.nav-link.active {
 /* footer */
 .footer-section {
   width: 100%;
-  border-top: 1px solid #dddddd6b;
-  padding: 20px 30px;
+  border-top: 1px solid #4d3c73;
+  padding: 20px 0px;
   color: #fff;
 }
 
