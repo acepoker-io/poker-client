@@ -54,6 +54,7 @@
 .home-poker-card {
   margin-bottom: 80px;
   position: relative;
+  min-height: calc(100vh - 510px);
 }
 
 .home-poker-card h3 {
@@ -115,6 +116,7 @@
   font-size: 14px;
   margin: 0px;
   line-height: 0px;
+  white-space: nowrap;
 }
 
 .backtoHome {
@@ -409,7 +411,9 @@ input[type='number'] {
   margin-bottom: 6px;
 }
 
-.poker-table-header .form-control {
+.poker-table-header .form-control,
+.poker-table-header .form-control:active,
+.poker-table-header .form-control:focus {
   display: block;
   width: 100%;
   padding: 6px 22px;
@@ -421,12 +425,7 @@ input[type='number'] {
   border-radius: 30px;
   font-size: 14px;
   height: 42px;
-  box-shadow: 0px 0px 10px #000424b0;
-}
-
-.poker-table-header .form-control:active,
-.poker-table-header .form-control:focus {
-  box-shadow: none !important;
+  box-shadow: 0px 0px 10px #0004246b;
 }
 
 .poker-tableSearch button {
@@ -1174,11 +1173,14 @@ a.nav-link.active {
   display: flex;
   gap: 8px;
   align-items: center;
-  margin: 4px 0px;
+  margin: 2px 0px;
 }
 
 .footer-links ul {
   padding-left: 0px;
+}
+.footer-links {
+  margin-top: 90px;
 }
 
 @media screen and (max-width: 1024px) {
@@ -1299,6 +1301,7 @@ a.nav-link.active {
   }
 
   .footer-links {
+    margin-top: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1370,7 +1373,7 @@ a.nav-link.active {
 
   h2.lobbyHeader-title {
     color: #fff;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
   }
 }
