@@ -7,7 +7,7 @@ import { Button, OverlayTrigger } from "react-bootstrap";
 import { Tooltip } from "react-bootstrap";
 import logo from "../../assets/game/logo.png";
 import { FaQuestionCircle } from "react-icons/fa";
-import { landingClient } from '../../config/keys';
+// import { landingClient } from '../../config/keys';
 // import { ethers } from "ethers";
 import { toast } from 'react-toastify';
 import { authInstance } from '../../utils/axios.config';
@@ -98,9 +98,7 @@ const Header = ({ userData, handleShow }) => {
             <div className="container">
                 <div className="user-header-grid">
                     <div className="casino-logo">
-                        <a href={landingClient}>
-                            <img src={logo} alt="" />
-                        </a>
+                        <a href="https://wptpoker.io/"><img src={logo} alt="" /></a>
                     </div>
                     <div className="create-game-box">
                         {user ? <>
