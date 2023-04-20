@@ -2,9 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
-
-
-
 :root,
 [data-bs-theme=light] {
   --bs-pink: #d52839;
@@ -33,6 +30,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: darken;
+  min-height: 100vh;
 }
 
 @media screen and (max-width: 1920px) {
