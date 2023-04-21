@@ -2550,7 +2550,7 @@ const FooterButton = ({
                           : "callBtn-amount-none"
                       }
                     >
-                      (  {numFormatter(roomData?.raiseAmount - currentPlayer?.pot)})
+                      ({numFormatter(roomData?.raiseAmount - currentPlayer?.pot)})
                     </span>
                   </Button>
                 </div>
