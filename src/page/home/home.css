@@ -1194,7 +1194,7 @@ a.nav-link.active {
 }
 
 .footer-links li a:hover {
-  color: #6693be;
+  text-decoration: underline #166da7;
 }
 
 .footer-links ul {
