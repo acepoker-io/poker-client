@@ -104,7 +104,10 @@
   color: #bcbcbc;
   font-size: 14px;
 }
-
+.pokerWallet-box {
+  display: flex;
+  flex-direction: row;
+}
 .create-game-box button {
   padding: 8px 20px;
   background: #dc3545;
@@ -117,6 +120,10 @@
   margin: 0px;
   line-height: 0px;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .backtoHome {
@@ -150,7 +157,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 }
 
 .create-game-box a {
@@ -1166,6 +1173,8 @@ a.nav-link.active {
 .social-links li svg {
   fill: #354c9c;
   font-size: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 .footer-links li {
@@ -1176,9 +1185,22 @@ a.nav-link.active {
   margin: 2px 0px;
 }
 
+.footer-links h5 {
+  color: #6693be;
+}
+
+.footer-links li a {
+  color: #fff;
+}
+
+.footer-links li a:hover {
+  color: #6693be;
+}
+
 .footer-links ul {
   padding-left: 0px;
 }
+
 .footer-links {
   margin-top: 90px;
 }
