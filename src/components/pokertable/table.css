@@ -9300,23 +9300,13 @@ img.coinWinning-animation {
   }
 
   .show-card {
-    /* top: 14px; */
-    top: 22px;
-    padding-right: 16px;
-  }
-
-  .player2 .player-card,
-  .player3 .player-card,
-  .player4 .player-card,
-  .player5 .player-card {
-    left: 0%;
-    top: 16%;
+    top: 42px;
+    left: 50%;
   }
 
   .player-card {
-    /* top: 14px; */
-    top: 22px;
-    padding-right: 16px;
+    left: 50%;
+    top: 28%;
   }
 
   .show-card img,
@@ -9598,66 +9588,43 @@ img.coinWinning-animation {
   }
 
   .player1 {
-    bottom: 22px;
+    bottom: -5%;
     left: 50%;
-    transform: translateX(-90%);
   }
 
   .player2 {
-    bottom: 8%;
-    right: inherit;
-    transform: translateY(-10%);
-    left: -4%;
+    top: 62%;
+    left: 16%;
   }
 
   .player3 {
-    bottom: 28%;
-    transform: translateY(-32%);
-    left: -3%;
+    top: 38%;
+    left: 16%;
   }
 
   .player4 {
-    /* top: 35%; */
-    top: 26%;
-    transform: translateY(-35%);
-    left: 0%;
+    top: 15%;
+    left: 18%;
   }
 
   .player5 {
-    top: -5%;
-    left: 46%;
-    transform: translateY(-18%);
+    top: 2%;
+    left: 50%;
   }
 
-  /* .player6 {
-    top: -46px;
-    transform: translateX(-32%);
-  } */
-
   .player6 {
-    /* top: 10%; */
-    left: auto;
-    top: -2%;
-    transform: translateY(-18%);
-    right: 3%;
+    top: 15%;
+    left: 82%;
   }
 
   .player7 {
-    top: 19%;
-    left: 96%;
+    top: 38%;
+    left: 84%;
   }
 
   .player8 {
-    bottom: 28%;
-    transform: translateY(-32%);
-    right: -3%;
-  }
-
-  .player9 {
-    /* bottom: 8%; */
-    bottom: 8%;
-    transform: translateY(-10%);
-    right: -4%;
+    top: 62%;
+    left: 84%;
   }
 
   .player-badge {
