@@ -190,14 +190,12 @@ const PokerTable = (props) => {
     const tryReconnect = () => {
       setTimeout(() => {
         socket.io.open((err) => {
-          // console.log("Socket open");
           if (err) {
             console.log("reconnect err => ", err);
             tryReconnect();
           } else {
             let urlParams = new URLSearchParams(window.location.search);
             let table = urlParams.get("tableid");
-            // console.log({ table });
             let type =
               urlParams.get("gameCollection") ||
               urlParams.get("gamecollection");

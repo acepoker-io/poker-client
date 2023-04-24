@@ -5153,7 +5153,7 @@ img.coinWinning-animation {
 
   .footer-btn .callBtn-amount {
     color: #fff;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 500;
   }
 
@@ -5342,7 +5342,7 @@ img.coinWinning-animation {
   }
 
   .player-chip span {
-    font-size: 12px;
+    font-size: 14px;
     max-width: 78px;
     height: 26px;
   }
@@ -7445,9 +7445,6 @@ img.coinWinning-animation {
     top: -8%;
     left: 50%;
     animation: p1chip 0.4s;
-    max-width: 90px;
-    width: 100%;
-    height: 26px;
   }
 
   @keyframes p1chip {
@@ -9300,18 +9297,18 @@ img.coinWinning-animation {
   }
 
   .show-card {
-    top: 42px;
     left: 50%;
+    top: 40%;
   }
 
   .player-card {
     left: 50%;
-    top: 28%;
+    top: 40%;
   }
 
   .show-card img,
   .player-card img {
-    width: 50px;
+    width: 40px;
   }
 
   .roomDetails {
@@ -9382,6 +9379,16 @@ img.coinWinning-animation {
     max-width: 400px;
     margin: 0 auto;
     padding-top: 0;
+  }
+
+  .player-chip {
+    padding: 2px 4px;
+    height: 30px;
+    max-width: 75px;
+  }
+
+  .player-chip img {
+    width: 20px;
   }
 
   .poker-table-bg {
@@ -9559,7 +9566,7 @@ img.coinWinning-animation {
   .footer-btn .btn,
   .footer-btn .btn:hover,
   .footer-btn .btn:focus {
-    font-size: 11px;
+    font-size: 20px;
   }
 
   .play-pause-button {
@@ -9571,7 +9578,11 @@ img.coinWinning-animation {
     scale: 0.9;
   }
 
-  .player1 .player-info {}
+  .player-info {
+    width: 115px;
+    height: 50px;
+    top: 90%;
+  }
 
   .player1 .player-pic .progress {
     width: 118px !important;
@@ -9587,24 +9598,26 @@ img.coinWinning-animation {
     bottom: -22px !important;
   }
 
+
+
   .player1 {
-    bottom: -5%;
-    left: 50%;
+    bottom: -4%;
+    left: 49%;
   }
 
   .player2 {
     top: 62%;
-    left: 16%;
+    left: 13%;
   }
 
   .player3 {
     top: 38%;
-    left: 16%;
+    left: 13%;
   }
 
   .player4 {
     top: 15%;
-    left: 18%;
+    left: 16%;
   }
 
   .player5 {
@@ -9613,8 +9626,10 @@ img.coinWinning-animation {
   }
 
   .player6 {
+
     top: 15%;
-    left: 82%;
+    left: 83%;
+
   }
 
   .player7 {
@@ -9628,9 +9643,14 @@ img.coinWinning-animation {
   }
 
   .player-badge {
-    right: 0px;
-    top: 100px;
-    bottom: auto;
+    top: 70%;
+    left: 102%;
+  }
+
+  .player7 .player-badge,
+  .player8 .player-badge {
+    top: 72%;
+    left: -2%;
   }
 
   button.sign-in.btn.btn-primary {
@@ -9755,7 +9775,31 @@ img.coinWinning-animation {
     width: 63px;
   }
 
+  .pot-money {
+    grid-gap: 0px 5px;
+    gap: 0px 5px;
+    max-width: 150px;
+    top: 35%;
+    left: 50%;
+  }
+
   /* portrait chip animation */
+  .players.player1 .player-chip {
+    top: 18%;
+    animation: travelUpCenter 0.4s;
+  }
+
+  @keyframes travelUpCenter {
+    from {
+      top: 50%;
+      left: 50%;
+    }
+
+    to {
+      top: 18%;
+      left: 50%;
+    }
+  }
 
   .animateMerge-chips.players.player1 .player-chip {
     animation: mergeP1 0.4s;
@@ -9763,12 +9807,12 @@ img.coinWinning-animation {
 
   @keyframes mergeP1 {
     from {
-      top: -12%;
+      top: 18%;
       opacity: 1;
     }
 
     to {
-      top: -299%;
+      top: -205%;
       opacity: 0;
     }
   }
@@ -9779,22 +9823,42 @@ img.coinWinning-animation {
 
   @keyframes mergeP2 {
     from {
-      top: -12%;
-      left: 0%;
+      top: 35%;
+      left: 88%;
       opacity: 1;
     }
 
     to {
-      top: -284%;
+      top: -110%;
       left: 146%;
       opacity: 0;
     }
   }
 
+  .players.player2 .player-chip {
+    top: 35%;
+    left: 88%;
+    transform: inherit;
+    animation: travelUp 0.4s;
+  }
+
+  @keyframes travelUp {
+    from {
+      top: 50%;
+      left: 50%;
+      transform: inherit;
+    }
+
+    to {
+      top: 35%;
+      left: 88%;
+      transform: inherit;
+    }
+  }
+
   .players.player3 .player-chip {
-    top: 86%;
-    left: 84%;
-    right: inherit;
+    top: 46%;
+    left: 120%;
     animation: slideLeft3 0.4s;
   }
 
@@ -9804,38 +9868,35 @@ img.coinWinning-animation {
 
   @keyframes mergeP3 {
     from {
-      top: 86%;
-      left: 84%;
-      right: inherit;
+      top: 46%;
+      left: 120%;
       opacity: 1;
     }
 
     to {
-      top: -146%;
-      left: 140%;
+      top: 22%;
+      left: 180%;
       opacity: 0;
     }
   }
 
   @keyframes slideLeft3 {
     from {
-      top: 100%;
-      left: -3%;
-      right: inherit;
+      top: 50%;
+      left: 50%;
     }
 
     to {
-      top: 86%;
-      left: 84%;
-      right: inherit;
+      top: 46%;
+      left: 120%;
     }
   }
 
   .players.player4 .player-chip {
     bottom: inherit;
     right: inherit;
-    left: 84%;
-    top: 82%;
+    left: 115%;
+    top: 105%;
     animation: slideLeft4 0.4s;
   }
 
@@ -9845,39 +9906,34 @@ img.coinWinning-animation {
 
   @keyframes mergeP4 {
     from {
-      left: 84%;
-      top: 82%;
+      left: 115%;
+      top: 105%;
       opacity: 1;
     }
 
     to {
-      left: 133%;
-      top: 3%;
+      left: 168%;
+      top: 140%;
       opacity: 0;
     }
   }
 
   @keyframes slideLeft4 {
     from {
-      left: 2%;
-      top: 98%;
-      bottom: inherit;
-      right: inherit;
+      left: 50%;
+      top: 50%;
     }
 
     to {
-      left: 84%;
-      top: 82%;
-      bottom: inherit;
-      right: inherit;
+      left: 115%;
+      top: 105%;
     }
   }
 
   .players.player5 .player-chip {
     bottom: inherit;
-    left: 85%;
+    left: 50%;
     top: 118%;
-    transform: translateY(-25%);
     animation: travelDown 0.4s;
   }
 
@@ -9887,26 +9943,26 @@ img.coinWinning-animation {
 
   @keyframes travelDown {
     0% {
-      left: 0%;
-      top: 103%;
+      left: 50%;
+      top: 50%;
     }
 
     100% {
-      left: 85%;
+      left: 50%;
       top: 118%;
     }
   }
 
   @keyframes mergeP5 {
     from {
-      left: 85%;
+      left: 50%;
       top: 118%;
       opacity: 1;
     }
 
     to {
-      left: 117%;
-      top: 146%;
+      left: 45%;
+      top: 208%;
       opacity: 0;
     }
   }
@@ -9928,11 +9984,8 @@ img.coinWinning-animation {
   } */
 
   .players.player6 .player-chip {
-    bottom: inherit;
-    left: inherit;
-    right: 85%;
-    top: 118%;
-    transform: translateY(-25%);
+    left: -23%;
+    top: 105%;
     animation: p6right 0.4s;
   }
 
@@ -9942,154 +9995,104 @@ img.coinWinning-animation {
 
   @keyframes p6right {
     from {
-      right: 0%;
-      top: 103%;
+      left: 50%;
+      top: 50%;
     }
 
     to {
-      right: 85%;
-      top: 118%;
+      left: -23%;
+      top: 105%;
     }
   }
 
   @keyframes mergeP7 {
     from {
-      right: 85%;
-      top: 118%;
-      left: inherit;
+      left: -23%;
+      top: 105%;
       opacity: 1;
     }
 
     to {
-      right: 125%;
-      top: 147%;
+      left: -75%;
+      top: 140%;
       opacity: 0;
     }
   }
 
   .players.player7 .player-chip {
-    top: 86%;
-    right: 84%;
-    bottom: inherit;
-    left: inherit;
-    animation: slideRight8 0.4s;
+    top: 46%;
+    left: -20%;
+    animation: slideRight7 0.4s;
   }
 
   .animateMerge-chips.players.player7 .player-chip {
-    animation: mergeP8 0.4s;
+    animation: mergeP7 0.4s;
   }
 
-  @keyframes mergeP8 {
+  @keyframes mergeP7 {
     from {
-      top: 86%;
-      right: 84%;
+      top: 46%;
+      left: -20%;
       opacity: 1;
     }
 
     to {
-      top: 8%;
-      left: -146%;
+      top: 22%;
+      left: -76%;
       opacity: 0;
     }
   }
 
-  @keyframes slideRight8 {
+  @keyframes slideRight7 {
     from {
-      top: 104%;
-      right: 0%;
+      top: 50%;
+      left: 50%;
     }
 
     to {
-      top: 86%;
-      right: 84%;
+      top: 46%;
+      left: -20%;
     }
   }
 
   .players.player8 .player-chip {
-    left: inherit;
-    top: 86%;
-    right: 84%;
+    left: -20%;
+    top: 45%;
     animation: slideLeft8 0.4s;
   }
 
   .animateMerge-chips.players.player8 .player-chip {
-    animation: mergeP9 0.4s;
+    animation: mergeP8 0.4s;
   }
 
   @keyframes slideLeft8 {
     from {
-      top: 97%;
-      right: 0%;
+      left: 50%;
+      top: 50%;
 
     }
 
     to {
-      top: 86%;
-      right: 84%;
+      left: -20%;
+      top: 45%;
     }
   }
 
 
-  @keyframes mergeP9 {
+  @keyframes mergeP8 {
     from {
-      top: 86%;
-      right: 84%;
+      left: -20%;
+      top: 45%;
       opacity: 1;
     }
 
     to {
-      top: -145%;
-      left: -146%;
+      left: -70%;
+      top: -100%;
       opacity: 0;
     }
   }
 
-  .players.player2 .player-chip {
-    top: 12%;
-    left: 80%;
-    transform: inherit;
-    animation: travelUp 0.4s;
-  }
-
-  .players.player9 .player-chip {
-    left: inherit;
-    top: 12%;
-    right: 76%;
-    transform: inherit;
-    animation: travelUp 0.4s;
-  }
-
-  .animateMerge-chips.players.player9 .player-chip {
-    animation: mergeP10 0.4s;
-  }
-
-  @keyframes mergeP10 {
-    from {
-      top: 12%;
-      right: 76%;
-      opacity: 1;
-    }
-
-    to {
-      left: -150%;
-      top: -284%;
-      opacity: 0;
-    }
-  }
-
-  @keyframes travelUp {
-    from {
-      top: 98%;
-      right: 0%;
-      transform: inherit;
-    }
-
-    to {
-      top: 12%;
-      right: 76%;
-      transform: inherit;
-    }
-  }
 
   .start-game-btn .footer-btn {
     width: 110px;
@@ -10392,53 +10395,53 @@ img.coinWinning-animation {
 }
 
 @media only screen and (max-width: 385px) and (orientation: portrait) {
-  .players {
-    scale: 0.75;
-  }
-
-  .total-pot-money {
-    top: 135px;
-    left: 36%;
-  }
-
-  .table-blindTimer {
-    position: absolute;
-    right: -9%;
-    bottom: 27%;
+  .table-card {
+    top: 56%;
   }
 
   .table-blindLevel {
     position: absolute;
-    top: 20%;
-  }
-
-  .poker-table-bg {
-    height: 84vh;
+    top: 26%;
   }
 
   .player1 {
-    bottom: 2px;
-    transform: translateX(-64%);
-  }
-
-  .player3 {
-    bottom: 24%;
-  }
-
-  .player8 {
-    bottom: 24%;
-  }
-
-  .player9 {
-    bottom: 4%;
-  }
-
-  .player7 {
-    transform: translateX(-120%);
+    bottom: -13%;
+    left: 49%;
   }
 
   .player2 {
-    bottom: 4%;
+    top: 71%;
+    left: 13%;
+  }
+
+  .player3 {
+    top: 40%;
+    left: 13%;
+  }
+
+  .player4 {
+    top: 12%;
+    left: 16%;
+  }
+
+  .player5 {
+    top: -4%;
+    left: 49%;
+  }
+
+  .player6 {
+    top: 12%;
+    left: 83%;
+  }
+
+  .player7 {
+    top: 40%;
+    left: 84%;
+  }
+
+  .player8 {
+    top: 71%;
+    left: 84%;
   }
 }
 
