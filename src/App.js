@@ -16,8 +16,8 @@ import UserContext from "./context/UserContext";
 import LeaderBoard from "./page/home/leaderBoard";
 import Error404 from "./page/Error404/Error404";
 import CreateAccount from "./components/register/CreateAccount";
-import Login from "./components/login/Login";
 import userUtils from "./utils/user";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 const App = () => {
   const [userInAnyGame, setUserInAnyGame] = useState();
@@ -46,6 +46,17 @@ const App = () => {
           setUser,
         }}
       >
+         <ThirdwebProvider
+            activeChain={ChainId.ArbitrumGoerli}
+            dAppMeta={{
+              name: "Scrooge Casino NFT Marketplace",
+              description:
+                "Everything you need to be a high roller in the Scrooge Casino.",
+              isDarkMode: true,
+              logoUrl:
+                "https://casino-nft-marketplace.s3.amazonaws.com/highRollerBasic.png",
+              url: "https://market.scrooge.casino",
+            }}>
         <Router>
           <Switch>
             <Route exact path="/">
@@ -54,9 +65,7 @@ const App = () => {
             <Route exact path="/register">
               <CreateAccount />
             </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
+            
             <Route exact path="/leaderboard">
               <LeaderBoard />
             </Route>
@@ -69,6 +78,7 @@ const App = () => {
           </Switch>
         </Router>
         <ToastContainer />
+        </ThirdwebProvider>
       </UserContext.Provider>
       <div className="abc">
         <ToastContainer

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { toast } from "react-toastify";
-import StripePayment from '../stripe/stripe';
 import { socket } from '../../config/socketConnection';
 
 const BuyInPopup = ({
@@ -43,15 +42,7 @@ const BuyInPopup = ({
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div className='block'>
-          <StripePayment
-            userId={userId}
-            tableId={tableId}
-            setModalShow={setModalShow}
-            setNewJoinLowBalance={setNewJoinLowBalance}
-            newJoinlowBalance={newJoinlowBalance}
-            gameType={gameType}
-            exchangeRate={exchangeRate}
-          />
+         
           <div id='StripeApp'></div>
         </div>
       </Modal.Body>
