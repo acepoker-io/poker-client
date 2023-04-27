@@ -1,5 +1,4 @@
-import { useState } from 'react'
-// import { useHistory } from 'react-router-dom';
+import { useEffect, useState } from 'react'
 import numFormatter from "../../utils/utils";
 import token from "../../assets/coin.png";
 import tickets from "../../assets/tickets.png";
@@ -8,14 +7,18 @@ import { Tooltip } from "react-bootstrap";
 import logo from "../../assets/game/logo.png";
 import { FaQuestionCircle } from "react-icons/fa";
 import { landingClient } from '../../config/keys';
-// import { ethers } from "ethers";
 import { toast } from 'react-toastify';
 import { authInstance } from '../../utils/axios.config';
 import Register from './registerPage';
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
+import { ChainId, useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
+
 const Header = ({ userData, handleShow }) => {
     const { user, setUser } = useContext(UserContext);
+    const disconnect = useDisconnect();
+    const connectWithMetamask = useMetamask();
+    const address = useAddress()
     const renderWallet = (props) => (
         <Tooltip id="button-tooltip" {...props}>
             This is your token balance, and can be used for betting.
@@ -27,62 +30,43 @@ const Header = ({ userData, handleShow }) => {
         </Tooltip>
     );
     const [account, setAccount] = useState(null);
-    //const [balance, setBalance] = useState(null);
     const [openRegister, setOpenRegister] = useState(false)
-    // const accountsChanged = async (newAccount) => {
-    //     setAccount(newAccount);
-    //     try {
-    //       const balance = await window.ethereum.request({
-    //         method: "eth_getBalance",
-    //         params: [newAccount.toString(), "latest"],
-    //       });
-    //       console.log("balance-->",balance)
-    //     //   setBalance(ethers.utils.formatEther(balance));
-    //     } catch (err) {
-    //       console.error(err);
-    //       toast.error("There was a problem connecting to MetaMask",{toastId:"connect"})
-    //     }
-    //   };
-    // useEffect(() => {
-    //     if (window.ethereum) {
-    //       window.ethereum.on("accountsChanged", accountsChanged);
-    //       window.ethereum.on("chainChanged", chainChanged);
-    //     }
-    //   }, []);
-    const connectHandler = async () => {
-        try {
-            if (window.ethereum) {
-                const res = await window.ethereum.request({
-                    method: "eth_requestAccounts",
-                });
-                if (res[0]) {
-                    setAccount(res[0])
-                    const resp = await authInstance().post('/loginWithMetamask', {
-                        metaMaskAddress: res[0]
-                    })
-                    console.log("Response--->", resp)
-                    const { status, message, token, user } = resp?.data
-                    if (status === 200) {
-                        setUser(user)
-                        localStorage.setItem('token', token)
-                    }
-                    if (status === 401) {
-                        toast.error(message, { toastId: "toastId" })
-                        setOpenRegister(true)
-                    }
-                }
+ 
 
-            } else {
-                toast.error("Install MetaMask", { toastId: "Install meta" })
+    useEffect(() => {
+        const connectHandler = async () => {
+            try {
+                if (address) {
+                        setAccount(address)
+                        const resp = await authInstance().post('/loginWithMetamask', {
+                            metaMaskAddress: address
+                        })
+                        console.log("Response--->", resp)
+                        const { status, message, token, user } = resp?.data
+                        if (status === 200) {
+                            setUser(user)
+                            localStorage.setItem('token', token)
+                        }
+                        if (status === 401) {
+                            toast.error(message, { toastId: "toastId" })
+                            setOpenRegister(true)
+                        }
+                    
+    
+                }
+            } catch (err) {
+                console.error(err);
+                toast.error("There was a problem connecting to MetaMask")
             }
-        } catch (err) {
-            console.error(err);
-            toast.error("There was a problem connecting to MetaMask")
-        }
-    };
+        };
+        /* disable eslint react-hooks/exhaustive-deps */ 
+        connectHandler();
+    },[address, setUser])
+    
 
     const handleLogOut = () => {
         console.log("logout executed");
+        disconnect()
         localStorage.clear();
         // history.push("/");
         window.location.href = "/";
@@ -159,7 +143,7 @@ const Header = ({ userData, handleShow }) => {
                             </button></> :
                             <>
                                 <button type="button"
-                                    className="create-game-boxBtn" onClick={() => connectHandler()}>Connect Metamask</button>
+                                    className="create-game-boxBtn" onClick={() => connectWithMetamask({ chainId: ChainId.ArbitrumGoerli})}>Connect Metamask</button>
 
 
                             </>

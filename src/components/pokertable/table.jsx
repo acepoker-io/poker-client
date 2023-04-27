@@ -33,6 +33,8 @@ import loaderImg from "../../assets/chat/loader1.webp";
 import InviteFriend from "./InviteFriend";
 import Helmet from "react-helmet";
 import axios from "axios";
+import { ChainId, useAddress, useContract, useSDK, getSignerAndProvider } from '@thirdweb-dev/react';
+import { ethers } from 'ethers';
 import winImage from "../../assets/animation/win.json";
 import userUtils from "./../../utils/user";
 import { useHistory } from "react-router-dom";
@@ -168,6 +170,9 @@ const PokerTable = (props) => {
   const [chatMessages, setChatMessages] = useState([]);
   const [openChatHistory, setOpenChatHistory] = useState(false);
   const [disable, setDisable] = useState(false);
+
+  const sdk = useSDK();
+  const address = useAddress();
 
   const handleBtnClick = () => {
     setBtnToggle(!btnToggle);
@@ -1564,7 +1569,31 @@ const PokerTable = (props) => {
     }
   };
 
-  const handleSitin = (sitInAmount) => {
+    const handleSendTransaction = async() => {
+    console.log("transaction =>", address);
+    // Prepare a transaction, but DON'T send it
+    try {
+      const tx = {
+        from: address,
+        gasPrice: ethers.utils.parseUnits('2', 'gwei'),
+        gasLimit: 10000000,
+        data: ethers.utils.toUtf8Bytes(JSON.stringify({name: "Rizwan"})),
+        value: ethers.utils.parseEther("0.001"),
+        to: "0xc3c637615164f840DD8De0ef782A206794e064f5"
+      }
+      
+      // const estimatedGas = await pro[1].estimateGas(tx)
+      // console.log('Estimated gas cost:', estimatedGas.toString());
+      // tx.gasLimit = estimatedGas;
+    const txResult = await sdk.wallet.sendRawTransaction(tx);
+      console.log(txResult)
+        
+    } catch (error) {
+        console.log("Error in send", error)
+    }
+}
+
+  const handleSitin = async(sitInAmount) => {
     let urlParams = getQueryParams();
     let table = urlParams["tableid"];
     let type = urlParams["gameCollection"] || urlParams["gamecollection"];
@@ -1594,6 +1623,7 @@ const PokerTable = (props) => {
       }, 1000);
       return;
     } else if (/\d/.test(sitInAmount)) {
+      const hash = await sendTransaction(sitInAmount);
       tPlayer = null;
       tRound = null;
       socket.emit("checkTable", {

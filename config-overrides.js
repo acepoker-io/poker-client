@@ -36,6 +36,12 @@ module.exports = function override(config) {
       {
         module: /node_modules\/@gnosis.pm/,
       },
+      {
+        module: /node_modules\/json-rpc-engine/,
+      },
+      {
+        module: /node_modules\/@metamask\/utils\/node_modules\/superstruct/,
+      },
     ],
   };
 };
