@@ -98,7 +98,7 @@ input:checked {
 }
 
 .table-card img {
-  width: 48px;
+  width: 55px;
   margin: 0px 4px;
   transition: all 0.5s;
 }
@@ -125,7 +125,7 @@ input:checked {
 }
 
 .table-card .winner-card {
-  width: 51px;
+  width: 56px;
 }
 
 .table-blindLevel {
@@ -800,47 +800,47 @@ input:checked {
 
 .winnPlayer5 .pots-1 {
   animation: winnPot51 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-2 {
   animation: winnPot52 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-3 {
   animation: winnPot53 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-4 {
   animation: winnPot54 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-5 {
   animation: winnPot55 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-6 {
   animation: winnPot56 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-7 {
   animation: winnPot57 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-8 {
   animation: winnPot58 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 .winnPlayer5 .pots-9 {
   animation: winnPot59 0.8s forwards;
-  transform: translate(-285px, -115px);
+  transform: translate(0px, -165px);
 }
 
 @keyframes winnPot51 {
@@ -850,7 +850,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -862,7 +862,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -874,7 +874,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -886,7 +886,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -898,7 +898,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -910,7 +910,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -922,7 +922,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -934,7 +934,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -946,7 +946,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-285px, -115px);
+    transform: translate(0px, -165px);
     opacity: 0;
   }
 }
@@ -1107,47 +1107,65 @@ input:checked {
 
 .winnPlayer7 .pots-1 {
   animation: winnPot71 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-2 {
   animation: winnPot72 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-3 {
   animation: winnPot73 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-4 {
   animation: winnPot74 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-5 {
   animation: winnPot75 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-6 {
   animation: winnPot76 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-7 {
   animation: winnPot77 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-8 {
   animation: winnPot78 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 .winnPlayer7 .pots-9 {
   animation: winnPot79 0.8s forwards;
-  transform: translate(620px, -35px);
+
+  transform: translate(520px, 65px);
+
 }
 
 @keyframes winnPot71 {
@@ -1157,7 +1175,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1169,7 +1189,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1181,7 +1203,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1193,7 +1217,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1205,7 +1231,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1217,7 +1245,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1229,7 +1259,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1241,7 +1273,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1253,7 +1287,9 @@ input:checked {
   }
 
   to {
-    transform: translate(620px, -35px);
+
+    transform: translate(520px, 65px);
+
     opacity: 0;
   }
 }
@@ -1261,47 +1297,47 @@ input:checked {
 
 .winnPlayer8 .pots-1 {
   animation: winnPot81 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-2 {
   animation: winnPot82 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-3 {
   animation: winnPot83 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-4 {
   animation: winnPot84 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-5 {
   animation: winnPot85 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-6 {
   animation: winnPot86 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-7 {
   animation: winnPot87 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-8 {
   animation: winnPot88 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 .winnPlayer8 .pots-9 {
   animation: winnPot89 0.8s forwards;
-  transform: translate(635px, 200px);
+  transform: translate(365px, 285px);
 }
 
 @keyframes winnPot81 {
@@ -1311,7 +1347,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1323,7 +1359,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1335,7 +1371,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1347,7 +1383,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1359,7 +1395,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1371,7 +1407,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1383,7 +1419,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1395,7 +1431,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1407,7 +1443,7 @@ input:checked {
   }
 
   to {
-    transform: translate(635px, 200px);
+    transform: translate(365px, 285px);
     opacity: 0;
   }
 }
@@ -1589,7 +1625,6 @@ input:checked {
 .players {
   width: 120px;
   height: 150px;
-  cursor: pointer;
   position: absolute;
   display: flex;
   justify-content: center;
@@ -1602,55 +1637,58 @@ input:checked {
 }
 
 .player1 {
-  bottom: -8%;
-  left: 45.5%;
-  transform: translateX(-50%);
+  bottom: -35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .player2 {
-  bottom: 20px;
-  right: 75%;
-  transform: translateX(75%);
+  bottom: -25%;
+  right: 70%;
+  transform: translate(-50%, -50%);
 }
 
 .player3 {
   left: 10%;
-  bottom: 44%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .player4 {
-  top: -12%;
-  left: 23%;
+  top: 6%;
+  left: 21%;
+  transform: translate(-50%, -50%);
 }
 
 .player5 {
-  top: -24%;
-  left: 53%;
-  transform: translateX(-25%);
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .player6 {
-  top: -12%;
-  left: 75%;
-  transform: translateX(-75%);
+  top: 6%;
+  left: 79%;
+  transform: translate(-50%, -50%);
 }
 
 .player7 {
   left: 90%;
-  top: 24%;
-  transform: translateX(-100%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .player8 {
-  right: 22%;
-  bottom: 4%;
+  right: 12%;
+  bottom: -25%;
+  transform: translate(-50%, -50%);
 }
 
-.player9 {
+/* .player9 {
   bottom: -20px;
   right: 25%;
   transform: translateX(25%);
-}
+} */
 
 .player-pic img,
 .player-pic video {
@@ -1688,11 +1726,13 @@ input:checked {
 }
 
 .player-box {
-  text-align: center;
   position: relative;
+  text-align: center;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .player-pic {
@@ -1708,8 +1748,23 @@ input:checked {
   margin: 0px auto;
   z-index: -1;
   top: 40px;
+  display: none;
 }
 
+
+.progress {
+  position: absolute;
+  display: flex !important;
+  overflow: hidden !important;
+  background: #31333fc9 !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 60px !important;
+  width: 180px !important;
+  height: 70px !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .player-info {
   display: flex;
@@ -1719,28 +1774,30 @@ input:checked {
   text-align: start;
   padding: 2px 8px;
   position: absolute;
-  width: 220px;
-  height: 85px;
+  width: 180px;
+  height: 70px;
   z-index: -2;
   margin: 0px auto;
-  top: 85%;
-  left: -10%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  border: 3px solid #454851;
-  background: #31333f;
+  border: 4px solid #454851;
+  background: #31333fc9;
   border-radius: 60px;
+  backdrop-filter: blur(10px);
 }
 
 .player1 .player-info,
 .player6 .player-info,
 .player7 .player-info,
 .player8 .player-info {
-  left: 110%;
+  left: 50%;
   align-items: flex-end;
 }
 
 .player-info.progressActive {
-  border: 4px solid #05ccf6;
+  /* border: 4px solid #05ccf6; */
+  box-shadow: 0px 8px 25px 6px #495057;
 }
 
 .tentative-action-btn.form-check.form-check-inline {
@@ -1757,7 +1814,7 @@ input:checked {
   margin: 0;
   font-weight: 400;
   color: #ddd;
-  width: 66%;
+  width: 100%;
   letter-spacing: 0.5px;
   z-index: 9;
   position: relative;
@@ -1769,7 +1826,7 @@ input:checked {
   font-size: 20px;
   margin: 0;
   color: #ffffff;
-  width: 66%;
+  width: 100%;
   letter-spacing: 0.5px;
   z-index: 9;
   position: relative;
@@ -1777,6 +1834,7 @@ input:checked {
   text-align: center;
   border-bottom: 1px solid #4b4747;
   padding-bottom: 4px;
+  line-height: 22px;
 }
 
 .players.player1 {
@@ -1870,8 +1928,9 @@ input:checked {
 .players.player4 .player-chip {
   position: absolute;
   width: 100%;
-  bottom: -63%;
-  right: -77%;
+  left: 150%;
+  top: 100%;
+  transform: translate(-50%, -50%);
   animation: slideLeft4 0.4s;
 }
 
@@ -1881,35 +1940,36 @@ input:checked {
 
 @keyframes mergeP4 {
   from {
-    bottom: -40%;
-    right: -100%;
+    left: 150%;
+    top: 100%;
     opacity: 1;
   }
 
   to {
-    bottom: -50%;
-    right: -405%;
+    left: 365%;
+    top: 135%;
     opacity: 0;
   }
 }
 
 @keyframes slideLeft4 {
   from {
-    bottom: 0%;
-    right: 0%;
+    left: 50%;
+    top: 50%;
   }
 
   to {
-    bottom: -63%;
-    right: -77%;
+    left: 150%;
+    top: 100%;
   }
 }
 
 .players.player8 .player-chip {
   position: absolute;
   width: 100%;
-  bottom: 62%;
-  left: -70%;
+  left: -46%;
+  top: -18%;
+  transform: translate(-50%, -50%);
   animation: slideRight8 0.4s;
 }
 
@@ -1919,30 +1979,31 @@ input:checked {
 
 @keyframes mergeP8 {
   from {
-    bottom: 62%;
-    left: -70%;
+    left: -46%;
+    top: -18%;
     opacity: 1;
   }
 
   to {
-    bottom: 119%;
-    left: -404%;
+    left: -256%;
+    top: -145%;
     opacity: 0;
   }
 }
 
 @keyframes slideRight8 {
   from {
-    bottom: 0%;
-    left: 0%;
+    left: 50%;
+    top: 50%;
   }
 
   to {
-    bottom: 62%;
-    left: -70%;
+    left: -45%;
+    top: -18%;
   }
 }
 
+/* 
 .players.player9 .player-chip {
   position: absolute;
   width: 100%;
@@ -1979,13 +2040,14 @@ input:checked {
     left: -2%;
     top: -25%;
   }
-}
+} */
 
 .players.player3 .player-chip {
   position: absolute;
   width: 100%;
-  right: -100%;
-  top: 70%;
+  left: 180%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   animation: slideLeft3 0.4s;
 }
 
@@ -1995,27 +2057,25 @@ input:checked {
 
 @keyframes mergeP3 {
   from {
-    right: -100%;
-    top: 70%;
+    left: 180%;
+    top: 50%;
     opacity: 1;
   }
 
   to {
-    right: -404%;
-    top: -50%;
+    left: 482%;
+    top: -6%;
     opacity: 0;
   }
 }
 
 @keyframes slideLeft3 {
   from {
-    right: 0%;
-    top: 75%;
+    left: 50%;
   }
 
   to {
-    right: -100%;
-    top: 8%;
+    left: 180%;
   }
 }
 
@@ -2050,9 +2110,9 @@ input:checked {
 .players.player2 .player-chip {
   position: absolute;
   width: 100%;
-  top: 15%;
-  left: 90%;
-  transform: translateY(-25%);
+  top: -20%;
+  left: 155%;
+  transform: translate(-50%, -50%);
   animation: travelUp 0.4s;
 }
 
@@ -2062,14 +2122,14 @@ input:checked {
 
 @keyframes mergeP2 {
   from {
-    top: 15%;
-    left: 90%;
+    top: -20%;
+    left: 155%;
     opacity: 1;
   }
 
   to {
-    top: -112%;
-    left: 202%;
+    top: -145%;
+    left: 365%;
     opacity: 0;
   }
 }
@@ -2077,9 +2137,9 @@ input:checked {
 .players.player1 .player-chip {
   position: absolute;
   width: 100%;
-  top: -36%;
-  left: 60%;
-  transform: translateY(-50%);
+  top: -40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   animation: travelUpCenter 0.4s;
 }
 
@@ -2089,22 +2149,22 @@ input:checked {
 
 @keyframes mergeP1 {
   from {
-    top: -12%;
-    opacity: 1;
+    top: -40%;
+    left: 50%;
   }
 
   to {
-    top: -88%;
-    opacity: 0;
+    top: -178%;
+    left: 50%;
   }
 }
 
 .players.player5 .player-chip {
   position: absolute;
-  width: 100%;
-  bottom: -92%;
-  left: -56%;
-  transform: translateY(-25%);
+  width: 100px;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
   animation: travelDown 0.4s;
 }
 
@@ -2114,14 +2174,14 @@ input:checked {
 
 @keyframes mergeP5 {
   from {
-    bottom: -92%;
-    left: -56%;
+    left: 50%;
+    top: 100%;
     opacity: 1;
   }
 
   to {
-    bottom: -114%;
-    left: 202%;
+    left: 50%;
+    top: 148%;
     opacity: 0;
   }
 }
@@ -2129,9 +2189,9 @@ input:checked {
 .players.player6 .player-chip {
   position: absolute;
   width: 100%;
-  left: -62%;
-  bottom: -78%;
-  transform: translateY(-50%);
+  left: -50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
   animation: travelDownCenter 0.4s;
 }
 
@@ -2141,14 +2201,14 @@ input:checked {
 
 @keyframes mergeP6 {
   from {
-    left: -62%;
-    bottom: -78%;
+    left: -50%;
+    top: 100%;
     opacity: 1;
   }
 
   to {
-    bottom: -121%;
-    left: -200%;
+    left: -262%;
+    top: 135%;
     opacity: 0;
   }
 }
@@ -2156,9 +2216,9 @@ input:checked {
 .players.player7 .player-chip {
   position: absolute;
   width: 100%;
-  bottom: -15%;
-  left: -100%;
-  transform: translateY(-25%);
+  left: -80%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   animation: slideRight7 0.4s;
 }
 
@@ -2168,27 +2228,27 @@ input:checked {
 
 @keyframes mergeP7 {
   from {
-    bottom: -15%;
-    left: -100%;
+    left: -80%;
+    top: 50%;
     opacity: 1;
   }
 
   to {
-    bottom: -58%;
-    left: -404%;
+    left: -378%;
+    top: -6%;
     opacity: 0;
   }
 }
 
 @keyframes slideRight7 {
   from {
-    bottom: 0%;
-    left: 0%;
+    left: 50%;
+    top: 50%;
   }
 
   to {
-    bottom: -15%;
-    left: -100%;
+    top: 50%;
+    left: -80%;
   }
 }
 
@@ -2196,45 +2256,48 @@ input:checked {
 
 @keyframes travelDown {
   from {
-    transform: translateY(-150%);
+    top: 50%;
   }
 
   to {
-    transform: translateY(-25%);
+
+    top: 100%;
   }
 }
 
 @keyframes travelDownCenter {
   from {
-    bottom: 0%;
-    left: 0%;
+    left: 50%;
+    top: 50%;
   }
 
   to {
-    left: -62%;
-    bottom: -78%;
+    left: -50%;
+    top: 100%;
   }
 }
 
 @keyframes travelUp {
   from {
-    top: 70%;
-    left: 0%;
+    top: 50%;
+    left: 50%;
   }
 
   to {
-    top: 15%;
-    left: 90%;
+    top: -20%;
+    left: 155%;
   }
 }
 
 @keyframes travelUpCenter {
   from {
-    transform: translateY(280%);
+    top: 50%;
+    left: 50%;
   }
 
   to {
-    transform: translateY(-50%);
+    top: -40%;
+    left: 50%;
   }
 }
 
@@ -2493,18 +2556,7 @@ input:checked {
   margin: 0px;
 }
 
-/* .total-pot-money span::before {
-  content: "";
-  background: url(../../assets/coin-5.png);
-  text-align: center;
-  width: 50px;
-  height: 48px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  right: -20px;
-} */
+
 .player1 .player-action,
 .player2 .player-action,
 .player3 .player-action,
@@ -2515,9 +2567,8 @@ input:checked {
   letter-spacing: 1px;
   position: absolute;
   left: 50%;
-  bottom: 111%;
-  transform: translateX(-50%);
-  /* opacity: 0; */
+  top: -30%;
+  transform: translate(-50%, -50%);
   white-space: nowrap;
   color: #dc3545;
   animation-name: bottomFadeOut;
@@ -2532,19 +2583,20 @@ input:checked {
   margin: 0px;
   display: grid;
   place-content: center;
+  opacity: 0;
 }
 
 @keyframes bottomFadeOut {
   0% {
     position: absolute;
-    bottom: 50%;
+    top: 50%;
     opacity: 0;
     font-size: 5px;
   }
 
   75% {
     position: absolute;
-    bottom: 111%;
+    top: -30%;
     opacity: 1;
     font-size: 18px;
   }
@@ -2562,10 +2614,10 @@ input:checked {
   font-weight: 700;
   letter-spacing: 1px;
   position: absolute;
-  left: 72%;
-  bottom: -70%;
+  left: 50%;
+  top: 110%;
+  transform: translate(-50%, -50%);
   white-space: nowrap;
-  transform: translateX(-50%);
   opacity: 0;
   color: #dc3545;
   animation-name: downFadeOut;
@@ -2585,14 +2637,14 @@ input:checked {
 @keyframes downFadeOut {
   0% {
     position: absolute;
-    bottom: 50%;
+    top: 50%;
     opacity: 0;
     font-size: 5px;
   }
 
   75% {
     position: absolute;
-    bottom: -40%;
+    top: 110%;
     opacity: 1;
     font-size: 18px;
   }
@@ -2645,20 +2697,31 @@ input:checked {
   background-position: center;
   position: absolute;
   font-size: 16px;
-  right: -16px;
-  bottom: -32px;
+  top: 76%;
+  left: 125%;
+  transform: translate(-50%, -50%);
   padding-left: 3px;
   z-index: 9;
   color: #fff !important;
 }
 
-.player1 .player-badge,
-.player6 .player-badge,
+.player1 .player-badge {
+  top: 12%;
+  left: 102%;
+}
+
+.player6 .player-badge {
+  top: 85%;
+  left: 4%;
+}
+
 .player7 .player-badge,
 .player8 .player-badge {
-  right: 104px;
-  bottom: 30px;
+  top: 26%;
+  left: -30%;
 }
+
+
 
 .player-badge img {
   width: 30px;
@@ -2707,7 +2770,7 @@ input:checked {
 }
 
 .show-card img {
-  width: 48px;
+  width: 55px;
   margin: 0px auto;
   box-shadow: 0px 8px 10px #00000075;
   border-radius: 4px;
@@ -2717,10 +2780,9 @@ input:checked {
   display: flex;
   justify-content: center;
   position: absolute;
-  left: 116%;
+  left: 50%;
   transform: translateX(-50%);
-  top: 14px;
-  padding-right: 25px;
+  top: -25px;
   z-index: -3;
   align-items: center;
   gap: 4px;
@@ -2730,7 +2792,7 @@ input:checked {
 .player3 .show-card,
 .player4 .show-card,
 .player5 .show-card {
-  left: -14%;
+  left: 50%;
 }
 
 /* .show-card img:first-child {
@@ -2747,24 +2809,23 @@ input:checked {
   display: flex;
   justify-content: center;
   position: absolute;
-  left: 125%;
+  left: 50%;
   transform: translateX(-50%);
-  top: 14px;
-  padding-right: 25px;
+  top: -30px;
   z-index: -3;
   align-items: center;
   gap: 4px;
 }
 
-.player2 .player-card,
+/* .player2 .player-card,
 .player3 .player-card,
 .player4 .player-card,
 .player5 .player-card {
   left: -14%;
-}
+} */
 
 .player-card img {
-  width: 48px;
+  width: 55px;
   margin: 0px auto;
   box-shadow: 0px 8px 10px #00000075;
   border-radius: 4px;
@@ -4610,10 +4671,6 @@ ul.btn-list>li>button>img {
   /* display: none; */
 }
 
-.progress {
-  height: 0rem !important;
-}
-
 .player1 .player-pic .progress {
   display: flex;
   overflow: hidden;
@@ -4674,42 +4731,6 @@ form.customBet-amount .btn-primary:disabled {
   color: #000 !important;
 }
 
-/* 
-.player-info .progress-bar {
-  background: transparent;
-}
-
-.player-info .progress-bar {
-  position: absolute;
-  background: transparent;
-  top: -5px;
-  left: -5px;
-  height: 55px;
-}
-
-.player-info .progress-bar .progress-bar-rect-wrapper {
-  height: 100% !important;
-  border: none !important;
-  border-radius: 50px !important;
-} */
-/* 
-.inner-rect-bar {
-  border-radius: 50px !important;
-}
-
-.player-info .rect-progress-bar-percent {
-  display: none !important;
-}
-
-.player-info .progress-bar-rect-wrap-container {
-  height: 100%;
-}
-
-.inner-rect-bar {
-  transition: 2s ease 0s;
-} */
-
-/* coin Winning animation */
 
 img.coinWinning-animation {
   position: absolute;
@@ -4724,7 +4745,7 @@ img.coinWinning-animation {
 
 .card-animate {
   perspective: 1000px;
-  width: 51px;
+  width: 55px;
   height: 70px;
   position: relative;
 }
@@ -4913,12 +4934,13 @@ img.coinWinning-animation {
   }
 
   .player4 {
-    left: -2%;
+    left: 16%;
+    top: -18%;
   }
 
   .player6 {
-    top: -32%;
-    left: 85%;
+    top: -16%;
+    left: 83%;
   }
 
   .players.player5 .player-chip {
@@ -4926,32 +4948,36 @@ img.coinWinning-animation {
   }
 
   .player7 {
-    left: 90%;
-    top: 12%;
+    left: 92%;
+    top: 28%;
   }
 
-  .player3 {
-    left: 10%;
-    bottom: 38%;
+  .player5 {
+    top: -26%;
+    left: 50%;
+  }
+
+  .player1 {
+    bottom: -38%;
   }
 
   .player2 {
-    bottom: -16px;
-    right: 82%;
+    bottom: -28%;
+    right: 68%;
+  }
+
+  .player3 {
+    left: 8%;
+    top: 28%;
   }
 
   .player8 {
-    right: -2%;
-  }
-
-  .player8 {
-    right: 10%;
-    bottom: -8%;
+    right: 0%;
+    bottom: -28%;
   }
 
   .players.player2 .player-chip {
     left: 78%;
-    transform: translateY(10%);
   }
 
   .total-pot-money {}
@@ -4985,44 +5011,46 @@ img.coinWinning-animation {
   .total-pot-money {}
 
   .players.player1 {
-    left: 45%;
-    bottom: -12%;
+    left: 50%;
+    bottom: -28%;
   }
 
   .player4 {
-    top: -20%;
-    left: 24%;
+    top: -16%;
+    left: 23%;
   }
 
   .player7 {
-    left: 84%;
-    top: 14%;
+    left: 87%;
+    top: 32%;
   }
+
   .table-card {
     margin-top: 2px;
-}
+  }
+
   .player2 {
-    bottom: -4px;
-    right: 72%;
+    bottom: -22%;
+    right: 65%;
   }
 
   .player3 {
-    left: 14%;
-    bottom: 40%;
+    left: 10%;
+    top: 32%;
   }
 
   .player8 {
-    right: 24%;
-    bottom: -1%;
+    right: 14%;
+    bottom: -22%;
   }
 
   .player5 {
-    top: -42%;
+    top: -20%;
   }
 
   .player6 {
-    top: -22%;
-    left: 72%;
+    top: -16%;
+    left: 74%;
   }
 
   .players.player6 .player-chip {
@@ -5060,13 +5088,13 @@ img.coinWinning-animation {
   .total-pot-money {}
 
   .players.player1 {
-    left: 45%;
-    bottom: -10%;
+    bottom: -35%;
+    left: 50%;
   }
 
   .player2 {
-    top: 58% !important;
-    left: 2%;
+    bottom: -25%;
+    right: 70%;
   }
 
   .player4 {
@@ -5078,27 +5106,25 @@ img.coinWinning-animation {
     left: 50%;
   }
 
-  .players.player2 .player-chip {
-    transform: translateY(20%);
-  }
+  .players.player2 .player-chip {}
 
   .player7 {
-    right: -2%;
-    top: 18% !important;
+    left: 90%;
+    top: 30%;
   }
 
   .player3 {
     left: 8%;
-    bottom: 40%;
+    top: 30%;
   }
 
   .player8 {
-    right: 10%;
-    bottom: 2%;
+    right: 1%;
+    bottom: -25%;
   }
 
   .player5 {
-    top: -30%;
+    top: -24%;
   }
 
   .player6 {
@@ -5126,8 +5152,8 @@ img.coinWinning-animation {
   }
 
   .footer-btn .callBtn-amount {
-    color: #dc3545;
-    font-size: 12px;
+    color: #fff;
+    font-size: 20px;
     font-weight: 500;
   }
 
@@ -5201,23 +5227,21 @@ img.coinWinning-animation {
   }
 
   .total-pot-money span p {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   .show-card {
-    top: 36px;
-    left: 112%;
-    grid-template-columns: repeat(2, minmax(36px, 1fr));
+    top: 48px;
+    left: 50%;
+    /* grid-template-columns: repeat(2, minmax(36px, 1fr)); */
   }
 
   .player-card {
-    top: 36px;
-    left: 112%;
+    top: 48px;
+    left: 50%;
     padding-right: 0px;
-    grid-template-columns: repeat(2, minmax(30px, 1fr));
+    /* grid-template-columns: repeat(2, minmax(30px, 1fr)); */
   }
-
-  .total-pot-money span::before {}
 
   .player-pic {
     height: 110px;
@@ -5245,6 +5269,11 @@ img.coinWinning-animation {
     width: 170px;
     height: 65px;
     top: 92%;
+  }
+
+  .progress {
+    width: 170px !important;
+    height: 65px !important;
   }
 
   .player-pic .progress {
@@ -5279,6 +5308,7 @@ img.coinWinning-animation {
     gap: 0px 5px;
     max-width: 150px;
     top: 32%;
+    left: 51%;
   }
 
   .total-pot-money {}
@@ -5312,7 +5342,7 @@ img.coinWinning-animation {
   }
 
   .player-chip span {
-    font-size: 12px;
+    font-size: 14px;
     max-width: 78px;
     height: 26px;
   }
@@ -5373,28 +5403,45 @@ img.coinWinning-animation {
     height: 52px;
   }
 
-  .players.player1 .player-chip,
-  .players.player2 .player-chip,
-  .players.player9 .player-chip {
-    top: -12%;
+  .players.player1 .player-chip {
+    top: 0%;
   }
 
+  .players.player2 .player-chip {
+    top: 12%;
+    left: 130%;
+  }
+
+
   .players.player6 .player-chip {
-    bottom: -88%;
+    top: 148%;
+    left: -28%;
+
   }
 
   .players.player5 .player-chip {
-    bottom: -64px;
+    left: 50%;
+    top: 150%;
   }
 
-  .players.player7 .player-chip,
+  .players.player7 .player-chip {
+    left: -75%;
+    top: 95%;
+  }
+
   .players.player8 .player-chip {
-    left: -80px;
+    left: -26%;
+    top: 12%;
   }
 
-  .players.player4 .player-chip,
+  .players.player4 .player-chip {
+    left: 127%;
+    top: 150%;
+  }
+
   .players.player3 .player-chip {
-    right: -80px;
+    left: 178%;
+    top: 94%;
   }
 
   .showCardIn-fold {
@@ -5410,6 +5457,11 @@ img.coinWinning-animation {
   .showCardIn-fold .form-check-inline .form-check-input {
     width: 20px !important;
     height: 20px !important;
+  }
+
+  .total-pot-money img {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -5435,6 +5487,26 @@ img.coinWinning-animation {
     height: 38px !important;
     left: -19px !important;
     bottom: -26px !important;
+  }
+
+  .player-info {
+    width: 142px;
+    height: 58px;
+    top: 90%;
+  }
+
+  .progress {
+    width: 142px !important;
+    height: 58px !important;
+  }
+
+  .player-info h4 {
+    margin-top: 2px;
+  }
+
+  .player-info p {
+    font-size: 12px;
+    padding-bottom: 2px;
   }
 
   .table-blindLevel {
@@ -5519,28 +5591,6 @@ img.coinWinning-animation {
 
   .poker-table-bg {
     height: 300px;
-  }
-
-  .player1 {
-    bottom: -18%;
-  }
-
-  .player5 {
-    top: -38%;
-    left: 55%;
-  }
-
-  .player2 {
-    bottom: -38px;
-  }
-
-  .player4 {
-    left: 14%;
-    top: -30%;
-  }
-
-  .player9 {
-    bottom: -36px;
   }
 
   .card-animate {
@@ -7187,6 +7237,7 @@ img.coinWinning-animation {
     gap: 0px 5px;
     max-width: 155px;
     top: 56%;
+    left: 50%;
   }
 
   .table-card {
@@ -7261,6 +7312,11 @@ img.coinWinning-animation {
     top: 88px;
     width: 140px;
     height: 60px;
+  }
+
+  .progress {
+    width: 140px !important;
+    height: 60px !important;
   }
 
   .player1 .player-pic .progress {
@@ -7362,26 +7418,19 @@ img.coinWinning-animation {
   }
 
   .player-card {
-    top: 50px !important;
-    left: 100%;
-    padding-right: 0px;
-  }
-
-  .player2 .player-card,
-  .player3 .player-card,
-  .player4 .player-card,
-  .player5 .player-card {
-    left: -2%;
+    top: 8px;
+    left: 50%;
   }
 
   .show-card {
-    top: 55px !important;
-    left: 104%;
+    top: 8px;
+    left: 50%;
   }
 
   .show-card img,
   .player-card img {
-    width: 30px;
+    width: 38px;
+
   }
 
   .player-chip img {
@@ -7389,134 +7438,64 @@ img.coinWinning-animation {
   }
 
   .player-badge img {
-    width: 30px;
+    width: 24px;
   }
 
   .players.player1 .player-chip {
-    top: 12%;
+    top: -8%;
     left: 50%;
     animation: p1chip 0.4s;
-    max-width: 90px;
-    width: 100%;
-    height: 26px;
   }
 
   @keyframes p1chip {
     0% {
       top: 104%;
-      left: 0%;
     }
 
     100% {
-      top: 12%;
-      left: 50%;
+      top: -8%;
     }
   }
 
   .player1 {
-    /* bottom: -25px; */
-    bottom: -30px;
-    transform: translateX(-50%);
+    left: 48% !important;
+    bottom: -50% !important;
   }
 
   .player2 {
-    transform: translateX(90%);
-    bottom: -25px;
-
+    bottom: -45%;
+    right: 62%;
   }
 
   .player3 {
-
-    transform: translateX(50%);
-    bottom: 35% !important;
+    left: 10%;
+    top: 38%;
   }
 
-
-
   .player4 {
-    top: -34%;
-    transform: translateX(-40%);
+    top: -6%;
+    left: 22%;
   }
 
   .player5 {
-    top: -40%;
-    transform: translateX(-38%);
+    top: -8%;
+    left: 48%;
   }
 
   .player6 {
-    top: -35%;
-    left: 77%;
-    transform: translateX(-100%);
+    top: -6%;
+    left: 74%;
   }
 
   .player7 {
-    transform: translateX(-170%);
-    top: 5% !important;
+    left: 86%;
+    top: 38%;
   }
 
   .player8 {
-    transform: translateX(-145%);
-    bottom: -10% !important;
+    right: 10%;
+    bottom: -46%;
   }
-
-  .player9 {
-    transform: translateX(26%);
-    bottom: -20px;
-  }
-
-  /* 
-  .player10 {
-    bottom: -25px;
-    transform: translateX(25%);
-  } */
-
-  /* .players.player2 .player-chip {
-    position: relative;
-    top: inherit;
-  }
-
-  .players.player3 .player-chip {
-    position: relative;
-    right: inherit;
-  }
-
-  .players.player4 .player-chip {
-    bottom: inherit;
-    position: relative;
-    right: inherit;
-  }
-
-  .players.player5 .player-chip {
-    position: relative;
-    bottom: inherit;
-  }
-
-  .players.player6 .player-chip {
-    position: relative;
-    bottom: inherit;
-  }
-
-  .players.player7 .player-chip {
-    position: relative;
-    bottom: inherit;
-  }
-
-  .players.player8 .player-chip {
-    bottom: inherit;
-    position: relative;
-    left: inherit;
-  }
-
-  .players.player9 .player-chip {
-    position: relative;
-    left: inherit;
-    top: 0;
-  }
-
-  .players.player10 .player-chip {
-    position: relative;
-    top: inherit;
-  } */
 
   .player-chip {
     height: 28px;
@@ -7524,8 +7503,8 @@ img.coinWinning-animation {
   }
 
   .players.player2 .player-chip {
-    left: 60%;
-    transform: translateY(65%);
+    left: 126%;
+    top: 6%;
   }
 
   ul.btn-list>li>button {
@@ -7611,22 +7590,23 @@ img.coinWinning-animation {
   }
 
   .players.player3 .player-chip {
-    right: -90%;
-    top: 80%;
+    top: 60%;
+    left: 155%;
     animation: slideLeft3 0.4s;
   }
 
   .players.player5 .player-chip {
-    bottom: -68px;
+    top: 96%;
   }
 
   .players.player6 .player-chip {
-    bottom: -82px;
-    left: -35%;
+    top: 98%;
+    left: -18%;
   }
 
   .players.player7 .player-chip {
-    left: -100%;
+    left: -50%;
+    top: 60%;
   }
 
   .animateMerge-chips.players.player3 .player-chip {
@@ -7660,8 +7640,8 @@ img.coinWinning-animation {
   }
 
   .players.player4 .player-chip {
-    right: -54px;
-    bottom: -65%;
+    top: 96%;
+    left: 127%;
     animation: slideLeft4 0.4s;
   }
 
@@ -7671,8 +7651,8 @@ img.coinWinning-animation {
 
   @keyframes mergeP4 {
     from {
-      right: -54px;
-      bottom: -64%;
+      top: 96%;
+      left: 127%;
       opacity: 1;
     }
 
@@ -7733,7 +7713,6 @@ img.coinWinning-animation {
 
   .players.player8 .player-chip {
     top: 5%;
-    left: -50%;
     animation: slideRight9 0.4s;
   }
 
@@ -7744,12 +7723,10 @@ img.coinWinning-animation {
   @keyframes mergeP9 {
     from {
       top: 5%;
-      left: -50%;
       opacity: 1;
     }
 
     to {
-      left: -337%;
       top: 30%;
       opacity: 0;
     }
@@ -9320,28 +9297,18 @@ img.coinWinning-animation {
   }
 
   .show-card {
-    /* top: 14px; */
-    top: 22px;
-    padding-right: 16px;
-  }
-
-  .player2 .player-card,
-  .player3 .player-card,
-  .player4 .player-card,
-  .player5 .player-card {
-    left: 0%;
-    top: 16%;
+    left: 50%;
+    top: 40%;
   }
 
   .player-card {
-    /* top: 14px; */
-    top: 22px;
-    padding-right: 16px;
+    left: 50%;
+    top: 40%;
   }
 
   .show-card img,
   .player-card img {
-    width: 50px;
+    width: 40px;
   }
 
   .roomDetails {
@@ -9412,6 +9379,16 @@ img.coinWinning-animation {
     max-width: 400px;
     margin: 0 auto;
     padding-top: 0;
+  }
+
+  .player-chip {
+    padding: 2px 4px;
+    height: 30px;
+    max-width: 75px;
+  }
+
+  .player-chip img {
+    width: 20px;
   }
 
   .poker-table-bg {
@@ -9589,7 +9566,7 @@ img.coinWinning-animation {
   .footer-btn .btn,
   .footer-btn .btn:hover,
   .footer-btn .btn:focus {
-    font-size: 11px;
+    font-size: 20px;
   }
 
   .play-pause-button {
@@ -9601,7 +9578,11 @@ img.coinWinning-animation {
     scale: 0.9;
   }
 
-  .player1 .player-info {}
+  .player-info {
+    width: 115px;
+    height: 50px;
+    top: 90%;
+  }
 
   .player1 .player-pic .progress {
     width: 118px !important;
@@ -9617,73 +9598,59 @@ img.coinWinning-animation {
     bottom: -22px !important;
   }
 
+
+
   .player1 {
-    bottom: 22px;
-    left: 50%;
-    transform: translateX(-90%);
+    bottom: -4%;
+    left: 49%;
   }
 
   .player2 {
-    bottom: 8%;
-    right: inherit;
-    transform: translateY(-10%);
-    left: -4%;
+    top: 62%;
+    left: 13%;
   }
 
   .player3 {
-    bottom: 28%;
-    transform: translateY(-32%);
-    left: -3%;
+    top: 38%;
+    left: 13%;
   }
 
   .player4 {
-    /* top: 35%; */
-    top: 26%;
-    transform: translateY(-35%);
-    left: 0%;
+    top: 15%;
+    left: 16%;
   }
 
   .player5 {
-    top: -5%;
-    left: 46%;
-    transform: translateY(-18%);
+    top: 2%;
+    left: 50%;
   }
 
-  /* .player6 {
-    top: -46px;
-    transform: translateX(-32%);
-  } */
-
   .player6 {
-    /* top: 10%; */
-    left: auto;
-    top: -2%;
-    transform: translateY(-18%);
-    right: 3%;
+
+    top: 15%;
+    left: 83%;
+
   }
 
   .player7 {
-    top: 19%;
-    left: 96%;
+    top: 38%;
+    left: 84%;
   }
 
   .player8 {
-    bottom: 28%;
-    transform: translateY(-32%);
-    right: -3%;
-  }
-
-  .player9 {
-    /* bottom: 8%; */
-    bottom: 8%;
-    transform: translateY(-10%);
-    right: -4%;
+    top: 62%;
+    left: 84%;
   }
 
   .player-badge {
-    right: 0px;
-    top: 100px;
-    bottom: auto;
+    top: 70%;
+    left: 102%;
+  }
+
+  .player7 .player-badge,
+  .player8 .player-badge {
+    top: 72%;
+    left: -2%;
   }
 
   button.sign-in.btn.btn-primary {
@@ -9808,7 +9775,31 @@ img.coinWinning-animation {
     width: 63px;
   }
 
+  .pot-money {
+    grid-gap: 0px 5px;
+    gap: 0px 5px;
+    max-width: 150px;
+    top: 35%;
+    left: 50%;
+  }
+
   /* portrait chip animation */
+  .players.player1 .player-chip {
+    top: 18%;
+    animation: travelUpCenter 0.4s;
+  }
+
+  @keyframes travelUpCenter {
+    from {
+      top: 50%;
+      left: 50%;
+    }
+
+    to {
+      top: 18%;
+      left: 50%;
+    }
+  }
 
   .animateMerge-chips.players.player1 .player-chip {
     animation: mergeP1 0.4s;
@@ -9816,12 +9807,12 @@ img.coinWinning-animation {
 
   @keyframes mergeP1 {
     from {
-      top: -12%;
+      top: 18%;
       opacity: 1;
     }
 
     to {
-      top: -299%;
+      top: -205%;
       opacity: 0;
     }
   }
@@ -9832,22 +9823,42 @@ img.coinWinning-animation {
 
   @keyframes mergeP2 {
     from {
-      top: -12%;
-      left: 0%;
+      top: 35%;
+      left: 88%;
       opacity: 1;
     }
 
     to {
-      top: -284%;
+      top: -110%;
       left: 146%;
       opacity: 0;
     }
   }
 
+  .players.player2 .player-chip {
+    top: 35%;
+    left: 88%;
+    transform: inherit;
+    animation: travelUp 0.4s;
+  }
+
+  @keyframes travelUp {
+    from {
+      top: 50%;
+      left: 50%;
+      transform: inherit;
+    }
+
+    to {
+      top: 35%;
+      left: 88%;
+      transform: inherit;
+    }
+  }
+
   .players.player3 .player-chip {
-    top: 86%;
-    left: 84%;
-    right: inherit;
+    top: 46%;
+    left: 120%;
     animation: slideLeft3 0.4s;
   }
 
@@ -9857,38 +9868,35 @@ img.coinWinning-animation {
 
   @keyframes mergeP3 {
     from {
-      top: 86%;
-      left: 84%;
-      right: inherit;
+      top: 46%;
+      left: 120%;
       opacity: 1;
     }
 
     to {
-      top: -146%;
-      left: 140%;
+      top: 22%;
+      left: 180%;
       opacity: 0;
     }
   }
 
   @keyframes slideLeft3 {
     from {
-      top: 100%;
-      left: -3%;
-      right: inherit;
+      top: 50%;
+      left: 50%;
     }
 
     to {
-      top: 86%;
-      left: 84%;
-      right: inherit;
+      top: 46%;
+      left: 120%;
     }
   }
 
   .players.player4 .player-chip {
     bottom: inherit;
     right: inherit;
-    left: 84%;
-    top: 82%;
+    left: 115%;
+    top: 105%;
     animation: slideLeft4 0.4s;
   }
 
@@ -9898,39 +9906,34 @@ img.coinWinning-animation {
 
   @keyframes mergeP4 {
     from {
-      left: 84%;
-      top: 82%;
+      left: 115%;
+      top: 105%;
       opacity: 1;
     }
 
     to {
-      left: 133%;
-      top: 3%;
+      left: 168%;
+      top: 140%;
       opacity: 0;
     }
   }
 
   @keyframes slideLeft4 {
     from {
-      left: 2%;
-      top: 98%;
-      bottom: inherit;
-      right: inherit;
+      left: 50%;
+      top: 50%;
     }
 
     to {
-      left: 84%;
-      top: 82%;
-      bottom: inherit;
-      right: inherit;
+      left: 115%;
+      top: 105%;
     }
   }
 
   .players.player5 .player-chip {
     bottom: inherit;
-    left: 85%;
+    left: 50%;
     top: 118%;
-    transform: translateY(-25%);
     animation: travelDown 0.4s;
   }
 
@@ -9940,26 +9943,26 @@ img.coinWinning-animation {
 
   @keyframes travelDown {
     0% {
-      left: 0%;
-      top: 103%;
+      left: 50%;
+      top: 50%;
     }
 
     100% {
-      left: 85%;
+      left: 50%;
       top: 118%;
     }
   }
 
   @keyframes mergeP5 {
     from {
-      left: 85%;
+      left: 50%;
       top: 118%;
       opacity: 1;
     }
 
     to {
-      left: 117%;
-      top: 146%;
+      left: 45%;
+      top: 208%;
       opacity: 0;
     }
   }
@@ -9981,11 +9984,8 @@ img.coinWinning-animation {
   } */
 
   .players.player6 .player-chip {
-    bottom: inherit;
-    left: inherit;
-    right: 85%;
-    top: 118%;
-    transform: translateY(-25%);
+    left: -23%;
+    top: 105%;
     animation: p6right 0.4s;
   }
 
@@ -9995,154 +9995,104 @@ img.coinWinning-animation {
 
   @keyframes p6right {
     from {
-      right: 0%;
-      top: 103%;
+      left: 50%;
+      top: 50%;
     }
 
     to {
-      right: 85%;
-      top: 118%;
+      left: -23%;
+      top: 105%;
     }
   }
 
   @keyframes mergeP7 {
     from {
-      right: 85%;
-      top: 118%;
-      left: inherit;
+      left: -23%;
+      top: 105%;
       opacity: 1;
     }
 
     to {
-      right: 125%;
-      top: 147%;
+      left: -75%;
+      top: 140%;
       opacity: 0;
     }
   }
 
   .players.player7 .player-chip {
-    top: 86%;
-    right: 84%;
-    bottom: inherit;
-    left: inherit;
-    animation: slideRight8 0.4s;
+    top: 46%;
+    left: -20%;
+    animation: slideRight7 0.4s;
   }
 
   .animateMerge-chips.players.player7 .player-chip {
-    animation: mergeP8 0.4s;
+    animation: mergeP7 0.4s;
   }
 
-  @keyframes mergeP8 {
+  @keyframes mergeP7 {
     from {
-      top: 86%;
-      right: 84%;
+      top: 46%;
+      left: -20%;
       opacity: 1;
     }
 
     to {
-      top: 8%;
-      left: -146%;
+      top: 22%;
+      left: -76%;
       opacity: 0;
     }
   }
 
-  @keyframes slideRight8 {
+  @keyframes slideRight7 {
     from {
-      top: 104%;
-      right: 0%;
+      top: 50%;
+      left: 50%;
     }
 
     to {
-      top: 86%;
-      right: 84%;
+      top: 46%;
+      left: -20%;
     }
   }
 
   .players.player8 .player-chip {
-    left: inherit;
-    top: 86%;
-    right: 84%;
+    left: -20%;
+    top: 45%;
     animation: slideLeft8 0.4s;
   }
 
   .animateMerge-chips.players.player8 .player-chip {
-    animation: mergeP9 0.4s;
+    animation: mergeP8 0.4s;
   }
 
   @keyframes slideLeft8 {
     from {
-      top: 97%;
-      right: 0%;
+      left: 50%;
+      top: 50%;
 
     }
 
     to {
-      top: 86%;
-      right: 84%;
+      left: -20%;
+      top: 45%;
     }
   }
 
 
-  @keyframes mergeP9 {
+  @keyframes mergeP8 {
     from {
-      top: 86%;
-      right: 84%;
+      left: -20%;
+      top: 45%;
       opacity: 1;
     }
 
     to {
-      top: -145%;
-      left: -146%;
+      left: -70%;
+      top: -100%;
       opacity: 0;
     }
   }
 
-  .players.player2 .player-chip {
-    top: 12%;
-    left: 80%;
-    transform: inherit;
-    animation: travelUp 0.4s;
-  }
-
-  .players.player9 .player-chip {
-    left: inherit;
-    top: 12%;
-    right: 76%;
-    transform: inherit;
-    animation: travelUp 0.4s;
-  }
-
-  .animateMerge-chips.players.player9 .player-chip {
-    animation: mergeP10 0.4s;
-  }
-
-  @keyframes mergeP10 {
-    from {
-      top: 12%;
-      right: 76%;
-      opacity: 1;
-    }
-
-    to {
-      left: -150%;
-      top: -284%;
-      opacity: 0;
-    }
-  }
-
-  @keyframes travelUp {
-    from {
-      top: 98%;
-      right: 0%;
-      transform: inherit;
-    }
-
-    to {
-      top: 12%;
-      right: 76%;
-      transform: inherit;
-    }
-  }
 
   .start-game-btn .footer-btn {
     width: 110px;
@@ -10445,53 +10395,53 @@ img.coinWinning-animation {
 }
 
 @media only screen and (max-width: 385px) and (orientation: portrait) {
-  .players {
-    scale: 0.75;
-  }
-
-  .total-pot-money {
-    top: 135px;
-    left: 36%;
-  }
-
-  .table-blindTimer {
-    position: absolute;
-    right: -9%;
-    bottom: 27%;
+  .table-card {
+    top: 56%;
   }
 
   .table-blindLevel {
     position: absolute;
-    top: 20%;
-  }
-
-  .poker-table-bg {
-    height: 84vh;
+    top: 26%;
   }
 
   .player1 {
-    bottom: 2px;
-    transform: translateX(-64%);
-  }
-
-  .player3 {
-    bottom: 24%;
-  }
-
-  .player8 {
-    bottom: 24%;
-  }
-
-  .player9 {
-    bottom: 4%;
-  }
-
-  .player7 {
-    transform: translateX(-120%);
+    bottom: -13%;
+    left: 49%;
   }
 
   .player2 {
-    bottom: 4%;
+    top: 71%;
+    left: 13%;
+  }
+
+  .player3 {
+    top: 40%;
+    left: 13%;
+  }
+
+  .player4 {
+    top: 12%;
+    left: 16%;
+  }
+
+  .player5 {
+    top: -4%;
+    left: 49%;
+  }
+
+  .player6 {
+    top: 12%;
+    left: 83%;
+  }
+
+  .player7 {
+    top: 40%;
+    left: 84%;
+  }
+
+  .player8 {
+    top: 71%;
+    left: 84%;
   }
 }
 

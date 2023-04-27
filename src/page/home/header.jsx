@@ -6,13 +6,13 @@ import { Button, OverlayTrigger } from "react-bootstrap";
 import { Tooltip } from "react-bootstrap";
 import logo from "../../assets/game/logo.png";
 import { FaQuestionCircle } from "react-icons/fa";
-import { landingClient } from '../../config/keys';
 import { toast } from 'react-toastify';
 import { authInstance } from '../../utils/axios.config';
 import Register from './registerPage';
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
 import { ChainId, useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
+import { clientUrl } from '../../config/keys';
 
 const Header = ({ userData, handleShow }) => {
     const { user, setUser } = useContext(UserContext);
@@ -82,9 +82,7 @@ const Header = ({ userData, handleShow }) => {
             <div className="container">
                 <div className="user-header-grid">
                     <div className="casino-logo">
-                        <a href={landingClient}>
-                            <img src={logo} alt="" />
-                        </a>
+                        <a href={clientUrl}><img src={logo} alt="" /></a>
                     </div>
                     <div className="create-game-box">
                         {user ? <>
@@ -153,7 +151,7 @@ const Header = ({ userData, handleShow }) => {
                 </div>
             </div>
             <Register openRegister={openRegister} setOpenRegister={setOpenRegister} account={account} />
-        </div>
+        </div >
 
     )
 }

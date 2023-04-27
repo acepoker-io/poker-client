@@ -343,7 +343,7 @@
   align-items: center;
 }
 
-input:-webkit-autofill,
+/* input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
@@ -351,7 +351,7 @@ input:-webkit-autofill:active {
   border: none;
   -webkit-text-fill-color: var(--placeholder-color) !important;
   border: 1px solid #393939;
-}
+} */
 
 .google-login .btn,
 .google-login .btn:focus,

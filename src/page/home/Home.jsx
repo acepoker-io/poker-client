@@ -10,28 +10,20 @@ import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
 import casino from "../../assets/game/logo.png";
-//import casino1 from "../../assets/game/logo-poker.png";
 import { pokerInstance } from "../../utils/axios.config";
-import Homesvg from "../../assets/home.svg";
-// import axios from "axios";
 import { toast } from "react-toastify";
-//import Select from "react-select";
 import { useMemo } from "react";
 import { FaCoins, FaUser, } from "react-icons/fa";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { socket } from "../../config/socketConnection";
 import axios from "axios";
-import { landingClient } from "../../config/keys";
 import UserContext from "../../context/UserContext";
 import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
-//import CONSTANTS from "../../config/contants";
-// import { getCookie } from "../../utils/cookieUtil";
-// import feeIcon from "../../assets/images/feeIcon.png"
-// import ranking from "../../assets/images/ranking.png"
-// import { dateFormat, timeFormat } from "../../utils/utils";//, getTime
+import Footer from "./footer";
+
 let userId;
 const Home = () => {
   // inital state
@@ -80,10 +72,13 @@ const Home = () => {
     setShowSpinner(false);
     setErrors({});
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log("handle on change ==>", name, value);
     if (name === "public" || name === "autohand") {
       setGameState({ ...gameState, [name]: e.target.checked });
+      return;
     } else if (name === "gameName") {
       if (value.length <= 20) {
         setGameState({ ...gameState, [name]: value });
@@ -101,6 +96,8 @@ const Home = () => {
       setGameState({ ...gameState, [name]: value });
     }
   };
+
+  console.log("gameState ==>", gameState);
 
   const getUser = async () => {
     let user = await userUtils.getAuthUserData();
@@ -198,6 +195,7 @@ const Home = () => {
   };
 
   const createTable = async (e) => {
+    console.log("create table executes");
     e.preventDefault()
     setErrors({});
     setShowSpinner(true);
@@ -206,6 +204,7 @@ const Home = () => {
     }
 
     const tableValidation = validateCreateTable();
+    console.log("tableValidation ==>", tableValidation);
     if (!tableValidation.valid) {
       setErrors({ ...tableValidation.err });
       setShowSpinner(false);
@@ -216,7 +215,16 @@ const Home = () => {
         ...gameState,
         // sitInAmount: parseInt(gameState.sitInAmount),
       });
-      setGameState({ ...gameInit });
+      setGameState({
+        gameName: "",
+        public: false,
+        minchips: "",
+        maxchips: "",
+        autohand: true,
+        sitInAmount: "",
+        invitedUsers: [],
+        password: ''
+      });
       history.push({
         pathname: "/table",
         search: "?gamecollection=poker&tableid=" + resp.data.roomData._id,
@@ -337,7 +345,8 @@ const Home = () => {
           <img src={loaderImg} alt="loader" />
         </div>
       )}
-      <CreateTable
+      {console.log('show---', show, handleChange)}
+      {show && <CreateTable
         handleChange={handleChange}
         show={show}
         handleShow={handleShow}
@@ -347,17 +356,13 @@ const Home = () => {
         options={options}
         handleChnageInviteUsers={handleChnageInviteUsers}
         showSpinner={showSpinner}
-      />
+      />}
+
       <Header userData={userData} handleShow={handleShow} />
       <div className="home-poker-card">
         <div className="container">
           <div className="poker-table-header">
-            <div className="backtoHome">
-              <a href={landingClient}>
-                <img src={Homesvg} alt="home" />
-                Home
-              </a>
-            </div>
+            <h2 className="lobbyHeader-title">Open Tables</h2>
 
             <div className="poker-tableSearch-box">
               <div className="poker-tableSearch">
@@ -380,7 +385,7 @@ const Home = () => {
               onSelect={(k) => setKey(k)}
               className="mb-3"
             >
-              <Tab eventKey="home" title="Poker Open Tables">
+              <Tab eventKey="home" title="">
                 {filterRoom.length > 0 ? (
                   <>
                     <div className="home-poker-card-grid">
@@ -441,6 +446,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
@@ -535,12 +541,29 @@ const CreateTable = ({
   showSpinner,
   // handleChnageInviteUsers,
 }) => {
+
+  console.log("values ==>", values)
+
   return (
     <Modal show={show} onHide={handleShow} centered className="casino-popup">
       <Modal.Header closeButton>
         <Modal.Title className="text-dark">Create Table</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {/* Password
+        {values.public ? <input type="password"
+          onFocus={(e) => {
+            if (e.target.hasAttribute('readonly')) {
+              e.target.removeAttribute('readonly');
+              // fix for mobile safari to show virtual keyboard
+              e.target.blur(); e.target.focus();
+            }
+          }}
+          onChange={handleChange}
+          readOnly={true}
+          name="rer" autoComplete="off" defaultValue={values.password} placeholder="Enter your password" /> : ""
+        } */}
+
         <Form.Group className="form-group" controlId="formPlaintextPassword">
           <Form.Label>Enter Game name</Form.Label>
           <Form.Control
@@ -619,18 +642,19 @@ const CreateTable = ({
             <p className="text-danger">{errors?.invitedPlayer}</p>
           )}
         </div> */}
-        {values.public && <Form.Group className="form-group" controlId="formPlaintextPassword">
-          <Form.Label>Enter password</Form.Label>
-          <Form.Control
-            name="password"
-            type="password"
-            placeholder="123456"
+        {console.log("values in  component ==>", values)}
+        {values.public && <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="passoword" onFocus={(e) => {
+            if (e.target.hasAttribute('readonly')) {
+              e.target.removeAttribute('readonly');
+              // fix for mobile safari to show virtual keyboard
+              e.target.blur(); e.target.focus();
+            }
+          }}
             onChange={handleChange}
-            value={values.password}
-          />
-          {!!errors?.password && (
-            <p className="text-danger">{errors?.password}</p>
-          )}
+            readOnly={true}
+            name="password" autoComplete="off" defaultValue={values.password} placeholder="Enter your password" />
         </Form.Group>}
 
         <div className="createGameCheckHand">
@@ -653,6 +677,7 @@ const CreateTable = ({
             checked={values.autohand}
           />
         </div>
+
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleShow}>
