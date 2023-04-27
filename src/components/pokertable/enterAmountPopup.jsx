@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
+import { pokerInstance } from "../../utils/axios.config";
 
 const EnterAmountPopup = ({
   handleSitin,
