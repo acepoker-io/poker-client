@@ -64,7 +64,10 @@ const Home = () => {
 
   }
   useEffect(() => {
-    checkUserInGame()
+    if(localStorage.getItem('token')){
+      checkUserInGame()
+    }
+    
   }, [])
   const handleShow = () => {
     setShow(!show);
