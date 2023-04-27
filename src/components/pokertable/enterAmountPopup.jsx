@@ -14,7 +14,7 @@ const EnterAmountPopup = ({
   const [error, setError] = useState("");
   const joinGame = async (e) => {
     e.preventDefault();
-    if (parseInt(amount) >= 100) {
+    if (parseInt(amount) >= 10) {
       setLoading(true);
       const msg = await handleSitin(amount);
       setLoading(false);
@@ -22,8 +22,8 @@ const EnterAmountPopup = ({
       // if (msg) {
       //   setError(msg);
       // }
-    } else if (parseInt(amount) < 100) {
-      setError("Minimum amount to enter is 100.");
+    } else if (parseInt(amount) < 10) {
+      setError("Minimum amount to enter is 10.");
     } else {
       setError("Please enter amount.");
     }

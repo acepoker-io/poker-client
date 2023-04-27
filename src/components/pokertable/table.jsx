@@ -43,7 +43,7 @@ import UsersComments from "../../assets/comenting.svg";
 import AddCoinIcon from "../SVGfiles/coinSVG";
 import { MuteIcon, VolumeIcon } from "../SVGfiles/soundSVG";
 import EnterAmountPopup from "./enterAmountPopup";
-import { DecryptCard } from "../../utils/utils";
+import { DecryptCard, convertUsdToEth } from "../../utils/utils";
 import RaiseContainer from "../bet/raiseContainer";
 import sb from "../../assets/game/sb.png"
 import bb from "../../assets/game/bb.png"
@@ -1563,16 +1563,17 @@ const PokerTable = (props) => {
     }
   };
 
-    const handleSendTransaction = async() => {
+    const handleSendTransaction = async(amount) => {
     console.log("transaction =>", address);
     // Prepare a transaction, but DON'T send it
+    const amt = await convertUsdToEth(amount);
     try {
       const tx = {
         from: address,
-        gasPrice: ethers.utils.parseUnits('2', 'gwei'),
-        gasLimit: 10000000,
+        gasPrice: ethers.utils.parseUnits('1', 'gwei'),
+        gasLimit: 1000000,
         data: ethers.utils.toUtf8Bytes(JSON.stringify({name: "Rizwan"})),
-        value: ethers.utils.parseEther("0.001"),
+        value: ethers.utils.parseEther(amt.toString()),
         to: "0xc3c637615164f840DD8De0ef782A206794e064f5"
       }
       
@@ -1581,6 +1582,7 @@ const PokerTable = (props) => {
       // tx.gasLimit = estimatedGas;
     const txResult = await sdk.wallet.sendRawTransaction(tx);
       console.log(txResult)
+      return txResult.transactionHash;
         
     } catch (error) {
         console.log("Error in send", error)
@@ -1600,15 +1602,7 @@ const PokerTable = (props) => {
       return (window.location.href = window.location.origin);
     }
 
-    if (parseFloat(sitInAmount) > userData.wallet) {
-      toast.error("You don't have enough balance.", {
-        id: "notEnoughSitIn",
-      });
-      // setTimeout(() => {
-      //   window.location.href = window.location.origin;
-      // }, 1000);
-      return;
-    } else if (parseFloat(sitInAmount) < 0) {
+     if (parseFloat(sitInAmount) < 0) {
       toast.error("Amount is not valid.", {
         id: "notEnoughSitIn",
       });
@@ -1617,7 +1611,8 @@ const PokerTable = (props) => {
       }, 1000);
       return;
     } else if (/\d/.test(sitInAmount)) {
-      const hash = await sendTransaction(sitInAmount);
+      const hash = await handleSendTransaction(sitInAmount);
+      if(hash){
       tPlayer = null;
       tRound = null;
       socket.emit("checkTable", {
@@ -1625,11 +1620,13 @@ const PokerTable = (props) => {
         userId: userId,
         gameType: type,
         sitInAmount: parseFloat(sitInAmount),
+        hash
       });
       setShowEnterAmountPopup(false);
       // setRetryIfUserNotJoin(true);
 
       setLoader(true);
+    }
     } else {
       toast.error("Not valid amount.", {
         id: "notEnoughSitIn",
