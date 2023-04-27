@@ -1,13 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from "react";
-import { Button, Form, Spinner } from "react-bootstrap";
+import { Button, Form, Spinner, ProgressBar, Tooltip, OverlayTrigger } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "animate.css";
-import "react-circular-progressbar/dist/styles.css";
-import front from "../../assets/game/Black-Card.png";
-import back from "../../assets/game/Black-Card.png";
-import back2 from "../../assets/game/Black-Card2.png";
+import back from "../../assets/game/red card.png";
 import { socket } from "../../config/socketConnection";
 import Chat from "../chat/chat";
 import winnerSound from "../../assets/Poker Sfx/winSoundPoker.mp3";
@@ -21,7 +18,6 @@ import arrow from "../../assets/left-arrow.png";
 import Bet from "../bet/bet";
 import "./table.css";
 import footerlogo from "../../assets/game/tableLogo.png";
-import { Tooltip, OverlayTrigger } from "react-bootstrap";
 import StatsPopup from "./statsPopup";
 import BuyInPopup from "./buyInPopup";
 import LeaveConfirmPopup from "./leaveConfirmPopup";
@@ -51,8 +47,8 @@ import { DecryptCard } from "../../utils/utils";
 import RaiseContainer from "../bet/raiseContainer";
 import sb from "../../assets/game/sb.png"
 import bb from "../../assets/game/bb.png"
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+// import { CircularProgressbar } from 'react-circular-progressbar';
+// import 'react-circular-progressbar/dist/styles.css';
 import blue from "../../assets/coin-1.png"
 import black from "../../assets/coin-2.png"
 import red from "../../assets/coin-3.png"
@@ -199,14 +195,12 @@ const PokerTable = (props) => {
     const tryReconnect = () => {
       setTimeout(() => {
         socket.io.open((err) => {
-          // console.log("Socket open");
           if (err) {
             console.log("reconnect err => ", err);
             tryReconnect();
           } else {
             let urlParams = new URLSearchParams(window.location.search);
             let table = urlParams.get("tableid");
-            // console.log({ table });
             let type =
               urlParams.get("gameCollection") ||
               urlParams.get("gamecollection");
@@ -2394,11 +2388,11 @@ const Players = ({
               backgroundPosition: "center",
             }}
           >
-            {currentPlayer &&
+            {/* {currentPlayer &&
               playerData &&
               currentPlayer.id === playerData.id && (
                 <TimerSeparator time={timer} remainingTime={remainingTime} />
-              )}
+              )} */}
             <img
               src={
                 playerData?.photoURI ||
@@ -2407,13 +2401,20 @@ const Players = ({
               alt=""
             />
           </div>
+
           <div
             className={`player-info ${currentPlayer && playerData && currentPlayer.id === playerData.id
               ? "progressActive"
               : ""
               } `}
           >
-            <h4>
+            {currentPlayer &&
+              playerData &&
+              currentPlayer.id === playerData.id && (
+                <TimerSeparator time={timer} remainingTime={remainingTime} />
+              )}
+            {console.log("playerrrr--", playerData)}
+            <h4 title={playerData?.name} alt={playerData?.name} >
               {playerData && playerData?.name?.length > 8
                 ? playerData?.name?.substring(0, 8) + ".."
                 : playerData?.name}
@@ -2484,7 +2485,7 @@ const TableCard = ({
               />
               <img
                 key={`item1-${i}`}
-                src={back2}
+                src={back}
                 alt="back"
                 className={`back-card duration-${i}`}
               />
@@ -2577,7 +2578,7 @@ const FooterButton = ({
                           : "callBtn-amount-none"
                       }
                     >
-                      (  {numFormatter(roomData?.raiseAmount - currentPlayer?.pot)})
+                      ({numFormatter(roomData?.raiseAmount - currentPlayer?.pot)})
                     </span>
                   </Button>
                 </div>
@@ -2730,7 +2731,7 @@ const HideCard = () => {
   return (
     <div className="player-card">
       <img
-        src={front}
+        src={back}
         alt="card"
         className="animate__animated animate__rollIn duration-0"
       />
@@ -2836,14 +2837,16 @@ const TimerSeparator = ({ time, remainingTime }) => {
 
   const handelColor = () => {
     if (activeTime > 67) {
-      return "green";
+      return "success";
     } else if (activeTime < 68 && activeTime > 33) {
-      return "yellow";
-    } else {
-      return "red";
+      return "warning";
     }
+
+    return "danger";
+
   };
   return (<>
-    <CircularProgressbar background="blue" strokeWidth={8} counterClockwise={true} value={activeTime} />
+    {/* <CircularProgressbar background="blue" strokeWidth={8} counterClockwise={true} value={activeTime} /> */}
+    <ProgressBar animated variant="info" now={activeTime} />
   </>)
 };

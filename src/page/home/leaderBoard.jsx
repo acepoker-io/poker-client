@@ -3,11 +3,11 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Table from 'react-bootstrap/Table'
-import { landingClient } from '../../config/keys'
+// import { landingClient } from '../../config/keys'
 import { tournamentInstance } from '../../utils/axios.config'
 import { getTime } from '../../utils/utils'
 // import Header from './header'
-import logo from "../../assets/game/logo.png";
+// import logo from "../../assets/game/logo.png";
 import userUtils from '../../utils/user'
 import { socket } from '../../config/socketConnection'
 import { useHistory } from 'react-router-dom'
@@ -224,9 +224,9 @@ const LeaderBoard = () => {
         <div className="container">
           <div className="user-header-grid">
             <div className="casino-logo">
-              <a href={landingClient}>
+              {/* <a href={landingClient}>
                 <img src={logo} alt="" />
-              </a>
+              </a> */}
             </div>
             {/* <div className="create-game-box">
                         <a href={`${landingClient}profile`}>
