@@ -17,7 +17,7 @@ import Homesvg from "../../assets/home.svg";
 import { toast } from "react-toastify";
 //import Select from "react-select";
 import { useMemo } from "react";
-import { FaCoins, FaUser,} from "react-icons/fa";
+import { FaCoins, FaUser, } from "react-icons/fa";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { socket } from "../../config/socketConnection";
@@ -214,7 +214,7 @@ const Home = () => {
     try {
       const resp = await pokerInstance().post("/createTable", {
         ...gameState,
-        sitInAmount: parseInt(gameState.sitInAmount),
+        // sitInAmount: parseInt(gameState.sitInAmount),
       });
       setGameState({ ...gameInit });
       history.push({
@@ -558,7 +558,7 @@ const CreateTable = ({
           className="form-group blindpopupField"
           controlId="formPlaintextPassword"
         >
-          <div>
+          {/* <div>
             <Form.Label>Sit in amount</Form.Label>
             <Form.Control
               name="sitInAmount"
@@ -570,7 +570,7 @@ const CreateTable = ({
             {!!errors?.sitInAmount && (
               <p className="text-danger">{errors?.sitInAmount}</p>
             )}
-          </div>
+          </div> */}
 
           <div>
             {" "}
@@ -748,7 +748,7 @@ const GameTable = ({
   //       search: "?gamecollection=poker&tableid=" + roomid,
   //     });
   //   } else {
-      // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
+  // toast.error(toast.success(res.data.msg, { containerId: 'B' }))
   //   }
   // };
 
@@ -761,7 +761,7 @@ const GameTable = ({
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
+    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
   };
 
   const [cardFlip, setCardFlip] = useState(false);
@@ -828,7 +828,7 @@ const GameTable = ({
         {/* {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null} */}
         <div
           className={`tournamentCard-inner
-         ${cardFlip && gameType === "Poker" ? "rotate" : ""}
+         ${ cardFlip && gameType === "Poker" ? "rotate" : "" }
          `}
         >
           <VerifyPasswordPopup verifyPassword={verifyPassword} userId={userId} tableId={tableId} setVerifyPassword={setVerifyPassword} />

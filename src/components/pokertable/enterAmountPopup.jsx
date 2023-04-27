@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button, Form, Modal, Spinner } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 
 const EnterAmountPopup = ({
   handleSitin,
@@ -12,9 +13,23 @@ const EnterAmountPopup = ({
   const [isLoading, setLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
+  const { search } = useLocation();
+  const tableId = new URLSearchParams(search).get("tableId");
+
   const joinGame = async (e) => {
     e.preventDefault();
-    if (parseInt(amount) >= 100) {
+
+    const resp = await pokerInstance().get('/getTableById', {
+      params: {
+        tableId
+      }
+    });
+
+    const { data: { bigBlind } } = resp;
+    // let chips = parseFloat(amount) * 100;
+
+
+    if (parseFloat(amount) >= bigBlind) {
       setLoading(true);
       const msg = await handleSitin(amount);
       setLoading(false);
@@ -22,8 +37,8 @@ const EnterAmountPopup = ({
       // if (msg) {
       //   setError(msg);
       // }
-    } else if (parseInt(amount) < 100) {
-      setError("Minimum amount to enter is 100.");
+    } else if (parseFloat(amount) < bigBlind) {
+      setError(`Minimum amount to enter is ${ (bigBlind / 100) }.`);
     } else {
       setError("Please enter amount.");
     }
