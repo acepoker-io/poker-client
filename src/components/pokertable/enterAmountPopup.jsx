@@ -15,8 +15,8 @@ const EnterAmountPopup = ({
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
   const { search } = useLocation();
-  const tableId = new URLSearchParams(search).get("tableId");
-
+  const tableId = new URLSearchParams(search).get("tableid");
+  console.log("tableId ==>", tableId);
   const joinGame = async (e) => {
     e.preventDefault();
 
@@ -25,10 +25,10 @@ const EnterAmountPopup = ({
         tableId
       }
     });
-
+    console.log("resp ==>", resp);
     const { data: { bigBlind } } = resp;
     // let chips = parseFloat(amount) * 100;
-
+    console.log("amount ==>", amount, bigBlind);
 
     if (parseFloat(amount) >= bigBlind) {
       setLoading(true);
