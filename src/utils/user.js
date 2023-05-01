@@ -14,6 +14,7 @@ const getAuthUserData = async () => {
     return { success: true, data: userData.data };
   } catch (error) {
     console.log(error);
+    localStorage.removeItem('token')
     return { success: false };
   }
 };
