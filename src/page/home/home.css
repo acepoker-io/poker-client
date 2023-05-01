@@ -104,10 +104,12 @@
   color: #bcbcbc;
   font-size: 14px;
 }
+
 .pokerWallet-box {
   display: flex;
   flex-direction: row;
 }
+
 .create-game-box button {
   padding: 8px 20px;
   background: #dc3545;
@@ -720,6 +722,10 @@ div#clockdiv h4 {
   font-size: 18px;
   font-weight: 600;
   color: #334b9b;
+  white-space: nowrap;
+  width: 180px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .tournamentCard-nameDetail h6 {

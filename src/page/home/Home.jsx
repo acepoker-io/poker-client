@@ -869,7 +869,7 @@ const GameTable = ({
                   <img src={casino} className="tournamentImg" alt="" />
                   <div className="tournamentCard-nameDetail">
                     <h6>{getTime(data?.createdAt)}</h6>
-                    <h2>{gameType === "Poker" ? data?.gameName : data.name}</h2>
+                    <h2 title={data?.gameName}>{gameType === "Poker" ? data?.gameName : data.name}</h2>
                     <p>
                       people joined :{" "}
                       <span>
