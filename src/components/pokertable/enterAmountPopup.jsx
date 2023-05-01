@@ -33,7 +33,7 @@ const EnterAmountPopup = ({
     if (parseFloat(amount) >= bigBlind) {
       setLoading(true);
       const msg = await handleSitin(amount);
-      setLoading(false);
+      // setLoading(false);
       console.log(msg);
       // if (msg) {
       //   setError(msg);

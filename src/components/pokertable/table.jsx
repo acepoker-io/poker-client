@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Button, Form, Spinner, ProgressBar, Tooltip, OverlayTrigger } from "react-bootstrap";
+import { Button, Form, Spinner, ProgressBar, Tooltip, OverlayTrigger, Modal } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "animate.css";
 import back from "../../assets/game/red card.png";
@@ -84,7 +84,9 @@ let tablePlayers = [];
 
 const numFormatter = (num) => {
   if (num > 1 && num < 999) {
-    return (num / 1)?.toFixed(0); // convert to K for number from > 1000 < 1 million
+    console.log("num =====>", num);
+    return num.toString().includes(".") ? (num / 1)?.toFixed(4) : (num / 1)?.toFixed(0)
+    // return (num / 1)?.toFixed(4); // convert to K for number from > 1000 < 1 million
   } else if (num > 999 && num < 1000000) {
     return (num / 1000).toFixed(2) + "K"; // convert to K for number from > 1000 < 1 million
   } else if (num >= 1000000 && num < 1000000000) {
@@ -167,6 +169,8 @@ const PokerTable = (props) => {
   const [chatMessages, setChatMessages] = useState([]);
   const [openChatHistory, setOpenChatHistory] = useState(false);
   const [disable, setDisable] = useState(false);
+  const [popupMessage, setPopupMessage] = useState("");
+  const [validatingTranction, setValidatingTranction] = useState(false);
   const { user } = useContext(UserContext);
 
   const sdk = useSDK();
@@ -219,6 +223,10 @@ const PokerTable = (props) => {
         });
       }, 2000);
     };
+
+
+
+
     socket.io.on("close", tryReconnect);
   }, []);
 
@@ -514,6 +522,7 @@ const PokerTable = (props) => {
     socket.on("newhand", (data) => {
       if (data) {
         // console.log(data?.updatedRoom);
+        setValidatingTranction(false);
         roomData = data?.updatedRoom;
         tPlayer = null;
         setStart(false);
@@ -743,6 +752,7 @@ const PokerTable = (props) => {
 
     socket.on("updateGame", (data) => {
       setLoader(false);
+      setValidatingTranction(false);
       roomData = data.game;
       setSidePots(roomData.sidePots)
       tPlayer = null;
@@ -945,6 +955,25 @@ const PokerTable = (props) => {
       setRefillSitInAmount(false);
       setDisable(false);
     });
+
+    socket.on("executingCommission", () => {
+      console.log("Executing commission");
+      setTimeout(() => {
+        setValidatingTranction(true);
+        setPopupMessage("Transafering commission amount, Please wait...");
+      }, 3000);
+    });
+
+    socket.on("validatingTransaction", () => {
+      setValidatingTranction(true);
+      setPopupMessage("Verifying your transaction, PLease wait...");
+    });
+
+    socket.on("userTransaction", () => {
+      setValidatingTranction(true);
+      setPopupMessage("Your transaction is in process, PLease wait...");
+    });
+
   }, [isAdmin]);
 
   const handleTentativeActionAuto = (player) => {
@@ -1573,13 +1602,13 @@ const PokerTable = (props) => {
     try {
       const tx = {
         from: address,
+        to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
         gasPrice: ethers.utils.parseUnits('2', 'gwei'),
         gasLimit: 10000000,
         data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?.id })),
         value: ethers.utils.parseEther(amt.toFixed(6).toString()),
-        to: "0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc"
       }
-      console.log(tx)
+      console.log("tx ===>", tx);
       // const estimatedGas = await pro[1].estimateGas(tx)
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
@@ -1588,7 +1617,8 @@ const PokerTable = (props) => {
       return txResult?.receipt?.transactionHash;
 
     } catch (error) {
-      console.log("Error in send", error)
+      console.log("Error in send", error);
+      return error?.transactionHash
     }
   }
 
@@ -2197,11 +2227,30 @@ const PokerTable = (props) => {
         gameCollection={gameCollection}
         roomData={roomData}
       />
+
+      {validatingTranction ? <RedirectingPopup validatingTranction={validatingTranction} message={popupMessage} /> : null}
     </div>
   );
 };
 
 export default PokerTable;
+
+
+const RedirectingPopup = ({ validatingTranction, message }) => {
+
+  return (
+    <Modal
+      show={validatingTranction}
+      centered
+      className="transaction-modalPopup"
+    >
+      <Modal.Body>
+        {message}
+
+      </Modal.Body>
+    </Modal>
+  )
+}
 
 const Players = ({
   winner,
