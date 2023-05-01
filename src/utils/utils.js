@@ -1,5 +1,6 @@
 import CryptoJS from "crypto-js";
 import { PUBLICK_KEY } from "../config/keys";
+import axios from "axios";
 
 const numFormatter = (num) => {
   if (num > 1 && num < 999) {
@@ -84,3 +85,20 @@ export const timeFormat = (date = new Date()) => {
   });
   return time;
 };
+
+export const convertUsdToEth = async(amount) => {
+  try {
+    const res = await axios.get('https://api.coingecko.com/api/v3/coins/ethereum');
+if(res.data){
+    const rate = res.data.market_data.current_price.usd;
+    return amount / rate;
+}
+return null;
+  } catch (error) {
+    console.log("error in convertUsdToEth", error);
+    return null;
+  }
+
+
+
+}

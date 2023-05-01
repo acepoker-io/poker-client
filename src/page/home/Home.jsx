@@ -152,33 +152,35 @@ const Home = () => {
       err.minchips =
         `Minimum bet can't be less then or equal to ` + mimimumBet + ".";
       valid = false;
-    } else if (
-      parseInt(gameState?.sitInAmount) < parseInt(gameState?.minchips)
-    ) {
-      err.minchips = "Small blind amount must be less than Sit In amount";
-      valid = false;
     }
-    if (!gameState.sitInAmount) {
-      err.sitInAmount = `Sit in amount is required.`;
-      valid = false;
-    }
+    // else if (
+    //   parseInt(gameState?.sitInAmount) < parseInt(gameState?.minchips)
+    // ) {
+    //   err.minchips = "Small blind amount must be less than Sit In amount";
+    //   valid = false;
+    // }
+    // if (!gameState.sitInAmount) {
+    //   err.sitInAmount = `Sit in amount is required.`;
+    //   valid = false;
+    // }
 
-    if (parseFloat(gameState.sitInAmount) < 100) {
-      err.sitInAmount = `Minimum sit in amount is 100.`;
-      valid = false;
-    }
+    // if (parseFloat(gameState.sitInAmount) < 100) {
+    //   err.sitInAmount = `Minimum sit in amount is 100.`;
+    //   valid = false;
+    // }
 
     console.log("userData ==>", userData);
-    if (parseFloat(gameState.sitInAmount) > userData?.wallet) {
-      err.sitInAmount = `You don't have enough balance in your wallet.`;
-      valid = false;
-    }
+    // if (parseFloat(gameState.sitInAmount) > userData?.wallet) {
+    //   err.sitInAmount = `You don't have enough balance in your wallet.`;
+    //   valid = false;
+    // }
 
     //  else if (!gameState.maxchips) {
     //   err.maxchips = 'Please enter amount for big blind.';
     //   valid = false;
     // }
-    else if (parseFloat(gameState.maxchips) < parseFloat(gameState.minchips)) {
+    // else
+    if (parseFloat(gameState.maxchips) < parseFloat(gameState.minchips)) {
       err.maxchips = "Big blind amount cant be less then small blind";
       valid = false;
     } else if (gameState.minchips <= 0) {
@@ -216,7 +218,7 @@ const Home = () => {
     try {
       const resp = await pokerInstance().post("/createTable", {
         ...gameState,
-        sitInAmount: parseInt(gameState.sitInAmount),
+        // sitInAmount: parseInt(gameState.sitInAmount),
       });
       setGameState({
         gameName: "",
@@ -584,7 +586,7 @@ const CreateTable = ({
           className="form-group blindpopupField"
           controlId="formPlaintextPassword"
         >
-          <div>
+          {/* <div>
             <Form.Label>Sit in amount</Form.Label>
             <Form.Control
               name="sitInAmount"
@@ -596,7 +598,7 @@ const CreateTable = ({
             {!!errors?.sitInAmount && (
               <p className="text-danger">{errors?.sitInAmount}</p>
             )}
-          </div>
+          </div> */}
 
           <div>
             {" "}

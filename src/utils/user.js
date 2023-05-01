@@ -3,7 +3,6 @@ import axios from "axios";
 import CONSTANTS from "../config/contants";
 // import { pokerInstance } from "./axios.config";
 
-// This function is alternative of firebase.auth().onAuthStateChanged
 const getAuthUserData = async () => {
   try {
     let userData = await axios({
