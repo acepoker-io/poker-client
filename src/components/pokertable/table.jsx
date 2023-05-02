@@ -55,6 +55,7 @@ import red from "../../assets/coin-3.png"
 import green from "../../assets/coin-4.png"
 import chipspokercard from "../../assets/spade-chip.png"
 // import UserContext from "../../context/UserContext";
+import ETHimage from "../../assets/ETHimage.jpg"
 
 const getQueryParams = () => {
   const url = new URLSearchParams(window.location.search);
@@ -2090,16 +2091,17 @@ const PokerTable = (props) => {
             {roomData?.tournament ? (
               ""
             ) : (
-              <li>
-                <OverlayTrigger
-                  placement="left"
-                  overlay={<Tooltip id="tooltip-disabled">Fill Tokens</Tooltip>}
-                >
-                  <button onClick={() => setRefillSitInAmount(true)}>
-                    <AddCoinIcon />
-                  </button>
-                </OverlayTrigger>
-              </li>
+              // <li>
+              //   <OverlayTrigger
+              //     placement="left"
+              //     overlay={<Tooltip id="tooltip-disabled">Fill Tokens</Tooltip>}
+              //   >
+              //     <button onClick={() => setRefillSitInAmount(true)}>
+              //       <AddCoinIcon />
+              //     </button>
+              //   </OverlayTrigger>
+              // </li>
+              ""
             )}
             <li>
               <OverlayTrigger
@@ -2222,6 +2224,7 @@ const RedirectingPopup = ({ validatingTranction, message }) => {
       className="transaction-modalPopup"
     >
       <Modal.Body className="transaction-validatingTranction">
+        <img src={ETHimage} alt="" />
         {message}
         <Spinner animation="border" variant="danger" />
       </Modal.Body>
