@@ -55,6 +55,7 @@ import red from "../../assets/coin-3.png"
 import green from "../../assets/coin-4.png"
 import chipspokercard from "../../assets/spade-chip.png"
 import UserContext from "../../context/UserContext";
+import ETHimage from "../../assets/ETHimage.jpg"
 
 const getQueryParams = () => {
   const url = new URLSearchParams(window.location.search);
@@ -1606,7 +1607,7 @@ const PokerTable = (props) => {
       const tx = {
         from: address,
         to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
-        gasPrice: ethers.utils.parseUnits('2', 'gwei'),
+        gasPrice: ethers.utils.parseUnits('1', 'gwei'),
         gasLimit: 10000000,
         data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?.id })),
         value: ethers.utils.parseEther(amt.toFixed(6).toString()),
@@ -2116,16 +2117,17 @@ const PokerTable = (props) => {
             {roomData?.tournament ? (
               ""
             ) : (
-              <li>
-                <OverlayTrigger
-                  placement="left"
-                  overlay={<Tooltip id="tooltip-disabled">Fill Tokens</Tooltip>}
-                >
-                  <button onClick={() => setRefillSitInAmount(true)}>
-                    <AddCoinIcon />
-                  </button>
-                </OverlayTrigger>
-              </li>
+              // <li>
+              //   <OverlayTrigger
+              //     placement="left"
+              //     overlay={<Tooltip id="tooltip-disabled">Fill Tokens</Tooltip>}
+              //   >
+              //     <button onClick={() => setRefillSitInAmount(true)}>
+              //       <AddCoinIcon />
+              //     </button>
+              //   </OverlayTrigger>
+              // </li>
+              ""
             )}
             <li>
               <OverlayTrigger
@@ -2248,6 +2250,7 @@ const RedirectingPopup = ({ validatingTranction, message }) => {
       className="transaction-modalPopup"
     >
       <Modal.Body className="transaction-validatingTranction">
+        <img src={ETHimage} alt="" />
         {message}
         <Spinner animation="border" variant="danger" />
       </Modal.Body>
