@@ -190,7 +190,7 @@
 .casino-popup .modal-content {
   background: #fff;
   border-color: #fff;
-  box-shadow: 0px 2px 10px #fff;
+  /* box-shadow: 0px 2px 10px #fff; */
 }
 
 .casino-popup .modal-header {
@@ -224,7 +224,10 @@
   padding: 0;
   font-size: 30px;
 }
-
+.footer-descp h6 {
+  font-size: 14px;
+  color: #dc3545;
+}
 .casino-popup .form-control,
 .casino-popup .form-control:focus {
   color: #000000 !important;
@@ -233,6 +236,7 @@
   border-radius: 30px;
   padding: 8px 20px;
   font-size: 16px;
+  box-shadow: 0 0 0 0.1rem #dc354600;
 }
 
 .css-tj5bde-Svg {
