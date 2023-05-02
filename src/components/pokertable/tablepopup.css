@@ -9,6 +9,7 @@
   width: 150px;
   display: grid;
   place-content: center;
+  background: #d52839;
 }
 
 .leave-confirm.modal .sub-btn .btn.btn-primary:hover,
