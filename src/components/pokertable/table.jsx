@@ -54,7 +54,7 @@ import black from "../../assets/coin-2.png"
 import red from "../../assets/coin-3.png"
 import green from "../../assets/coin-4.png"
 import chipspokercard from "../../assets/spade-chip.png"
-import UserContext from "../../context/UserContext";
+// import UserContext from "../../context/UserContext";
 
 const getQueryParams = () => {
   const url = new URLSearchParams(window.location.search);
@@ -171,10 +171,10 @@ const PokerTable = (props) => {
   const [disable, setDisable] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const [validatingTranction, setValidatingTranction] = useState(false);
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext);
 
-  const sdk = useSDK();
-  const address = useAddress();
+  // const sdk = useSDK();
+  // const address = useAddress();
 
   const handleBtnClick = () => {
     setBtnToggle(!btnToggle);
@@ -1597,33 +1597,7 @@ const PokerTable = (props) => {
     }
   };
 
-  const handleSendTransaction = async (amount) => {
-    console.log("transaction =>", address, amount);
-    // Prepare a transaction, but DON'T send it
-    const amt = await convertUsdToEth(amount);
-    console.log("ddddd", amt)
-    try {
-      const tx = {
-        from: address,
-        to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
-        gasPrice: ethers.utils.parseUnits('2', 'gwei'),
-        gasLimit: 10000000,
-        data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?.id })),
-        value: ethers.utils.parseEther(amt.toFixed(6).toString()),
-      }
-      console.log("tx ===>", tx);
-      // const estimatedGas = await pro[1].estimateGas(tx)
-      // console.log('Estimated gas cost:', estimatedGas.toString());
-      // tx.gasLimit = estimatedGas;
-      const txResult = await sdk.wallet.sendRawTransaction(tx);
-      console.log(txResult)
-      return txResult?.receipt?.transactionHash;
 
-    } catch (error) {
-      console.log("Error in send", error);
-      return error?.transactionHash
-    }
-  }
 
   const handleSitin = async (sitInAmount) => {
     let urlParams = getQueryParams();
@@ -1647,23 +1621,23 @@ const PokerTable = (props) => {
       }, 1000);
       return;
     } else if (/\d/.test(sitInAmount)) {
-      const hash = await handleSendTransaction(sitInAmount);
-      console.log("hashh ===>", hash);
-      if (hash) {
-        tPlayer = null;
-        tRound = null;
-        socket.emit("checkTable", {
-          gameId: table,
-          userId: userId,
-          gameType: type,
-          sitInAmount: parseFloat(sitInAmount),
-          hash
-        });
-        setShowEnterAmountPopup(false);
-        // setRetryIfUserNotJoin(true);
+      // const hash = await handleSendTransaction(sitInAmount);
+      // console.log("hashh ===>", hash);
+      // if (hash) {
+      tPlayer = null;
+      tRound = null;
+      socket.emit("checkTable", {
+        gameId: table,
+        userId: userId,
+        gameType: type,
+        sitInAmount: parseFloat(sitInAmount),
+        // hash
+      });
+      setShowEnterAmountPopup(false);
+      // setRetryIfUserNotJoin(true);
 
-        setLoader(true);
-      }
+      setLoader(true);
+      // }
     } else {
       toast.error("Not valid amount.", {
         id: "notEnoughSitIn",
