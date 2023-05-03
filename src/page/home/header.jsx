@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import numFormatter from "../../utils/utils";
 import token from "../../assets/coin.png";
-import tickets from "../../assets/tickets.png";
-import { Button, Form, Modal, OverlayTrigger, Spinner } from "react-bootstrap";
-import { Tooltip } from "react-bootstrap";
+import deposit from "../../assets/deposit.png";
+import { Button, Form, Modal, Spinner } from "react-bootstrap";
+// import { Tooltip } from "react-bootstrap";
 import logo from "../../assets/game/logo.png";
-import { FaQuestionCircle } from "react-icons/fa";
+// import { FaQuestionCircle } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { authInstance } from '../../utils/axios.config';
 import Register from './registerPage';
@@ -19,16 +19,16 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
     const disconnect = useDisconnect();
     const connectWithMetamask = useMetamask();
     const address = useAddress()
-    const renderWallet = (props) => (
-        <Tooltip id="button-tooltip" {...props}>
-            This is your token balance, and can be used for betting.
-        </Tooltip>
-    );
-    const renderTicket = (props) => (
-        <Tooltip id="button-tooltip" {...props}>
-            This is your ticket balance and can be redeemed for prizes.
-        </Tooltip>
-    );
+    // const renderWallet = (props) => (
+    //     <Tooltip id="button-tooltip" {...props}>
+    //         This is your token balance, and can be used for betting.
+    //     </Tooltip>
+    // );
+    // const renderTicket = (props) => (
+    //     <Tooltip id="button-tooltip" {...props}>
+    //         This is your ticket balance and can be redeemed for prizes.
+    //     </Tooltip>
+    // );
     const [account, setAccount] = useState(null);
     const [openRegister, setOpenRegister] = useState(false);
     const [showTransactionModal, setShowTransactionModal] = useState(false);
@@ -138,7 +138,7 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
                                     <div className="pokerWallet-box">
                                         <img src={token} alt="" className="pokerWallet" />
                                         <span>{numFormatter(user?.wallet || 0)}</span>
-                                        <OverlayTrigger
+                                        {/* <OverlayTrigger
                                             placement={window.innerWidth < 767 ? "right" : "left"}
                                             delay={{ show: 250, hide: 400 }}
                                             overlay={renderWallet}
@@ -146,9 +146,9 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
                                             <Button variant="success">
                                                 <FaQuestionCircle />
                                             </Button>
-                                        </OverlayTrigger>
+                                        </OverlayTrigger> */}
                                     </div>
-                                    <div className="pokerWallet-box">
+                                    {/* <div className="pokerWallet-box">
                                         <img src={tickets} alt="" className="pokerWallet" />
                                         <span>{numFormatter(user?.ticket || 0)}</span>
                                         <OverlayTrigger
@@ -160,7 +160,7 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
                                                 <FaQuestionCircle />
                                             </Button>
                                         </OverlayTrigger>
-                                    </div>
+                                    </div> */}
                                 </div><button
                                     type="button"
                                     className="create-game-boxBtn"
@@ -194,14 +194,14 @@ export default Header
 
 const TransactionModal = ({ showTransactionModal, showSpinner, handleDepositAmt, depositAmt, handleDepositTransaction, setShowTransactionModal }) => {
 
-
     return (
         <Modal
             show={showTransactionModal}
             centered
-            className="transaction-modalPopup"
+            className="transaction-modalPopup fade casino-popup"
         >
             <Modal.Body className="transaction-validatingTranction">
+                <img src={deposit} alt="" />
                 <Form.Label>Deposit amount</Form.Label>
                 <Form.Control
                     name="Deposit"
@@ -210,7 +210,6 @@ const TransactionModal = ({ showTransactionModal, showSpinner, handleDepositAmt,
                     type="number"
                     placeholder="Ex : 50"
                 />
-
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={() => { setShowTransactionModal(false) }}>Close</Button>
