@@ -4,7 +4,7 @@ import axios from "axios";
 
 const numFormatter = (num) => {
   if (num > 1 && num < 999) {
-    return (num / 1)?.toFixed(0); // convert to K for number from > 1000 < 1 million
+    return (num / 1)?.toFixed(4); // convert to K for number from > 1000 < 1 million
   } else if (num > 999 && num < 1000000) {
     return (num / 1000).toFixed(2) + "K"; // convert to K for number from > 1000 < 1 million
   } else if (num >= 1000000 && num < 1000000000) {
@@ -86,19 +86,18 @@ export const timeFormat = (date = new Date()) => {
   return time;
 };
 
-export const convertUsdToEth = async(amount) => {
+export const convertUsdToEth = async (amount) => {
   try {
-    const res = await axios.get('https://api.coingecko.com/api/v3/coins/ethereum');
-if(res.data){
-    const rate = res.data.market_data.current_price.usd;
-    return amount / rate;
-}
-return null;
+    const res = await axios.get(
+      "https://api.coingecko.com/api/v3/coins/ethereum"
+    );
+    if (res.data) {
+      const rate = res.data.market_data.current_price.usd;
+      return amount / rate;
+    }
+    return null;
   } catch (error) {
     console.log("error in convertUsdToEth", error);
     return null;
   }
-
-
-
-}
+};
