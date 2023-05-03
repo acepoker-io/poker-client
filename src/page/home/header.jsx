@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import numFormatter from "../../utils/utils";
 import token from "../../assets/coin.png";
 import deposit from "../../assets/deposit.png";
-import { Button, Form, Modal, Spinner } from "react-bootstrap";
+import withdraw from "../../assets/withdraw.png";
+import { Button, ButtonGroup, Dropdown, Form, Modal, Spinner } from "react-bootstrap";
 // import { Tooltip } from "react-bootstrap";
 import logo from "../../assets/game/logo.png";
 // import { FaQuestionCircle } from "react-icons/fa";
@@ -158,8 +159,9 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                         <div className="create-game-box">
                             {user ? <>
                                 {/* <a href={`${landingClient}profile`}> */}
-                                <button onClick={handleShowDepositPopUp}>Deposit</button>
-                                <button onClick={handleShowWithdrawPopUp}>Withdraw</button>
+
+
+
                                 <div className="create-game-box-avtar">
                                     {/* <img
                                     src={
@@ -173,10 +175,11 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                 </div>
                                 {/* </a> */}
                                 <div className="walletTicket-box">
-                                    <div className="pokerWallet-box">
-                                        <img src={token} alt="" className="pokerWallet" />
-                                        <span>{numFormatter(user?.wallet || 0)}</span>
-                                        {/* <OverlayTrigger
+                                    <Dropdown as={ButtonGroup}>
+                                        <Button><div className="pokerWallet-box">
+                                            <img src={token} alt="" className="pokerWallet" />
+                                            <span>{numFormatter(user?.wallet.toFixed(2) || 0)}</span>
+                                            {/* <OverlayTrigger
                                             placement={window.innerWidth < 767 ? "right" : "left"}
                                             delay={{ show: 250, hide: 400 }}
                                             overlay={renderWallet}
@@ -185,7 +188,14 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                                 <FaQuestionCircle />
                                             </Button>
                                         </OverlayTrigger> */}
-                                    </div>
+                                        </div></Button>
+                                        <Dropdown.Toggle split id="dropdown-split-basic" />
+                                        <Dropdown.Menu flip="True" align="start">
+                                            <Dropdown.Item onClick={handleShowDepositPopUp}>Deposit</Dropdown.Item>
+                                            <Dropdown.Item onClick={handleShowWithdrawPopUp}>Withdraw</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+
                                     {/* <div className="pokerWallet-box">
                                         <img src={tickets} alt="" className="pokerWallet" />
                                         <span>{numFormatter(user?.ticket || 0)}</span>
@@ -272,7 +282,7 @@ const WithdrawlModal = ({ showWithdrawTransaction, showSpinner, setShowWithdrawT
             className="transaction-modalPopup fade casino-popup"
         >
             <Modal.Body className="transaction-validatingTranction">
-                <img src={deposit} alt="" />
+                <img src={withdraw} alt="" />
                 <Form.Label>Withdraw amount</Form.Label>
                 <Form.Control
                     name="Deposit"
