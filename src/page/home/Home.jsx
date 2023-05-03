@@ -342,7 +342,7 @@ const Home = () => {
         to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
         gasPrice: ethers.utils.parseUnits('2', 'gwei'),
         gasLimit: 10000000,
-        data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?.id })),
+        data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
         value: ethers.utils.parseEther(amt.toFixed(6).toString()),
       }
       console.log("tx ===>", tx);
@@ -350,17 +350,20 @@ const Home = () => {
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
       const txResult = await sdk.wallet.sendRawTransaction(tx);
-      console.log(txResult)
+      console.log('tx =awd==>', txResult)
+      // console.log(txResult)
       return txResult?.receipt?.transactionHash;
 
     } catch (error) {
       // setShowEnterAmountPopup(false);
-      console.log("Error in send", error);
+      console.log('error===', JSON.parse(JSON.stringify(error)));
+      let newErr = JSON.parse(JSON.stringify(error))
+      console.log(error);
+      toast.error(newErr.reason || "Please connect your metamask", { id: "metamaskConnect" });
       if (!error?.transactionHash) {
-        toast.error("Please connect your metamask", { id: "metamaskConnect" });
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
+        // setTimeout(() => {
+        //   window.location.href = "/";
+        // }, 2000);
       }
       return error?.transactionHash
     }
@@ -375,22 +378,49 @@ const Home = () => {
     try {
       const txhash = await handleSendTransaction(amount);
       console.log("hash ==>", txhash);
-      const resp = await pokerInstance().post('/depositTransaction', {
-        txhash,
-        amount,
-        userId
-      });
-      console.log("response after diposit trasnaction ==>", resp);
-      if (resp?.data?.success) {
-        toast.success(resp?.data?.message, { id: "trasnaction" });
-        setUser(resp?.data?.user)
+      if (txhash) {
+        const resp = await pokerInstance().post('/depositTransaction', {
+          txhash,
+          amount,
+          userId
+        });
+        console.log("response after diposit trasnaction ==>", resp);
+        if (resp?.data?.success) {
+          toast.success(resp?.data?.message, { id: "trasnaction" });
+          setUser(resp?.data?.user)
+        } else {
+          toast.error(resp?.data?.message, { id: "trasnaction" });
+        }
+        return resp?.data?.success;
       } else {
-        toast.error(resp?.data?.message, { id: "trasnaction" });
+        return false
       }
-      return resp?.data?.success;
+
     } catch (err) {
       console.log("error in handleDeposit ==>", err);
       toast.error(err?.data?.message, { id: "trasnaction" });
+      return false;
+    }
+  }
+
+  const handleWithdraw = async (amount) => {
+    try {
+      const resp = await pokerInstance().post('/withdrawTransaction', {
+        userId: user._id || user.id,
+        amount
+      });
+      console.log("response ==>", resp);
+      if (resp?.data.success) {
+        toast.success(resp.data.message, { id: "withdrawTransaction" });
+        setUser(resp.data.user);
+        return true;
+      } else {
+        toast.error(resp.data.message, { id: "withdrawTransaction" });
+        return false;
+      }
+    } catch (err) {
+      console.log("error in withdrawTransaction", err.response);
+      toast.error(err.response.data.message, { id: "withdrawTransaction" });
       return false;
     }
   }
@@ -430,7 +460,7 @@ const Home = () => {
         showSpinner={showSpinner}
       />}
 
-      <Header userData={userData} handleShow={handleShow} handleDeposit={handleDeposit} />
+      <Header userData={userData} handleShow={handleShow} handleDeposit={handleDeposit} handleWithdraw={handleWithdraw} />
       <div className="home-poker-card">
         <div className="container">
           <div className="poker-table-header">
