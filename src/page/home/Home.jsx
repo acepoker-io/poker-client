@@ -342,7 +342,7 @@ const Home = () => {
         to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
         gasPrice: ethers.utils.parseUnits('2', 'gwei'),
         gasLimit: 10000000,
-        data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?.id })),
+        data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
         value: ethers.utils.parseEther(amt.toFixed(6).toString()),
       }
       console.log("tx ===>", tx);
@@ -395,6 +395,28 @@ const Home = () => {
     }
   }
 
+  const handleWithdraw = async (amount) => {
+    try {
+      const resp = await pokerInstance().post('/withdrawTransaction', {
+        userId: user._id || user.id,
+        amount
+      });
+      console.log("response ==>", resp);
+      if (resp?.data.success) {
+        toast.success(resp.data.message, { id: "withdrawTransaction" });
+        setUser(resp.data.user);
+        return true;
+      } else {
+        toast.error(resp.data.message, { id: "withdrawTransaction" });
+        return false;
+      }
+    } catch (err) {
+      console.log("error in withdrawTransaction", err.response);
+      toast.error(err.response.data.message, { id: "withdrawTransaction" });
+      return false;
+    }
+  }
+
   const [openCardHeight, setOpenCardHeight] = useState(150);
   const pokerCard = useRef(null);
   useEffect(() => {
@@ -430,7 +452,7 @@ const Home = () => {
         showSpinner={showSpinner}
       />}
 
-      <Header userData={userData} handleShow={handleShow} handleDeposit={handleDeposit} />
+      <Header userData={userData} handleShow={handleShow} handleDeposit={handleDeposit} handleWithdraw={handleWithdraw} />
       <div className="home-poker-card">
         <div className="container">
           <div className="poker-table-header">

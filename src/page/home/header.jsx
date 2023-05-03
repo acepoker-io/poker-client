@@ -14,7 +14,7 @@ import UserContext from '../../context/UserContext';
 import { ChainId, useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
 import { clientUrl } from '../../config/keys';
 
-const Header = ({ userData, handleShow, handleDeposit }) => {
+const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const { user, setUser } = useContext(UserContext);
     const disconnect = useDisconnect();
     const connectWithMetamask = useMetamask();
@@ -32,7 +32,9 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
     const [account, setAccount] = useState(null);
     const [openRegister, setOpenRegister] = useState(false);
     const [showTransactionModal, setShowTransactionModal] = useState(false);
+    const [showWithdrawTransaction, setShowWithdrawTransaction] = useState(false);
     const [depositAmt, setDepositAmt] = useState("");
+    const [withdrawAmt, setWithdrawAmt] = useState("");
     const [showSpinner, setShowSpinner] = useState(false);
 
 
@@ -102,6 +104,42 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
         }
     }
 
+    const handleWithdrawAmt = (e) => {
+        let val = e.target.value;
+        console.log("amt ==>", val, e.target);
+        // if (val.toString().includes("-") || val.toString().includes("e")) {
+        val = val.replace(/\D+/g, "");
+        // }
+        //  += key;
+        console.log("handle wthdraw executed", val);
+        setWithdrawAmt(val)
+    }
+
+    const handleWithdrawTransaction = async () => {
+        try {
+            setShowSpinner(true);
+            if (withdrawAmt) {
+                const resp = await handleWithdraw(withdrawAmt);
+                if (resp) {
+                    setShowWithdrawTransaction(false);
+                }
+                setShowSpinner(false);
+
+            } else {
+                toast.error("Please enter amount", { id: "withdrawAmt" });
+                setShowSpinner(false);
+            }
+        } catch (err) {
+            console.log("error in handleWithdrawTransaction", err);
+            setShowSpinner(false);
+        }
+    }
+
+    const handleShowWithdrawPopUp = (e) => {
+        setShowWithdrawTransaction(true);
+        setWithdrawAmt("");
+    }
+
     //   const chainChanged = () => {
     //     setAccount(null);
     //     setBalance(null);
@@ -121,7 +159,7 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
                             {user ? <>
                                 {/* <a href={`${landingClient}profile`}> */}
                                 <button onClick={handleShowDepositPopUp}>Deposit</button>
-                                <button>Withdraw</button>
+                                <button onClick={handleShowWithdrawPopUp}>Withdraw</button>
                                 <div className="create-game-box-avtar">
                                     {/* <img
                                     src={
@@ -185,14 +223,15 @@ const Header = ({ userData, handleShow, handleDeposit }) => {
                 </div>
                 <Register openRegister={openRegister} setOpenRegister={setOpenRegister} account={account} />
             </div >
-            <TransactionModal showTransactionModal={showTransactionModal} setShowTransactionModal={setShowTransactionModal} showSpinner={showSpinner} handleDepositAmt={handleDepositAmt} depositAmt={depositAmt} handleDepositTransaction={handleDepositTransaction} />
+            <DepositModal showTransactionModal={showTransactionModal} setShowTransactionModal={setShowTransactionModal} showSpinner={showSpinner} handleDepositAmt={handleDepositAmt} depositAmt={depositAmt} handleDepositTransaction={handleDepositTransaction} />
+            <WithdrawlModal showWithdrawTransaction={showWithdrawTransaction} showSpinner={showSpinner} handleWithdrawTransaction={handleWithdrawTransaction} setShowWithdrawTransaction={setShowWithdrawTransaction} handleWithdrawAmt={handleWithdrawAmt} withdrawAmt={withdrawAmt} />
         </>
     )
 }
 
 export default Header
 
-const TransactionModal = ({ showTransactionModal, showSpinner, handleDepositAmt, depositAmt, handleDepositTransaction, setShowTransactionModal }) => {
+const DepositModal = ({ showTransactionModal, showSpinner, handleDepositAmt, depositAmt, handleDepositTransaction, setShowTransactionModal }) => {
 
     return (
         <Modal
@@ -215,6 +254,38 @@ const TransactionModal = ({ showTransactionModal, showSpinner, handleDepositAmt,
                 <Button variant="secondary" onClick={() => { setShowTransactionModal(false) }}>Close</Button>
                 <Button variant="primary" type="submit" onClick={handleDepositTransaction} disabled={showSpinner} >
                     {showSpinner ? <Spinner animation="border" /> : "Deposit"}
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    )
+}
+
+const WithdrawlModal = ({ showWithdrawTransaction, showSpinner, setShowWithdrawTransaction, handleWithdrawAmt, withdrawAmt, handleWithdrawTransaction }) => {
+
+    console.log("show spinner ==>", showSpinner);
+
+    return (
+        <Modal
+            show={showWithdrawTransaction}
+            centered
+            className="transaction-modalPopup fade casino-popup"
+        >
+            <Modal.Body className="transaction-validatingTranction">
+                <img src={deposit} alt="" />
+                <Form.Label>Withdraw amount</Form.Label>
+                <Form.Control
+                    name="Deposit"
+                    onInput={handleWithdrawAmt}
+                    // onKeyDown={handleWithdrawAmt}
+                    value={withdrawAmt}
+                    type="text"
+                    placeholder="Ex : 50"
+                />
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={() => { setShowWithdrawTransaction(false) }}>Close</Button>
+                <Button variant="primary" type="submit" onClick={handleWithdrawTransaction} disabled={showSpinner} >
+                    {showSpinner ? <Spinner animation="border" /> : "Withdraw"}
                 </Button>
             </Modal.Footer>
         </Modal>
