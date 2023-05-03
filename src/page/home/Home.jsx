@@ -350,17 +350,20 @@ const Home = () => {
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
       const txResult = await sdk.wallet.sendRawTransaction(tx);
-      console.log(txResult)
+      console.log('tx =awd==>', txResult)
+      // console.log(txResult)
       return txResult?.receipt?.transactionHash;
 
     } catch (error) {
       // setShowEnterAmountPopup(false);
-      console.log("Error in send", error);
+      console.log('error===', JSON.parse(JSON.stringify(error)));
+      let newErr = JSON.parse(JSON.stringify(error))
+      console.log(error);
+      toast.error(newErr.reason || "Please connect your metamask", { id: "metamaskConnect" });
       if (!error?.transactionHash) {
-        toast.error("Please connect your metamask", { id: "metamaskConnect" });
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 2000);
+        // setTimeout(() => {
+        //   window.location.href = "/";
+        // }, 2000);
       }
       return error?.transactionHash
     }
@@ -375,19 +378,24 @@ const Home = () => {
     try {
       const txhash = await handleSendTransaction(amount);
       console.log("hash ==>", txhash);
-      const resp = await pokerInstance().post('/depositTransaction', {
-        txhash,
-        amount,
-        userId
-      });
-      console.log("response after diposit trasnaction ==>", resp);
-      if (resp?.data?.success) {
-        toast.success(resp?.data?.message, { id: "trasnaction" });
-        setUser(resp?.data?.user)
+      if (txhash) {
+        const resp = await pokerInstance().post('/depositTransaction', {
+          txhash,
+          amount,
+          userId
+        });
+        console.log("response after diposit trasnaction ==>", resp);
+        if (resp?.data?.success) {
+          toast.success(resp?.data?.message, { id: "trasnaction" });
+          setUser(resp?.data?.user)
+        } else {
+          toast.error(resp?.data?.message, { id: "trasnaction" });
+        }
+        return resp?.data?.success;
       } else {
-        toast.error(resp?.data?.message, { id: "trasnaction" });
+        return false
       }
-      return resp?.data?.success;
+
     } catch (err) {
       console.log("error in handleDeposit ==>", err);
       toast.error(err?.data?.message, { id: "trasnaction" });

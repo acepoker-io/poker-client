@@ -17,8 +17,8 @@ import LeaderBoard from "./page/home/leaderBoard";
 import Error404 from "./page/Error404/Error404";
 import CreateAccount from "./components/register/CreateAccount";
 import userUtils from "./utils/user";
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+// ChainId,
 const App = () => {
   const [userInAnyGame, setUserInAnyGame] = useState();
   const [user, setUser] = useState();
@@ -37,52 +37,51 @@ const App = () => {
 
   console.log("user ==>", user);
   return (
-    <div className="App">
+    <div className='App'>
       <UserContext.Provider
         value={{
           userInAnyGame,
           setUserInAnyGame,
           user,
           setUser,
-        }}
-      >
-         <ThirdwebProvider
-            activeChain={ChainId.ArbitrumGoerli}
-            dAppMeta={{
-              name: "Scrooge Casino NFT Marketplace",
-              description:
-                "Everything you need to be a high roller in the Scrooge Casino.",
-              isDarkMode: true,
-              logoUrl:
-                "https://casino-nft-marketplace.s3.amazonaws.com/highRollerBasic.png",
-              url: "https://market.scrooge.casino",
-            }}>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/register">
-              <CreateAccount />
-            </Route>
-            
-            <Route exact path="/leaderboard">
-              <LeaderBoard />
-            </Route>
-            <Route exact path="/table">
-              <PokerTable />
-            </Route>
-            <Route path="*">
-              <Error404 />
-            </Route>
-          </Switch>
-        </Router>
-        <ToastContainer />
+        }}>
+        <ThirdwebProvider
+          activeChain={97} //ChainId.ArbitrumGoerli
+          dAppMeta={{
+            name: "Scrooge Casino NFT Marketplace",
+            description:
+              "Everything you need to be a high roller in the Scrooge Casino.",
+            isDarkMode: true,
+            logoUrl:
+              "https://casino-nft-marketplace.s3.amazonaws.com/highRollerBasic.png",
+            url: "https://market.scrooge.casino",
+          }}>
+          <Router>
+            <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+              <Route exact path='/register'>
+                <CreateAccount />
+              </Route>
+
+              <Route exact path='/leaderboard'>
+                <LeaderBoard />
+              </Route>
+              <Route exact path='/table'>
+                <PokerTable />
+              </Route>
+              <Route path='*'>
+                <Error404 />
+              </Route>
+            </Switch>
+          </Router>
+          <ToastContainer />
         </ThirdwebProvider>
       </UserContext.Provider>
-      <div className="abc">
+      <div className='abc'>
         <ToastContainer
-          position="top-right"
+          position='top-right'
           reverseOrder={false}
           toastOptions={{
             className: "custom-toast",
