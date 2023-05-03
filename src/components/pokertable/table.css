@@ -340,47 +340,47 @@ input:checked {
 
 .winnPlayer2 .pots-1 {
   animation: winnPot21 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-2 {
   animation: winnPot22 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-3 {
   animation: winnPot23 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-4 {
   animation: winnPot24 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-5 {
   animation: winnPot25 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-6 {
   animation: winnPot26 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-7 {
   animation: winnPot27 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-8 {
   animation: winnPot28 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 .winnPlayer2 .pots-9 {
   animation: winnPot29 0.8s forwards;
-  transform: translate(-283px, 300px);
+  transform: translate(-380px, 220px);
 }
 
 @keyframes winnPot21 {
@@ -390,7 +390,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -402,7 +402,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -414,7 +414,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -426,7 +426,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -438,7 +438,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -450,7 +450,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -462,7 +462,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -474,7 +474,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
@@ -486,54 +486,54 @@ input:checked {
   }
 
   to {
-    transform: translate(-283px, 300px);
+    transform: translate(-380px, 220px);
     opacity: 0;
   }
 }
 
 .winnPlayer3 .pots-1 {
   animation: winnPot31 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-2 {
   animation: winnPot32 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-3 {
   animation: winnPot33 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-4 {
   animation: winnPot34 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-5 {
   animation: winnPot35 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-6 {
   animation: winnPot36 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-7 {
   animation: winnPot37 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-8 {
   animation: winnPot38 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 .winnPlayer3 .pots-9 {
   animation: winnPot39 0.8s forwards;
-  transform: translate(-555px, 200px);
+  transform: translate(-555px, 100px);
 }
 
 @keyframes winnPot31 {
@@ -543,7 +543,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -555,7 +555,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -567,7 +567,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -579,7 +579,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -591,7 +591,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -603,7 +603,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -615,7 +615,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -627,7 +627,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -639,7 +639,7 @@ input:checked {
   }
 
   to {
-    transform: translate(-555px, 200px);
+    transform: translate(-555px, 100px);
     opacity: 0;
   }
 }
@@ -2918,8 +2918,8 @@ input:checked {
 
 /**** Winner Animation *******/
 
-.pyro > .before,
-.pyro > .after {
+.pyro>.before,
+.pyro>.after {
   position: absolute;
   width: 5px;
   height: 5px;
@@ -2944,7 +2944,7 @@ input:checked {
     1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
 }
 
-.pyro > .after {
+.pyro>.after {
   -moz-animation-delay: 1.25s, 1.25s, 1.25s;
   -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
   -o-animation-delay: 1.25s, 1.25s, 1.25s;
@@ -3168,6 +3168,7 @@ input:checked {
 }
 
 @-webkit-keyframes position {
+
   0%,
   19.9% {
     margin-top: 10%;
@@ -3200,6 +3201,7 @@ input:checked {
 }
 
 @-moz-keyframes position {
+
   0%,
   19.9% {
     margin-top: 10%;
@@ -3232,6 +3234,7 @@ input:checked {
 }
 
 @-o-keyframes position {
+
   0%,
   19.9% {
     margin-top: 10%;
@@ -3264,6 +3267,7 @@ input:checked {
 }
 
 @-ms-keyframes position {
+
   0%,
   19.9% {
     margin-top: 10%;
@@ -3296,6 +3300,7 @@ input:checked {
 }
 
 @keyframes position {
+
   0%,
   19.9% {
     margin-top: 10%;
@@ -3367,7 +3372,7 @@ input:checked {
 
 .custom-toaster .btn-primary:not(:disabled):not(.disabled).active,
 .custom-toaster .btn-primary:not(:disabled):not(.disabled):active,
-.custom-toaster .show > .btn-primary.dropdown-toggle {
+.custom-toaster .show>.btn-primary.dropdown-toggle {
   background-color: transparent;
   border-color: transparent;
 }
@@ -3403,6 +3408,7 @@ input:checked {
 }
 
 @keyframes shake {
+
   10%,
   90% {
     transform: translate3d(-1px, 0, 0);
@@ -3671,10 +3677,8 @@ p.joined-player {
 }
 
 .flip-vertical-left {
-  -webkit-animation: flip-vertical-left 0.8s
-    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: flip-vertical-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
-    both;
+  -webkit-animation: flip-vertical-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: flip-vertical-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
 @-webkit-keyframes flip-vertical-left {
@@ -3703,19 +3707,19 @@ p.joined-player {
 
 /************* Flip *******************/
 
-.flip > .front,
-.flip > .back {
+.flip>.front,
+.flip>.back {
   display: block;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-duration: 0.5s;
   transition-property: transform, opacity;
 }
 
-.flip > .front {
+.flip>.front {
   transform: rotateY(0deg);
 }
 
-.flip > .back {
+.flip>.back {
   position: absolute;
   opacity: 0;
   top: 0px;
@@ -3725,12 +3729,12 @@ p.joined-player {
   transform: rotateY(-180deg);
 }
 
-.flip.active > .front {
+.flip.active>.front {
   transform: rotateY(180deg);
   opacity: 0;
 }
 
-.flip.active > .back {
+.flip.active>.back {
   opacity: 1;
   transform: rotateY(0deg);
 }
@@ -3741,18 +3745,18 @@ p.joined-player {
   width: 60px;
 }
 
-.flip > .front,
-.flip > .back {
+.flip>.front,
+.flip>.back {
   display: block;
   width: 60px;
   height: 84px;
 }
 
-.tooltip-box > p {
+.tooltip-box>p {
   margin-bottom: 5px;
 }
 
-.tooltip-box > p:last-child {
+.tooltip-box>p:last-child {
   margin-bottom: 0;
 }
 
@@ -4230,15 +4234,15 @@ ul.btn-list {
   z-index: 999;
 }
 
-ul.btn-list > li:first-child {
+ul.btn-list>li:first-child {
   display: none;
 }
 
-ul.btn-list > li {
+ul.btn-list>li {
   padding: 2px 0;
 }
 
-ul.btn-list > li > button {
+ul.btn-list>li>button {
   border-radius: 20px;
   padding: 5px 10px;
   width: 40px;
@@ -4254,7 +4258,7 @@ ul.btn-list > li > button {
   border: none;
 }
 
-ul.btn-list > li span.close-icon {
+ul.btn-list>li span.close-icon {
   position: absolute;
   right: 10px;
   top: -30px;
@@ -4279,7 +4283,7 @@ ul.btn-list > li span.close-icon {
   z-index: 999999999 !important;
 }
 
-ul.btn-list > li > button > img {
+ul.btn-list>li>button>img {
   width: 18px;
   height: 18px;
   object-fit: cover;
@@ -4325,7 +4329,7 @@ ul.btn-list > li > button > img {
   background: transparent;
 }
 
-.poker-bg .poker-loader > img {
+.poker-bg .poker-loader>img {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -4339,7 +4343,7 @@ ul.btn-list > li > button > img {
   background-color: #a89319;
 }
 
-.abc > div {
+.abc>div {
   z-index: 99999999 !important;
 }
 
@@ -4453,7 +4457,7 @@ ul.btn-list > li > button > img {
   visibility: hidden !important;
 }
 
-.player-box .pyro > div {
+.player-box .pyro>div {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -4513,7 +4517,7 @@ ul.btn-list > li > button > img {
   color: #16181b;
 }
 
-.cam-tool .show > .btn-success.dropdown-toggle {
+.cam-tool .show>.btn-success.dropdown-toggle {
   background: transparent !important;
 }
 
@@ -4872,8 +4876,7 @@ img.coinWinning-animation {
     height: 100px;
   } */
 
-  .total-pot-money {
-  }
+  .total-pot-money {}
 
   .game-msg {
     top: 112px;
@@ -4976,8 +4979,7 @@ img.coinWinning-animation {
     left: 78%;
   }
 
-  .total-pot-money {
-  }
+  .total-pot-money {}
 }
 
 @media screen and (max-width: 1366px) {
@@ -4991,8 +4993,7 @@ img.coinWinning-animation {
     height: 335px;
   }
 
-  .total-pot-money {
-  }
+  .total-pot-money {}
 }
 
 @media screen and (max-width: 1200px) and (min-width: 768px) and (orientation: landscape) {
@@ -5006,8 +5007,7 @@ img.coinWinning-animation {
     margin: 0px 2px;
   }
 
-  .total-pot-money {
-  }
+  .total-pot-money {}
 
   .players.player1 {
     left: 50%;
@@ -5084,8 +5084,7 @@ img.coinWinning-animation {
     margin: 0px 2px;
   }
 
-  .total-pot-money {
-  }
+  .total-pot-money {}
 
   .players.player1 {
     bottom: -35%;
@@ -5106,8 +5105,7 @@ img.coinWinning-animation {
     left: 50%;
   }
 
-  .players.player2 .player-chip {
-  }
+  .players.player2 .player-chip {}
 
   .player7 {
     left: 90%;
@@ -5177,7 +5175,7 @@ img.coinWinning-animation {
     top: 1px;
   }
 
-  .player-timer div > svg {
+  .player-timer div>svg {
     width: 100px !important;
     height: 100px !important;
   }
@@ -5293,8 +5291,7 @@ img.coinWinning-animation {
     left: 51%;
   }
 
-  .total-pot-money {
-  }
+  .total-pot-money {}
 
   .game-msg {
     top: 110px;
@@ -5495,7 +5492,7 @@ img.coinWinning-animation {
     font-size: 18px;
   }
 
-  input:checked + .slider:before {
+  input:checked+.slider:before {
     transform: translateX(115px);
   }
 
@@ -5881,47 +5878,47 @@ img.coinWinning-animation {
 
   .winnPlayer3 .pots-1 {
     animation: winnPot31 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-2 {
     animation: winnPot32 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-3 {
     animation: winnPot33 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-4 {
     animation: winnPot34 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-5 {
     animation: winnPot35 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-6 {
     animation: winnPot36 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-7 {
     animation: winnPot37 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-8 {
     animation: winnPot38 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   .winnPlayer3 .pots-9 {
     animation: winnPot39 0.8s forwards;
-    transform: translate(-305px, 74px);
+    transform: translate(-350%, 40%);
   }
 
   @keyframes winnPot31 {
@@ -5931,7 +5928,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -5943,7 +5940,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -5955,7 +5952,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -5967,7 +5964,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -5979,7 +5976,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -5991,7 +5988,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -6003,7 +6000,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -6015,7 +6012,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
@@ -6027,54 +6024,54 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-305px, 74px);
+      transform: translate(-350%, 40%);
       opacity: 0;
     }
   }
 
   .winnPlayer4 .pots-1 {
     animation: winnPot41 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-2 {
     animation: winnPot42 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-3 {
     animation: winnPot43 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-4 {
     animation: winnPot44 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-5 {
     animation: winnPot45 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-6 {
     animation: winnPot46 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-7 {
     animation: winnPot47 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-8 {
     animation: winnPot48 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   .winnPlayer4 .pots-9 {
     animation: winnPot49 0.8s forwards;
-    transform: translate(-306px, -85px);
+    transform: translate(-150px, -103px);
   }
 
   @keyframes winnPot41 {
@@ -6084,7 +6081,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6096,7 +6093,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6108,7 +6105,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6120,7 +6117,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6132,7 +6129,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6144,7 +6141,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6156,7 +6153,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6168,7 +6165,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
@@ -6180,54 +6177,54 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-306px, -85px);
+      transform: translate(-150px, -103px);
       opacity: 0;
     }
   }
 
   .winnPlayer5 .pots-1 {
     animation: winnPot51 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-2 {
     animation: winnPot52 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-3 {
     animation: winnPot53 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-4 {
     animation: winnPot54 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-5 {
     animation: winnPot55 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-6 {
     animation: winnPot56 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-7 {
     animation: winnPot57 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-8 {
     animation: winnPot58 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   .winnPlayer5 .pots-9 {
     animation: winnPot59 0.8s forwards;
-    transform: translate(-150px, -103px);
+    transform: translate(0px, -110px);
   }
 
   @keyframes winnPot51 {
@@ -6237,7 +6234,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6249,7 +6246,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6261,7 +6258,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6273,7 +6270,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6285,7 +6282,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6297,7 +6294,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6309,7 +6306,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6321,7 +6318,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6333,7 +6330,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, -103px);
+      transform: translate(0px, -110px);
       opacity: 0;
     }
   }
@@ -6493,47 +6490,47 @@ img.coinWinning-animation {
 
   .winnPlayer7 .pots-1 {
     animation: winnPot71 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-2 {
     animation: winnPot72 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-3 {
     animation: winnPot73 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-4 {
     animation: winnPot74 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-5 {
     animation: winnPot75 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-6 {
     animation: winnPot76 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-7 {
     animation: winnPot77 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-8 {
     animation: winnPot78 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   .winnPlayer7 .pots-9 {
     animation: winnPot79 0.8s forwards;
-    transform: translate(312px, -76px);
+    transform: translate(312px, -30px);
   }
 
   @keyframes winnPot71 {
@@ -6543,7 +6540,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6555,7 +6552,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6567,7 +6564,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6579,7 +6576,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6591,7 +6588,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6603,7 +6600,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6615,7 +6612,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6627,7 +6624,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6639,7 +6636,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(312px, -76px);
+      transform: translate(312px, -30px);
       opacity: 0;
     }
   }
@@ -6973,8 +6970,7 @@ img.coinWinning-animation {
     font-size: 18px;
   }
 
-  .total-pot-money span {
-  }
+  .total-pot-money span {}
 
   .chat-logo img {
     max-width: 88px;
@@ -7009,7 +7005,7 @@ img.coinWinning-animation {
     bottom: 108%;
     animation-name: bottomFadeOut;
     animation-delay: 5ms;
-    animation-duration: 3s;
+    animation-duration: 1s;
     text-transform: capitalize;
     z-index: 9999999;
   }
@@ -7050,7 +7046,7 @@ img.coinWinning-animation {
     color: #dc3545;
     animation-name: bottomFadeOut;
     animation-delay: 5ms;
-    animation-duration: 3s;
+    animation-duration: 1s;
     text-transform: capitalize;
     z-index: 9999999;
   }
@@ -7099,7 +7095,7 @@ img.coinWinning-animation {
     font-size: 16px;
   }
 
-  .leave-confirm.modal .block > p {
+  .leave-confirm.modal .block>p {
     padding-bottom: 10px;
   }
 
@@ -7108,8 +7104,7 @@ img.coinWinning-animation {
     height: 120px !important;
   }
 
-  .total-pot-money span::before {
-  }
+  .total-pot-money span::before {}
 
   .chat-wrapper {
     right: 10px;
@@ -7192,7 +7187,6 @@ img.coinWinning-animation {
   }
 
   .game-msg {
-    /* top: 115px; */
     top: 0%;
     text-align: center;
     z-index: 999999;
@@ -7428,7 +7422,7 @@ img.coinWinning-animation {
     top: 6%;
   }
 
-  ul.btn-list > li > button {
+  ul.btn-list>li>button {
     width: 30px;
     height: 30px !important;
     padding: 0;
@@ -7438,7 +7432,7 @@ img.coinWinning-animation {
     scale: 1.1;
   }
 
-  ul.btn-list > li > button i {
+  ul.btn-list>li>button i {
     font-size: 14px;
   }
 
@@ -7451,7 +7445,7 @@ img.coinWinning-animation {
     width: 30px;
   }
 
-  ul.btn-list > li > button > img {
+  ul.btn-list>li>button>img {
     width: 20px;
     height: 20px;
   }
@@ -7536,27 +7530,23 @@ img.coinWinning-animation {
 
   @keyframes mergeP3 {
     from {
-      right: -90%;
-      top: 22%;
+      left: 155%;
       opacity: 1;
     }
 
     to {
-      right: -372%;
-      top: 0%;
+      left: 355%;
       opacity: 0;
     }
   }
 
   @keyframes slideLeft3 {
     from {
-      right: 0%;
-      top: 75%;
+      left: 50%;
     }
 
     to {
-      right: -90%;
-      top: 80%;
+      left: 155%;
     }
   }
 
@@ -7578,21 +7568,21 @@ img.coinWinning-animation {
     }
 
     to {
-      right: -372%;
-      bottom: -68%;
+      left: 260%;
+      top: 162%;
       opacity: 0;
     }
   }
 
   @keyframes slideLeft4 {
     from {
-      right: 0%;
-      bottom: 0%;
+      left: 50%;
+      top: 50%;
     }
 
     to {
-      right: -54px;
-      bottom: -64%;
+      top: 96%;
+      left: 127%;
     }
   }
 
@@ -7609,13 +7599,11 @@ img.coinWinning-animation {
   @keyframes mergeP8 {
     from {
       left: -90px;
-      bottom: -18%;
       opacity: 1;
     }
 
     to {
-      left: -365%;
-      bottom: -74%;
+      left: -265%;
       opacity: 0;
     }
   }
@@ -7644,24 +7632,26 @@ img.coinWinning-animation {
   @keyframes mergeP9 {
     from {
       top: 5%;
+      left: -26%;
       opacity: 1;
     }
 
     to {
-      top: 30%;
+      top: -34%;
+      left: -150%;
       opacity: 0;
     }
   }
 
   @keyframes slideRight9 {
     from {
-      top: 95%;
-      left: 0%;
+      top: 50%;
+      left: 50%;
     }
 
     to {
       top: 5%;
-      left: -50%;
+      left: -26%;
     }
   }
 
@@ -7688,7 +7678,7 @@ img.coinWinning-animation {
   }
 
   .animateMerge-chips.players.player1 .player-chip {
-    animation: mergeP1 0.4s;
+    /* animation: mergeP1 0.4s; */
   }
 
   @keyframes mergeP1 {
@@ -7727,19 +7717,19 @@ img.coinWinning-animation {
     bottom: -45px;
   } */
   .animateMerge-chips.players.player6 .player-chip {
-    animation: mergeP7 0.4s;
+    animation: mergeP6 0.4s;
   }
 
-  @keyframes mergeP7 {
+  @keyframes mergeP6 {
     from {
-      bottom: -45px;
-      left: 0%;
+      top: 98%;
+      left: -18%;
       opacity: 1;
     }
 
     to {
-      bottom: -115%;
-      left: -190%;
+      top: 160%;
+      left: -145%;
       opacity: 0;
     }
   }
@@ -7766,14 +7756,14 @@ img.coinWinning-animation {
 
   @keyframes mergeP5 {
     from {
-      bottom: -45px;
-      left: 0%;
+      top: 96%;
+      left: 50%;
       opacity: 1;
     }
 
     to {
-      bottom: -114%;
-      left: 184%;
+      top: 163%;
+      left: 50%;
       opacity: 0;
     }
   }
@@ -8112,47 +8102,47 @@ img.coinWinning-animation {
 
   .winnPlayer3 .pots-1 {
     animation: winnPot31 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-2 {
     animation: winnPot32 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-3 {
     animation: winnPot33 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-4 {
     animation: winnPot34 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-5 {
     animation: winnPot35 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-6 {
     animation: winnPot36 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-7 {
     animation: winnPot37 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-8 {
     animation: winnPot38 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   .winnPlayer3 .pots-9 {
     animation: winnPot39 0.8s forwards;
-    transform: translate(-150px, 227px);
+    transform: translate(-150px, 100px);
   }
 
   @keyframes winnPot31 {
@@ -8162,7 +8152,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8174,7 +8164,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8186,7 +8176,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8198,7 +8188,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8210,7 +8200,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8222,7 +8212,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8234,7 +8224,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8246,7 +8236,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
@@ -8258,54 +8248,54 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-150px, 227px);
+      transform: translate(-150px, 100px);
       opacity: 0;
     }
   }
 
   .winnPlayer4 .pots-1 {
     animation: winnPot41 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-2 {
     animation: winnPot42 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-3 {
     animation: winnPot43 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-4 {
     animation: winnPot44 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-5 {
     animation: winnPot45 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-6 {
     animation: winnPot46 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-7 {
     animation: winnPot47 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-8 {
     animation: winnPot48 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   .winnPlayer4 .pots-9 {
     animation: winnPot49 0.8s forwards;
-    transform: translate(-133px, 50px);
+    transform: translate(-150px, -80px);
   }
 
   @keyframes winnPot41 {
@@ -8315,7 +8305,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8327,7 +8317,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8339,7 +8329,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8351,7 +8341,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8363,7 +8353,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8375,7 +8365,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8387,7 +8377,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8399,7 +8389,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
@@ -8411,54 +8401,54 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-133px, 50px);
+      transform: translate(-150px, -80px);
       opacity: 0;
     }
   }
 
   .winnPlayer5 .pots-1 {
     animation: winnPot51 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-2 {
     animation: winnPot52 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-3 {
     animation: winnPot53 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-4 {
     animation: winnPot54 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-5 {
     animation: winnPot55 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-6 {
     animation: winnPot56 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-7 {
     animation: winnPot57 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-8 {
     animation: winnPot58 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   .winnPlayer5 .pots-9 {
     animation: winnPot59 0.8s forwards;
-    transform: translate(-122px, -121px);
+    transform: translate(0px, -150px);
   }
 
   @keyframes winnPot51 {
@@ -8468,7 +8458,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8480,7 +8470,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8492,7 +8482,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8504,7 +8494,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8516,7 +8506,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8528,7 +8518,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8540,7 +8530,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8552,7 +8542,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -8564,7 +8554,7 @@ img.coinWinning-animation {
     }
 
     to {
-      transform: translate(-122px, -121px);
+      transform: translate(0px, -150px);
       opacity: 0;
     }
   }
@@ -9368,7 +9358,7 @@ img.coinWinning-animation {
     font-size: 16px;
   }
 
-  .leave-confirm.modal .block > p {
+  .leave-confirm.modal .block>p {
     padding-bottom: 10px;
   }
 
@@ -9377,8 +9367,7 @@ img.coinWinning-animation {
     height: 120px !important;
   }
 
-  .total-pot-money span::before {
-  }
+  .total-pot-money span::before {}
 
   .chat-wrapper {
     right: 10px;
@@ -9470,6 +9459,7 @@ img.coinWinning-animation {
   .footer-btn {
     width: 94px;
     height: 42px;
+    margin: 0px 2px;
   }
 
   .footer-btn input {
@@ -9499,10 +9489,12 @@ img.coinWinning-animation {
     height: 50px;
     top: 90%;
   }
+
   .progress {
     width: 115px !important;
     height: 50px !important;
   }
+
   .player1 {
     bottom: -4%;
     left: 49%;
@@ -9618,7 +9610,7 @@ img.coinWinning-animation {
     display: none !important;
   }
 
-  ul.btn-list > li > button {
+  ul.btn-list>li>button {
     width: 34px;
     height: 34px !important;
     padding: 0;
@@ -9628,7 +9620,7 @@ img.coinWinning-animation {
     scale: 1.1;
   }
 
-  ul.btn-list > li > button i {
+  ul.btn-list>li>button i {
     font-size: 14px;
   }
 
@@ -9641,7 +9633,7 @@ img.coinWinning-animation {
     width: 34px;
   }
 
-  ul.btn-list > li > button > img {
+  ul.btn-list>li>button>img {
     width: 20px;
     height: 20px;
   }
@@ -9891,7 +9883,7 @@ img.coinWinning-animation {
   }
 
   .animateMerge-chips.players.player6 .player-chip {
-    animation: mergeP7 0.4s;
+    animation: mergeP6 0.4s;
   }
 
   @keyframes p6right {
@@ -9906,7 +9898,7 @@ img.coinWinning-animation {
     }
   }
 
-  @keyframes mergeP7 {
+  @keyframes mergeP6 {
     from {
       left: -23%;
       top: 105%;
@@ -10033,7 +10025,7 @@ img.coinWinning-animation {
     color: #dc3545;
     animation-name: bottomFadeOut;
     animation-delay: 5ms;
-    animation-duration: 3s;
+    animation-duration: 1s;
     text-transform: capitalize;
     z-index: 9999999;
   }
@@ -10355,8 +10347,7 @@ img.coinWinning-animation {
     width: 200px;
   }
 
-  .total-pot-money span {
-  }
+  .total-pot-money span {}
 
   .players {
     scale: 0.7;

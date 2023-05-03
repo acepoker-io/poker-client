@@ -18,6 +18,17 @@
   height: 30px;
 }
 
+.transaction-modalPopup .modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center !important;
+  padding: 0.75rem;
+  border-top: 1px solid #dee2e600 !important;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+}
+
 .avatars {
   direction: rtl;
   /* This is to get the stack with left on top */
@@ -125,6 +136,7 @@
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: center;
   gap: 5px;
 }
 
@@ -224,10 +236,12 @@
   padding: 0;
   font-size: 30px;
 }
+
 .footer-descp h6 {
   font-size: 14px;
   color: #dc3545;
 }
+
 .casino-popup .form-control,
 .casino-popup .form-control:focus {
   color: #000000 !important;

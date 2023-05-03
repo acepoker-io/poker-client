@@ -23,10 +23,18 @@ import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
 import Footer from "./footer";
+import { useAddress, useSDK } from "@thirdweb-dev/react";
+import { convertUsdToEth } from "../../utils/utils";
+import { ethers } from "ethers";
 
 let userId;
 const Home = () => {
   // inital state
+
+
+  const sdk = useSDK();
+  const address = useAddress();
+
   const gameInit = {
     gameName: "",
     public: false,
@@ -38,7 +46,7 @@ const Home = () => {
     password: ''
   };
   // States
-  const { userInAnyGame, setUserInAnyGame } = useContext(UserContext);//userInAnyGame,
+  const { userInAnyGame, setUserInAnyGame, user, setUser } = useContext(UserContext);//userInAnyGame,
   const [searchText, setSearchText] = useState("");
   const [loader, setLoader] = useState(true);
   const [userData, setUserData] = useState({});
@@ -64,10 +72,10 @@ const Home = () => {
 
   }
   useEffect(() => {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       checkUserInGame()
     }
-    
+
   }, [])
   const handleShow = () => {
     setShow(!show);
@@ -323,10 +331,69 @@ const Home = () => {
     el.gameName.toLowerCase().includes(searchText.toLowerCase())
   );
 
+  const handleSendTransaction = async (amount) => {
+    console.log("transaction =>", address, amount);
+    // Prepare a transaction, but DON'T send it
+    const amt = await convertUsdToEth(amount);
+    console.log("ddddd", amt)
+    try {
+      const tx = {
+        from: address,
+        to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
+        gasPrice: ethers.utils.parseUnits('2', 'gwei'),
+        gasLimit: 10000000,
+        data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?.id })),
+        value: ethers.utils.parseEther(amt.toFixed(6).toString()),
+      }
+      console.log("tx ===>", tx);
+      // const estimatedGas = await pro[1].estimateGas(tx)
+      // console.log('Estimated gas cost:', estimatedGas.toString());
+      // tx.gasLimit = estimatedGas;
+      const txResult = await sdk.wallet.sendRawTransaction(tx);
+      console.log(txResult)
+      return txResult?.receipt?.transactionHash;
+
+    } catch (error) {
+      // setShowEnterAmountPopup(false);
+      console.log("Error in send", error);
+      if (!error?.transactionHash) {
+        toast.error("Please connect your metamask", { id: "metamaskConnect" });
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
+      }
+      return error?.transactionHash
+    }
+  }
+
 
   // const filterTournaments = tournaments.filter((el) =>
   //   el.name.toLowerCase().includes(searchText.toLowerCase())
   // );
+
+  const handleDeposit = async (amount) => {
+    try {
+      const txhash = await handleSendTransaction(amount);
+      console.log("hash ==>", txhash);
+      const resp = await pokerInstance().post('/depositTransaction', {
+        txhash,
+        amount,
+        userId
+      });
+      console.log("response after diposit trasnaction ==>", resp);
+      if (resp?.data?.success) {
+        toast.success(resp?.data?.message, { id: "trasnaction" });
+        setUser(resp?.data?.user)
+      } else {
+        toast.error(resp?.data?.message, { id: "trasnaction" });
+      }
+      return resp?.data?.success;
+    } catch (err) {
+      console.log("error in handleDeposit ==>", err);
+      toast.error(err?.data?.message, { id: "trasnaction" });
+      return false;
+    }
+  }
 
   const [openCardHeight, setOpenCardHeight] = useState(150);
   const pokerCard = useRef(null);
@@ -363,7 +430,7 @@ const Home = () => {
         showSpinner={showSpinner}
       />}
 
-      <Header userData={userData} handleShow={handleShow} />
+      <Header userData={userData} handleShow={handleShow} handleDeposit={handleDeposit} />
       <div className="home-poker-card">
         <div className="container">
           <div className="poker-table-header">
