@@ -119,6 +119,8 @@
 .pokerWallet-box {
   display: flex;
   flex-direction: row;
+  align-items: center;
+
 }
 
 .create-game-box button {
@@ -368,17 +370,37 @@ input[type='number'] {
 }
 
 .walletTicket-box {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2px;
   color: #fff;
 }
 
+.walletTicket-box .dropdown-menu {
+  transform: translate(-5%, 60%) !important;
+  background: #dc3545;
+  border-radius: 10px;
+
+}
+
+.create-game-box .walletTicket-box a:hover {
+  color: #000000;
+}
+
+.create-game-box .walletTicket-box a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .walletTicket-box .pokerWallet {
-  width: 38px;
+  /* width: 38px; */
   height: 26px;
   object-fit: contain;
-  margin: 0px 5px;
+  /* margin: 0px 5px; */
+  margin-right: 4px;
 }
 
 .pokerWallet-box button {
@@ -1229,6 +1251,30 @@ a.nav-link.active {
   margin-top: 90px;
 }
 
+.walletTicket-box .btn-primary:hover {
+  color: #fff;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.walletTicket-box button#dropdown-split-basic {
+  padding-left: 4px;
+}
+
+.walletTicket-box .btn-primary.focus,
+.walletTicket-box .btn-primary:focus {
+  color: #fff;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.2rem #dc354600 !important;
+}
+
+.walletTicket-box .btn-primary:not(:disabled):not(.disabled).active:focus,
+.walletTicket-box .btn-primary:not(:disabled):not(.disabled):active:focus,
+.walletTicket-box .show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #dc354600 !important;
+}
+
 @media screen and (max-width: 1024px) {
   .home-poker-card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1268,12 +1314,6 @@ a.nav-link.active {
     /* position: absolute;
       right: 0px;
       top: -52px; */
-  }
-
-  .create-game-box a {
-    position: absolute;
-    top: -68px;
-    right: 20%;
   }
 
   .casino-popup .modal-body {
