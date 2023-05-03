@@ -384,8 +384,10 @@ input[type='number'] {
 
 }
 
-.create-game-box .walletTicket-box a:hover {
+.create-game-box .walletTicket-box a:hover, 
+  .create-game-box .walletTicket-box a:active {
   color: #000000;
+  background-color: #fff;
 }
 
 .create-game-box .walletTicket-box a {
