@@ -2592,17 +2592,17 @@ const FooterButton = ({
             <>
               {openAction.fold && (
                 <div className="footer-btn ">
-                  <Button onClick={() => foldAction()} disabled={remainingTime <= 0}> Fold</Button>
+                  <Button className="footerMainActionBtn" onClick={() => foldAction()} disabled={remainingTime <= 0}> Fold</Button>
                 </div>
               )}
               {openAction.check && (
                 <div className="footer-btn ">
-                  <Button onClick={() => checkAction()} disabled={remainingTime <= 0}>Check</Button>
+                  <Button className="footerMainActionBtn" onClick={() => checkAction()} disabled={remainingTime <= 0}>Check</Button>
                 </div>
               )}
               {openAction.call && (
                 <div className="footer-btn ">
-                  <Button onClick={() => callAction()} disabled={remainingTime <= 0}>
+                  <Button className="footerMainActionBtn" onClick={() => callAction()} disabled={remainingTime <= 0}>
                     Call{" "}
                     <span
                       className={
@@ -2630,7 +2630,7 @@ const FooterButton = ({
                       remainingTime={remainingTime}
                     />
                   )}
-                  <Button
+                  <Button className="footerMainActionBtn"
                     onClick={() => {
                       setBet(false);
                       setRaise(true);
@@ -2656,7 +2656,7 @@ const FooterButton = ({
                       remainingTime={remainingTime}
                     />
                   )}
-                  <Button
+                  <Button className="footerMainActionBtn"
                     onClick={() => {
                       setBet(true);
                       setRaise(false);
@@ -2676,7 +2676,7 @@ const FooterButton = ({
               )}
               {!openAction.raise && !openAction.bet && openAction.allin && (
                 <div className="footer-btn ">
-                  <Button onClick={() => allinAction()} disabled={remainingTime <= 0}>
+                  <Button className="footerMainActionBtn" onClick={() => allinAction()} disabled={remainingTime <= 0}>
                     All In
                   </Button>
                 </div>

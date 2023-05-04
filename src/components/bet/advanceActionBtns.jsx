@@ -24,7 +24,7 @@ const AdvanceActionBtns = ({
   }, [currentPlayer, player]);
   const FOLD_BTN = (
     <div className="footer-btn ">
-      <Button>
+      <Button className="footerMainActionBtn">
         <Form.Check
           className="tentative-action-btn"
           inline
@@ -44,7 +44,7 @@ const AdvanceActionBtns = ({
   );
   const CHECK_FOLD_BTN = (
     <div className="footer-btn ">
-      <Button>
+      <Button className="footerMainActionBtn">
         <Form.Check
           className="tentative-action-btn"
           inline
@@ -65,7 +65,7 @@ const AdvanceActionBtns = ({
 
   const CHECK_BTN = (
     <div className="footer-btn ">
-      <Button>
+      <Button className="footerMainActionBtn">
         <Form.Check
           className="tentative-action-btn"
           inline
@@ -86,7 +86,7 @@ const AdvanceActionBtns = ({
 
   const CALL_ANY_BTN = (
     <div className="footer-btn ">
-      <Button>
+      <Button className="footerMainActionBtn">
         <Form.Check
           className="tentative-action-btn"
           inline
@@ -107,7 +107,7 @@ const AdvanceActionBtns = ({
 
   const ALL_IN_BTN = (
     <div className="footer-btn ">
-      <Button>
+      <Button className="footerMainActionBtn">
         <Form.Check
           className="tentative-action-btn"
           inline
@@ -128,7 +128,7 @@ const AdvanceActionBtns = ({
 
   const CALL_BTN = (
     <div className="footer-btn ">
-      <Button>
+      <Button className="footerMainActionBtn">
         <Form.Check
           className="tentative-action-btn"
           inline

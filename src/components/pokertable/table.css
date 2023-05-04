@@ -2414,22 +2414,55 @@ input:checked {
   margin: 0px 6px;
 }
 
-.footer-container .footer-btn:first-child {
-  background: #4da956;
+.footer-container .footer-btn:first-child .footerMainActionBtn,
+.footer-container .footer-btn:first-child .footerMainActionBtn:hover,
+.footer-container .footer-btn:first-child .footerMainActionBtn:active,
+.footer-container .footer-btn:first-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
+.footer-container .footer-btn:first-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
+  background: #4da956 !important;
+  background-color: #4da956 !important;
   border: 1px solid #4da956;
+  border-color: #4da956 !important;
   box-shadow: 0px 2px 8px 0px #1c5322;
+  outline: none !important;
 }
 
-.footer-container .footer-btn:nth-child(2) {
-  background: #5b72e2;
+.footer-container .footer-btn:nth-child(2) .footerMainActionBtn,
+.footer-container .footer-btn:nth-child(2) .footerMainActionBtn:hover,
+.footer-container .footer-btn:nth-child(2) .footerMainActionBtn:active,
+.footer-container .footer-btn:nth-child(2) .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
+.footer-container .footer-btn:nth-child(2) .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #5b72e2 !important;
+  background: #5b72e2 !important;
   border: 1px solid #5b72e2;
+  border-color: #5b72e2 !important;
   box-shadow: 0px 2px 8px 0px #3f51aaac;
+  outline: none !important;
 }
 
-.footer-container .footer-btn:last-child {
-  background: #ddaa34;
+.footer-container .footer-btn:last-child .footerMainActionBtn,
+.footer-container .footer-btn:last-child .footerMainActionBtn:hover,
+.footer-container .footer-btn:last-child .footerMainActionBtn:active,
+.footer-container .footer-btn:last-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
+.footer-container .footer-btn:last-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #ddaa34 !important;
+  background: #ddaa34 !important;
   border: 1px solid #ddaa34;
+  border-color: #ddaa34 !important;
   box-shadow: 0px 2px 8px 0px #916e1eb3;
+  outline: none !important;
+}
+
+.raise-inputRange .customBet-amount button,
+.raise-inputRange .customBet-amount button:hover,
+.raise-inputRange .customBet-amount button:active,
+.raise-inputRange .customBet-amount button .btn-primary:not(:disabled):not(.disabled).active,
+.raise-inputRange .customBet-amount button .btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #dc3545 !important;
+  background: #dc3545 !important;
+  border: 1px solid #dc3545;
+  border-color: #dc3545 !important;
+  box-shadow: 0px 2px 8px 0px #dc354622;
 }
 
 .footer-btn .btn,
@@ -2456,7 +2489,7 @@ input:checked {
 
 .footer-btn .btn-primary:not(:disabled):not(.disabled).active,
 .footer-btn .btn-primary:not(:disabled):not(.disabled):active {
-  background: transparent;
+  /* background: transparent; */
   color: #fff;
   border: none;
   outline: none;
@@ -3440,16 +3473,17 @@ input:checked {
 }
 
 .start-game-btn .footer-btn .btn {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
   padding: 0;
   font-size: 13px;
   font-weight: 800;
   width: 90%;
   height: 60%;
-  background: #fff;
-  color: black;
+  color: rgb(255, 255, 255);
   display: grid;
-  border: 1px solid grey;
-  box-shadow: 1px 2px 5px 1px #464646;
+  border: 1px solid #dc3545;
+  /* box-shadow: 1px 2px 5px 1px #dc354610; */
   place-content: center;
 }
 
@@ -4303,7 +4337,7 @@ ul.btn-list>li>button>img {
   text-align: center;
   font-size: 18px;
   font-weight: 500;
-  gap: 2px;
+  gap: 14px;
 }
 
 .transaction-validatingTranction.modal-body img {
