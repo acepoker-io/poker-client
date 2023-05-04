@@ -11,7 +11,7 @@ import { authInstance } from '../../utils/axios.config';
 import Register from './registerPage';
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
-import { useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";//ChainId,
+import { useAddress, useMetamask, useDisconnect, ChainId } from "@thirdweb-dev/react";//,
 import { clientUrl } from '../../config/keys';
 
 const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
@@ -214,7 +214,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                 </button></> :
                                 <>
                                     <button type="button"
-                                        className="create-game-boxBtn" onClick={() => connectWithMetamask({ chainId: 97 })}>Connect Metamask</button>
+                                        className="create-game-boxBtn" onClick={() => connectWithMetamask({ chainId: ChainId.ArbitrumGoerli })}>Connect Metamask</button>
                                 </>
                             }
                             {/* {ChainId.ArbitrumGoerli} */}

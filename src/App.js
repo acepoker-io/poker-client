@@ -17,8 +17,8 @@ import LeaderBoard from "./page/home/leaderBoard";
 import Error404 from "./page/Error404/Error404";
 import CreateAccount from "./components/register/CreateAccount";
 import userUtils from "./utils/user";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-// ChainId,
+import {ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+// 
 const App = () => {
   const [userInAnyGame, setUserInAnyGame] = useState();
   const [user, setUser] = useState();
@@ -46,7 +46,7 @@ const App = () => {
           setUser,
         }}>
         <ThirdwebProvider
-          activeChain={97} //ChainId.ArbitrumGoerli
+          activeChain={ChainId.ArbitrumGoerli} //
           dAppMeta={{
             name: "Scrooge Casino NFT Marketplace",
             description:
