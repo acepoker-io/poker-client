@@ -393,7 +393,7 @@ input:checked+.slider:before {
 .raiseBet-container .close-bet {
   position: absolute;
   right: 2%;
-  color: #000000;
+  color: #dddddd;
   font-weight: 700;
   cursor: pointer;
   top: 9%;
@@ -420,8 +420,8 @@ input:checked+.slider:before {
   min-width: 43px;
   padding: 1px 0px;
   margin: 0px 5px;
-  color: #361302;
-  border-top: 2px solid #ffff42;
+  color: #ffffff;
+  border-top: 2px solid #dc3545;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.5s;
@@ -430,13 +430,13 @@ input:checked+.slider:before {
 }
 
 .raiseBet-container .bet-view button:hover {
-  background: #dde101;
+  background: #dc3545;
   border-radius: 30px;
   min-width: 43px;
   padding: 1px 0px;
   margin: 0px 5px;
-  color: #361302;
-  border-top: 2px solid #ffff42;
+  color: #ffffff;
+  border-top: 2px solid #dc3545;
   font-size: 13px;
   cursor: pointer;
   transition: all 0.5s;
@@ -463,7 +463,7 @@ input:checked+.slider:before {
   position: absolute;
   top: -190px;
   left: -150%;
-  background: #151515;
+  background: #290305;
   padding: 15px;
   border-radius: 20px;
   padding-right: 25px;
@@ -483,7 +483,7 @@ input:checked+.slider:before {
 .raiseBet-container .raise-inputRange .input-range__slider {
   appearance: none;
   background: #dc3545 !important;
-  border: 1px solid #f9ff01 !important;
+  border: 1px solid #dc3545 !important;
   border-radius: 100%;
   cursor: pointer;
   display: block;
@@ -565,7 +565,7 @@ input:checked+.slider:before {
 
 form.customBet-amount {
   width: 100%;
-  background: #2a2a2a;
+  background: #180003;
   padding: 10px 16px;
   border-radius: 6px;
   display: flex;
@@ -595,7 +595,7 @@ form.customBet-amount .form-control:focus {
   background-color: #dc3545 !important;
   border-color: #dc3545 !important;
   border-radius: 4px;
-  color: black !important;
+  color: rgb(255, 255, 255) !important;
   font-weight: 600;
   letter-spacing: 4px;
   font-size: 16px;
