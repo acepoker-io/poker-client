@@ -60,7 +60,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                 }
             } catch (err) {
                 console.error(err);
-                toast.error("There was a problem connecting to MetaMask")
+                toast.error("There was a problem connecting to MetaMask", { toastId: "A" })
             }
         };
         /* disable eslint react-hooks/exhaustive-deps */

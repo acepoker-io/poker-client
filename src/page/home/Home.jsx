@@ -23,7 +23,7 @@ import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
 import Footer from "./footer";
-import { useAddress, useSDK } from "@thirdweb-dev/react";
+import { useAddress, useSDK } from "@thirdweb-dev/react";//, useTokenBalance, useTokenDrop, useTokenSupply
 import { convertUsdToEth } from "../../utils/utils";
 import { ethers } from "ethers";
 
@@ -34,6 +34,12 @@ const Home = () => {
 
   const sdk = useSDK();
   const address = useAddress();
+  // const tokenDrop = useTokenDrop("0x4bcc5EacC1F1f0Ce61FC798c290AC53C468F76Bd");
+  // const { data: tokenSupply } = useTokenSupply(tokenDrop);
+  // const { data: tokenBalance } = useTokenBalance(tokenDrop);
+  // console.log("tokenSupply ===>", tokenSupply, tokenBalance);
+
+  // const token
 
   const gameInit = {
     gameName: "",
@@ -117,6 +123,7 @@ const Home = () => {
       localStorage.setItem("userId", userId);
     }
   };
+
   const handleChnageInviteUsers = (selectedOptions) => {
     setGameState({ ...gameState, invitedUsers: [...selectedOptions] });
   };
@@ -246,7 +253,7 @@ const Home = () => {
       setShowSpinner(false);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        toast.error(error.response.data.message, { id: "create-table-error" });
+        toast.error(error.response.data.message, { toastId: "create-table-error" });
       }
       setShowSpinner(false);
     }
@@ -274,7 +281,7 @@ const Home = () => {
     // })
 
     socket.on("NoTournamentFound", (data) => {
-      toast.error("No tournament found", { id: 'no-tournament' });
+      toast.error("No tournament found", { toastId: 'no-tournament' });
     })
     socket.on("AllTables", data => {
       setPokerRooms(data?.tables || [])
@@ -339,8 +346,8 @@ const Home = () => {
     try {
       const tx = {
         from: address,
-        to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
-        gasPrice: ethers.utils.parseUnits('2', 'gwei'),
+        to: process.env.REACT_APP_OWNER_CONTRACT_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
+        gasPrice: ethers.utils.parseUnits('1', 'gwei'),
         gasLimit: 10000000,
         data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
         value: ethers.utils.parseEther(amt.toFixed(6).toString()),
@@ -349,17 +356,20 @@ const Home = () => {
       // const estimatedGas = await pro[1].estimateGas(tx)
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
-      const txResult = await sdk.wallet.sendRawTransaction(tx);
-      console.log('tx =awd==>', txResult)
+      const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_OWNER_CONTRACT_ADDRESS);
+
+      console.log("hash ===>", hash);
+      // const txResult = await sdk.wallet.sendRawTransaction(tx);
+      // console.log('tx = awd==>', txResult)
       // console.log(txResult)
-      return txResult?.receipt?.transactionHash;
+      return hash?.receipt?.transactionHash;
 
     } catch (error) {
       // setShowEnterAmountPopup(false);
       console.log('error===', JSON.parse(JSON.stringify(error)));
       let newErr = JSON.parse(JSON.stringify(error))
       console.log(error);
-      toast.error(newErr.reason || "Please connect your metamask", { id: "metamaskConnect" });
+      toast.error(newErr.reason || "Please connect your metamask", { toastId: "metamaskConnect" });
       if (!error?.transactionHash) {
         // setTimeout(() => {
         //   window.location.href = "/";
@@ -368,6 +378,24 @@ const Home = () => {
       return error?.transactionHash
     }
   }
+
+  // const handleSendTransaction = async (amount) => {
+  //   try {
+
+  //   } catch (error) {
+  //     // setShowEnterAmountPopup(false);
+  //     console.log('error===', JSON.parse(JSON.stringify(error)));
+  //     let newErr = JSON.parse(JSON.stringify(error))
+  //     console.log(error);
+  //     toast.error(newErr.reason || "Please connect your metamask", { toastId: "metamaskConnect" });
+  //     if (!error?.transactionHash) {
+  //       // setTimeout(() => {
+  //       //   window.location.href = "/";
+  //       // }, 2000);
+  //     }
+  //     return error?.transactionHash
+  //   }
+  // }
 
 
   // const filterTournaments = tournaments.filter((el) =>
@@ -386,10 +414,10 @@ const Home = () => {
         });
         console.log("response after diposit trasnaction ==>", resp);
         if (resp?.data?.success) {
-          toast.success(resp?.data?.message, { id: "trasnaction" });
+          toast.success(resp?.data?.message, { toastId: "trasnaction" });
           setUser(resp?.data?.user)
         } else {
-          toast.error(resp?.data?.message, { id: "trasnaction" });
+          toast.error(resp?.data?.message, { toastId: "trasnaction" });
         }
         return resp?.data?.success;
       } else {
@@ -398,7 +426,7 @@ const Home = () => {
 
     } catch (err) {
       console.log("error in handleDeposit ==>", err);
-      toast.error(err?.data?.message, { id: "trasnaction" });
+      toast.error(err?.data?.message, { toastId: "trasnaction" });
       return false;
     }
   }
@@ -411,16 +439,16 @@ const Home = () => {
       });
       console.log("response ==>", resp);
       if (resp?.data.success) {
-        toast.success(resp.data.message, { id: "withdrawTransaction" });
+        toast.success(resp.data.message, { toastId: "withdrawTransaction" });
         setUser(resp.data.user);
         return true;
       } else {
-        toast.error(resp.data.message, { id: "withdrawTransaction" });
+        toast.error(resp.data.message, { toastId: "withdrawTransaction" });
         return false;
       }
     } catch (err) {
       console.log("error in withdrawTransaction", err.response);
-      toast.error(err.response.data.message, { id: "withdrawTransaction" });
+      toast.error(err.response.data.message, { toastId: "withdrawTransaction" });
       return false;
     }
   }
@@ -818,7 +846,7 @@ const GameTable = ({
           search: "?gamecollection=poker&tableid=" + data?._id,
         });
       } else {
-        toast.error(message, { id: "create-table-error" });
+        toast.error(message, { toastId: "create-table-error" });
       }
     });
   };
@@ -830,26 +858,26 @@ const GameTable = ({
         if (data?.user && Object.keys(data?.user)?.length > 0) {
           setUserData(data?.user);
         }
-        toast.success(message, { id: "Nofull" });
+        toast.success(message, { toastId: "Nofull" });
       } else {
-        toast.error(message, { id: "full" });
+        toast.error(message, { toastId: "full" });
       }
     });
     socket.on("notEnoughAmount", (data) => {
       const { message, code } = data;
       if (code === 200) {
-        toast.success(message, { id: "Nofull" });
+        toast.success(message, { toastId: "Nofull" });
       } else {
-        toast.error(message, { id: "full" });
+        toast.error(message, { toastId: "full" });
       }
     });
 
     socket.on("tournamentAlreadyFinished", (data) => {
-      toast.error("Tournament has been finished.", { id: "tournament-finished" });
+      toast.error("Tournament has been finished.", { toastId: "tournament-finished" });
     });
 
     socket.on("tournamentAlreadyStarted", (data) => {
-      toast.error(data.message, { id: "tournamentStarted" });
+      toast.error(data.message, { toastId: "tournamentStarted" });
     });
   }, []);
 
