@@ -5,7 +5,7 @@ import { Form, Button, Spinner } from 'react-bootstrap';
 import './bet.css';
 import { socket } from '../../config/socketConnection';
 import logo from '../../assets/chat/logocoin.png';
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const Bet = ({
   view,
@@ -100,22 +100,22 @@ const Bet = ({
   useEffect(() => {
     socket.on('betMatched', () => {
       setLoading(false);
-      toast.success('Your bet matched with watcher bet', { id: 'A' });
+      toast.success('Your bet matched with watcher bet', { toastId: 'A' });
     });
     socket.on('betCreated', () => {
       setLoading(false);
-      toast.success('Bet card created.', { id: 'A' });
+      toast.success('Bet card created.', { toastId: 'A' });
     });
     socket.on('newBetPlaced', (data) => {
       setBet(data.bet);
     });
     socket.on('yourBetCard', () => {
       setLoading(false);
-      toast.error('You cannot bet on your card', { id: 'A' });
+      toast.error('You cannot bet on your card', { toastId: 'A' });
     });
     socket.on('lowBalanceBet', (data) => {
       setLoading(false);
-      toast.error('Not Enough coin to bet.', { id: 'A' });
+      toast.error('Not Enough coin to bet.', { toastId: 'A' });
     });
     socket.on('watcherWinners', (data) => {
       let bb = [...bet];
@@ -177,7 +177,7 @@ const Bet = ({
   }, [bet, userId]);
 
   return (
-    <div className={`bet-wrapper ${!view ? `` : `expand`}`} ref={wrapperRef}>
+    <div className={`bet-wrapper ${ !view ? `` : `expand` }`} ref={wrapperRef}>
       {roomData && roomData?.gamestart ? (
         roomData.watchers.length < 2 ? (
           <div className='games-not-found'>
@@ -212,7 +212,7 @@ const Bet = ({
                             players.map(
                               (item, i) =>
                                 !item.fold && (
-                                  <option value={item.id} key={`item-${i}`}>
+                                  <option value={item.id} key={`item-${ i }`}>
                                     {item.name}
                                   </option>
                                 )
@@ -260,9 +260,8 @@ const Bet = ({
                           variant='primary'
                           type='submit'
                           disabled={loading || isBothSelected}
-                          className={`${
-                            loading || isBothSelected ? 'disable-btn' : ''
-                          }`}>
+                          className={`${ loading || isBothSelected ? 'disable-btn' : ''
+                            }`}>
                           {loading ? <Spinner animation='border' /> : 'Bet'}
                         </Button>
                       </Form.Group>

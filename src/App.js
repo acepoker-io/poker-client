@@ -17,8 +17,8 @@ import LeaderBoard from "./page/home/leaderBoard";
 import Error404 from "./page/Error404/Error404";
 import CreateAccount from "./components/register/CreateAccount";
 import userUtils from "./utils/user";
-import {ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-// 
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+//
 const App = () => {
   const [userInAnyGame, setUserInAnyGame] = useState();
   const [user, setUser] = useState();
@@ -48,7 +48,7 @@ const App = () => {
         <ThirdwebProvider
           activeChain={ChainId.ArbitrumGoerli} //
           dAppMeta={{
-            name: "Scrooge Casino NFT Marketplace",
+            name: "WPT Poker",
             description:
               "Everything you need to be a high roller in the Scrooge Casino.",
             isDarkMode: true,
@@ -76,7 +76,7 @@ const App = () => {
               </Route>
             </Switch>
           </Router>
-          <ToastContainer />
+          {/* <ToastContainer /> */}
         </ThirdwebProvider>
       </UserContext.Provider>
       <div className='abc'>
@@ -86,6 +86,7 @@ const App = () => {
           toastOptions={{
             className: "custom-toast",
           }}
+          autoClose={500}
         />
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputRange from "react-input-range";
 import { Form, Button } from "react-bootstrap";
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import numFormatter from "../../utils/utils";
 
 const RaiseSlider = ({ currentPlayer, SliderAction, roomData, remainingTime }) => {
@@ -14,16 +14,16 @@ const RaiseSlider = ({ currentPlayer, SliderAction, roomData, remainingTime }) =
 
 
     if (value > wallet) {
-      toast.error("You dont have enough balance", { id: "A" });
+      toast.error("You dont have enough balance", { toastId: "A" });
       return;
-    } 
+    }
     if (value < roomData?.raiseAmount * 2) {
-      toast.error(`Raise amount must be double of ${roomData?.raiseAmount}`, { id: "A" });
+      toast.error(`Raise amount must be double of ${ roomData?.raiseAmount }`, { toastId: "A" });
       return;
-    } 
+    }
 
     setRangeBetValue(value);
-    
+
   };
 
   const maxBetValue = numFormatter(currentPlayer?.wallet);
@@ -54,7 +54,7 @@ const RaiseSlider = ({ currentPlayer, SliderAction, roomData, remainingTime }) =
             <Form.Control
               type="number"
               placeholder="ex:0"
-              value={rangeBetValue>0 && rangeBetValue}
+              value={rangeBetValue > 0 && rangeBetValue}
               onChange={(e) => handleRaiseAmount(e)}
             />
           </Form.Group>
@@ -62,8 +62,8 @@ const RaiseSlider = ({ currentPlayer, SliderAction, roomData, remainingTime }) =
         {currentPlayer && (
           <Button
             variant="primary"
-            onClick={(e) => SliderAction(e,parseInt(rangeBetValue))}
-            disabled={rangeBetValue <= 0 || remainingTime <=1}
+            onClick={(e) => SliderAction(e, parseInt(rangeBetValue))}
+            disabled={rangeBetValue <= 0 || remainingTime <= 1}
             type="submit"
           >
             Bet

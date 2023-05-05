@@ -18,11 +18,11 @@ const BuyInPopup = ({
     socket.on('CoinsAdded', (data) => {
       if (data.userId === userId) {
         toast.success('Coins Added, wallet will update in new Hand', {
-          id: 'A',
+          toastId: 'A',
         });
       } else {
-        toast.success(`${data.name} is Added ${data.amt} coins in his wallet`, {
-          id: 'A',
+        toast.success(`${ data.name } is Added ${ data.amt } coins in his wallet`, {
+          toastId: 'A',
         });
       }
     });
@@ -42,7 +42,7 @@ const BuyInPopup = ({
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body>
         <div className='block'>
-         
+
           <div id='StripeApp'></div>
         </div>
       </Modal.Body>

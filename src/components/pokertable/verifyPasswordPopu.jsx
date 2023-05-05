@@ -12,40 +12,40 @@ const VerifyPasswordPopup = ({
   tableId,
   setVerifyPassword
 }) => {
-  const history=useHistory()
+  const history = useHistory()
   const [isLoading, setLoading] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const joinGame = async (e) => {
     e.preventDefault();
-    if(password==='' || !password){
+    if (password === '' || !password) {
       setError("Please enter password")
     }
-    try{
+    try {
       setLoading(true)
-      const res=await pokerInstance().post('/verifyPrivateTable',{tableId,password})
+      const res = await pokerInstance().post('/verifyPrivateTable', { tableId, password })
       setLoading(false)
-      const {verify}=res?.data
-      if(verify){
+      const { verify } = res?.data
+      if (verify) {
         socket.emit("checkAlreadyInGame", { userId, tableId });
-       socket.on("userAlreadyInGame", (value) => {
-      const { message, join } = value;
-      if (join) {
-        history.push({
-          pathname: "/table",
-          search: "?gamecollection=poker&tableid=" + tableId,
+        socket.on("userAlreadyInGame", (value) => {
+          const { message, join } = value;
+          if (join) {
+            history.push({
+              pathname: "/table",
+              search: "?gamecollection=poker&tableid=" + tableId,
+            });
+          } else {
+            toast.error(message, { toastId: "create-table-error" });
+          }
         });
-      } else {
-        toast.error(message, { id: "create-table-error" });
       }
-    });
-      }
-    }catch(err){
-      console.log("Error--->",err?.response)
+    } catch (err) {
+      console.log("Error--->", err?.response)
       setLoading(false)
-      toast.error(err?.response?.data?.message || "Internal server error", { id: "create-table-error" });
+      toast.error(err?.response?.data?.message || "Internal server error", { toastId: "create-table-error" });
     }
-    
+
   };
 
   const redirectToLobby = () => {
@@ -67,7 +67,7 @@ const VerifyPasswordPopup = ({
             </Form.Label>
             <Form.Control
               type="password"
-              onChange={(e)=>setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="1we23se233"
             />
             {error && <p className="errorMessage">{error}</p>}

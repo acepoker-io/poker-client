@@ -21,12 +21,12 @@ const InviteFriend = ({
 
   useEffect(() => {
     socket.on('invitationSend', (data) => {
-      toast.success('Invitation Send Successfully', { id: 'A' });
+      toast.success('Invitation Send Successfully', { toastId: 'A' });
       setShowInvite(false);
       setButtonClicked(false);
     });
     socket.on('noInvitationSend', () => {
-      toast.success('Unable to send Invitation', { id: 'A' });
+      toast.success('Unable to send Invitation', { toastId: 'A' });
       setButtonClicked(false);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -54,7 +54,7 @@ const InviteFriend = ({
   // console.log({ friendList });
   const handleInvitationSend = () => {
     if (!invPlayers.length) {
-      toast.error('Please select any player');
+      toast.error('Please select any player', { toastId: "A" });
       return;
     }
     setButtonClicked(true);

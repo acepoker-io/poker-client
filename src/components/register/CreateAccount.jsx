@@ -79,6 +79,7 @@ function CreateAccount({ phone, setPhone }) {
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
+            toastId: "A"
           });
           window.location.reload();
         }
@@ -89,6 +90,7 @@ function CreateAccount({ phone, setPhone }) {
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
+        toastId: "A"
       });
     }
   };
@@ -296,9 +298,9 @@ function CreateAccount({ phone, setPhone }) {
 
 CreateAccount.defaultProps = {
   step: 1,
-  setStep: () => {},
+  setStep: () => { },
   phone: "",
-  setPhone: () => {},
+  setPhone: () => { },
 };
 
 CreateAccount.propTypes = {
