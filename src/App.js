@@ -17,8 +17,8 @@ import LeaderBoard from "./page/home/leaderBoard";
 import Error404 from "./page/Error404/Error404";
 import CreateAccount from "./components/register/CreateAccount";
 import userUtils from "./utils/user";
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-//
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+//ChainId,
 const App = () => {
   const [userInAnyGame, setUserInAnyGame] = useState();
   const [user, setUser] = useState();
@@ -46,7 +46,7 @@ const App = () => {
           setUser,
         }}>
         <ThirdwebProvider
-          activeChain={ChainId.ArbitrumGoerli} //
+          activeChain={80001} //
           dAppMeta={{
             name: "WPT Poker",
             description:
