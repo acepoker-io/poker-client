@@ -348,7 +348,7 @@ const Home = () => {
         from: address,
         to: process.env.REACT_APP_OWNER_CONTRACT_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
         gasPrice: ethers.utils.parseUnits('1', 'gwei'),
-        gasLimit: 10000000,
+        gasLimit: 1000000,
         data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
         value: ethers.utils.parseEther(amt.toFixed(6).toString()),
       }
@@ -405,12 +405,12 @@ const Home = () => {
   const handleDeposit = async (amount) => {
     try {
       const txhash = await handleSendTransaction(amount);
-      console.log("hash ==>", txhash);
+      console.log("hash ==>", txhash, userId);
       if (txhash) {
         const resp = await pokerInstance().post('/depositTransaction', {
           txhash,
           amount,
-          userId
+          userId: user?.id || user?._id
         });
         console.log("response after diposit trasnaction ==>", resp);
         if (resp?.data?.success) {
