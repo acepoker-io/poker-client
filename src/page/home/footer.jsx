@@ -16,9 +16,9 @@ const Footer = () => {
                     <div className="footer-logo">
                         <a href={clientUrl}><img src={logo} alt="logo" /></a>
                         <div className="footer-descp">
-                            <h4>WPT POKER</h4>
+                            <h4>ACE POKER</h4>
                             <p>Deposit and Withdraw with Crypto, and Share 50% of Profits with Holders.</p>
-                            <h6>© 2023 - WPT Poker- All Rights Reserved</h6>
+                            <h6>© 2023 - ACE Poker- All Rights Reserved</h6>
                         </div>
                     </div>
                     <div className="footer-links">
@@ -27,7 +27,7 @@ const Footer = () => {
                             <li><a href="https://wptpoker.io/" target="_blank" rel="noopener noreferrer">Home</a></li>
                             <li><a href="https://wptpoker.io/#addaboutID" target="_blank" rel="noopener noreferrer">About</a></li>
                             <li><a href="https://wptpoker.io/#playPoker" target="_blank" rel="noopener noreferrer">Play Poker</a></li>
-                            <li><a href="https://wptpoker.io/#WPT_Token" target="_blank" rel="noopener noreferrer">WPT Token</a></li>
+                            <li><a href="https://wptpoker.io/#WPT_Token" target="_blank" rel="noopener noreferrer">ACE Token</a></li>
                         </ul>
                     </div>
                     <div className="footer-links">
