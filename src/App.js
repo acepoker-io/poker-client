@@ -48,7 +48,7 @@ const App = () => {
         <ThirdwebProvider
           activeChain={80001} //
           dAppMeta={{
-            name: "WPT Poker",
+            name: "ACE Poker",
             description:
               "Everything you need to be a high roller in the Scrooge Casino.",
             isDarkMode: true,

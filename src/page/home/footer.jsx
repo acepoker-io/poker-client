@@ -7,14 +7,14 @@ import {
     //   FaPhoneAlt,
     FaTwitter
 } from 'react-icons/fa';
-import { clientUrl } from '../../config/keys';
+import { landingUrl } from '../../config/keys';
 const Footer = () => {
     return (
         <div className='footer-section'>
             <div className="container">
                 <div className="footer-Grid">
                     <div className="footer-logo">
-                        <a href={clientUrl}><img src={logo} alt="logo" /></a>
+                        <a href={landingUrl}><img src={logo} alt="logo" /></a>
                         <div className="footer-descp">
                             <h4>ACE POKER</h4>
                             <p>Deposit and Withdraw with Crypto, and Share 50% of Profits with Holders.</p>
@@ -24,35 +24,35 @@ const Footer = () => {
                     <div className="footer-links">
                         <h5>Useful Links</h5>
                         <ul>
-                            <li><a href="https://wptpoker.io/" target="_blank" rel="noopener noreferrer">Home</a></li>
-                            <li><a href="https://wptpoker.io/#addaboutID" target="_blank" rel="noopener noreferrer">About</a></li>
-                            <li><a href="https://wptpoker.io/#playPoker" target="_blank" rel="noopener noreferrer">Play Poker</a></li>
-                            <li><a href="https://wptpoker.io/#WPT_Token" target="_blank" rel="noopener noreferrer">ACE Token</a></li>
+                            <li><a href={landingUrl} target="_blank" rel="noopener noreferrer">Home</a></li>
+                            <li><a href={`${landingUrl}/#addaboutID`} target="_blank" rel="noopener noreferrer">About</a></li>
+                            <li><a href={`${landingUrl}/#playPoker`} target="_blank" rel="noopener noreferrer">Play Poker</a></li>
+                            <li><a href={`${landingUrl}/`} target="_blank" rel="noopener noreferrer">ACE Token</a></li>
                         </ul>
                     </div>
                     <div className="footer-links">
                         <h5>Security & Privacy Links</h5>
                         <ul>
-                            <li><a href="https://wptpoker.io/privacy-policy-2/" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
-                            <li><a href="https://wptpoker.io/cookie-policy/" target="_blank" rel="noopener noreferrer">Cookie Policy</a> </li>
-                            <li><a href="https://wptpoker.io/terms-of-use/" target="_blank" rel="noopener noreferrer">Terms of Use</a></li>
-                            <li><a href="https://docs.wptpoker.io/wpt-poker-docs/" target="_blank" rel="noopener noreferrer">Documentation</a></li>
+                            <li><a href={`${landingUrl}/privacy-policy-2/`} target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                            <li><a href={`${landingUrl}/cookie-policy/`} target="_blank" rel="noopener noreferrer">Cookie Policy</a> </li>
+                            <li><a href={`${landingUrl}/terms-of-use/`} target="_blank" rel="noopener noreferrer">Terms of Use</a></li>
+                            {/* <li><a href="https://docs.acepoker.io/ace-poker-docs/" target="_blank" rel="noopener noreferrer">Documentation</a></li> */}
                         </ul>
                     </div>
                     <div className="footer-links">
                         <h5>Contact Us</h5>
                         <ul>
                             {/* <li><FaPhoneAlt />454646645</li> */}
-                            <li><FaEnvelope /><a href="mailto:contact@wptpoker.io">contact@wptpoker.io</a></li>
+                            <li><FaEnvelope /><a href="mailto:contact@acepoker.io">contact@acepoker.io</a></li>
                             {/* <li><FaLocationArrow /> 1/5454 b-45, <br />
                                 Office address, NYC
                             </li> */}
                         </ul>
                         <ul className='social-links'>
-                            <li><a href="https://twitter.com/WptPoker_io" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
-                            <li><a href="https://medium.com/@WptPoker_io" target="_blank" rel="noopener noreferrer"><Medium /></a></li>
-                            <li><a href="https://docs.wptpoker.io/wpt-poker-docs/" target="_blank" rel="noopener noreferrer"><GitBook /></a></li>
-                            <li><a href="https://discord.gg/wptpoker" target="_blank" rel="noopener noreferrer"><FaDiscord /></a></li>
+                            <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
+                            <li><a href="https://medium.com/" target="_blank" rel="noopener noreferrer"><Medium /></a></li>
+                            <li><a href="https://docs.acepoker.io/" target="_blank" rel="noopener noreferrer"><GitBook /></a></li>
+                            <li><a href="https://discord.gg/" target="_blank" rel="noopener noreferrer"><FaDiscord /></a></li>
                         </ul>
                     </div>
                 </div>
