@@ -5,18 +5,18 @@
     "clientUrl":"https://beta.wptpoker.io"
   },
   "production": {
-    "serverUrl": "https://api.acepoker.io/",
+    "serverUrl": "https://api.acepoker.io",
     "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
-    "clientUrl":"https://app.acepoker.io/"
+    "clientUrl":"https://app.acepoker.io"
   },
   "development": {
-    "serverUrl": "https://api.acepoker.io/",
+    "serverUrl": "https://api.acepoker.io",
     "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
-    "clientUrl":"https://app.acepoker.io/"
+    "clientUrl":"https://app.acepoker.io"
   },
   "staging": {
-    "serverUrl": "https://api.acepoker.io/",
+    "serverUrl": "https://api.acepoker.io",
     "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
-    "clientUrl":"https://app.acepoker.io/"
+    "clientUrl":"https://app.acepoker.io"
   }
 }
