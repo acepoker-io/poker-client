@@ -12,7 +12,7 @@ import { authInstance } from '../../utils/axios.config';
 import Register from './registerPage';
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
-import { useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";//ChainId,
+import { useAddress, useMetamask, useDisconnect, ChainId } from "@thirdweb-dev/react";//ChainId,
 import { clientUrl } from '../../config/keys';
 
 const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
@@ -47,7 +47,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                     const resp = await authInstance().post('/loginWithMetamask', {
                         metaMaskAddress: address
                     })
-                    console.log("Response--->", resp)
+                    // console.log("Response--->", resp)
                     const { status, message, token, user } = resp?.data
                     if (status === 200) {
                         setUser(user)
@@ -57,6 +57,8 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                         toast.error(message, { toastId: "toastId" })
                         setOpenRegister(true)
                     }
+                }else{
+                    connectWithMetamask({chainId: ChainId.Arbitrum})
                 }
             } catch (err) {
                 console.error(err);
@@ -146,7 +148,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     //     setBalance(null);
     //   };
 
-    console.log("User in address ===>", user)
+    // console.log("User in address ===>", user)
 
     return (
         <>
@@ -224,7 +226,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                 </button></> :
                                 <>
                                     <button type="button"
-                                        className="create-game-boxBtn" onClick={() => connectWithMetamask({ chainId: 80001 })}>Connect Metamask</button>
+                                        className="create-game-boxBtn" onClick={() => connectWithMetamask({ chainId: ChainId.Arbitrum })}>Connect Metamask</button>
                                 </>
                             }
                             {/* {ChainId.ArbitrumGoerli} */}
@@ -273,7 +275,7 @@ const DepositModal = ({ showTransactionModal, showSpinner, handleDepositAmt, dep
 
 const WithdrawlModal = ({ showWithdrawTransaction, showSpinner, setShowWithdrawTransaction, handleWithdrawAmt, withdrawAmt, handleWithdrawTransaction }) => {
 
-    console.log("show spinner ==>", showSpinner);
+    // console.log("show spinner ==>", showSpinner);
 
     return (
         <Modal

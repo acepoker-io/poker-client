@@ -17,7 +17,7 @@ import LeaderBoard from "./page/home/leaderBoard";
 import Error404 from "./page/Error404/Error404";
 import CreateAccount from "./components/register/CreateAccount";
 import userUtils from "./utils/user";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 //ChainId,
 const App = () => {
   const [userInAnyGame, setUserInAnyGame] = useState();
@@ -35,6 +35,7 @@ const App = () => {
     getUser();
   }, []);
 
+
   console.log("user ==>", user);
   return (
     <div className='App'>
@@ -46,7 +47,7 @@ const App = () => {
           setUser,
         }}>
         <ThirdwebProvider
-          activeChain={80001} //
+          activeChain={ChainId.Arbitrum} 
           dAppMeta={{
             name: "ACE Poker",
             description:
