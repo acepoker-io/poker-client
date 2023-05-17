@@ -57,8 +57,6 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                         toast.error(message, { toastId: "toastId" })
                         setOpenRegister(true)
                     }
-                }else{
-                    connectWithMetamask({chainId: ChainId.Arbitrum})
                 }
             } catch (err) {
                 console.error(err);
@@ -67,7 +65,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
         };
         /* disable eslint react-hooks/exhaustive-deps */
         connectHandler();
-    }, [address, setUser, connectWithMetamask])
+    }, [address, setUser])
 
 
     const handleLogOut = () => {
