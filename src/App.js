@@ -87,7 +87,7 @@ const App = () => {
           toastOptions={{
             className: "custom-toast",
           }}
-          autoClose={500}
+          autoClose={5000}
         />
       </div>
     </div>
