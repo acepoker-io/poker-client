@@ -980,6 +980,13 @@ const PokerTable = (props) => {
       }
     });
 
+    socket.on('sitinamounExceeds', (data)=>{
+      history.push('/')
+      setTimeout(()=>{
+        toast.error(data.message, {toastId: "amountExceeds"});
+      }, 500);
+    });
+
   }, [isAdmin]);
 
   const handleTentativeActionAuto = (player) => {

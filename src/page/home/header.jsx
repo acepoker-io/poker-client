@@ -252,7 +252,7 @@ const DepositModal = ({ showTransactionModal, showSpinner, handleDepositAmt, dep
         >
             <Modal.Body className="transaction-validatingTranction">
                 <img src={deposit} alt="" />
-                <Form.Label>Deposit amount</Form.Label>
+                <Form.Label>Deposit USDT</Form.Label>
                 <Form.Control
                     name="Deposit"
                     onInput={handleDepositAmt}
@@ -283,7 +283,7 @@ const WithdrawlModal = ({ showWithdrawTransaction, showSpinner, setShowWithdrawT
         >
             <Modal.Body className="transaction-validatingTranction">
                 <img src={withdraw} alt="" />
-                <Form.Label>Withdraw amount</Form.Label>
+                <Form.Label>Withdraw USDT</Form.Label>
                 <Form.Control
                     name="Deposit"
                     onInput={handleWithdrawAmt}

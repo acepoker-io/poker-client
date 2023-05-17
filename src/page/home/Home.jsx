@@ -45,7 +45,7 @@ const Home = () => {
 
 
   useEffect(()=>{
-    if(!address){
+    if(!address && localStorage.getItem('token')){
       connectWithMetamask({chainId: ChainId.Arbitrum})
     }
   }, [address]);
