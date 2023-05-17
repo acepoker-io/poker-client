@@ -23,9 +23,9 @@ import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
 import Footer from "./footer";
-import { useAddress, useSDK, useActiveChain, ChainId, useMetamask } from "@thirdweb-dev/react";//, useTokenBalance, useTokenDrop, useTokenSupply
-import { convertUsdToEth } from "../../utils/utils";
-import { ethers } from "ethers";
+import { useAddress, useSDK, ChainId, useMetamask } from "@thirdweb-dev/react";//,useActiveChain, useTokenBalance, useTokenDrop, useTokenSupply
+// import { convertUsdToEth } from "../../utils/utils";
+// import { ethers } from "ethers";
 
 let userId;
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
 
   const sdk = useSDK();
   const address = useAddress();
-  const activeChain = useActiveChain();
+  // const activeChain = useActiveChain();
   const connectWithMetamask = useMetamask();
   // const tokenDrop = useTokenDrop("0x4bcc5EacC1F1f0Ce61FC798c290AC53C468F76Bd");
   // const { data: tokenSupply } = useTokenSupply(tokenDrop);
@@ -366,7 +366,8 @@ const Home = () => {
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
       // process.env.REACT_APP_OWNER_ADDRESS
-      const hash = await sdk.wallet.transfer('0xc3c637615164f840DD8De0ef782A206794e064f5', amount, '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9');
+      console.log(process.env.REACT_APP_OWNER_ADDRESS, process.env.REACT_APP_OWNER_CONTRACT_ADDRESS)
+      const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_OWNER_CONTRACT_ADDRESS);
 
       console.log("hash ===>", hash);
       // const txResult = await sdk.wallet.sendRawTransaction(tx);

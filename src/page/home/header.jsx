@@ -67,7 +67,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
         };
         /* disable eslint react-hooks/exhaustive-deps */
         connectHandler();
-    }, [address, setUser])
+    }, [address, setUser, connectWithMetamask])
 
 
     const handleLogOut = () => {
