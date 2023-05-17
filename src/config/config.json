@@ -1,6 +1,6 @@
 {
   "local": {
-    "serverUrl": "http://localhost:3003",
+    "serverUrl": "http://localhost:3005",
     "PUBLICK_KEY": "AC2d27e9ad2978d70ffb5637ce05542073",
     "clientUrl":"https://app.acepoker.io",
     "landingUrl":"https://acepoker.io"

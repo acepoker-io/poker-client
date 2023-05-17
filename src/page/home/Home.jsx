@@ -23,7 +23,7 @@ import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
 import Footer from "./footer";
-import { useAddress, useSDK } from "@thirdweb-dev/react";//, useTokenBalance, useTokenDrop, useTokenSupply
+import { useAddress, useSDK, useActiveChain, ChainId, useMetamask } from "@thirdweb-dev/react";//, useTokenBalance, useTokenDrop, useTokenSupply
 import { convertUsdToEth } from "../../utils/utils";
 import { ethers } from "ethers";
 
@@ -34,12 +34,21 @@ const Home = () => {
 
   const sdk = useSDK();
   const address = useAddress();
+  const activeChain = useActiveChain();
+  const connectWithMetamask = useMetamask();
   // const tokenDrop = useTokenDrop("0x4bcc5EacC1F1f0Ce61FC798c290AC53C468F76Bd");
   // const { data: tokenSupply } = useTokenSupply(tokenDrop);
   // const { data: tokenBalance } = useTokenBalance(tokenDrop);
   // console.log("tokenSupply ===>", tokenSupply, tokenBalance);
 
   // const token
+
+
+  useEffect(()=>{
+    if(!address){
+      connectWithMetamask({chainId: ChainId.Arbitrum})
+    }
+  }, [address]);
 
   const gameInit = {
     gameName: "",
@@ -114,7 +123,7 @@ const Home = () => {
     }
   };
 
-  console.log("gameState ==>", gameState);
+  // console.log("gameState ==>", gameState);
 
   const getUser = async () => {
     let user = await userUtils.getAuthUserData();
@@ -341,22 +350,23 @@ const Home = () => {
   const handleSendTransaction = async (amount) => {
     console.log("transaction =>", address, amount);
     // Prepare a transaction, but DON'T send it
-    const amt = await convertUsdToEth(amount);
-    console.log("ddddd", amt)
+    // // const amt = await convertUsdToEth(amount);
+    // console.log("ddddd", amount)
     try {
-      const tx = {
-        from: address,
-        to: process.env.REACT_APP_OWNER_CONTRACT_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
-        gasPrice: ethers.utils.parseUnits('1', 'gwei'),
-        gasLimit: 1000000,
-        data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
-        value: ethers.utils.parseEther(amt.toFixed(6).toString()),
-      }
-      console.log("tx ===>", tx);
+      // const tx = {
+      //   from: address,
+      //   to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
+      //   gasPrice: ethers.utils.parseUnits('1', 'gwei'),
+      //   gasLimit: 1000000,
+      //   data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
+      //   value: ethers.utils.parseEther(amt.toFixed(6).toString()),
+      // }
+      // console.log("tx ===>", tx);
       // const estimatedGas = await pro[1].estimateGas(tx)
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
-      const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_OWNER_CONTRACT_ADDRESS);
+      // process.env.REACT_APP_OWNER_ADDRESS
+      const hash = await sdk.wallet.transfer('0xc3c637615164f840DD8De0ef782A206794e064f5', amount, '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9');
 
       console.log("hash ===>", hash);
       // const txResult = await sdk.wallet.sendRawTransaction(tx);
@@ -369,7 +379,7 @@ const Home = () => {
       console.log('error===', JSON.parse(JSON.stringify(error)));
       let newErr = JSON.parse(JSON.stringify(error))
       console.log(error);
-      toast.error(newErr.reason || "Please connect your metamask", { toastId: "metamaskConnect" });
+      toast.error(error?.reason || newErr?.message || "Please connect your metamask", { toastId: "metamaskConnect" });
       if (!error?.transactionHash) {
         // setTimeout(() => {
         //   window.location.href = "/";
@@ -475,7 +485,7 @@ const Home = () => {
           <img src={loaderImg} alt="loader" />
         </div>
       )}
-      {console.log('show---', show, handleChange)}
+      {/* {console.log('show---', show, handleChange)} */}
       {show && <CreateTable
         handleChange={handleChange}
         show={show}
