@@ -82,9 +82,9 @@ const Home = () => {
         setUserInAnyGame(userData.data)
       }
     } catch (err) {
-      toast.error("Internal server error", { toastId: "checkInGame" })
+      console.log("error ==>", err);
+      // toast.error("Internal server error", { toastId: "checkInGame" })
     }
-
   }
   useEffect(() => {
     if (localStorage.getItem('token')) {
