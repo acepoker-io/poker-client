@@ -5,13 +5,16 @@ import CONSTANTS from "../config/contants";
 
 const getAuthUserData = async () => {
   try {
-    let userData = await axios({
-      method: "get",
-      url: `${CONSTANTS.serverUrl}/poker/check-auth`,
-      headers: { authorization: `Bearer ${localStorage.getItem('token')}` },
-    });
-
-    return { success: true, data: userData.data };
+    if(localStorage.getItem('token')){
+      let userData = await axios({
+        method: "get",
+        url: `${CONSTANTS.serverUrl}/poker/check-auth`,
+        headers: { authorization: `Bearer ${localStorage.getItem('token')}` },
+      });
+      return { success: true, data: userData.data };
+    }else{
+      return { success: false, data: {} };
+    }
   } catch (error) {
     console.log(error);
     localStorage.removeItem('token')

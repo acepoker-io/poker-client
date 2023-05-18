@@ -37,12 +37,33 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const [depositAmt, setDepositAmt] = useState("");
     const [withdrawAmt, setWithdrawAmt] = useState("");
     const [showSpinner, setShowSpinner] = useState(false);
+    const [lastAddres, setLastAddres] = useState("");
 
+
+    const handleLogOut = () => {
+        console.log("logout executed");
+        disconnect()
+        localStorage.clear();
+        // history.push("/");
+        window.location.href = "/";
+    }
 
     useEffect(() => {
         const connectHandler = async () => {
             try {
                 if (address) {
+                    console.log("last adreess ==>", lastAddres);
+                    console.log("adreess ==>", address);
+                    if(lastAddres && lastAddres !== address){
+                        disconnect()
+                        localStorage.clear();
+                        // history.push("/");
+                        window.location.href = "/";
+                        setLastAddres();
+                        setUser(null);
+                        return;
+                    }
+                    setLastAddres(address)
                     setAccount(address)
                     const resp = await authInstance().post('/loginWithMetamask', {
                         metaMaskAddress: address
@@ -65,16 +86,9 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
         };
         /* disable eslint react-hooks/exhaustive-deps */
         connectHandler();
-    }, [address, setUser])
+    }, [address, setUser, lastAddres, disconnect])
 
 
-    const handleLogOut = () => {
-        console.log("logout executed");
-        disconnect()
-        localStorage.clear();
-        // history.push("/");
-        window.location.href = "/";
-    }
 
     const handleDepositAmt = (e) => {
         let amt = e.target.value;
