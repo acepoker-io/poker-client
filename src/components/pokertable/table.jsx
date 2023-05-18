@@ -1683,7 +1683,6 @@ const PokerTable = (props) => {
           userid: userData.id,
           username: userData.username,
         });
-
         return "success";
       }
     } catch (error) {
@@ -2100,17 +2099,17 @@ const PokerTable = (props) => {
             {roomData?.tournament ? (
               ""
             ) : (
-              // <li>
-              //   <OverlayTrigger
-              //     placement="left"
-              //     overlay={<Tooltip id="tooltip-disabled">Fill Tokens</Tooltip>}
-              //   >
-              //     <button onClick={() => setRefillSitInAmount(true)}>
-              //       <AddCoinIcon />
-              //     </button>
-              //   </OverlayTrigger>
-              // </li>
-              ""
+              <li>
+                <OverlayTrigger
+                  placement="left"
+                  overlay={<Tooltip id="tooltip-disabled">Fill Tokens</Tooltip>}
+                >
+                  <button onClick={() => setRefillSitInAmount(true)}>
+                    <AddCoinIcon />
+                  </button>
+                </OverlayTrigger>
+              </li>
+              
             )}
             <li>
               <OverlayTrigger
