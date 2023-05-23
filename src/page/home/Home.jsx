@@ -23,8 +23,9 @@ import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
 import Footer from "./footer";
-import { useAddress, useSDK, ChainId, useMetamask } from "@thirdweb-dev/react";//,useActiveChain, useTokenBalance, useTokenDrop, useTokenSupply
-// import { convertUsdToEth } from "../../utils/utils";
+import { useAddress, useSDK, ChainId, useMetamask, useActiveChain } from "@thirdweb-dev/react";//, useTokenBalance, useTokenDrop, useTokenSupply
+import { ethers } from "ethers";
+import { convertUsdToEth } from "../../utils/utils";
 // import { ethers } from "ethers";
 
 let userId;
@@ -34,12 +35,12 @@ const Home = () => {
 
   const sdk = useSDK();
   const address = useAddress();
-  // const activeChain = useActiveChain();
+  const activeChain = useActiveChain();
   const connectWithMetamask = useMetamask();
   // const tokenDrop = useTokenDrop("0x4bcc5EacC1F1f0Ce61FC798c290AC53C468F76Bd");
   // const { data: tokenSupply } = useTokenSupply(tokenDrop);
   // const { data: tokenBalance } = useTokenBalance(tokenDrop);
-  // console.log("tokenSupply ===>", tokenSupply, tokenBalance);
+  console.log("activeChain ===>", activeChain);
 
   // const token
 
@@ -347,34 +348,43 @@ const Home = () => {
     el.gameName.toLowerCase().includes(searchText.toLowerCase())
   );
 
-  const handleSendTransaction = async (amount) => {
-    console.log("transaction =>", address, amount);
+  const handleSendTransaction = async (amount, type) => {
+    console.log("transaction =>", address, amount, type);
     // Prepare a transaction, but DON'T send it
     // // const amt = await convertUsdToEth(amount);
     // console.log("ddddd", amount)
     try {
-      // const tx = {
-      //   from: address,
-      //   to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
-      //   gasPrice: ethers.utils.parseUnits('1', 'gwei'),
-      //   gasLimit: 1000000,
-      //   data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
-      //   value: ethers.utils.parseEther(amt.toFixed(6).toString()),
-      // }
-      // console.log("tx ===>", tx);
+
       // const estimatedGas = await pro[1].estimateGas(tx)
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
       // process.env.REACT_APP_OWNER_ADDRESS
-      console.log(process.env.REACT_APP_OWNER_ADDRESS, process.env.REACT_APP_OWNER_CONTRACT_ADDRESS)
-      const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_OWNER_CONTRACT_ADDRESS);
+      console.log(process.env.REACT_APP_OWNER_ADDRESS, process.env.REACT_APP_USDT_CONTRACT_ADDRESS, process.env.REACT_APP_USDC_CONTRACT_ADDRESS)
+      if (type?.value === "USDT") {
+        const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_USDT_CONTRACT_ADDRESS);
 
-      console.log("hash ===>", hash);
-      // const txResult = await sdk.wallet.sendRawTransaction(tx);
-      // console.log('tx = awd==>', txResult)
-      // console.log(txResult)
-      return hash?.receipt?.transactionHash;
+        console.log("hash ===>", hash);
+        return hash?.receipt?.transactionHash;
+      } else if (type?.value === "USDC") {
+        const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_USDC_CONTRACT_ADDRESS);
 
+        console.log("hash ===>", hash);
+        return hash?.receipt?.transactionHash;
+      } else if (type?.value === "ETH") {
+        const amt = await convertUsdToEth(amount);
+        const tx = {
+          from: address,
+          to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
+          gasPrice: ethers.utils.parseUnits('1', 'gwei'),
+          gasLimit: 1000000,
+          data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
+          value: ethers.utils.parseEther(amt.toFixed(6).toString()),
+        }
+        console.log("tx ===>", tx);
+        const txResult = await sdk.wallet.sendRawTransaction(tx);
+        console.log('tx = awd==>', txResult)
+        console.log(txResult)
+      }
     } catch (error) {
       // setShowEnterAmountPopup(false);
       console.log('error===', JSON.parse(JSON.stringify(error)));
@@ -413,9 +423,9 @@ const Home = () => {
   //   el.name.toLowerCase().includes(searchText.toLowerCase())
   // );
 
-  const handleDeposit = async (amount) => {
+  const handleDeposit = async (amount, crrtype) => {
     try {
-      const txhash = await handleSendTransaction(amount);
+      const txhash = await handleSendTransaction(amount, crrtype);
       console.log("hash ==>", txhash, userId);
       if (txhash) {
         const resp = await pokerInstance().post('/depositTransaction', {
@@ -444,6 +454,11 @@ const Home = () => {
 
   const handleWithdraw = async (amount) => {
     try {
+
+      if (!activeChain?.chainId === 42161) {
+        connectWithMetamask({ chainId: ChainId.Arbitrum });
+      }
+
       const resp = await pokerInstance().post('/withdrawTransaction', {
         userId: user._id || user.id,
         amount

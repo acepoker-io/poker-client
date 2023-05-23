@@ -14,12 +14,13 @@ import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
 import { useAddress, useMetamask, useDisconnect, ChainId } from "@thirdweb-dev/react";//ChainId,
 import { clientUrl } from '../../config/keys';
+import Select from 'react-select';
 
 const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const { user, setUser } = useContext(UserContext);
     const disconnect = useDisconnect();
     const connectWithMetamask = useMetamask();
-    const address = useAddress()
+    const address = useAddress();
     // const renderWallet = (props) => (
     //     <Tooltip id="button-tooltip" {...props}>
     //         This is your token balance, and can be used for betting.
@@ -38,7 +39,9 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const [withdrawAmt, setWithdrawAmt] = useState("");
     const [showSpinner, setShowSpinner] = useState(false);
     const [lastAddres, setLastAddres] = useState("");
+    const [currencyType, setCurrencType] = useState({ value: 'USDT', label: 'USDT' })
 
+    console.log("currencyType ==>", currencyType);
 
     const handleLogOut = () => {
         console.log("logout executed");
@@ -117,7 +120,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const handleDepositTransaction = async () => {
         setShowSpinner(true);
         try {
-            await handleDeposit(depositAmt);
+            await handleDeposit(depositAmt, currencyType);
             // if(resp)
             setShowSpinner(false);
             setShowTransactionModal(false);
@@ -258,7 +261,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                 </div>
                 <Register openRegister={openRegister} setOpenRegister={setOpenRegister} account={account} />
             </div >
-            <DepositModal showTransactionModal={showTransactionModal} setShowTransactionModal={setShowTransactionModal} showSpinner={showSpinner} handleDepositAmt={handleDepositAmt} depositAmt={depositAmt} handleDepositTransaction={handleDepositTransaction} />
+            <DepositModal showTransactionModal={showTransactionModal} currencyType={currencyType} setShowTransactionModal={setShowTransactionModal} showSpinner={showSpinner} handleDepositAmt={handleDepositAmt} depositAmt={depositAmt} handleDepositTransaction={handleDepositTransaction} setCurrencType={setCurrencType} />
             <WithdrawlModal showWithdrawTransaction={showWithdrawTransaction} showSpinner={showSpinner} handleWithdrawTransaction={handleWithdrawTransaction} setShowWithdrawTransaction={setShowWithdrawTransaction} handleWithdrawAmt={handleWithdrawAmt} withdrawAmt={withdrawAmt} />
         </>
     )
@@ -266,7 +269,18 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
 
 export default Header
 
-const DepositModal = ({ showTransactionModal, showSpinner, handleDepositAmt, depositAmt, handleDepositTransaction, setShowTransactionModal }) => {
+const DepositModal = ({ showTransactionModal, currencyType, showSpinner, handleDepositAmt, depositAmt, handleDepositTransaction, setShowTransactionModal, setCurrencType }) => {
+
+    const options = [
+        { value: 'USDT', label: 'USDT' },
+        { value: 'USDC', label: 'USDC' },
+        { value: 'ETH', label: 'ETH' }
+    ]
+
+    const handleCurrncySelect = (e) => {
+        setCurrencType(e);
+    }
+
 
     return (
         <Modal
@@ -274,8 +288,16 @@ const DepositModal = ({ showTransactionModal, showSpinner, handleDepositAmt, dep
             centered
             className="transaction-modalPopup fade casino-popup"
         >
+            <Form.Label>Currency Type</Form.Label>
             <Modal.Body className="transaction-validatingTranction">
-                <img src={deposit} alt="" />
+                <img src={deposit} alt="deposit" />
+                {/* <Form.Label>Currency type</Form.Label>
+                <Form.Select size="sm">
+                    <option>USDT</option>
+                    <option>USDC</option>
+                    <option>ETH</option>
+                </Form.Select> */}
+                <Select value={currencyType} onChange={handleCurrncySelect} options={options} />
                 <Form.Label>Deposit USDT</Form.Label>
                 <Form.Control
                     name="Deposit"
