@@ -48,13 +48,16 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
         window.location.href = "/";
     }
 
+
     useEffect(() => {
+        let loginCall;
         const connectHandler = async () => {
             try {
                 if (address) {
                     console.log("last adreess ==>", lastAddres);
                     console.log("adreess ==>", address);
-                    if(lastAddres && lastAddres !== address){
+                    if (lastAddres && lastAddres !== address) {
+                        console.log("hello")
                         disconnect()
                         localStorage.clear();
                         // history.push("/");
@@ -85,7 +88,14 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
             }
         };
         /* disable eslint react-hooks/exhaustive-deps */
-        connectHandler();
+        if (!loginCall) {
+            loginCall = setTimeout(async () => {
+                await connectHandler();
+            }, 200);
+        } else {
+            clearTimeout(loginCall);
+        }
+
     }, [address, setUser, lastAddres, disconnect])
 
 
