@@ -42,6 +42,14 @@ const Home = () => {
   // const { data: tokenBalance } = useTokenBalance(tokenDrop);
   console.log("activeChain ===>", activeChain);
 
+
+  // useEffect(() => {
+  //   if (activeChain?.chainId !== 42161) {
+
+  //     connectWithMetamask({ chainId: ChainId.Arbitrum })
+  //   }
+  // }, [activeChain]);
+
   // const token
 
 
@@ -425,6 +433,11 @@ const Home = () => {
 
   const handleDeposit = async (amount, crrtype) => {
     try {
+
+      if (activeChain?.chainId !== ChainId.Arbitrum) {
+        await connectWithMetamask({ chainId: ChainId.Arbitrum });
+      }
+
       const txhash = await handleSendTransaction(amount, crrtype);
       console.log("hash ==>", txhash, userId);
       if (txhash) {
@@ -454,11 +467,14 @@ const Home = () => {
 
   const handleWithdraw = async (amount) => {
     try {
-
-      if (!activeChain?.chainId === 42161) {
-        connectWithMetamask({ chainId: ChainId.Arbitrum });
+      let l = 1;
+      console.log("================================", l);
+      if (activeChain?.chainId !== ChainId.Arbitrum) {
+        const vart = await connectWithMetamask({ chainId: ChainId.Arbitrum });
+        l = 2;
+        console.log("var =====>", vart);
       }
-
+      console.log("================================", l);
       const resp = await pokerInstance().post('/withdrawTransaction', {
         userId: user._id || user.id,
         amount
@@ -496,6 +512,7 @@ const Home = () => {
           setUserInAnyGame={setUserInAnyGame}
         />
       )}
+      {console.log("loader ====>", loader)}
       {loader && (
         <div className="poker-loader">
           <img src={loaderImg} alt="loader" />
