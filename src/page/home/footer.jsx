@@ -25,17 +25,17 @@ const Footer = () => {
                         <h5>Useful Links</h5>
                         <ul>
                             <li><a href={landingUrl} target="_blank" rel="noopener noreferrer">Home</a></li>
-                            <li><a href={`${landingUrl}/#addaboutID`} target="_blank" rel="noopener noreferrer">About</a></li>
-                            <li><a href={`${landingUrl}/#playPoker`} target="_blank" rel="noopener noreferrer">Play Poker</a></li>
-                            <li><a href={`${landingUrl}/`} target="_blank" rel="noopener noreferrer">ACE Token</a></li>
+                            <li><a href={`${ landingUrl }/#addaboutID`} target="_blank" rel="noopener noreferrer">About</a></li>
+                            <li><a href={`${ landingUrl }/#playPoker`} target="_blank" rel="noopener noreferrer">Play Poker</a></li>
+                            <li><a href={`${ landingUrl }/`} target="_blank" rel="noopener noreferrer">ACE Token</a></li>
                         </ul>
                     </div>
                     <div className="footer-links">
                         <h5>Security & Privacy Links</h5>
                         <ul>
-                            <li><a href={`${landingUrl}/privacy-policy-2/`} target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
-                            <li><a href={`${landingUrl}/cookie-policy/`} target="_blank" rel="noopener noreferrer">Cookie Policy</a> </li>
-                            <li><a href={`${landingUrl}/terms-of-use/`} target="_blank" rel="noopener noreferrer">Terms of Use</a></li>
+                            <li><a href={`${ landingUrl }/privacy-policy-2/`} target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+                            <li><a href={`${ landingUrl }/cookie-policy/`} target="_blank" rel="noopener noreferrer">Cookie Policy</a> </li>
+                            <li><a href={`${ landingUrl }/terms-of-use/`} target="_blank" rel="noopener noreferrer">Terms of Use</a></li>
                             {/* <li><a href="https://docs.acepoker.io/ace-poker-docs/" target="_blank" rel="noopener noreferrer">Documentation</a></li> */}
                         </ul>
                     </div>
@@ -49,10 +49,11 @@ const Footer = () => {
                             </li> */}
                         </ul>
                         <ul className='social-links'>
-                            <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
-                            <li><a href="https://medium.com/" target="_blank" rel="noopener noreferrer"><Medium /></a></li>
+                            <li><a href=" https://twitter.com/ACEPoker_io/" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
+                            <li><a href="https://medium.com/@acepoker/" target="_blank" rel="noopener noreferrer"><Medium /></a></li>
                             <li><a href="https://docs.acepoker.io/" target="_blank" rel="noopener noreferrer"><GitBook /></a></li>
                             <li><a href="https://discord.gg/" target="_blank" rel="noopener noreferrer"><FaDiscord /></a></li>
+                            <li><a href="https://zealy.io/c/acepoker" target="_blank" rel="noopener noreferrer">Zealy</a></li>
                         </ul>
                     </div>
                 </div>
