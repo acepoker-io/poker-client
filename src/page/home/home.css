@@ -120,7 +120,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
 }
 
 .create-game-box button {
@@ -333,7 +332,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -381,11 +380,10 @@ input[type='number'] {
   transform: translate(-5%, 60%) !important;
   background: #dc3545;
   border-radius: 10px;
-
 }
 
-.create-game-box .walletTicket-box a:hover, 
-  .create-game-box .walletTicket-box a:active {
+.create-game-box .walletTicket-box a:hover,
+.create-game-box .walletTicket-box a:active {
   color: #000000;
   background-color: #fff;
 }
@@ -442,8 +440,6 @@ input[type='number'] {
   height: 40px;
   object-fit: cover;
 }
-
-
 
 .css-12jo7m5 {
   font-size: 14px !important;
@@ -509,9 +505,9 @@ input[type='number'] {
   margin: 0;
 }
 
-.nav-tabs {
+/* .nav-tabs {
   display: none;
-}
+} */
 
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
@@ -810,7 +806,6 @@ div#clockdiv h4 {
   border: 1px solid #dc3545;
   box-shadow: 0 2px 20px 18px rgb(195 195 195 / 20%);
   background: #dc3545;
-
 }
 
 .tournamentCard-buttonDetail button:active {
@@ -928,7 +923,6 @@ tr.myRank {
   z-index: 9;
   display: grid;
   place-content: center;
-
 }
 
 .leaderboard-table tr.firstRank td:first-child svg,
@@ -954,7 +948,6 @@ tr.myRank {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .leaderBoardHeader .tournamentRanking {
@@ -1038,7 +1031,10 @@ tr.myRank {
   margin-bottom: 5px;
 }
 
-div#controlled-tab-example-tabpane-2 .tournamentCard-front .tournamentRanking button {
+div#controlled-tab-example-tabpane-2
+  .tournamentCard-front
+  .tournamentRanking
+  button {
   width: 100%;
   font-size: 12px;
   font-weight: 700;
@@ -1046,7 +1042,10 @@ div#controlled-tab-example-tabpane-2 .tournamentCard-front .tournamentRanking bu
   color: black;
 }
 
-div#controlled-tab-example-tabpane-2 .tournamentCard-front .tournamentRanking button:focus {
+div#controlled-tab-example-tabpane-2
+  .tournamentCard-front
+  .tournamentRanking
+  button:focus {
   border-color: #dc3545;
   box-shadow: 0 1px 8px #fbff00b1;
 }
@@ -1128,7 +1127,6 @@ h4.tournamentFinished h2.tournamentFinished {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
 .tournament-results .table-dark td,
@@ -1155,7 +1153,7 @@ h4.tournamentFinished h2.tournamentFinished {
   border: 1px solid #dc3545;
   box-shadow: none !important;
   height: 40px;
-  color: rgb(0, 0, 0) ! important;
+  color: rgb(0, 0, 0) !important;
 
   font-size: 14px;
 }
@@ -1273,7 +1271,7 @@ a.nav-link.active {
 
 .walletTicket-box .btn-primary:not(:disabled):not(.disabled).active:focus,
 .walletTicket-box .btn-primary:not(:disabled):not(.disabled):active:focus,
-.walletTicket-box .show>.btn-primary.dropdown-toggle:focus {
+.walletTicket-box .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem #dc354600 !important;
 }
 

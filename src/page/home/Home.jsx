@@ -10,10 +10,10 @@ import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
 import casino from "../../assets/game/logo.png";
-import { pokerInstance } from "../../utils/axios.config";
+import { pokerInstance, tournamentInstance } from "../../utils/axios.config";
 import { toast } from "react-toastify";
 import { useMemo } from "react";
-import { FaCoins, FaUser, } from "react-icons/fa";
+import { FaCoins, FaTrophy, FaUser, } from "react-icons/fa";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { socket } from "../../config/socketConnection";
@@ -78,7 +78,7 @@ const Home = () => {
   const [show, setShow] = useState(false);
   const [errors, setErrors] = useState({});
   const [pokerRooms, setPokerRooms] = useState([]);
-  //const [tournaments, setTournaments] = useState([]);
+  const [tournaments, setTournaments] = useState([]);
   const [key, setKey] = useState("home");
   const history = useHistory();
   const [allUsers, setAllUsers] = useState([]);
@@ -327,22 +327,29 @@ const Home = () => {
         setPokerRooms(response.data.rooms || []);
       } catch (error) { }
     })();
+    (async () => {
+      try {
+        const response = await tournamentInstance().get("/AllTournament");
+        // console.log("response ==>", response)
+        setTournaments(response.data.tournament || []);
+      } catch (error) { }
+    })();
   }, []);
 
-  // const getTournamentDetails = async () => {
-  //   try {
-  //     const response = await tournamentInstance().get("/tournaments");
-  //     const { status } = response;
-  //     if (status === 200) {
-  //       const { tournaments } = response.data;
-  //       setTournaments(tournaments || []);
-  //     }
-  //   } catch (error) { }
-  // };
+  const getTournamentDetails = async () => {
+    try {
+      const response = await tournamentInstance().get("/AllTournament");
+      const { status } = response;
+      if (status === 200) {
+        const { tournament } = response.data;
+        setTournaments(tournament || []);
+      }
+    } catch (error) { }
+  };
 
-  // useEffect(() => {
-  //   getTournamentDetails();
-  // }, []);
+  useEffect(() => {
+    getTournamentDetails();
+  }, []);
 
   const options = useMemo(
     () =>
@@ -427,9 +434,9 @@ const Home = () => {
   // }
 
 
-  // const filterTournaments = tournaments.filter((el) =>
-  //   el.name.toLowerCase().includes(searchText.toLowerCase())
-  // );
+  const filterTournaments = tournaments.filter((el) =>
+    el.name.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   const handleDeposit = async (amount, crrtype) => {
     try {
@@ -532,10 +539,20 @@ const Home = () => {
       />}
 
       <Header userData={userData} handleShow={handleShow} handleDeposit={handleDeposit} handleWithdraw={handleWithdraw} />
+      {/* <Tabs
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={(k) => setKey(k)}
+        className="mb-3"
+      >
+        <Tab eventKey="poker_tables" title="Poker Open Tables">
+          <PokerTables >
+        </Tab>
+      </Tabs> */}
       <div className="home-poker-card">
         <div className="container">
           <div className="poker-table-header">
-            <h2 className="lobbyHeader-title">Open Tables</h2>
+            {/* <h2 className="lobbyHeader-title">Open Tables</h2> */}
 
             <div className="poker-tableSearch-box">
               <div className="poker-tableSearch">
@@ -558,7 +575,7 @@ const Home = () => {
               onSelect={(k) => setKey(k)}
               className="mb-3"
             >
-              <Tab eventKey="home" title="">
+              <Tab eventKey="home" title="Open Tables">
                 {filterRoom.length > 0 ? (
                   <>
                     <div className="home-poker-card-grid">
@@ -587,7 +604,7 @@ const Home = () => {
                   </div>
                 )}
               </Tab>
-              {/* <Tab eventKey="2" title="Poker Tournament Tables">
+              <Tab eventKey="2" title="Poker Tournament Tables">
 
                 {filterTournaments.length > 0 ? (
                   <div className="home-poker-card">
@@ -614,7 +631,7 @@ const Home = () => {
                     </div>
                   </div>
                 )}
-              </Tab> */}
+              </Tab>
             </Tabs>
           </div>
         </div>
@@ -895,45 +912,36 @@ const GameTable = ({
   };
 
   useEffect(() => {
-    socket.on("alreadyInTournament", (data) => {
-      const { message, code } = data;
-      if (code === 200) {
-        if (data?.user && Object.keys(data?.user)?.length > 0) {
-          setUserData(data?.user);
-        }
-        toast.success(message, { toastId: "Nofull" });
-      } else {
-        toast.error(message, { toastId: "full" });
-      }
-    });
-    socket.on("notEnoughAmount", (data) => {
-      const { message, code } = data;
-      if (code === 200) {
-        toast.success(message, { toastId: "Nofull" });
-      } else {
-        toast.error(message, { toastId: "full" });
-      }
-    });
+    // socket.on("alreadyInTournament", (data) => {
+    //   const { message, code } = data;
+    //   if (code === 200) {
+    //     if (data?.user && Object.keys(data?.user)?.length > 0) {
+    //       setUserData(data?.user);
+    //     }
+    //     console.log("helloo")
+    //     toast.success(message, { toastId: "Nofull" });
+    //   } else {
+    //     toast.error(message, { toastId: "full" });
+    //   }
+    // });
+    // socket.on("notEnoughAmount", (data) => {
+    //   const { message, code } = data;
+    //   if (code === 200) {
+    //     toast.success(message, { toastId: "Nofull" });
+    //   } else {
+    //     toast.error(message, { toastId: "full" });
+    //   }
+    // });
 
-    socket.on("tournamentAlreadyFinished", (data) => {
-      toast.error("Tournament has been finished.", { toastId: "tournament-finished" });
-    });
+    // socket.on("tournamentAlreadyFinished", (data) => {
+    //   toast.error("Tournament has been finished.", { toastId: "tournament-finished" });
+    // });
 
-    socket.on("tournamentAlreadyStarted", (data) => {
-      toast.error(data.message, { toastId: "tournamentStarted" });
-    });
+    // socket.on("tournamentAlreadyStarted", (data) => {
+    //   toast.error(data.message, { toastId: "tournamentStarted" });
+    // });
   }, []);
 
-  // const joinTournament = async (tournamentId, fees) => {
-  //   socket.emit("joinTournament", {
-  //     tournamentId: tournamentId,
-  //     userId: userId,
-  //     fees,
-  //   });
-  //   setTimeout(() => {
-  //     getTournamentDetails();
-  //   }, 1000);
-  // };
 
   // const enterRoom = async (tournamentId) => {
   //   const res = await tournamentInstance().post("/enterroom", {
@@ -1194,125 +1202,128 @@ const GameTable = ({
   );
 };
 
-// const GameTournament = ({
-//   data,
-//   gameType,
-//   getTournamentDetails,
-//   height,
-//   setUserData,
-//   tableId,
-// }) => {
-//   const history = useHistory();
+const GameTournament = ({
+  data,
+  gameType,
+  getTournamentDetails,
+  height,
+  setUserData,
+  tableId,
+}) => {
+  // const history = useHistory();
 
 
-//   useEffect(() => {
-//     socket.on("alreadyInTournament", (data) => {
-//       const {message, code} = data;
-//       if (code === 200) {
-//         if (data?.user && Object.keys(data?.user)?.length > 0) {
-//           setUserData(data?.user);
-//         }
-//         toast.success(message, {id: "Nofull" });
-//       } else {
-//         toast.error(message, {id: "full" });
-//       }
-//     });
-//     socket.on("notEnoughAmount", (data) => {
-//       const {message, code} = data;
-//       if (code === 200) {
-//         toast.success(message, {id: "Nofull" });
-//       } else {
-//         toast.error(message, {id: "full" });
-//       }
-//     });
+  useEffect(() => {
+    socket.on("alreadyInTournament", (data) => {
+      const { message, code } = data;
+      if (code === 200) {
+        if (data?.user && Object.keys(data?.user)?.length > 0) {
+          setUserData(data?.user);
+        }
+        toast.success(message, { id: "Nofull" });
+      } else {
+        toast.error(message, { id: "full" });
+      }
+    });
+    socket.on("notEnoughAmount", (data) => {
+      const { message, code } = data;
+      if (code === 200) {
+        toast.success(message, { toast_id: "Nofull" });
+      } else {
+        toast.error(message, { toast_id: "full" });
+      }
+    });
 
-//     socket.on("tournamentSlotFull", (data) => {
-//       toast.error('Tournament slot is full', {id: 'slot-full' });
-//     })
-//   }, []);
+    socket.on("tournamentSlotFull", (data) => {
+      toast.error('Tournament slot is full', { id: 'slot-full' });
+    })
+  }, []);
 
-//   const joinTournament = async (tournamentId, fees) => {
-//     socket.emit("joinTournament", {
-//       tournamentId: tournamentId,
-//       userId: userId,
-//       fees,
-//     });
-//     setTimeout(() => {
-//       getTournamentDetails();
-//     }, 1000);
-//   };
+  const joinTournament = async (tournamentId, fees) => {
+    console.log("tournament data ==>", tournamentId, fees);
 
-//   const enterRoom = async (tournamentId) => {
-//     const res = await tournamentInstance().post("/enterroom", {
-//       tournamentId: tournamentId,
-//     });
-//     if (res.data.code === 200) {
-//       let roomid = res.data.roomId;
-//       history.push({
-//         pathname: "/table",
-//         search: "?gamecollection=poker&tableid=" + roomid,
-//       });
-//     } else {
-//       // toast.error(toast.success(res.data.msg, {containerId: 'B' }))
-//     }
-//   };
-//   const handleFlip = (tournamentId) => {
-//     history.push(`/leaderboard?tournamentId=${tournamentId}`)
-//   };
-//   const ifUserJoind = () => {
-//     let getData = data?.rooms?.find((el) =>
-//       el?.players?.find((el) => el?.userid === userId)
-//     );
+    socket.emit("joinTournament", {
+      tournamentId: tournamentId,
+      userId: userId,
+      fees,
+    });
+    setTimeout(() => {
+      getTournamentDetails();
+    }, 1000);
+  };
 
-//     return getData;
-//   };
-//   // var startDateTime = new Date(data?.tournamentDate).toLocaleString(undefined, {timeZone: 'Asia/Kolkata' });
+  // const enterRoom = async (tournamentId) => {
+  //   const res = await tournamentInstance().post("/enterroom", {
+  //     tournamentId: tournamentId,
+  //   });
+  //   if (res.data.code === 200) {
+  //     let roomid = res.data.roomId;
+  //     history.push({
+  //       pathname: "/table",
+  //       search: "?gamecollection=poker&tableid=" + roomid,
+  //     });
+  //   } else {
+  //     // toast.error(toast.success(res.data.msg, {containerId: 'B' }))
+  //   }
+  // };
+  // const handleFlip = (tournamentId) => {
+  //   history.push(`/leaderboard?tournamentId=${ tournamentId }`)
+  // };
+  // const ifUserJoind = () => {
+  //   let getData = data?.rooms?.find((el) =>
+  //     el?.players?.find((el) => el?.userid === userId)
+  //   );
 
-//   return (
-//     <>
-//       <div className="pokerTournament-tableCard">
-//         <div className="tableCard-imgDetail">
-//           <img src={casino1} className="tournamentImg" alt="" />
-//           <div className="tournamentCard-nameDetail">
-//             <h6>{dateFormat(data.startDate)}, Start at {timeFormat(data.tournamentDate)}</h6>
-//             <h2>{data?.name}</h2>
-//             {data?.isStart ? <p className="tournamentRunning">Tournament Running ...</p> : data?.isFinished ? <p className="tournamentFinished">Tournament Finished ...</p> : <p>Not started ...</p>}
-//           </div>
-//         </div>
-//         <div className="tournamentCard-extraDetail">
-//           <div className="cardTournament-Fee">
-//             <p>Entry Fee</p>
-//             <div className="extraDetail-container">
-//               <FaCoins
-//               />
-//               {data?.tournamentFee}
-//             </div>
-//           </div>
-//           <div className="cardTournament-Fee">
-//             <p>Participants</p>
-//             <div className="extraDetail-container">
-//               <FaUser />
-//               {data?.havePlayers}
-//             </div>
-//           </div>
-//           <div className="cardTournament-Fee">
-//             <p>Prize Pool</p>
-//             <div className="extraDetail-container">
-//               <FaTrophy />
-//               10
-//             </div>
-//           </div>
-//         </div>
-//         <div className="tournamentCard-buttonDetail">
-//           {ifUserJoind() ? <Button type="text" onClick={() => enterRoom(data?._id)}>Enter game</Button> : <Button type="text" onClick={() =>
-//             joinTournament(data?._id, data?.tournamentFee)
-//           }>join game</Button>}
-//           <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} />
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+  //   return getData;
+  // };
+  // var startDateTime = new Date(data?.tournamentDate).toLocaleString(undefined, {timeZone: 'Asia/Kolkata' });
+
+  return (
+    <>
+      <div className="pokerTournament-tableCard">
+        <div className="tableCard-imgDetail">
+          {/* <img src={casino1} className="tournamentImg" alt="" /> */}
+          <div className="tournamentCard-nameDetail">
+            {/* <h6>{dateFormat(data.startDate)}, Start at {timeFormat(data.tournamentDate)}</h6> */}
+            <h2>{data?.name}</h2>
+            {data?.isStart ? <p className="tournamentRunning">Tournament Running ...</p> : data?.isFinished ? <p className="tournamentFinished">Tournament Finished ...</p> : <p>Not started ...</p>}
+          </div>
+        </div>
+        <div className="tournamentCard-extraDetail">
+          <div className="cardTournament-Fee">
+            <p>Entry Fee</p>
+            <div className="extraDetail-container">
+              <FaCoins
+              />
+              {data?.tournamentFee}
+            </div>
+          </div>
+          <div className="cardTournament-Fee">
+            <p>Participants</p>
+            <div className="extraDetail-container">
+              <FaUser />
+              {data?.havePlayers}
+            </div>
+          </div>
+          <div className="cardTournament-Fee">
+            <p>Prize Pool</p>
+            <div className="extraDetail-container">
+              <FaTrophy />
+              10
+            </div>
+          </div>
+        </div>
+        <div className="tournamentCard-buttonDetail">
+          {/* {ifUserJoind() ? <Button type="text" onClick={() => enterRoom(data?._id)}>Enter game</Button> : <Button type="text" onClick={() =>
+            joinTournament(data?._id, data?.tournamentFee)
+          }>join game</Button>} */}
+          <Button type="text" onClick={() => { joinTournament(data?._id, data?.tournamentFee) }}>Join game</Button>
+          {/* <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} /> */}
+        </div>
+      </div>
+    </>
+  );
+};
 
 const AvatarGroup = ({ imgArr }) => {
   return (
