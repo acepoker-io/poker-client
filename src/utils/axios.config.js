@@ -2,7 +2,7 @@ import axios from "axios";
 import CONSTANTS from "../config/contants";
 // import { getCookie } from "./cookieUtil";
 
-const getAuthorizationHeader = () =>`Bearer ${localStorage.getItem('token')}`;
+const getAuthorizationHeader = () => `Bearer ${localStorage.getItem("token")}`;
 export const userInstance = () =>
   axios.create({
     baseURL: `${CONSTANTS.serverUrl}/users`,
@@ -22,6 +22,6 @@ export const pokerInstance = () =>
   });
 export const tournamentInstance = () =>
   axios.create({
-    baseURL: `${CONSTANTS.serverUrl}/tournament`,
+    baseURL: `${CONSTANTS.serverUrl}/v1/poker/tournament`,
     headers: { Authorization: getAuthorizationHeader() },
   });
