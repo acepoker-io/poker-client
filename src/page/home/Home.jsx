@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
 import casino from "../../assets/game/logo.png";
-import { pokerInstance, tournamentInstance } from "../../utils/axios.config";
+import { pokerInstance } from "../../utils/axios.config";
 import { toast } from "react-toastify";
 import { useMemo } from "react";
 import { FaCoins, FaTrophy, FaUser, } from "react-icons/fa";
@@ -329,7 +329,7 @@ const Home = () => {
     })();
     (async () => {
       try {
-        const response = await tournamentInstance().get("/AllTournament");
+        const response = await pokerInstance().get("/AllTournament");
         // console.log("response ==>", response)
         setTournaments(response.data.tournament || []);
       } catch (error) { }
@@ -338,7 +338,7 @@ const Home = () => {
 
   const getTournamentDetails = async () => {
     try {
-      const response = await tournamentInstance().get("/AllTournament");
+      const response = await pokerInstance().get("/AllTournament");
       const { status } = response;
       if (status === 200) {
         const { tournament } = response.data;
@@ -1211,6 +1211,7 @@ const GameTournament = ({
   tableId,
 }) => {
   // const history = useHistory();
+  const { user } = useContext(UserContext);
 
 
   useEffect(() => {
@@ -1317,7 +1318,8 @@ const GameTournament = ({
           {/* {ifUserJoind() ? <Button type="text" onClick={() => enterRoom(data?._id)}>Enter game</Button> : <Button type="text" onClick={() =>
             joinTournament(data?._id, data?.tournamentFee)
           }>join game</Button>} */}
-          <Button type="text" onClick={() => { joinTournament(data?._id, data?.tournamentFee) }}>Join game</Button>
+          {user && <Button type="text" onClick={() => { joinTournament(data?._id, data?.tournamentFee) }}>Join game</Button>}
+
           {/* <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} /> */}
         </div>
       </div>
