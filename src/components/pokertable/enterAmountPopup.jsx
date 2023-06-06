@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
@@ -14,19 +14,35 @@ const EnterAmountPopup = ({
   const [isLoading, setLoading] = useState(false);
   const [amount, setAmount] = useState("");
   const [error, setError] = useState("");
+  const [tableData, setTableData] = useState(null);
   const { search } = useLocation();
   const tableId = new URLSearchParams(search).get("tableid");
   console.log("tableId ==>", tableId);
+
+  useEffect(() => {
+    (async () => {
+      const resp = await pokerInstance().get('/getTableById', {
+        params: {
+          tableId
+        }
+      });
+      console.log("resp ==>", resp);
+      setTableData(resp.data);
+    })()
+
+  }, [tableId])
+
+
   const joinGame = async (e) => {
     e.preventDefault();
 
-    const resp = await pokerInstance().get('/getTableById', {
-      params: {
-        tableId
-      }
-    });
-    console.log("resp ==>", resp);
-    const { data: { bigBlind } } = resp;
+    // const resp = await pokerInstance().get('/getTableById', {
+    //   params: {
+    //     tableId
+    //   }
+    // });
+    // console.log("resp ==>", resp);
+    const { bigBlind } = tableData;
     // let chips = parseFloat(amount) * 100;
     console.log("amount ==>", amount, bigBlind);
 
@@ -77,7 +93,7 @@ const EnterAmountPopup = ({
             <Form.Control
               type="number"
               onChange={handleAmountChange}
-              placeholder="minimum amount: 100"
+              placeholder={`minimum amount: ${ tableData?.bigBlind }`}
             />
             {error && <p className="errorMessage">{error}</p>}
           </Form.Group>
