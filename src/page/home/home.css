@@ -1422,7 +1422,7 @@ a.nav-link.active {
 
 @media screen and (max-width: 678px) {
   #controlled-tab-example-tabpane-2 .home-poker-card-grid {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
   }
 }
 /* @media screen and (max-width: 530px) {
