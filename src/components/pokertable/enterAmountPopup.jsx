@@ -20,8 +20,6 @@ const EnterAmountPopup = ({
   console.log("tableId ==>", tableId);
 
   useEffect(() => {
-    console.log("error value ==>", error);
-    console.log("amount value ==>", amount);
     (async () => {
       const resp = await pokerInstance().get('/getTableById', {
         params: {
@@ -32,7 +30,7 @@ const EnterAmountPopup = ({
       setTableData(resp.data);
     })()
 
-  }, [])
+  }, [tableId])
 
 
   const joinGame = async (e) => {
