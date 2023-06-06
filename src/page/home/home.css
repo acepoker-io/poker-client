@@ -1275,6 +1275,16 @@ a.nav-link.active {
   box-shadow: 0 0 0 0.2rem #dc354600 !important;
 }
 
+@media screen and (max-width: 1262px) {
+  #controlled-tab-example-tabpane-2 .home-poker-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* .home-poker-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  } */
+}
+
 @media screen and (max-width: 1024px) {
   .home-poker-card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1287,6 +1297,12 @@ a.nav-link.active {
 
   .table-responsive {
     width: 90%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  #controlled-tab-example-tabpane-2 .home-poker-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1404,7 +1420,12 @@ a.nav-link.active {
   }
 }
 
-@media screen and (max-width: 530px) {
+@media screen and (max-width: 678px) {
+  #controlled-tab-example-tabpane-2 .home-poker-card-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+  }
+}
+/* @media screen and (max-width: 530px) {
   #controlled-tab-example-tabpane-2 .home-poker-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1412,7 +1433,7 @@ a.nav-link.active {
   .home-poker-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
+} */
 
 @media screen and (max-width: 575px) {
   .btn-grid {
