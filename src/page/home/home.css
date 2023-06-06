@@ -519,6 +519,12 @@ input[type="number"] {
   border-color: #dc3545;
 }
 
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #ffffff !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 #dc3545 #dc3545 !important;
+}
+
 /***************** tournament card  **************/
 .tournamentCard {
   position: relative;
@@ -824,6 +830,7 @@ div#clockdiv h4 {
   border-radius: 10px;
   padding: 16px 10px;
   justify-content: space-around;
+  background-color: #fff;
 }
 
 .tournamentCard-nameDetail p {
@@ -1273,6 +1280,14 @@ a.nav-link.active {
 .walletTicket-box .btn-primary:not(:disabled):not(.disabled):active:focus,
 .walletTicket-box .show > .btn-primary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem #dc354600 !important;
+}
+
+/* pokars tab */
+
+.poker-table-content .nav-tabs {
+  border-bottom: 1px solid #888a8b !important;
+  padding: 10px 0px !important;
+  gap:10px;
 }
 
 @media screen and (max-width: 1262px) {
