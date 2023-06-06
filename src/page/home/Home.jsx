@@ -573,7 +573,7 @@ const Home = () => {
               id="controlled-tab-example"
               activeKey={key}
               onSelect={(k) => setKey(k)}
-              className="mb-3"
+              className="mb-3 pokarz-tabs"
             >
               <Tab eventKey="home" title="Open Tables">
                 {filterRoom.length > 0 ? (
