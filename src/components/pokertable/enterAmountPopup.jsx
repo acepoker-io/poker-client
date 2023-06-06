@@ -50,10 +50,13 @@ const EnterAmountPopup = ({
       setLoading(true);
       const msg = await handleSitin(amount);
       // setLoading(false);
-      console.log(msg);
+      console.log("msg ===>", msg);
       // if (msg) {
       //   setError(msg);
       // }
+      setLoading(false);
+      setError("");
+      setAmount("");
     } else if (parseFloat(amount) < bigBlind) {
       setError(`Minimum amount to enter is ${ bigBlind }.`);
     } else {
@@ -104,6 +107,7 @@ const EnterAmountPopup = ({
                 ? "Close"
                 : "Lobby"}
             </Button>
+            {console.log("is loading =======", isLoading)}
             <Button className="exit-btn" type="submit" onClick={joinGame} disabled={disable}>
               {isLoading ? <Spinner animation="border" /> : submitButtonText}
             </Button>
