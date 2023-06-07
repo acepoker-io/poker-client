@@ -1287,7 +1287,7 @@ a.nav-link.active {
 .poker-table-content .nav-tabs {
   border-bottom: 1px solid #888a8b !important;
   padding: 20px 0px !important;
-  gap:20px;
+  gap:20px; 
 }
 
 @media screen and (max-width: 1262px) {
