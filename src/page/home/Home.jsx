@@ -1229,9 +1229,9 @@ const GameTournament = ({
     socket.on("notEnoughAmount", (data) => {
       const { message, code } = data;
       if (code === 200) {
-        toast.success(message, { toast_id: "Nofull" });
+        toast.success(message, { toastId: "Nofull" });
       } else {
-        toast.error(message, { toast_id: "full" });
+        toast.error(message, { toastId: "full" });
       }
     });
 
