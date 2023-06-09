@@ -980,10 +980,10 @@ const PokerTable = (props) => {
       }
     });
 
-    socket.on('sitinamounExceeds', (data)=>{
+    socket.on('sitinamounExceeds', (data) => {
       history.push('/')
-      setTimeout(()=>{
-        toast.error(data.message, {toastId: "amountExceeds"});
+      setTimeout(() => {
+        toast.error(data.message, { toastId: "amountExceeds" });
       }, 500);
     });
 
@@ -1397,7 +1397,10 @@ const PokerTable = (props) => {
     } = roomData ? roomData : {};
     currentAction.fold = true;
     if (round === 1) {
-      if (wallet > raiseAmount * 2 - pot) {
+      console.log("raised amt0 ===>", pot, raiseAmount, wallet);
+      // console.log("raised amt1 ===>", raiseAmount);
+      // console.log("raised amt2 ===>", wallet);
+      if ((wallet + pot) > (raiseAmount * 2)) {
         //range true
         currentAction.raise = true;
         currentAction.bet = false;
@@ -1411,10 +1414,14 @@ const PokerTable = (props) => {
           currentAction.bet = false;
         }
 
-      } else if (wallet <= raiseAmount * 2 - pot) {
+      } else if ((wallet + pot) <= (raiseAmount * 2)) {
         //allin true
         currentAction.allin = true;
         currentAction.raise = false;
+
+        if (raiseAmount === pot) {
+          currentAction.check = true;
+        }
 
         if (wallet > raiseAmount) {
           currentAction.call = true;
@@ -1424,12 +1431,12 @@ const PokerTable = (props) => {
     }
 
     if (round >= 2) {
-      if (lastAction === "check") {
+      if (lastAction === "check" || raiseAmount === pot) {
         currentAction.check = true;
       }
 
       if (lastAction === "check") {
-        if (raiseAmount * 2 - pot >= wallet) {
+        if ((raiseAmount * 2) >= (wallet + pot)) {
           currentAction.allin = true;
           currentAction.raise = false;
         } else {
@@ -1438,23 +1445,23 @@ const PokerTable = (props) => {
           currentAction.raise = false;
         }
       } else {
-        if (raiseAmount * 2 - pot < wallet) {
+        if ((raiseAmount * 2) < (wallet + pot)) {
           currentAction.call = true;
           currentAction.bet = false;
           currentAction.check = false;
         }
-        if (raiseAmount * 2 - pot >= wallet) {
+        if ((raiseAmount * 2) >= (wallet + pot)) {
           currentAction.allin = true;
           currentAction.raise = false;
         }
-        if (raiseAmount * 2 - pot <= wallet) {
+        if ((raiseAmount * 2) <= (wallet + pot)) {
           currentAction.allin = false;
           currentAction.bet = false;
           currentAction.raise = true;
         }
       }
-      console.log("check ===>", wallet, raiseAmount * 2 - pot, pot);
-      if (wallet <= raiseAmount * 2 - pot) {
+      // console.log("check ===>", wallet, raiseAmount * 2 - pot, pot);
+      if ((wallet + pot) <= (raiseAmount * 2)) {
         currentAction.allin = true;
         currentAction.raise = false;
         if (wallet > raiseAmount && lastAction !== "check") {
@@ -2109,7 +2116,7 @@ const PokerTable = (props) => {
                   </button>
                 </OverlayTrigger>
               </li>
-              
+
             )}
             <li>
               <OverlayTrigger
