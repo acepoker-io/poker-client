@@ -35,7 +35,6 @@ const App = () => {
     getUser();
   }, []);
 
-
   console.log("user ==>", user);
   return (
     <div className='App'>
@@ -47,7 +46,7 @@ const App = () => {
           setUser,
         }}>
         <ThirdwebProvider
-          activeChain={ChainId.Arbitrum} 
+          activeChain={ChainId.Arbitrum}
           dAppMeta={{
             name: "ACE Poker",
             description:

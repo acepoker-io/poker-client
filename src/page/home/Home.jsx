@@ -519,7 +519,7 @@ const Home = () => {
           setUserInAnyGame={setUserInAnyGame}
         />
       )}
-      {console.log("loader ====>", loader)}
+      {/* {console.log("loader ====>", loader)} */}
       {loader && (
         <div className="poker-loader">
           <img src={loaderImg} alt="loader" />
