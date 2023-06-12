@@ -5,7 +5,7 @@ import CONSTANTS from "../config/contants";
 const getAuthorizationHeader = () => `Bearer ${localStorage.getItem("token")}`;
 export const userInstance = () =>
   axios.create({
-    baseURL: `${CONSTANTS.serverUrl}/users`,
+    baseURL: `${CONSTANTS.serverUrl}/user`,
     headers: { Authorization: getAuthorizationHeader() },
   });
 

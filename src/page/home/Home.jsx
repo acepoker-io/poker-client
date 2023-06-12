@@ -40,7 +40,7 @@ const Home = () => {
   // const tokenDrop = useTokenDrop("0x4bcc5EacC1F1f0Ce61FC798c290AC53C468F76Bd");
   // const { data: tokenSupply } = useTokenSupply(tokenDrop);
   // const { data: tokenBalance } = useTokenBalance(tokenDrop);
-  console.log("activeChain ===>", activeChain);
+  // console.log("activeChain ===>", activeChain);
 
 
   // useEffect(() => {
