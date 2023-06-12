@@ -8,13 +8,15 @@ import { Button, ButtonGroup, Dropdown, Form, Modal, Spinner } from "react-boots
 import logo from "../../assets/game/logo.png";
 // import { FaQuestionCircle } from "react-icons/fa";
 import { toast } from 'react-toastify';
-import { authInstance } from '../../utils/axios.config';
+import { authInstance, userInstance } from '../../utils/axios.config';
 import Register from './registerPage';
 import { useContext } from 'react';
 import UserContext from '../../context/UserContext';
 import { useAddress, useMetamask, useDisconnect, ChainId } from "@thirdweb-dev/react";//ChainId,
 import { clientUrl } from '../../config/keys';
 import Select from 'react-select';
+import { FaBell } from 'react-icons/fa';
+import Notifications from './Notifications';
 
 const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const { user, setUser } = useContext(UserContext);
@@ -38,8 +40,10 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const [depositAmt, setDepositAmt] = useState("");
     const [withdrawAmt, setWithdrawAmt] = useState("");
     const [showSpinner, setShowSpinner] = useState(false);
+    const [showNotifications, setShowNotifications] = useState(false);
     const [lastAddres, setLastAddres] = useState("");
-    const [currencyType, setCurrencType] = useState({ value: 'USDT', label: 'USDT' })
+    const [currencyType, setCurrencType] = useState({ value: 'USDT', label: 'USDT' });
+    const [notificationCount, setNotificationCount] = useState(0);
 
     console.log("currencyType ==>", currencyType);
 
@@ -101,6 +105,19 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
 
     }, [address, setUser, lastAddres, disconnect])
 
+    useEffect(() => {
+        if (user) {
+            (async () => {
+                try {
+                    const resp = await userInstance().get("/notificationCount");
+                    console.log("resp ==>", resp);
+                    setNotificationCount(resp.data.counts);
+                } catch (err) {
+                    console.log("err")
+                }
+            })()
+        }
+    }, [user]);
 
 
     const handleDepositAmt = (e) => {
@@ -174,6 +191,12 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     //   };
 
     // console.log("User in address ===>", user)
+    const handleNotifiationShow = () => {
+        setShowNotifications(!showNotifications);
+        setNotificationCount(0);
+    }
+
+
 
     return (
         <>
@@ -199,6 +222,10 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                 /> */}
                                     <h6>User Name</h6>
                                     <h5>{user?.username}</h5>
+                                </div>
+                                <div className="create-game-box-avtar" onClick={handleNotifiationShow}>
+                                    <FaBell />{notificationCount ? notificationCount : null}
+                                    {showNotifications ? <Notifications /> : null}
                                 </div>
                                 {/* </a> */}
                                 <div className="walletTicket-box">
