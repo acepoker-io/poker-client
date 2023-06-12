@@ -172,7 +172,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .create-game-box a {
@@ -426,6 +426,74 @@ input[type="number"] {
   margin: 8px 0px;
   color: #fff;
 }
+.create-game-box-avtar {
+  position: relative;
+}
+
+.notificationPage {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 345px;
+  background: rgb(0 0 0 / 70%);
+  z-index: 9;
+  padding: 20px;
+  border-radius: 12px;
+  max-height: 500px;
+}
+
+.notificationHeader h4 {
+  margin: 0;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.notificationHeader h4:before {
+  content: "";
+  position: absolute;
+  bottom: 18px;
+  width: 100%;
+  height: 2px;
+  background: #dc3545;
+  border-radius: 12px;
+}
+.notificationMssg {
+  overflow-y: scroll;
+  max-height: 400px;
+}
+
+.notificationPage:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 0.75rem solid transparent;
+  border-right: 0.75rem solid transparent;
+  border-bottom: 0.75rem solid rgb(0 0 0 / 70%);
+}
+.create-game-box-avtar span {
+  position: absolute;
+  background: #dc3545;
+  border-radius: 100px;
+  font-size: 12px;
+  right: -6px;
+  top: -3px;
+  padding: 2px;
+}
+
+.create-game-box-avtar svg {
+  width: 30px;
+  height: 35px;
+  cursor: pointer;
+}
+.notificationMssg h6 {
+  font-size: 14px;
+  font-weight: 300;
+}
 
 .create-game-box-avtar h5 {
   margin-bottom: 0px !important;
@@ -519,7 +587,8 @@ input[type="number"] {
   border-color: #dc3545;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: #ffffff !important;
   background-color: #dc3545 !important;
   border-color: #dc3545 #dc3545 #dc3545 !important;
@@ -1287,7 +1356,7 @@ a.nav-link.active {
 .poker-table-content .nav-tabs {
   border-bottom: 1px solid #888a8b !important;
   padding: 20px 0px !important;
-  gap:20px; 
+  gap: 20px;
 }
 
 @media screen and (max-width: 1262px) {
@@ -1324,6 +1393,14 @@ a.nav-link.active {
 @media screen and (max-width: 767px) {
   .home-poker-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .notificationPage {
+    left: inherit;
+    transform: inherit;
+    right: 0;
+  }
+  .notificationPage:before {
+    left: 77%;
   }
 
   .casino-popup .modal-footer {
@@ -1437,7 +1514,7 @@ a.nav-link.active {
 
 @media screen and (max-width: 678px) {
   #controlled-tab-example-tabpane-2 .home-poker-card-grid {
-    grid-template-columns: repeat(1, minmax(0, 1fr)); 
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 }
 /* @media screen and (max-width: 530px) {
