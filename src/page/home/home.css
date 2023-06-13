@@ -482,7 +482,11 @@ input[type="number"] {
   font-size: 12px;
   right: -6px;
   top: -3px;
-  padding: 2px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .create-game-box-avtar svg {

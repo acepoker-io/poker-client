@@ -240,7 +240,9 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                     onClick={handleNotifiationShow}
                   >
                     <FaBell />
-                    <span>{notificationCount ? notificationCount : null}</span>
+                    {notificationCount ? (
+                      <span>{notificationCount}</span>
+                    ) : null}
                     {showNotifications ? <Notifications /> : null}
                   </div>
                   {/* </a> */}
