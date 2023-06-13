@@ -959,6 +959,24 @@ const GameTable = ({
   // };
 
   const getTime = (time) => {
+    // console.log("time: ", time);
+    // var currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    // var currentDate = new Date(time);
+
+    // // Get the options for formatting the date
+    // var options = {
+    //   timeZone: `${ currentTimeZone }`, // Replace 'YourTimeZone' with the desired time zone, e.g., 'America/New_York'
+    //   year: 'numeric',
+    //   month: 'long',
+    //   day: 'numeric',
+    //   hour: 'numeric',
+    //   minute: 'numeric',
+    //   second: 'numeric'
+    // };
+
+    // // Convert the date to the desired time zone
+    // var formattedDate = currentDate.toLocaleString(undefined, options);
+    // console.log("formattedDate =====>", formattedDate, d, options, currentTimeZone, currentDate)
     let d = new Date(time);
     let pm = d.getHours() >= 12;
     let hour12 = d.getHours() % 12;
@@ -1044,7 +1062,7 @@ const GameTable = ({
                 <div className="tableCard-imgDetail">
                   <img src={casino} className="tournamentImg" alt="" />
                   <div className="tournamentCard-nameDetail">
-                    <h6>{getTime(data?.createdAt)}</h6>
+                    <h6>{getTime(new Date(data?.createdAt))}</h6>
                     <h2 title={data?.gameName}>{gameType === "Poker" ? data?.gameName : data.name}</h2>
                     <p>
                       people joined :{" "}

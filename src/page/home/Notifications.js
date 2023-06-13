@@ -29,6 +29,36 @@ const Notifications = () => {
     }
   };
 
+  const getTime = (time) => {
+    // console.log("time: ", time);
+    // var currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    // var currentDate = new Date(time);
+
+    // // Get the options for formatting the date
+    // var options = {
+    //   timeZone: `${ currentTimeZone }`, // Replace 'YourTimeZone' with the desired time zone, e.g., 'America/New_York'
+    //   year: 'numeric',
+    //   month: 'long',
+    //   day: 'numeric',
+    //   hour: 'numeric',
+    //   minute: 'numeric',
+    //   second: 'numeric'
+    // };
+
+    // // Convert the date to the desired time zone
+    // var formattedDate = currentDate.toLocaleString(undefined, options);
+    // console.log("formattedDate =====>", formattedDate, d, options, currentTimeZone, currentDate)
+    let d = new Date(time);
+    let pm = d.getHours() >= 12;
+    let hour12 = d.getHours() % 12;
+    if (!hour12) hour12 += 12;
+    let minute = d.getMinutes();
+    let date = d.getDate();
+    let month = d.getMonth() + 1;
+    let year = d.getFullYear();
+    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
+  };
+
   return (
     <div className='notificationPage'>
       <div className='notificationHeader'>
@@ -36,7 +66,9 @@ const Notifications = () => {
       </div>
       <div className='notificationMssg'>
         {notifiCations?.length > 0 ? (
-          notifiCations.map((el) => <h6>{el.message}</h6>)
+          notifiCations.map((el) => (
+            <h6>{`${el.message} ${getTime(el.startDate)}`}</h6>
+          ))
         ) : showSpinner ? (
           <Spinner animation='border' />
         ) : (
