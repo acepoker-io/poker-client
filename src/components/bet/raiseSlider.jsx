@@ -26,7 +26,7 @@ const RaiseSlider = ({ currentPlayer, SliderAction, roomData, remainingTime }) =
   }
 
   const maxBetValue = numFormatter(currentPlayer?.wallet);
-  const minBetValue = numFormatter(roomData?.raiseAmount * 2);
+  const minBetValue = numFormatter((roomData?.raiseAmount * 2) <= currentPlayer?.wallet ? roomData?.raiseAmount * 2 : currentPlayer?.wallet);
 
   return (
 
@@ -62,7 +62,7 @@ const RaiseSlider = ({ currentPlayer, SliderAction, roomData, remainingTime }) =
         {currentPlayer && (
           <Button
             variant="primary"
-            onClick={(e) => SliderAction(e, parseInt(rangeBetValue))}
+            onClick={(e) => SliderAction(e, parseFloat(rangeBetValue))}
             disabled={rangeBetValue <= 0 || remainingTime <= 1}
             type="submit"
           >
