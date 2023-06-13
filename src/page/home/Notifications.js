@@ -72,7 +72,7 @@ const Notifications = () => {
         ) : showSpinner ? (
           <Spinner animation='border' />
         ) : (
-          <div className='noNotification'>You don't notifications</div>
+          <div className='noNotification'>You don't have a notification</div>
         )}
       </div>
     </div>
