@@ -26,7 +26,7 @@ const EnterAmountPopup = ({
           tableId
         }
       });
-      console.log("resp ==>", resp);
+      // console.log("resp ==>", resp);
       setTableData(resp.data);
     })()
 

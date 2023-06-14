@@ -32,7 +32,7 @@ let userId;
 const Home = () => {
   // inital state
 
-
+  const { userInAnyGame, setUserInAnyGame, user, setUser } = useContext(UserContext);
   const sdk = useSDK();
   const address = useAddress();
   const activeChain = useActiveChain();
@@ -52,6 +52,12 @@ const Home = () => {
 
   // const token
 
+  useEffect(() => {
+    if (user) {
+      userId = user._id || user.id;
+    }
+  }, [user])
+
 
   useEffect(() => {
     if (!address && localStorage.getItem('token')) {
@@ -69,8 +75,7 @@ const Home = () => {
     invitedUsers: [],
     password: ''
   };
-  // States
-  const { userInAnyGame, setUserInAnyGame, user, setUser } = useContext(UserContext);//userInAnyGame,
+  // States//userInAnyGame,
   const [searchText, setSearchText] = useState("");
   const [loader, setLoader] = useState(true);
   const [userData, setUserData] = useState({});
@@ -304,6 +309,9 @@ const Home = () => {
     socket.on("AllTables", data => {
       setPokerRooms(data?.tables || [])
     })
+    socket.on("updatedTournaments", data => {
+      setTournaments(data?.tournaments || [])
+    });
   }, []);
 
   const checkAuth = async () => {
@@ -330,7 +338,7 @@ const Home = () => {
     (async () => {
       try {
         const response = await pokerInstance().get("/AllTournament");
-        // console.log("response ==>", response)
+        console.log("response ==>", response)
         setTournaments(response.data.tournament || []);
       } catch (error) { }
     })();
@@ -360,7 +368,7 @@ const Home = () => {
   );
 
   const filterRoom = pokerRooms.filter((el) =>
-    el.gameName.toLowerCase().includes(searchText.toLowerCase())
+    el.gameName.toLowerCase().includes(searchText?.toLowerCase())
   );
 
   const handleSendTransaction = async (amount, type) => {
@@ -1271,6 +1279,11 @@ const GameTournament = ({
     }, 1000);
   };
 
+  const handleEnterGame = (roomId) => {
+    console.log("enter game ", window.location.origin, roomId)
+    window.location.href = window.location.origin + "/table?gamecollection=poker&tableid=" + roomId
+  }
+
   // const enterRoom = async (tournamentId) => {
   //   const res = await tournamentInstance().post("/enterroom", {
   //     tournamentId: tournamentId,
@@ -1336,7 +1349,13 @@ const GameTournament = ({
           {/* {ifUserJoind() ? <Button type="text" onClick={() => enterRoom(data?._id)}>Enter game</Button> : <Button type="text" onClick={() =>
             joinTournament(data?._id, data?.tournamentFee)
           }>join game</Button>} */}
-          {user && <Button type="text" onClick={() => { joinTournament(data?._id, data?.tournamentFee) }}>Join game</Button>}
+          {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
+          {user &&
+            !data?.waitingArray.find(el => el.id === (user?.id || user?._id))
+            ? (<Button type="text" onClick={() => { joinTournament(data?._id, data?.tournamentFee) }}>Join game</Button>) : (
+              <Button type="text" onClick={() => { handleEnterGame(data?.waitingArray.find(el => el.id === (user?.id || user?._id)).roomId) }}>
+                Enter game</Button>
+            )}
 
           {/* <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} /> */}
         </div>

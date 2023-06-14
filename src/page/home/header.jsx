@@ -60,7 +60,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
   });
   const [notificationCount, setNotificationCount] = useState(0);
 
-  console.log("currencyType ==>", currencyType);
+  // console.log("currencyType ==>", currencyType);
 
   const handleLogOut = () => {
     console.log("logout executed");
@@ -75,8 +75,8 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     const connectHandler = async () => {
       try {
         if (address) {
-          console.log("last adreess ==>", lastAddres);
-          console.log("adreess ==>", address);
+          // console.log("last adreess ==>", lastAddres);
+          // console.log("adreess ==>", address);
           if (lastAddres && lastAddres !== address) {
             console.log("hello");
             disconnect();
@@ -125,7 +125,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
       (async () => {
         try {
           const resp = await userInstance().get("/notificationCount");
-          console.log("resp ==>", resp);
+          // console.log("resp ==>", resp);
           setNotificationCount(resp.data.counts);
         } catch (err) {
           console.log("err");
