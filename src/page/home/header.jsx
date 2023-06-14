@@ -196,6 +196,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
   const handleShowWithdrawPopUp = (e) => {
     setShowWithdrawTransaction(true);
     setWithdrawAmt("");
+
   };
 
   //   const chainChanged = () => {
@@ -204,9 +205,15 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
   //   };
 
   // console.log("User in address ===>", user)
-  const handleNotifiationShow = () => {
+  const handleNotifiationShow = async () => {
     setShowNotifications(!showNotifications);
     setNotificationCount(0);
+    if (!showNotifications && notificationCount) {
+      const resp = await userInstance().get("/seenAllNotifications");
+      console.log("response ==>", resp);
+    }
+
+
   };
 
   return (
