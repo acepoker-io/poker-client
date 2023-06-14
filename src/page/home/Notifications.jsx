@@ -20,7 +20,6 @@ const Notifications = () => {
     try {
       setShowSpinner(true);
       const resp = await userInstance().get("/getAllNotifications");
-      console.log("resp ====>", resp);
       setNotifications(resp.data);
       setShowSpinner(false);
     } catch (err) {
@@ -56,7 +55,7 @@ const Notifications = () => {
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
+    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
   };
 
   return (
@@ -67,7 +66,7 @@ const Notifications = () => {
       <div className='notificationMssg'>
         {notifiCations?.length > 0 ? (
           notifiCations.map((el) => (
-            <h6>{`${el.message} ${getTime(el.startDate)}`}</h6>
+            <h6>{`${ el.message } ${ getTime(el.startDate) }`}</h6>
           ))
         ) : showSpinner ? (
           <Spinner animation='border' />
