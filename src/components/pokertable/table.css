@@ -2417,8 +2417,12 @@ input:checked {
 .footer-container .footer-btn:first-child .footerMainActionBtn,
 .footer-container .footer-btn:first-child .footerMainActionBtn:hover,
 .footer-container .footer-btn:first-child .footerMainActionBtn:active,
-.footer-container .footer-btn:first-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
-.footer-container .footer-btn:first-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
+.footer-container
+  .footer-btn:first-child
+  .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
+.footer-container
+  .footer-btn:first-child
+  .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
   background: #4da956 !important;
   background-color: #4da956 !important;
   border: 1px solid #4da956;
@@ -2430,8 +2434,12 @@ input:checked {
 .footer-container .footer-btn:nth-child(2) .footerMainActionBtn,
 .footer-container .footer-btn:nth-child(2) .footerMainActionBtn:hover,
 .footer-container .footer-btn:nth-child(2) .footerMainActionBtn:active,
-.footer-container .footer-btn:nth-child(2) .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
-.footer-container .footer-btn:nth-child(2) .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
+.footer-container
+  .footer-btn:nth-child(2)
+  .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
+.footer-container
+  .footer-btn:nth-child(2)
+  .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
   background-color: #5b72e2 !important;
   background: #5b72e2 !important;
   border: 1px solid #5b72e2;
@@ -2443,8 +2451,12 @@ input:checked {
 .footer-container .footer-btn:last-child .footerMainActionBtn,
 .footer-container .footer-btn:last-child .footerMainActionBtn:hover,
 .footer-container .footer-btn:last-child .footerMainActionBtn:active,
-.footer-container .footer-btn:last-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
-.footer-container .footer-btn:last-child .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
+.footer-container
+  .footer-btn:last-child
+  .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled).active,
+.footer-container
+  .footer-btn:last-child
+  .footerMainActionBtn.btn-primary:not(:disabled):not(.disabled):active {
   background-color: #ddaa34 !important;
   background: #ddaa34 !important;
   border: 1px solid #ddaa34;
@@ -2456,8 +2468,14 @@ input:checked {
 .raise-inputRange .customBet-amount button,
 .raise-inputRange .customBet-amount button:hover,
 .raise-inputRange .customBet-amount button:active,
-.raise-inputRange .customBet-amount button .btn-primary:not(:disabled):not(.disabled).active,
-.raise-inputRange .customBet-amount button .btn-primary:not(:disabled):not(.disabled):active {
+.raise-inputRange
+  .customBet-amount
+  button
+  .btn-primary:not(:disabled):not(.disabled).active,
+.raise-inputRange
+  .customBet-amount
+  button
+  .btn-primary:not(:disabled):not(.disabled):active {
   background-color: #dc3545 !important;
   background: #dc3545 !important;
   border: 1px solid #dc3545;
@@ -2951,8 +2969,8 @@ input:checked {
 
 /**** Winner Animation *******/
 
-.pyro>.before,
-.pyro>.after {
+.pyro > .before,
+.pyro > .after {
   position: absolute;
   width: 5px;
   height: 5px;
@@ -2977,7 +2995,7 @@ input:checked {
     1s gravity ease-in infinite backwards, 5s position linear infinite backwards;
 }
 
-.pyro>.after {
+.pyro > .after {
   -moz-animation-delay: 1.25s, 1.25s, 1.25s;
   -webkit-animation-delay: 1.25s, 1.25s, 1.25s;
   -o-animation-delay: 1.25s, 1.25s, 1.25s;
@@ -3201,7 +3219,6 @@ input:checked {
 }
 
 @-webkit-keyframes position {
-
   0%,
   19.9% {
     margin-top: 10%;
@@ -3234,7 +3251,6 @@ input:checked {
 }
 
 @-moz-keyframes position {
-
   0%,
   19.9% {
     margin-top: 10%;
@@ -3267,7 +3283,6 @@ input:checked {
 }
 
 @-o-keyframes position {
-
   0%,
   19.9% {
     margin-top: 10%;
@@ -3300,7 +3315,6 @@ input:checked {
 }
 
 @-ms-keyframes position {
-
   0%,
   19.9% {
     margin-top: 10%;
@@ -3333,7 +3347,6 @@ input:checked {
 }
 
 @keyframes position {
-
   0%,
   19.9% {
     margin-top: 10%;
@@ -3405,7 +3418,7 @@ input:checked {
 
 .custom-toaster .btn-primary:not(:disabled):not(.disabled).active,
 .custom-toaster .btn-primary:not(:disabled):not(.disabled):active,
-.custom-toaster .show>.btn-primary.dropdown-toggle {
+.custom-toaster .show > .btn-primary.dropdown-toggle {
   background-color: transparent;
   border-color: transparent;
 }
@@ -3441,7 +3454,6 @@ input:checked {
 }
 
 @keyframes shake {
-
   10%,
   90% {
     transform: translate3d(-1px, 0, 0);
@@ -3711,8 +3723,10 @@ p.joined-player {
 }
 
 .flip-vertical-left {
-  -webkit-animation: flip-vertical-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  animation: flip-vertical-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  -webkit-animation: flip-vertical-left 0.8s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: flip-vertical-left 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
 }
 
 @-webkit-keyframes flip-vertical-left {
@@ -3741,19 +3755,19 @@ p.joined-player {
 
 /************* Flip *******************/
 
-.flip>.front,
-.flip>.back {
+.flip > .front,
+.flip > .back {
   display: block;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-duration: 0.5s;
   transition-property: transform, opacity;
 }
 
-.flip>.front {
+.flip > .front {
   transform: rotateY(0deg);
 }
 
-.flip>.back {
+.flip > .back {
   position: absolute;
   opacity: 0;
   top: 0px;
@@ -3763,12 +3777,12 @@ p.joined-player {
   transform: rotateY(-180deg);
 }
 
-.flip.active>.front {
+.flip.active > .front {
   transform: rotateY(180deg);
   opacity: 0;
 }
 
-.flip.active>.back {
+.flip.active > .back {
   opacity: 1;
   transform: rotateY(0deg);
 }
@@ -3779,18 +3793,18 @@ p.joined-player {
   width: 60px;
 }
 
-.flip>.front,
-.flip>.back {
+.flip > .front,
+.flip > .back {
   display: block;
   width: 60px;
   height: 84px;
 }
 
-.tooltip-box>p {
+.tooltip-box > p {
   margin-bottom: 5px;
 }
 
-.tooltip-box>p:last-child {
+.tooltip-box > p:last-child {
   margin-bottom: 0;
 }
 
@@ -4268,15 +4282,15 @@ ul.btn-list {
   z-index: 999;
 }
 
-ul.btn-list>li:first-child {
+ul.btn-list > li:first-child {
   display: none;
 }
 
-ul.btn-list>li {
+ul.btn-list > li {
   padding: 2px 0;
 }
 
-ul.btn-list>li>button {
+ul.btn-list > li > button {
   border-radius: 20px;
   padding: 5px 10px;
   width: 40px;
@@ -4292,7 +4306,7 @@ ul.btn-list>li>button {
   border: none;
 }
 
-ul.btn-list>li span.close-icon {
+ul.btn-list > li span.close-icon {
   position: absolute;
   right: 10px;
   top: -30px;
@@ -4317,7 +4331,7 @@ ul.btn-list>li span.close-icon {
   z-index: 999999999 !important;
 }
 
-ul.btn-list>li>button>img {
+ul.btn-list > li > button > img {
   width: 18px;
   height: 18px;
   object-fit: cover;
@@ -4363,7 +4377,7 @@ ul.btn-list>li>button>img {
   background: transparent;
 }
 
-.poker-bg .poker-loader>img {
+.poker-bg .poker-loader > img {
   width: 100px;
   height: 100px;
   object-fit: cover;
@@ -4377,7 +4391,7 @@ ul.btn-list>li>button>img {
   background-color: #a89319;
 }
 
-.abc>div {
+.abc > div {
   z-index: 99999999 !important;
 }
 
@@ -4491,7 +4505,7 @@ ul.btn-list>li>button>img {
   visibility: hidden !important;
 }
 
-.player-box .pyro>div {
+.player-box .pyro > div {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -4551,7 +4565,7 @@ ul.btn-list>li>button>img {
   color: #16181b;
 }
 
-.cam-tool .show>.btn-success.dropdown-toggle {
+.cam-tool .show > .btn-success.dropdown-toggle {
   background: transparent !important;
 }
 
@@ -4621,7 +4635,7 @@ ul.btn-list>li>button>img {
   z-index: 999;
 }
 
-.game-started-join:after {
+/* .game-started-join:after {
   content: "Game has been already started, please wait for next round";
   position: fixed;
   top: 50%;
@@ -4643,7 +4657,7 @@ ul.btn-list>li>button>img {
   border-radius: 12px;
   font-weight: 600;
   color: #ffff;
-}
+} */
 
 .tooltip-box {
   padding: 10px;
@@ -4910,7 +4924,8 @@ img.coinWinning-animation {
     height: 100px;
   } */
 
-  .total-pot-money {}
+  .total-pot-money {
+  }
 
   .game-msg {
     top: 112px;
@@ -5013,7 +5028,8 @@ img.coinWinning-animation {
     left: 78%;
   }
 
-  .total-pot-money {}
+  .total-pot-money {
+  }
 }
 
 @media screen and (max-width: 1366px) {
@@ -5027,7 +5043,8 @@ img.coinWinning-animation {
     height: 335px;
   }
 
-  .total-pot-money {}
+  .total-pot-money {
+  }
 }
 
 @media screen and (max-width: 1200px) and (min-width: 768px) and (orientation: landscape) {
@@ -5041,7 +5058,8 @@ img.coinWinning-animation {
     margin: 0px 2px;
   }
 
-  .total-pot-money {}
+  .total-pot-money {
+  }
 
   .players.player1 {
     left: 50%;
@@ -5118,7 +5136,8 @@ img.coinWinning-animation {
     margin: 0px 2px;
   }
 
-  .total-pot-money {}
+  .total-pot-money {
+  }
 
   .players.player1 {
     bottom: -35%;
@@ -5139,7 +5158,8 @@ img.coinWinning-animation {
     left: 50%;
   }
 
-  .players.player2 .player-chip {}
+  .players.player2 .player-chip {
+  }
 
   .player7 {
     left: 90%;
@@ -5209,7 +5229,7 @@ img.coinWinning-animation {
     top: 1px;
   }
 
-  .player-timer div>svg {
+  .player-timer div > svg {
     width: 100px !important;
     height: 100px !important;
   }
@@ -5325,7 +5345,8 @@ img.coinWinning-animation {
     left: 51%;
   }
 
-  .total-pot-money {}
+  .total-pot-money {
+  }
 
   .game-msg {
     top: 110px;
@@ -5478,7 +5499,6 @@ img.coinWinning-animation {
 }
 
 @media screen and (max-width: 991px) {
-
   .player-info {
     width: 142px;
     height: 58px;
@@ -5526,7 +5546,7 @@ img.coinWinning-animation {
     font-size: 18px;
   }
 
-  input:checked+.slider:before {
+  input:checked + .slider:before {
     transform: translateX(115px);
   }
 
@@ -5591,7 +5611,6 @@ img.coinWinning-animation {
   .game-msg {
     top: 100px;
   }
-
 }
 
 /************************* Landscape ****************************/
@@ -7004,7 +7023,8 @@ img.coinWinning-animation {
     font-size: 18px;
   }
 
-  .total-pot-money span {}
+  .total-pot-money span {
+  }
 
   .chat-logo img {
     max-width: 88px;
@@ -7129,7 +7149,7 @@ img.coinWinning-animation {
     font-size: 16px;
   }
 
-  .leave-confirm.modal .block>p {
+  .leave-confirm.modal .block > p {
     padding-bottom: 10px;
   }
 
@@ -7138,7 +7158,8 @@ img.coinWinning-animation {
     height: 120px !important;
   }
 
-  .total-pot-money span::before {}
+  .total-pot-money span::before {
+  }
 
   .chat-wrapper {
     right: 10px;
@@ -7456,7 +7477,7 @@ img.coinWinning-animation {
     top: 6%;
   }
 
-  ul.btn-list>li>button {
+  ul.btn-list > li > button {
     width: 30px;
     height: 30px !important;
     padding: 0;
@@ -7466,7 +7487,7 @@ img.coinWinning-animation {
     scale: 1.1;
   }
 
-  ul.btn-list>li>button i {
+  ul.btn-list > li > button i {
     font-size: 14px;
   }
 
@@ -7479,7 +7500,7 @@ img.coinWinning-animation {
     width: 30px;
   }
 
-  ul.btn-list>li>button>img {
+  ul.btn-list > li > button > img {
     width: 20px;
     height: 20px;
   }
@@ -9392,7 +9413,7 @@ img.coinWinning-animation {
     font-size: 16px;
   }
 
-  .leave-confirm.modal .block>p {
+  .leave-confirm.modal .block > p {
     padding-bottom: 10px;
   }
 
@@ -9401,7 +9422,8 @@ img.coinWinning-animation {
     height: 120px !important;
   }
 
-  .total-pot-money span::before {}
+  .total-pot-money span::before {
+  }
 
   .chat-wrapper {
     right: 10px;
@@ -9644,7 +9666,7 @@ img.coinWinning-animation {
     display: none !important;
   }
 
-  ul.btn-list>li>button {
+  ul.btn-list > li > button {
     width: 34px;
     height: 34px !important;
     padding: 0;
@@ -9654,7 +9676,7 @@ img.coinWinning-animation {
     scale: 1.1;
   }
 
-  ul.btn-list>li>button i {
+  ul.btn-list > li > button i {
     font-size: 14px;
   }
 
@@ -9667,7 +9689,7 @@ img.coinWinning-animation {
     width: 34px;
   }
 
-  ul.btn-list>li>button>img {
+  ul.btn-list > li > button > img {
     width: 20px;
     height: 20px;
   }
@@ -10363,7 +10385,6 @@ img.coinWinning-animation {
 }
 
 @media only screen and (max-width: 769px) and (orientation: landscape) {
-
   .players .player-pic {
     height: 98px;
     width: 98px;
@@ -10381,7 +10402,8 @@ img.coinWinning-animation {
     width: 200px;
   }
 
-  .total-pot-money span {}
+  .total-pot-money span {
+  }
 
   .players {
     scale: 0.7;
