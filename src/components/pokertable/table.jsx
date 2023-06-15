@@ -84,7 +84,7 @@ let retryCount = 0;
 let tablePlayers = [];
 
 const numFormatter = (num) => {
-  if (num > 1 && num < 999) {
+  if (num < 999) {
     console.log("num =====>", num);
     return num.toString().includes(".") ? (num / 1)?.toFixed(4) : (num / 1)?.toFixed(0)
     // return (num / 1)?.toFixed(4); // convert to K for number from > 1000 < 1 million
@@ -2551,7 +2551,9 @@ const TablePotMoney = ({ tablePot, sidePots, activeWinnerPlayersPot }) => {
       {sidePots.length ? sidePots.map(sidePot => (
         <div className={`total-pot-money animate__animated animate__fadeIn ${ activeWinnerPlayersPot?.potPlayer?.length === sidePot?.players?.length ? `winnPlayer${ activeWinnerPlayersPot.availablePosition + 1 }` : '' }`}>
 
-          <span className={`pots-${ sidePots.length }`}><img src={chipspokercard} alt="" /><p>{numFormatter(sidePot.pot)}</p></span>
+          <span className={`pots-${ sidePots.length }`}><img src={chipspokercard} alt="" />
+            <p>{numFormatter(sidePot.pot)}</p>
+          </span>
         </div>
       )) :
         <div className={`total-pot-money animate__animated animate__fadeIn winnPlayer${ activeWinnerPlayersPot.availablePosition + 1 }`}>
