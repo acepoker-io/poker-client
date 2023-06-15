@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import numFormatter from "../../utils/utils";
 import token from "../../assets/coin.png";
@@ -77,6 +78,9 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
         if (address) {
           // console.log("last adreess ==>", lastAddres);
           // console.log("adreess ==>", address);
+
+          // setTimeout(async () => {
+
           if (lastAddres && lastAddres !== address) {
             console.log("hello");
             disconnect();
@@ -92,7 +96,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
           const resp = await authInstance().post("/loginWithMetamask", {
             metaMaskAddress: address,
           });
-          // console.log("Response--->", resp)
+          console.log("Response--->", resp)
           const { status, message, token, user } = resp?.data;
           if (status === 200) {
             setUser(user);
@@ -102,6 +106,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
             toast.error(message, { toastId: "toastId" });
             setOpenRegister(true);
           }
+          // }, 1000);
         }
       } catch (err) {
         console.error(err);
@@ -114,11 +119,12 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     if (!loginCall) {
       loginCall = setTimeout(async () => {
         await connectHandler();
-      }, 200);
+      }, 1000);
     } else {
       clearTimeout(loginCall);
     }
   }, [address, setUser, lastAddres, disconnect]);
+
 
   useEffect(() => {
     if (user) {
