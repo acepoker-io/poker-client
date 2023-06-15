@@ -401,7 +401,7 @@ const Home = () => {
           gasPrice: ethers.utils.parseUnits('1', 'gwei'),
           gasLimit: 1000000,
           data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
-          value: ethers.utils.parseEther(amt.toFixed(6).toString()),
+          value: ethers.utils.parseEther(amt.toFixed(9).toString()),
         }
         console.log("tx ===>", tx);
         const txResult = await sdk.wallet.sendRawTransaction(tx);
