@@ -2548,7 +2548,7 @@ const TablePotMoney = ({ tablePot, sidePots, activeWinnerPlayersPot }) => {
 
   return (
     <div className="pot-money">
-      {sidePots.length ? sidePots.map(sidePot => (
+      {sidePots.length ? sidePots.filter(el => (el?.pot)).map(sidePot => (
         <div className={`total-pot-money animate__animated animate__fadeIn ${ activeWinnerPlayersPot?.potPlayer?.length === sidePot?.players?.length ? `winnPlayer${ activeWinnerPlayersPot.availablePosition + 1 }` : '' }`}>
 
           <span className={`pots-${ sidePots.length }`}><img src={chipspokercard} alt="" />
