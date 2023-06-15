@@ -799,13 +799,27 @@ const CreateTable = ({
               <div>
                 {" "}
                 <Form.Label>Small Blind</Form.Label>
-                <Form.Control
+                {/* <Form.Control
                   name="minchips"
                   onChange={handleChange}
                   value={values.minchips}
                   type="number"
                   placeholder="Ex : 50"
-                />
+                /> */}
+                <Form.Control
+                  as="select"
+                  name="minchips"
+                  value={values.minchips}
+                  onChange={handleChange}
+                >
+                  <option value={0}>Please select</option>
+                  <option value={2}>2/4</option>
+                  <option value={4}>4/8</option>
+                  <option value={10}>10/20</option>
+                  <option value={20}>20/40</option>
+                  <option value={40}>40/80</option>
+                  <option value={100}>100/200</option>
+                </Form.Control>
               </div>
               <div>
                 {" "}
