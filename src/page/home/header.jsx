@@ -13,7 +13,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 // import { Tooltip } from "react-bootstrap";
-import logo from "../../assets/game/logo.png";
+import logo from "../../assets/headerLogo.png";
 // import { FaQuestionCircle } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { authInstance, userInstance } from "../../utils/axios.config";
@@ -96,7 +96,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
           const resp = await authInstance().post("/loginWithMetamask", {
             metaMaskAddress: address,
           });
-          console.log("Response--->", resp)
+          console.log("Response--->", resp);
           const { status, message, token, user } = resp?.data;
           if (status === 200) {
             setUser(user);
@@ -124,7 +124,6 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
       clearTimeout(loginCall);
     }
   }, [address, setUser, lastAddres, disconnect]);
-
 
   useEffect(() => {
     if (user) {
@@ -202,7 +201,6 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
   const handleShowWithdrawPopUp = (e) => {
     setShowWithdrawTransaction(true);
     setWithdrawAmt("");
-
   };
 
   //   const chainChanged = () => {
@@ -218,56 +216,65 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
       const resp = await userInstance().get("/seenAllNotifications");
       console.log("response ==>", resp);
     }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", isSticky);
+    return () => {
+      window.removeEventListener("scroll", isSticky);
+    };
+  });
 
-
+  const isSticky = (e) => {
+    const header = document.querySelector(".user-header");
+    const scrollTop = window.scrollY;
+    scrollTop >= 50
+      ? header.classList.add("is-sticky")
+      : header.classList.remove("is-sticky");
   };
 
   return (
     <>
-      <div className='user-header'>
-        <div className='container'>
-          <div className='user-header-grid'>
-            <div className='casino-logo'>
-              <a href={clientUrl}>
-                <img src={logo} alt='' />
-              </a>
-            </div>
-            <div className='create-game-box'>
-              {user ? (
-                <>
-                  {/* <a href={`${landingClient}profile`}> */}
+      <div className="user-header">
+        <div className="user-header-grid">
+          <div className="casino-logo">
+            <a href={clientUrl}>
+              <img src={logo} alt="" />
+            </a>
+          </div>
+          <div className="create-game-box">
+            {user ? (
+              <>
+                {/* <a href={`${landingClient}profile`}> */}
 
-                  <div className='create-game-box-avtar'>
-                    {/* <img
+                <div className="create-game-box-avtar">
+                  {/* <img
                                     src={
                                         user?.profile ||
                                         "https://i.pinimg.com/736x/06/d0/00/06d00052a36c6788ba5f9eeacb2c37c3.jpg"
                                     }
                                     alt=""
                                 /> */}
-                    <h6>User Name</h6>
-                    <h5>{user?.username}</h5>
-                  </div>
-                  <div
-                    className='create-game-box-avtar'
-                    onClick={handleNotifiationShow}
-                  >
-                    <FaBell />
-                    {notificationCount ? (
-                      <span>{notificationCount}</span>
-                    ) : null}
-                    {showNotifications ? <Notifications /> : null}
-                  </div>
-                  {/* </a> */}
-                  <div className='walletTicket-box'>
-                    <Dropdown as={ButtonGroup}>
-                      <Button>
-                        <div className='pokerWallet-box'>
-                          <img src={token} alt='' className='pokerWallet' />
-                          <span>
-                            {numFormatter(user?.wallet.toFixed(2) || 0)}
-                          </span>
-                          {/* <OverlayTrigger
+                  <h6>User Name</h6>
+                  <h5>{user?.username}</h5>
+                </div>
+                <div
+                  className="create-game-box-avtar"
+                  onClick={handleNotifiationShow}
+                >
+                  <FaBell />
+                  {notificationCount ? <span>{notificationCount}</span> : null}
+                  {showNotifications ? <Notifications /> : null}
+                </div>
+                {/* </a> */}
+                <div className="walletTicket-box">
+                  <Dropdown as={ButtonGroup}>
+                    <Button>
+                      <div className="pokerWallet-box">
+                        <img src={token} alt="" className="pokerWallet" />
+                        <span>
+                          {numFormatter(user?.wallet.toFixed(2) || 0)}
+                        </span>
+                        {/* <OverlayTrigger
                                             placement={window.innerWidth < 767 ? "right" : "left"}
                                             delay={{ show: 250, hide: 400 }}
                                             overlay={renderWallet}
@@ -276,20 +283,20 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                                 <FaQuestionCircle />
                                             </Button>
                                         </OverlayTrigger> */}
-                        </div>
-                      </Button>
-                      <Dropdown.Toggle split id='dropdown-split-basic' />
-                      <Dropdown.Menu flip='True' align='start'>
-                        <Dropdown.Item onClick={handleShowDepositPopUp}>
-                          Deposit
-                        </Dropdown.Item>
-                        <Dropdown.Item onClick={handleShowWithdrawPopUp}>
-                          Withdraw
-                        </Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
+                      </div>
+                    </Button>
+                    <Dropdown.Toggle split id="dropdown-split-basic" />
+                    <Dropdown.Menu flip="True" align="start">
+                      <Dropdown.Item onClick={handleShowDepositPopUp}>
+                        Deposit
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={handleShowWithdrawPopUp}>
+                        Withdraw
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
 
-                    {/* <div className="pokerWallet-box">
+                  {/* <div className="pokerWallet-box">
                                         <img src={tickets} alt="" className="pokerWallet" />
                                         <span>{numFormatter(user?.ticket || 0)}</span>
                                         <OverlayTrigger
@@ -302,37 +309,36 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                             </Button>
                                         </OverlayTrigger>
                                     </div> */}
-                  </div>
-                  <button
-                    type='button'
-                    className='create-game-boxBtn'
-                    onClick={handleShow}
-                  >
-                    Create Game
-                  </button>
-                  <button
-                    type='button'
-                    className='create-game-boxBtn'
-                    onClick={handleLogOut}
-                  >
-                    Logout
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    type='button'
-                    className='create-game-boxBtn'
-                    onClick={() =>
-                      connectWithMetamask({ chainId: ChainId.Arbitrum })
-                    }
-                  >
-                    Connect Metamask
-                  </button>
-                </>
-              )}
-              {/* {ChainId.ArbitrumGoerli} */}
-            </div>
+                </div>
+                <button
+                  type="button"
+                  className="create-game-boxBtn"
+                  onClick={handleShow}
+                >
+                  Create Game
+                </button>
+                <button
+                  type="button"
+                  className="create-game-boxBtn"
+                  onClick={handleLogOut}
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  className="connect-meta red-btnPrimary"
+                  onClick={() =>
+                    connectWithMetamask({ chainId: ChainId.Arbitrum })
+                  }
+                >
+                  Connect
+                </button>
+              </>
+            )}
+            {/* {ChainId.ArbitrumGoerli} */}
           </div>
         </div>
         <Register
@@ -389,11 +395,11 @@ const DepositModal = ({
     <Modal
       show={showTransactionModal}
       centered
-      className='transaction-modalPopup fade casino-popup'
+      className="transaction-modalPopup fade casino-popup"
     >
       <Form.Label>Currency Type</Form.Label>
-      <Modal.Body className='transaction-validatingTranction'>
-        <img src={deposit} alt='deposit' />
+      <Modal.Body className="transaction-validatingTranction">
+        <img src={deposit} alt="deposit" />
         {/* <Form.Label>Currency type</Form.Label>
                 <Form.Select size="sm">
                     <option>USDT</option>
@@ -407,16 +413,16 @@ const DepositModal = ({
         />
         <Form.Label>Deposit USDT</Form.Label>
         <Form.Control
-          name='Deposit'
+          name="Deposit"
           onInput={handleDepositAmt}
           value={depositAmt}
-          type='number'
-          placeholder='Ex : 50'
+          type="number"
+          placeholder="Ex : 50"
         />
       </Modal.Body>
       <Modal.Footer>
         <Button
-          variant='secondary'
+          variant="secondary"
           onClick={() => {
             setShowTransactionModal(false);
           }}
@@ -424,12 +430,12 @@ const DepositModal = ({
           Close
         </Button>
         <Button
-          variant='primary'
-          type='submit'
+          variant="primary"
+          type="submit"
           onClick={handleDepositTransaction}
           disabled={showSpinner}
         >
-          {showSpinner ? <Spinner animation='border' /> : "Deposit"}
+          {showSpinner ? <Spinner animation="border" /> : "Deposit"}
         </Button>
       </Modal.Footer>
     </Modal>
@@ -450,23 +456,23 @@ const WithdrawlModal = ({
     <Modal
       show={showWithdrawTransaction}
       centered
-      className='transaction-modalPopup fade casino-popup'
+      className="transaction-modalPopup fade casino-popup"
     >
-      <Modal.Body className='transaction-validatingTranction'>
-        <img src={withdraw} alt='' />
+      <Modal.Body className="transaction-validatingTranction">
+        <img src={withdraw} alt="" />
         <Form.Label>Withdraw USDT</Form.Label>
         <Form.Control
-          name='Deposit'
+          name="Deposit"
           onInput={handleWithdrawAmt}
           // onKeyDown={handleWithdrawAmt}
           value={withdrawAmt}
-          type='text'
-          placeholder='Ex : 50'
+          type="text"
+          placeholder="Ex : 50"
         />
       </Modal.Body>
       <Modal.Footer>
         <Button
-          variant='secondary'
+          variant="secondary"
           onClick={() => {
             setShowWithdrawTransaction(false);
           }}
@@ -474,12 +480,12 @@ const WithdrawlModal = ({
           Close
         </Button>
         <Button
-          variant='primary'
-          type='submit'
+          variant="primary"
+          type="submit"
           onClick={handleWithdrawTransaction}
           disabled={showSpinner}
         >
-          {showSpinner ? <Spinner animation='border' /> : "Withdraw"}
+          {showSpinner ? <Spinner animation="border" /> : "Withdraw"}
         </Button>
       </Modal.Footer>
     </Modal>

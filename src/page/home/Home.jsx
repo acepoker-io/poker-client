@@ -9,11 +9,11 @@ import "./home.css";
 import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
-import casino from "../../assets/game/logo.png";
+import casino from "../../assets/headerLogo.png";
 import { pokerInstance } from "../../utils/axios.config";
 import { toast } from "react-toastify";
 import { useMemo } from "react";
-import { FaCoins, FaTrophy, FaUser, } from "react-icons/fa";
+import { FaCoins, FaTrophy, FaUser } from "react-icons/fa";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import { socket } from "../../config/socketConnection";
@@ -23,16 +23,28 @@ import AlreadyInGamePopup from "../../components/pokertable/alreadyInGamePopup";
 import Header from "./header";
 import VerifyPasswordPopup from "../../components/pokertable/verifyPasswordPopu";
 import Footer from "./footer";
-import { useAddress, useSDK, ChainId, useMetamask, useActiveChain } from "@thirdweb-dev/react";//, useTokenBalance, useTokenDrop, useTokenSupply
+import {
+  useAddress,
+  useSDK,
+  ChainId,
+  useMetamask,
+  useActiveChain,
+} from "@thirdweb-dev/react"; //, useTokenBalance, useTokenDrop, useTokenSupply
 import { ethers } from "ethers";
-import { convertUsdToEth } from "../../utils/utils";
+import { convertUsdToEth, getTime } from "../../utils/utils";
+import clock from "../../assets/clock-icon.svg";
+import dice from "../../assets/dice.png";
+import cards from "../../assets/cards.svg";
+import hLeft from "../../assets/p-left-shape.svg";
+import hRight from "../../assets/p-right-shape.svg";
 // import { ethers } from "ethers";
 
 let userId;
 const Home = () => {
   // inital state
 
-  const { userInAnyGame, setUserInAnyGame, user, setUser } = useContext(UserContext);
+  const { userInAnyGame, setUserInAnyGame, user, setUser } =
+    useContext(UserContext);
   const sdk = useSDK();
   const address = useAddress();
   const activeChain = useActiveChain();
@@ -41,7 +53,6 @@ const Home = () => {
   // const { data: tokenSupply } = useTokenSupply(tokenDrop);
   // const { data: tokenBalance } = useTokenBalance(tokenDrop);
   // console.log("activeChain ===>", activeChain);
-
 
   // useEffect(() => {
   //   if (activeChain?.chainId !== 42161) {
@@ -56,12 +67,11 @@ const Home = () => {
     if (user) {
       userId = user._id || user.id;
     }
-  }, [user])
-
+  }, [user]);
 
   useEffect(() => {
-    if (!address && localStorage.getItem('token')) {
-      connectWithMetamask({ chainId: ChainId.Arbitrum })
+    if (!address && localStorage.getItem("token")) {
+      connectWithMetamask({ chainId: ChainId.Arbitrum });
     }
   }, [address]);
 
@@ -73,7 +83,7 @@ const Home = () => {
     autohand: true,
     sitInAmount: "",
     invitedUsers: [],
-    password: ''
+    password: "",
   };
   // States//userInAnyGame,
   const [searchText, setSearchText] = useState("");
@@ -91,21 +101,20 @@ const Home = () => {
   // utils function
   const checkUserInGame = async () => {
     try {
-      let userData = await pokerInstance().get('checkUserInGame')
+      let userData = await pokerInstance().get("checkUserInGame");
       if (userData?.data) {
-        setUserInAnyGame(userData.data)
+        setUserInAnyGame(userData.data);
       }
     } catch (err) {
       console.log("error ==>", err);
       // toast.error("Internal server error", { toastId: "checkInGame" })
     }
-  }
+  };
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      checkUserInGame()
+    if (localStorage.getItem("token")) {
+      checkUserInGame();
     }
-
-  }, [])
+  }, []);
   const handleShow = () => {
     setShow(!show);
     setGameState({ ...gameInit });
@@ -175,7 +184,7 @@ const Home = () => {
       valid = false;
     }
     if (gameState.public) {
-      if (gameState.password === '') {
+      if (gameState.password === "") {
         err.password = "Password is required.";
         valid = false;
       }
@@ -239,7 +248,7 @@ const Home = () => {
 
   const createTable = async (e) => {
     console.log("create table executes");
-    e.preventDefault()
+    e.preventDefault();
     setErrors({});
     setShowSpinner(true);
     if (showSpinner) {
@@ -266,7 +275,7 @@ const Home = () => {
         autohand: true,
         sitInAmount: "",
         invitedUsers: [],
-        password: ''
+        password: "",
       });
       history.push({
         pathname: "/table",
@@ -276,7 +285,9 @@ const Home = () => {
       setShowSpinner(false);
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
-        toast.error(error.response.data.message, { toastId: "create-table-error" });
+        toast.error(error.response.data.message, {
+          toastId: "create-table-error",
+        });
       }
       setShowSpinner(false);
     }
@@ -304,13 +315,13 @@ const Home = () => {
     // })
 
     socket.on("NoTournamentFound", (data) => {
-      toast.error("No tournament found", { toastId: 'no-tournament' });
-    })
-    socket.on("AllTables", data => {
-      setPokerRooms(data?.tables || [])
-    })
-    socket.on("updatedTournaments", data => {
-      setTournaments(data?.tournaments || [])
+      toast.error("No tournament found", { toastId: "no-tournament" });
+    });
+    socket.on("AllTables", (data) => {
+      setPokerRooms(data?.tables || []);
+    });
+    socket.on("updatedTournaments", (data) => {
+      setTournaments(data?.tournaments || []);
     });
   }, []);
 
@@ -333,14 +344,14 @@ const Home = () => {
       try {
         const response = await pokerInstance().get("/rooms");
         setPokerRooms(response.data.rooms || []);
-      } catch (error) { }
+      } catch (error) {}
     })();
     (async () => {
       try {
         const response = await pokerInstance().get("/AllTournament");
-        console.log("response ==>", response)
+        console.log("response ==>", response);
         setTournaments(response.data.tournament || []);
-      } catch (error) { }
+      } catch (error) {}
     })();
   }, []);
 
@@ -352,7 +363,7 @@ const Home = () => {
         const { tournament } = response.data;
         setTournaments(tournament || []);
       }
-    } catch (error) { }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -377,19 +388,30 @@ const Home = () => {
     // // const amt = await convertUsdToEth(amount);
     // console.log("ddddd", amount)
     try {
-
       // const estimatedGas = await pro[1].estimateGas(tx)
       // console.log('Estimated gas cost:', estimatedGas.toString());
       // tx.gasLimit = estimatedGas;
       // process.env.REACT_APP_OWNER_ADDRESS
-      console.log(process.env.REACT_APP_OWNER_ADDRESS, process.env.REACT_APP_USDT_CONTRACT_ADDRESS, process.env.REACT_APP_USDC_CONTRACT_ADDRESS)
+      console.log(
+        process.env.REACT_APP_OWNER_ADDRESS,
+        process.env.REACT_APP_USDT_CONTRACT_ADDRESS,
+        process.env.REACT_APP_USDC_CONTRACT_ADDRESS
+      );
       if (type?.value === "USDT") {
-        const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_USDT_CONTRACT_ADDRESS);
+        const hash = await sdk.wallet.transfer(
+          process.env.REACT_APP_OWNER_ADDRESS,
+          amount,
+          process.env.REACT_APP_USDT_CONTRACT_ADDRESS
+        );
 
         console.log("hash ===>", hash);
         return hash?.receipt?.transactionHash;
       } else if (type?.value === "USDC") {
-        const hash = await sdk.wallet.transfer(process.env.REACT_APP_OWNER_ADDRESS, amount, process.env.REACT_APP_USDC_CONTRACT_ADDRESS);
+        const hash = await sdk.wallet.transfer(
+          process.env.REACT_APP_OWNER_ADDRESS,
+          amount,
+          process.env.REACT_APP_USDC_CONTRACT_ADDRESS
+        );
 
         console.log("hash ===>", hash);
         return hash?.receipt?.transactionHash;
@@ -398,30 +420,35 @@ const Home = () => {
         const tx = {
           from: address,
           to: process.env.REACT_APP_OWNER_ADDRESS, //"0x2e09059610b00A04Ab89412Bd7d7ac73DfAa1Dcc",
-          gasPrice: ethers.utils.parseUnits('1', 'gwei'),
+          gasPrice: ethers.utils.parseUnits("1", "gwei"),
           gasLimit: 1000000,
-          data: ethers.utils.toUtf8Bytes(JSON.stringify({ userId: user?.id || user?._id })),
+          data: ethers.utils.toUtf8Bytes(
+            JSON.stringify({ userId: user?.id || user?._id })
+          ),
           value: ethers.utils.parseEther(amt.toFixed(9).toString()),
-        }
+        };
         console.log("tx ===>", tx);
         const txResult = await sdk.wallet.sendRawTransaction(tx);
-        console.log('tx = awd==>', txResult)
-        console.log(txResult)
+        console.log("tx = awd==>", txResult);
+        console.log(txResult);
       }
     } catch (error) {
       // setShowEnterAmountPopup(false);
-      console.log('error===', JSON.parse(JSON.stringify(error)));
-      let newErr = JSON.parse(JSON.stringify(error))
+      console.log("error===", JSON.parse(JSON.stringify(error)));
+      let newErr = JSON.parse(JSON.stringify(error));
       console.log(error);
-      toast.error(error?.reason || newErr?.message || "Please connect your metamask", { toastId: "metamaskConnect" });
+      toast.error(
+        error?.reason || newErr?.message || "Please connect your metamask",
+        { toastId: "metamaskConnect" }
+      );
       if (!error?.transactionHash) {
         // setTimeout(() => {
         //   window.location.href = "/";
         // }, 2000);
       }
-      return error?.transactionHash
+      return error?.transactionHash;
     }
-  }
+  };
 
   // const handleSendTransaction = async (amount) => {
   //   try {
@@ -441,14 +468,12 @@ const Home = () => {
   //   }
   // }
 
-
   const filterTournaments = tournaments.filter((el) =>
     el.name.toLowerCase().includes(searchText.toLowerCase())
   );
 
   const handleDeposit = async (amount, crrtype) => {
     try {
-
       if (activeChain?.chainId !== ChainId.Arbitrum) {
         await connectWithMetamask({ chainId: ChainId.Arbitrum });
       }
@@ -456,29 +481,28 @@ const Home = () => {
       const txhash = await handleSendTransaction(amount, crrtype);
       console.log("hash ==>", txhash, userId);
       if (txhash) {
-        const resp = await pokerInstance().post('/depositTransaction', {
+        const resp = await pokerInstance().post("/depositTransaction", {
           txhash,
           amount,
-          userId: user?.id || user?._id
+          userId: user?.id || user?._id,
         });
         console.log("response after diposit trasnaction ==>", resp);
         if (resp?.data?.success) {
           toast.success(resp?.data?.message, { toastId: "trasnaction" });
-          setUser(resp?.data?.user)
+          setUser(resp?.data?.user);
         } else {
           toast.error(resp?.data?.message, { toastId: "trasnaction" });
         }
         return resp?.data?.success;
       } else {
-        return false
+        return false;
       }
-
     } catch (err) {
       console.log("error in handleDeposit ==>", err);
       toast.error(err?.data?.message, { toastId: "trasnaction" });
       return false;
     }
-  }
+  };
 
   const handleWithdraw = async (amount) => {
     try {
@@ -490,9 +514,9 @@ const Home = () => {
         console.log("var =====>", vart);
       }
       console.log("================================", l);
-      const resp = await pokerInstance().post('/withdrawTransaction', {
+      const resp = await pokerInstance().post("/withdrawTransaction", {
         userId: user._id || user.id,
-        amount
+        amount,
       });
       console.log("response ==>", resp);
       if (resp?.data.success) {
@@ -505,10 +529,12 @@ const Home = () => {
       }
     } catch (err) {
       console.log("error in withdrawTransaction", err.response);
-      toast.error(err.response.data.message, { toastId: "withdrawTransaction" });
+      toast.error(err.response.data.message, {
+        toastId: "withdrawTransaction",
+      });
       return false;
     }
-  }
+  };
 
   const [openCardHeight, setOpenCardHeight] = useState(150);
   const pokerCard = useRef(null);
@@ -517,7 +543,6 @@ const Home = () => {
       setOpenCardHeight(pokerCard.current.clientHeight);
     }
   }, [pokerCard]);
-
 
   return (
     <div className="poker-home">
@@ -534,19 +559,26 @@ const Home = () => {
         </div>
       )}
       {/* {console.log('show---', show, handleChange)} */}
-      {show && <CreateTable
-        handleChange={handleChange}
-        show={show}
-        handleShow={handleShow}
-        values={gameState}
-        createTable={createTable}
-        errors={errors}
-        options={options}
-        handleChnageInviteUsers={handleChnageInviteUsers}
-        showSpinner={showSpinner}
-      />}
+      {show && (
+        <CreateTable
+          handleChange={handleChange}
+          show={show}
+          handleShow={handleShow}
+          values={gameState}
+          createTable={createTable}
+          errors={errors}
+          options={options}
+          handleChnageInviteUsers={handleChnageInviteUsers}
+          showSpinner={showSpinner}
+        />
+      )}
 
-      <Header userData={userData} handleShow={handleShow} handleDeposit={handleDeposit} handleWithdraw={handleWithdraw} />
+      <Header
+        userData={userData}
+        handleShow={handleShow}
+        handleDeposit={handleDeposit}
+        handleWithdraw={handleWithdraw}
+      />
       {/* <Tabs
         id="controlled-tab-example"
         activeKey={key}
@@ -558,6 +590,18 @@ const Home = () => {
         </Tab>
       </Tabs> */}
       <div className="home-poker-card">
+        <div class="leftappImg">
+          <img src={cards} alt="..." />
+        </div>
+        <div class="leftappdiceImg">
+          <img src={dice} alt="..." />
+        </div>
+        <div class="leftappCircleImg">
+          <img src={hLeft} alt="..." />
+        </div>
+        <div class="leftappRightImg">
+          <img src={hRight} alt="..." />
+        </div>
         <div className="container">
           <div className="poker-table-header">
             {/* <h2 className="lobbyHeader-title">Open Tables</h2> */}
@@ -568,10 +612,11 @@ const Home = () => {
                   id="mySearchInput"
                   className="form-control"
                   value={searchText}
-                  placeholder="Search tables . . . ."
+                  // placeholder="Search tables . . . ."
                   onChange={(e) => setSearchText(e.target.value)}
                   autoComplete="off"
                 />
+                <Button className="red-btnPrimary">Search</Button>
               </div>
             </div>
           </div>
@@ -581,7 +626,7 @@ const Home = () => {
               id="controlled-tab-example"
               activeKey={key}
               onSelect={(k) => setKey(k)}
-              className="mb-3 pokarz-tabs"
+              className="pokarz-tabs"
             >
               <Tab eventKey="home" title="Open Tables">
                 {filterRoom.length > 0 ? (
@@ -613,24 +658,19 @@ const Home = () => {
                 )}
               </Tab>
               <Tab eventKey="2" title="Poker Tournament Tables">
-
                 {filterTournaments.length > 0 ? (
-                  <div className="home-poker-card">
-                    <div className="container">
-                      <div className="home-poker-card-grid">
-                        {filterTournaments.map((el) => (
-                          <React.Fragment key={el._id}>
-                            <GameTournament
-                              data={el}
-                              gameType="Tournament"
-                              getTournamentDetails={getTournamentDetails}
-                              setUserData={setUserData}
-                              filterTournaments={filterTournaments}
-                            />
-                          </React.Fragment>
-                        ))}
-                      </div>
-                    </div>
+                  <div className="home-poker-card-grid">
+                    {filterTournaments.map((el) => (
+                      <React.Fragment key={el._id}>
+                        <GameTournament
+                          data={el}
+                          gameType="Tournament"
+                          getTournamentDetails={getTournamentDetails}
+                          setUserData={setUserData}
+                          filterTournaments={filterTournaments}
+                        />
+                      </React.Fragment>
+                    ))}
                   </div>
                 ) : (
                   <div className="d-flex flex-column justify-content-center align-items-center create-game-box">
@@ -739,8 +779,7 @@ const CreateTable = ({
   showSpinner,
   // handleChnageInviteUsers,
 }) => {
-
-  console.log("values ==>", values)
+  console.log("values ==>", values);
 
   return (
     <Modal show={show} onHide={handleShow} centered className="casino-popup">
@@ -855,19 +894,28 @@ const CreateTable = ({
           )}
         </div> */}
         {console.log("values in  component ==>", values)}
-        {values.public && <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="passoword" onFocus={(e) => {
-            if (e.target.hasAttribute('readonly')) {
-              e.target.removeAttribute('readonly');
-              // fix for mobile safari to show virtual keyboard
-              e.target.blur(); e.target.focus();
-            }
-          }}
-            onChange={handleChange}
-            readOnly={true}
-            name="password" autoComplete="off" defaultValue={values.password} placeholder="Enter your password" />
-        </Form.Group>}
+        {values.public && (
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="passoword"
+              onFocus={(e) => {
+                if (e.target.hasAttribute("readonly")) {
+                  e.target.removeAttribute("readonly");
+                  // fix for mobile safari to show virtual keyboard
+                  e.target.blur();
+                  e.target.focus();
+                }
+              }}
+              onChange={handleChange}
+              readOnly={true}
+              name="password"
+              autoComplete="off"
+              defaultValue={values.password}
+              placeholder="Enter your password"
+            />
+          </Form.Group>
+        )}
 
         <div className="createGameCheckHand">
           <Form.Check
@@ -889,7 +937,6 @@ const CreateTable = ({
             checked={values.autohand}
           />
         </div>
-
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleShow}>
@@ -912,12 +959,12 @@ const GameTable = ({
   tableId,
 }) => {
   const { user } = useContext(UserContext);
-  const [verifyPassword, setVerifyPassword] = useState(false)
+  const [verifyPassword, setVerifyPassword] = useState(false);
   const history = useHistory();
   const redirectToTable = (table) => {
     if (table?.password) {
-      setVerifyPassword(true)
-      return
+      setVerifyPassword(true);
+      return;
     }
     socket.emit("checkAlreadyInGame", { userId, tableId });
     socket.on("userAlreadyInGame", (value) => {
@@ -954,16 +1001,13 @@ const GameTable = ({
     //     toast.error(message, { toastId: "full" });
     //   }
     // });
-
     // socket.on("tournamentAlreadyFinished", (data) => {
     //   toast.error("Tournament has been finished.", { toastId: "tournament-finished" });
     // });
-
     // socket.on("tournamentAlreadyStarted", (data) => {
     //   toast.error(data.message, { toastId: "tournamentStarted" });
     // });
   }, []);
-
 
   // const enterRoom = async (tournamentId) => {
   //   const res = await tournamentInstance().post("/enterroom", {
@@ -1007,7 +1051,7 @@ const GameTable = ({
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
+    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
   };
 
   const [cardFlip, setCardFlip] = useState(false);
@@ -1070,40 +1114,55 @@ const GameTable = ({
   // };
   return (
     <>
-      <div className="tournamentCard" ref={wrapperRef} >
+      <div className="tournamentCard" ref={wrapperRef}>
         {/* {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null} */}
         <div
           className={`tournamentCard-inner
-         ${ cardFlip && gameType === "Poker" ? "rotate" : "" }
+         ${cardFlip && gameType === "Poker" ? "rotate" : ""}
          `}
         >
-          <VerifyPasswordPopup verifyPassword={verifyPassword} userId={userId} tableId={tableId} setVerifyPassword={setVerifyPassword} />
+          <VerifyPasswordPopup
+            verifyPassword={verifyPassword}
+            userId={userId}
+            tableId={tableId}
+            setVerifyPassword={setVerifyPassword}
+          />
           {!cardFlip && gameType === "Poker" ? (
             <>
               <div className="pokerTournament-tableCard">
-                <div className="tableCard-imgDetail">
-                  <img src={casino} className="tournamentImg" alt="" />
-                  <div className="tournamentCard-nameDetail">
+                <div className="pokerTournament-header">
+                  <div className="pokerTournament-time">
+                    <img src={clock} alt="icon" />
                     <h6>{getTime(new Date(data?.createdAt))}</h6>
-                    <h2 title={data?.gameName}>{gameType === "Poker" ? data?.gameName : data.name}</h2>
-                    <p>
-                      people joined :{" "}
-                      <span>
-                        {(gameType === "Tournament"
-                          ? data?.rooms?.filter((el) => el?.players)[0]?.players
-                            ?.length || 0
-                          : data?.players?.length) || 0}
-                      </span>
-                    </p>
+                  </div>
+                  <div className="tableCard-imgDetail">
+                    <img src={casino} className="tournamentImg" alt="" />
+                    <div className="tournamentCard-nameDetail">
+                      <h2 title={data?.gameName}>
+                        {gameType === "Poker" ? data?.gameName : data.name}
+                      </h2>
+                      <p>
+                        People Joined :{" "}
+                        <span>
+                          {" "}
+                          {(gameType === "Tournament"
+                            ? data?.rooms?.filter((el) => el?.players)[0]
+                                ?.players?.length || 0
+                            : data?.players?.length) || 0}
+                        </span>
+                      </p>
+                    </div>
                   </div>
                 </div>
+
                 <div className="tournamentCard-extraDetail">
                   <div className="cardTournament-Fee">
                     <p>SB/BB</p>
                     <div className="extraDetail-container">
-                      <FaCoins
-                      />
-                      {data?.smallBlind}{"/"}{data?.bigBlind}
+                      <FaCoins />
+                      {data?.smallBlind}
+                      {"/"}
+                      {data?.bigBlind}
                     </div>
                   </div>
                   <div className="cardTournament-Fee">
@@ -1113,11 +1172,21 @@ const GameTable = ({
                       {data.password ? "Private" : "Public"}
                     </div>
                   </div>
-
                 </div>
-                <div className="tournamentCard-buttonDetail">
-                  {gameType === "Poker" && user ? (<Button onClick={() => redirectToTable(data)} type="submit" disabled={user ? false : true}>join game</Button>) : ""}
-                </div>
+                {gameType === "Poker" && user ? (
+                  <div className="tournamentCard-buttonDetail">
+                    <Button
+                      onClick={() => redirectToTable(data)}
+                      type="submit"
+                      disabled={user ? false : true}
+                      className="red-btnPrimary"
+                    >
+                      join game
+                    </Button>
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
 
               {/* <div className="tournamentCard-front">
@@ -1181,19 +1250,29 @@ const GameTable = ({
               ) : (
                 ""
               )}
-              <h4>Created At: <span>{getTime(data?.createdAt)}</span></h4>
               <h4>
-                people joined :{" "}
-                {console.log("data", data)}
+                Created At: <span>{getTime(data?.createdAt)}</span>
+              </h4>
+              <h4>
+                people joined : {console.log("data", data)}
                 <span>
                   {(gameType === "Tournament"
                     ? data?.rooms?.filter((el) => el?.players)[0]?.players
-                      ?.length || 0
+                        ?.length || 0
                     : data?.players?.length) || 0}
                 </span>
               </h4>
-              <h4>SB/BB : <span>{data?.smallBlind}{"/"}{data?.bigBlind}</span></h4>
-              <h4>Table Type: <span>{data.password ? "Private" : "Public"}</span></h4>
+              <h4>
+                SB/BB :{" "}
+                <span>
+                  {data?.smallBlind}
+                  {"/"}
+                  {data?.bigBlind}
+                </span>
+              </h4>
+              <h4>
+                Table Type: <span>{data.password ? "Private" : "Public"}</span>
+              </h4>
               {gameType === "Tournament" ? (
                 <h4>
                   Fee : <span>{data?.tournamentFee}</span>
@@ -1253,7 +1332,6 @@ const GameTournament = ({
   // const history = useHistory();
   const { user } = useContext(UserContext);
 
-
   useEffect(() => {
     socket.on("alreadyInTournament", (data) => {
       const { message, code } = data;
@@ -1276,8 +1354,8 @@ const GameTournament = ({
     });
 
     socket.on("tournamentSlotFull", (data) => {
-      toast.error('Tournament slot is full', { id: 'slot-full' });
-    })
+      toast.error("Tournament slot is full", { id: "slot-full" });
+    });
   }, []);
 
   const joinTournament = async (tournamentId, fees) => {
@@ -1294,9 +1372,10 @@ const GameTournament = ({
   };
 
   const handleEnterGame = (roomId) => {
-    console.log("enter game ", window.location.origin, roomId)
-    window.location.href = window.location.origin + "/table?gamecollection=poker&tableid=" + roomId
-  }
+    console.log("enter game ", window.location.origin, roomId);
+    window.location.href =
+      window.location.origin + "/table?gamecollection=poker&tableid=" + roomId;
+  };
 
   // const enterRoom = async (tournamentId) => {
   //   const res = await tournamentInstance().post("/enterroom", {
@@ -1327,20 +1406,30 @@ const GameTournament = ({
   return (
     <>
       <div className="pokerTournament-tableCard">
-        <div className="tableCard-imgDetail">
-          {/* <img src={casino1} className="tournamentImg" alt="" /> */}
-          <div className="tournamentCard-nameDetail">
-            {/* <h6>{dateFormat(data.startDate)}, Start at {timeFormat(data.tournamentDate)}</h6> */}
-            <h2>{data?.name}</h2>
-            {data?.isStart ? <p className="tournamentRunning">Tournament Running ...</p> : data?.isFinished ? <p className="tournamentFinished">Tournament Finished ...</p> : <p>Not started ...</p>}
+        <div className="pokerTournament-header">
+          <div className="pokerTournament-time">
+            <img src={clock} alt="icon" />
+            <h6>{getTime(new Date(data?.createdAt))}</h6>
+          </div>
+          <div className="tableCard-imgDetail">
+            <img src={casino} className="tournamentImg" alt="" />
+            <div className="tournamentCard-nameDetail">
+              <h2>{data?.name}</h2>
+              {data?.isStart ? (
+                <p className="tournamentRunning">Tournament Running ...</p>
+              ) : data?.isFinished ? (
+                <p className="tournamentFinished">Tournament Finished ...</p>
+              ) : (
+                <p>Not started ...</p>
+              )}
+            </div>
           </div>
         </div>
         <div className="tournamentCard-extraDetail">
           <div className="cardTournament-Fee">
             <p>Entry Fee</p>
             <div className="extraDetail-container">
-              <FaCoins
-              />
+              <FaCoins />
               {data?.tournamentFee}
             </div>
           </div>
@@ -1365,11 +1454,33 @@ const GameTournament = ({
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
           {user &&
-            !data?.waitingArray.find(el => el.id === (user?.id || user?._id))
-            ? (<Button type="text" onClick={() => { joinTournament(data?._id, data?.tournamentFee) }}>Join game</Button>) : (
-              <Button type="text" onClick={() => { handleEnterGame(data?.waitingArray.find(el => el.id === (user?.id || user?._id)).roomId) }}>
-                Enter game</Button>
-            )}
+          !data?.waitingArray.find(
+            (el) => el.id === (user?.id || user?._id)
+          ) ? (
+            <Button
+              type="text"
+              onClick={() => {
+                joinTournament(data?._id, data?.tournamentFee);
+              }}
+              className="red-btnPrimary"
+            >
+              Join game
+            </Button>
+          ) : (
+            <Button
+              type="text"
+              onClick={() => {
+                handleEnterGame(
+                  data?.waitingArray.find(
+                    (el) => el.id === (user?.id || user?._id)
+                  ).roomId
+                );
+              }}
+              className="red-btnPrimary"
+            >
+              Enter game
+            </Button>
+          )}
 
           {/* <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} /> */}
         </div>
