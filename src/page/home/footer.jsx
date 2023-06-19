@@ -143,58 +143,62 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer-links contact">
-            <h5>Contact Us</h5>
-            <ul>
-              <li>
-                <a href="mailto:contact@acepoker.io">contact@acepoker.io</a>
-              </li>
-            </ul>
-            <div className="follow-us">
-              <h5>Follow Us</h5>
+            <div className="contact-us-heading">
+              <h5>Contact Us</h5>
+              <ul>
+                <li>
+                  <a href="mailto:contact@acepoker.io">contact@acepoker.io</a>
+                </li>
+              </ul>
             </div>
-            <ul className="social-links">
-              <li>
-                <a
-                  href="https://medium.com/@acepoker/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={social1} alt="icon" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://docs.acepoker.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={social2} alt="icon" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://discord.gg/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={social3} alt="icon" />
-                </a>
-              </li>
-              <li>
-                <a href="/#" target="_blank" rel="noopener noreferrer">
-                  <img src={social4} alt="icon" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://zealy.io/c/acepoker"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={social5} alt="icon" />
-                </a>
-              </li>
-            </ul>
+            <div className="follow-us">
+              <div className="follow-us-box">
+                <h5>Follow Us</h5>
+              </div>
+              <ul className="social-links">
+                <li>
+                  <a
+                    href="https://medium.com/@acepoker/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={social1} alt="icon" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://docs.acepoker.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={social2} alt="icon" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://discord.gg/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={social3} alt="icon" />
+                  </a>
+                </li>
+                <li>
+                  <a href="/#" target="_blank" rel="noopener noreferrer">
+                    <img src={social4} alt="icon" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://zealy.io/c/acepoker"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={social5} alt="icon" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="footerBottomText text-sm-center">
