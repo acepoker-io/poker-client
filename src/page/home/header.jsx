@@ -268,7 +268,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                     <a href='https://docs.acepoker.io'>Docs</a>
                   </li>
                   <li class='ddparent'>
-                    <a href='#'>Security &amp; Privacy</a>
+                    <a href='/'>Security &amp; Privacy</a>
                     <span class='menuDdIcon'>
                       <img
                         src='https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg'
@@ -433,7 +433,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                       <a href='https://docs.acepoker.io'>Docs</a>
                     </li>
                     <li class='ddparent'>
-                      <a href='#'>Security &amp; Privacy</a>
+                      <a href='/'>Security &amp; Privacy</a>
                       <span class='menuDdIcon'>
                         <img
                           src='https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg'
