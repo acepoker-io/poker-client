@@ -68,6 +68,7 @@
   min-height: calc(100vh - 510px);
   padding-top: 230px;
   padding-bottom: 200px;
+  z-index: 99;
 }
 
 .home-poker-card h3 {
@@ -371,6 +372,7 @@ input[type="number"] {
   width: 100%;
   height: 150px;
   box-shadow: 0px 0px 10px #808080c4;
+  z-index: 9;
 }
 
 .no-room-available h4 {
@@ -1265,14 +1267,20 @@ a.nav-link.active {
   position: absolute;
   left: 0;
   top: 25%;
-  z-index: 1;
+  z-index: -1;
+}
+.leftappImg img {
+  max-width: 100%;
 }
 .leftappdiceImg {
   position: absolute;
   right: -35px;
   bottom: 300px;
   max-width: 250px;
-  z-index: 1;
+  z-index: -1;
+}
+.leftappdiceImg img {
+  max-width: 100%;
 }
 
 /* footer */
@@ -1290,6 +1298,9 @@ a.nav-link.active {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.footerLeftImage img {
+  max-width: 100%;
+}
 .footerrightImage {
   position: absolute;
   right: 0;
@@ -1298,6 +1309,9 @@ a.nav-link.active {
   -webkit-transform: translateX(28%);
   -ms-transform: translateX(28%);
   transform: translateX(28%);
+}
+.footerrightImage img {
+  max-width: 100%;
 }
 .footerstar1 {
   position: absolute;
@@ -1489,6 +1503,9 @@ ul.social-links li+li {
   height: 60px !important;
   border-color: transparent !important;
   font-family: var(--titleFont);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .red-btnPrimary:hover {
   background-color: var(--primaryDark) !important;
@@ -1514,6 +1531,7 @@ ul.social-links li+li {
   top: 200px;
   opacity: 0.4;
   filter: blur(1px);
+  z-index: -1;
 }
 .leftappRightImg {
   position: absolute;
@@ -1578,11 +1596,36 @@ ul.social-links li+li {
   /* .home-poker-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   } */
+  .casino-logo img {
+    max-width: 80px;
+  }
+  .red-btnPrimary {
+    height: 46px !important;
+  }
+  .connect-meta {
+    max-width: 130px;
+  }
+  .tournamentCard-nameDetail h2 {
+    font-size: 34px;
+  }
+  .footer-Grid {
+    padding-top: 100px;
+  }
+  .footer-section {
+    padding-bottom: 150px;
+  }
+  .footer-links h5 {
+    font-size: 15px;
+  }
+  .tournamentCard {
+    border: 1px solid rgba(237, 184, 255, 0.19);
+    box-shadow: 0px 0px 35px rgba(255, 255, 255, 0.1), inset 0px 0px 24px rgba(255, 255, 255, 0.1)
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .home-poker-card-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .btn-grid {
@@ -1593,6 +1636,26 @@ ul.social-links li+li {
   .table-responsive {
     width: 90%;
   }
+  .user-header {
+    padding: 20px 40px;
+  }
+  .is-sticky {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .poker-table-header .form-control, .poker-table-header .form-control:active, .poker-table-header .form-control:focus {
+    height: 50px;
+  }
+  .poker-tableSearch .red-btnPrimary {
+    max-width: 120px;
+    height: 50px !important;
+  }
+  .footer-Grid {
+    padding-top: 60px;
+  }
+  .footer-section {
+    padding-bottom: 80px;
+  }
 }
 
 @media screen and (max-width: 991px) {
@@ -1600,12 +1663,68 @@ ul.social-links li+li {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .leftappImg {
-    top: 10%;
+    top: 25%;
     max-width: 75px;
   }
   .leftappdiceImg {
     max-width: 80px;
     bottom: 150px;
+  }
+  .home-poker-card-grid {
+    gap: 24px;
+  }
+  .home-poker-card {
+    padding-top: 160px;
+    padding-bottom: 100px;
+  }
+  .nav-tabs .nav-link, .nav-tabs .nav-link {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  .poker-table-content {
+    padding-top: 30px;
+  }
+  .poker-table-content .nav-tabs {
+    margin-bottom: 30px;
+  }
+  .tableCard-imgDetail img {
+    max-width: 86px;
+    height: 100%;
+  }
+  .tournamentCard-nameDetail h2 {
+    font-size: 30px;
+  }
+  .tournamentCard-nameDetail p {
+    font-size: 14px;
+  }
+  .cardTournament-Fee p {
+    font-size: 16px;
+  }
+  .cardTournament-Fee {
+    padding: 11px;
+  }
+  .footer-logo img {
+    max-width: 110px;
+  }
+  .footer-descp p {
+    font-size: 14px;
+  }
+  .footer-Grid {
+    column-gap: 70px;
+    row-gap: 45px;
+  }
+  .footer-links.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .contact-us-heading {
+    width: 48%;
+  }
+  .follow-us {
+    width: 38%;
+    margin-top: 0;
   }
 }
 
@@ -1695,42 +1814,25 @@ ul.social-links li+li {
     grid-column-start: 1;
     text-align: center;
   }
-
-  .poker-table-content {
-    padding: 16px !important;
-  }
-
-  .pokerTournament-tableCard {
-    padding: 14px 8px;
-  }
-
   .footer-Grid {
-    display: flex;
-    flex-direction: column;
     grid-gap: 20px;
     gap: 20px;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 40px;
   }
 
   .footer-links {
     margin-top: 0px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .footer-logo {
-    text-align: center;
-  }
-
-  .footer-logo img {
-    width: 75px;
-    margin: 0px auto;
+    width: 45%;
+    padding-bottom: 40px;
   }
   .footerBottomText {
-    margin-top: 50px;
+    margin-top: 10px;
+    max-width: 170px;
+    width: 100%;
   }
   .footerLeftImage, .footerstar1, .footerstar2, .footerstar3 {
     display: none;
@@ -1740,6 +1842,50 @@ ul.social-links li+li {
     -webkit-transform: translateX(55%) translateY(-30px);
     -ms-transform: translateX(55%) translateY(-30px);
     transform: translateX(55%) translateY(-30px);
+  }
+  .poker-table-header .form-control, .poker-table-header .form-control:active, .poker-table-header .form-control:focus {
+    height: 42px;
+    padding: 8px 100px 8px 15px;
+  }
+  .poker-tableSearch .red-btnPrimary {
+    max-width: 80px;
+    padding: 8px 10px !important;
+    font-size: 14px !important;
+    height: 42px !important;
+  }
+  .pokerTournament-header {
+    padding: 15px 20px;
+  }
+  .tableCard-imgDetail img {
+    max-width: 70px;
+  }
+  .tournamentCard-nameDetail h2 {
+    font-size: 26px;
+  }
+  .cardTournament-Fee p {
+    font-size: 14px;
+  }
+  .home-poker-card {
+    padding-top: 140px;
+  }
+  .footer-logo {
+    padding-bottom: 30px;
+  }
+  .footer-links h5 {
+    font-size: 19px;
+  }
+  .follow-us {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .social-links {
+    gap: 10px;
+  }
+  .footer-section {
+    padding-bottom: 30px;
+  }
+  .poker-home .nav-tabs .nav-link, .poker-home .nav-tabs .nav-link {
+    width: fit-content;
   }
 }
 
@@ -1776,17 +1922,8 @@ ul.social-links li+li {
 
   .poker-home .nav-tabs .nav-link,
   .poker-home .nav-tabs .nav-link {
-    border-color: #1b1b1b;
     padding: 6px 12px;
-  }
-
-  .poker-home .nav-tabs {
-    margin-top: 0;
-    margin-bottom: 12px !important;
-  }
-
-  .poker-table-content {
-    padding: 10px !important;
+    font-size: 13px;
   }
 
   .no-room-available h4 {
@@ -1798,7 +1935,7 @@ ul.social-links li+li {
   }
 
   .poker-tableSearch {
-    max-width: 200px;
+   
   }
 
   h2.lobbyHeader-title {
