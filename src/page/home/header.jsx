@@ -4,8 +4,6 @@ import numFormatter from "../../utils/utils";
 import token from "../../assets/coin.png";
 import deposit from "../../assets/deposit.png";
 import withdraw from "../../assets/withdraw.png";
-import menu from "../../assets/menu.svg";
-import close from "../../assets/closecross.svg";
 
 import {
   Button,
@@ -248,174 +246,10 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
             </a>
           </div>
 
-          {!user && (
-            <div className='header-navlink-desktop-content'>
-              <div class='navLink'>
-                <ul>
-                  <li>
-                    <a href='https://acepoker.io/'>Homepage</a>
-                  </li>
-                  <li>
-                    <a href='https://acepoker.io/#about-us'>About us</a>
-                  </li>
-                  <li>
-                    <a href='https://acepoker.io/#playPoker'>Play Poker</a>
-                  </li>
-                  <li>
-                    <a href='https://acepoker.io/#WPT_Token'>ACE Token</a>
-                  </li>
-                  <li>
-                    <a href='https://docs.acepoker.io'>Docs</a>
-                  </li>
-                  <li class='ddparent'>
-                    <a href='/'>Security &amp; Privacy</a>
-                    <span class='menuDdIcon'>
-                      <img
-                        src='https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg'
-                        alt='...'
-                      />
-                    </span>
-                    <ul class='ddstyle'>
-                      <li>
-                        <a href='https://acepoker.io/privacy/'>
-                          Privacy Policy
-                        </a>
-                      </li>
-                      <li>
-                        <a href='https://acepoker.io/cookie-policy-2/'>
-                          Cookie Policy
-                        </a>
-                      </li>
-                      <li>
-                        <a href='https://acepoker.io/tearm-of-use/'>
-                          Tearm of use
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href='https://acepoker.io/service/'>Services</a>
-                  </li>
-                  <li>
-                    <a href='https://acepoker.io/#footer'>Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
-
-          <div className='create-game-box'>
-            {user ? (
-              <>
-                {/* <a href={`${landingClient}profile`}> */}
-
-                <div className='create-game-box-avtar'>
-                  {/* <img
-                                    src={
-                                        user?.profile ||
-                                        "https://i.pinimg.com/736x/06/d0/00/06d00052a36c6788ba5f9eeacb2c37c3.jpg"
-                                    }
-                                    alt=""
-                                /> */}
-                  <h6>User Name</h6>
-                  <h5>{user?.username}</h5>
-                </div>
-                <div
-                  className='create-game-box-avtar'
-                  onClick={handleNotifiationShow}
-                >
-                  <FaBell />
-                  {notificationCount ? <span>{notificationCount}</span> : null}
-                  {showNotifications ? <Notifications /> : null}
-                </div>
-                {/* </a> */}
-                <div className='walletTicket-box'>
-                  <Dropdown as={ButtonGroup}>
-                    <Button>
-                      <div className='pokerWallet-box'>
-                        <img src={token} alt='' className='pokerWallet' />
-                        <span>
-                          {numFormatter(user?.wallet.toFixed(2) || 0)}
-                        </span>
-                        {/* <OverlayTrigger
-                                            placement={window.innerWidth < 767 ? "right" : "left"}
-                                            delay={{ show: 250, hide: 400 }}
-                                            overlay={renderWallet}
-                                        >
-                                            <Button variant="success">
-                                                <FaQuestionCircle />
-                                            </Button>
-                                        </OverlayTrigger> */}
-                      </div>
-                    </Button>
-                    <Dropdown.Toggle split id='dropdown-split-basic' />
-                    <Dropdown.Menu flip='True' align='start'>
-                      <Dropdown.Item onClick={handleShowDepositPopUp}>
-                        Deposit
-                      </Dropdown.Item>
-                      <Dropdown.Item onClick={handleShowWithdrawPopUp}>
-                        Withdraw
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-
-                  {/* <div className="pokerWallet-box">
-                                        <img src={tickets} alt="" className="pokerWallet" />
-                                        <span>{numFormatter(user?.ticket || 0)}</span>
-                                        <OverlayTrigger
-                                            placement={window.innerWidth < 767 ? "right" : "left"}
-                                            delay={{ show: 250, hide: 400 }}
-                                            overlay={renderTicket}
-                                        >
-                                            <Button variant="success">
-                                                <FaQuestionCircle />
-                                            </Button>
-                                        </OverlayTrigger>
-                                    </div> */}
-                </div>
-                <button
-                  type='button'
-                  className='create-game-boxBtn'
-                  onClick={handleShow}
-                >
-                  Create Game
-                </button>
-                <button
-                  type='button'
-                  className='create-game-boxBtn'
-                  onClick={handleLogOut}
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  type='button'
-                  className='connect-meta red-btnPrimary'
-                  onClick={() =>
-                    connectWithMetamask({ chainId: ChainId.Arbitrum })
-                  }
-                >
-                  Connect
-                </button>
-                <div className='menubtn' onClick={handleclickShow}>
-                  {show ? (
-                    <img src={close} alt='close' />
-                  ) : (
-                    <img src={menu} alt='menu' />
-                  )}
-                </div>
-              </>
-            )}
-            {/* {ChainId.ArbitrumGoerli} */}
-          </div>
-
-          <div className={`navCol-responsive ${show ? `active` : ``}`}>
-            {/* <div class='navCol-responsive'> */}
-            <div class='row align-items-center'>
-              <div class='col-lg'>
-                <div class='navLink-content'>
+          <div className='user-header-left'>
+            {!user && (
+              <div className='header-navlink-desktop-content'>
+                <div class='navLink'>
                   <ul>
                     <li>
                       <a href='https://acepoker.io/'>Homepage</a>
@@ -467,17 +301,262 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                   </ul>
                 </div>
               </div>
-              <div class='col-lg-auto d-sm-none  d-xl-block'>
-                <div class='headerRightCol'>
-                  <a
-                    href='https://app.acepoker.io/'
-                    class='btn btnPrimary minWdBtn'
+            )}
+
+            <div className='create-game-box'>
+              {user ? (
+                <>
+                  {/* <a href={`${landingClient}profile`}> */}
+                  <div className='create-game-box-login'>
+                    <div className='create-game-box-avtar'>
+                      {/* <img
+                                    src={
+                                        user?.profile ||
+                                        "https://i.pinimg.com/736x/06/d0/00/06d00052a36c6788ba5f9eeacb2c37c3.jpg"
+                                    }
+                                    alt=""
+                                /> */}
+                      <h6>User Name</h6>
+                      <h5>{user?.username}</h5>
+                    </div>
+                    <div
+                      className='create-game-box-avtar'
+                      onClick={handleNotifiationShow}
+                    >
+                      <FaBell />
+                      {notificationCount ? (
+                        <span>{notificationCount}</span>
+                      ) : null}
+                      {showNotifications ? <Notifications /> : null}
+                    </div>
+                    {/* </a> */}
+                    <div className='walletTicket-box'>
+                      <Dropdown as={ButtonGroup}>
+                        <Button>
+                          <div className='pokerWallet-box'>
+                            <img src={token} alt='' className='pokerWallet' />
+                            <span>
+                              {numFormatter(user?.wallet.toFixed(2) || 0)}
+                            </span>
+                            {/* <OverlayTrigger
+                                            placement={window.innerWidth < 767 ? "right" : "left"}
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={renderWallet}
+                                        >
+                                            <Button variant="success">
+                                                <FaQuestionCircle />
+                                            </Button>
+                                        </OverlayTrigger> */}
+                          </div>
+                        </Button>
+                        <Dropdown.Toggle split id='dropdown-split-basic' />
+                        <Dropdown.Menu flip='True' align='start'>
+                          <Dropdown.Item onClick={handleShowDepositPopUp}>
+                            Deposit
+                          </Dropdown.Item>
+                          <Dropdown.Item onClick={handleShowWithdrawPopUp}>
+                            Withdraw
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+
+                      {/* <div className="pokerWallet-box">
+                                        <img src={tickets} alt="" className="pokerWallet" />
+                                        <span>{numFormatter(user?.ticket || 0)}</span>
+                                        <OverlayTrigger
+                                            placement={window.innerWidth < 767 ? "right" : "left"}
+                                            delay={{ show: 250, hide: 400 }}
+                                            overlay={renderTicket}
+                                        >
+                                            <Button variant="success">
+                                                <FaQuestionCircle />
+                                            </Button>
+                                        </OverlayTrigger>
+                                    </div> */}
+                    </div>
+
+                    <button
+                      type='button'
+                      className='create-game-boxBtn'
+                      onClick={handleShow}
+                    >
+                      Create Game
+                    </button>
+                    <button
+                      type='button'
+                      className='create-game-boxBtn'
+                      onClick={handleLogOut}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <button
+                    type='button'
+                    className='connect-meta red-btnPrimary'
+                    onClick={() =>
+                      connectWithMetamask({ chainId: ChainId.Arbitrum })
+                    }
                   >
                     Connect
-                  </a>
+                  </button>
+                  <div className='menubtn' onClick={handleclickShow}>
+                    <div class='switch'>
+                      <input type='checkbox' />
+                      <div>
+                        <span class='line-1'></span>
+                        <span class='line-2'></span>
+                        <span class='line-3'></span>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+              <div className='menubtn-mobile' onClick={handleclickShow}>
+                <div class='switch'>
+                  <input type='checkbox' />
+                  <div>
+                    <span class='line-1'></span>
+                    <span class='line-2'></span>
+                    <span class='line-3'></span>
+                  </div>
                 </div>
               </div>
+              {/* {ChainId.ArbitrumGoerli} */}
             </div>
+          </div>
+
+          <div className={`navCol-responsive ${show ? `active` : ``}`}>
+            {/* <div class='navCol-responsive'> */}
+            {user ? (
+              <>
+                <div className='create-game-box-sidebar'>
+                  <div className='create-game-box'>
+                    <div className='create-game-box-avtar'>
+                      <h6>User Name</h6>
+                      <h5>{user?.username}</h5>
+                    </div>
+                    <div
+                      className='create-game-box-avtar'
+                      onClick={handleNotifiationShow}
+                    >
+                      <FaBell />
+                      {notificationCount ? (
+                        <span>{notificationCount}</span>
+                      ) : null}
+                      {showNotifications ? <Notifications /> : null}
+                    </div>
+
+                    <div className='walletTicket-box'>
+                      <Dropdown as={ButtonGroup}>
+                        <Button>
+                          <div className='pokerWallet-box'>
+                            <img src={token} alt='' className='pokerWallet' />
+                            <span>
+                              {numFormatter(user?.wallet.toFixed(2) || 0)}
+                            </span>
+                          </div>
+                        </Button>
+                        <Dropdown.Toggle split id='dropdown-split-basic' />
+                        <Dropdown.Menu flip='True' align='start'>
+                          <Dropdown.Item onClick={handleShowDepositPopUp}>
+                            Deposit
+                          </Dropdown.Item>
+                          <Dropdown.Item onClick={handleShowWithdrawPopUp}>
+                            Withdraw
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </div>
+
+                    <button
+                      type='button'
+                      className='create-game-boxBtn'
+                      onClick={handleShow}
+                    >
+                      Create Game
+                    </button>
+                    <button
+                      type='button'
+                      className='create-game-boxBtn'
+                      onClick={handleLogOut}
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div class='row align-items-center'>
+                <div class='col-lg'>
+                  <div class='navLink-content'>
+                    <ul>
+                      <li>
+                        <a href='https://acepoker.io/'>Homepage</a>
+                      </li>
+                      <li>
+                        <a href='https://acepoker.io/#about-us'>About us</a>
+                      </li>
+                      <li>
+                        <a href='https://acepoker.io/#playPoker'>Play Poker</a>
+                      </li>
+                      <li>
+                        <a href='https://acepoker.io/#WPT_Token'>ACE Token</a>
+                      </li>
+                      <li>
+                        <a href='https://docs.acepoker.io'>Docs</a>
+                      </li>
+                      <li class='ddparent'>
+                        <a href='/'>Security &amp; Privacy</a>
+                        <span class='menuDdIcon'>
+                          <img
+                            src='https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg'
+                            alt='...'
+                          />
+                        </span>
+                        <ul class='ddstyle'>
+                          <li>
+                            <a href='https://acepoker.io/privacy/'>
+                              Privacy Policy
+                            </a>
+                          </li>
+                          <li>
+                            <a href='https://acepoker.io/cookie-policy-2/'>
+                              Cookie Policy
+                            </a>
+                          </li>
+                          <li>
+                            <a href='https://acepoker.io/tearm-of-use/'>
+                              Tearm of use
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href='https://acepoker.io/service/'>Services</a>
+                      </li>
+                      <li>
+                        <a href='https://acepoker.io/#footer'>Contact</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class='col-lg-auto d-sm-none  d-xl-block'>
+                  <div class='headerRightCol'>
+                    <span
+                      onClick={() =>
+                        connectWithMetamask({ chainId: ChainId.Arbitrum })
+                      }
+                      class='btn btnPrimary minWdBtn'
+                    >
+                      Connect
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         <Register
