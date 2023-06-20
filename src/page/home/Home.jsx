@@ -141,6 +141,8 @@ const Home = () => {
           gameName: "Maximum 20 character is allowed for game name.",
         });
       }
+    } else if (name === "minchips") {
+      setGameState({ ...gameState, [name]: value, maxchips: (parseInt(value) * 2) });
     } else {
       setGameState({ ...gameState, [name]: value });
     }
@@ -344,14 +346,14 @@ const Home = () => {
       try {
         const response = await pokerInstance().get("/rooms");
         setPokerRooms(response.data.rooms || []);
-      } catch (error) {}
+      } catch (error) { }
     })();
     (async () => {
       try {
         const response = await pokerInstance().get("/AllTournament");
         console.log("response ==>", response);
         setTournaments(response.data.tournament || []);
-      } catch (error) {}
+      } catch (error) { }
     })();
   }, []);
 
@@ -363,7 +365,7 @@ const Home = () => {
         const { tournament } = response.data;
         setTournaments(tournament || []);
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   useEffect(() => {
@@ -832,35 +834,35 @@ const CreateTable = ({
             )}
           </div> */}
 
-          <div>
+          {/* <div> */}
+          {" "}
+          <div className="blindFields-box">
+
             {" "}
-            <div className="blindFields-box">
-              <div>
-                {" "}
-                <Form.Label>Small Blind</Form.Label>
-                {/* <Form.Control
+            <Form.Label>Small Blind / Big Blind</Form.Label>
+            {/* <Form.Control
                   name="minchips"
                   onChange={handleChange}
                   value={values.minchips}
                   type="number"
                   placeholder="Ex : 50"
                 /> */}
-                <Form.Control
-                  as="select"
-                  name="minchips"
-                  value={values.minchips}
-                  onChange={handleChange}
-                >
-                  <option value={0}>Please select</option>
-                  <option value={2}>2/4</option>
-                  <option value={4}>4/8</option>
-                  <option value={10}>10/20</option>
-                  <option value={20}>20/40</option>
-                  <option value={40}>40/80</option>
-                  <option value={100}>100/200</option>
-                </Form.Control>
-              </div>
-              <div>
+            <Form.Control
+              as="select"
+              name="minchips"
+              value={values.minchips}
+              onChange={handleChange}
+            >
+              <option value={0}>Please select SB / BB</option>
+              <option value={2}>2 (SB) / 4 (BB) </option>
+              <option value={4}>4 (SB) / 8 (BB) </option>
+              <option value={10}>10 ( SB) / 20 (BB)</option>
+              <option value={20}>20 (SB) / 40 (BB)</option>
+              <option value={40}>40 (SB) / 80 (BB)</option>
+              <option value={100}>100 (SB) / 200 (BB)</option>
+            </Form.Control>
+
+            {/* <div>
                 {" "}
                 <Form.Label>Big Blind</Form.Label>
                 <Form.Control
@@ -871,15 +873,15 @@ const CreateTable = ({
                   placeholder="Ex : 1000"
                   disabled
                 />
-              </div>
-              {/* {!!errors?.maxchips && (
+              </div> */}
+            {/* {!!errors?.maxchips && (
               <p className='text-danger'>{errors?.maxchips}</p>
             )} */}
-            </div>
-            {!!errors?.minchips && (
-              <p className="text-danger">{errors?.minchips}</p>
-            )}
           </div>
+          {!!errors?.minchips && (
+            <p className="text-danger">{errors?.minchips}</p>
+          )}
+          {/* </div> */}
         </Form.Group>
         {/* <div className="searchSelectDropdown">
           <Form.Label>Invite Users</Form.Label>
@@ -1051,7 +1053,7 @@ const GameTable = ({
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
+    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
   };
 
   const [cardFlip, setCardFlip] = useState(false);
@@ -1118,7 +1120,7 @@ const GameTable = ({
         {/* {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null} */}
         <div
           className={`tournamentCard-inner
-         ${cardFlip && gameType === "Poker" ? "rotate" : ""}
+         ${ cardFlip && gameType === "Poker" ? "rotate" : "" }
          `}
         >
           <VerifyPasswordPopup
@@ -1147,7 +1149,7 @@ const GameTable = ({
                           {" "}
                           {(gameType === "Tournament"
                             ? data?.rooms?.filter((el) => el?.players)[0]
-                                ?.players?.length || 0
+                              ?.players?.length || 0
                             : data?.players?.length) || 0}
                         </span>
                       </p>
@@ -1258,7 +1260,7 @@ const GameTable = ({
                 <span>
                   {(gameType === "Tournament"
                     ? data?.rooms?.filter((el) => el?.players)[0]?.players
-                        ?.length || 0
+                      ?.length || 0
                     : data?.players?.length) || 0}
                 </span>
               </h4>
@@ -1454,9 +1456,9 @@ const GameTournament = ({
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
           {user &&
-          !data?.waitingArray.find(
-            (el) => el.id === (user?.id || user?._id)
-          ) ? (
+            !data?.waitingArray.find(
+              (el) => el.id === (user?.id || user?._id)
+            ) ? (
             <Button
               type="text"
               onClick={() => {
