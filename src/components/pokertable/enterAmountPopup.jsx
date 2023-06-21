@@ -46,6 +46,10 @@ const EnterAmountPopup = ({
     // let chips = parseFloat(amount) * 100;
     console.log("amount ==>", amount, bigBlind);
 
+    // if(amount){
+    //   setAmount(Parse)
+    // }
+
     if (parseFloat(amount) >= bigBlind) {
       setLoading(true);
       const msg = await handleSitin(amount);
@@ -64,7 +68,14 @@ const EnterAmountPopup = ({
     }
   };
   const handleAmountChange = (e) => {
-    const val = e.target.value;
+    let val = e.target.value;
+    console.log("amt ==>", val, e.target);
+    // if (val.toString().includes("-") || val.toString().includes("e")) {
+    val = val.replace(/\D+/g, "");
+    // }
+    //  += key;
+    console.log("handle wthdraw executed", val);
+    // val = e.target.value;
     setAmount(val);
   };
 
@@ -94,8 +105,9 @@ const EnterAmountPopup = ({
               amount
             </Form.Label>
             <Form.Control
-              type="number"
+              type="text"
               onChange={handleAmountChange}
+              value={amount}
               placeholder={`minimum amount: ${ tableData?.bigBlind }`}
             />
             {error && <p className="errorMessage">{error}</p>}
