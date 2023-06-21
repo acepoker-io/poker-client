@@ -1375,8 +1375,13 @@ const GameTournament = ({
 
   const handleEnterGame = (roomId) => {
     console.log("enter game ", window.location.origin, roomId);
-    window.location.href =
-      window.location.origin + "/table?gamecollection=poker&tableid=" + roomId;
+    if (roomId) {
+      window.location.href =
+        window.location.origin + "/table?gamecollection=poker&tableid=" + roomId;
+    } else {
+      toast.error("Tournament is not started yet", { toastId: "tournamentStarted" })
+    }
+
   };
 
   // const enterRoom = async (tournamentId) => {
