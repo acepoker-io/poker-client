@@ -5611,6 +5611,14 @@ img.coinWinning-animation {
   .game-msg {
     top: 100px;
   }
+  .backToHome button {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .backToHome {
+    width: 44px !important;
+    height: 44px !important;
+  }
 }
 
 /************************* Landscape ****************************/
@@ -10477,8 +10485,8 @@ img.coinWinning-animation {
 @supports (-webkit-touch-callout: none) {
   .backToHome button {
     background: #dc3545;
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     color: black;
     border: 1px solid #dc3545;
     border-radius: 50%;
@@ -10602,20 +10610,20 @@ img.coinWinning-animation {
 
 .backToHome {
   position: fixed;
-  bottom: 2%;
-  right: 1%;
+  bottom: 10px;
+  right: 10px;
   cursor: pointer;
   z-index: 9999;
   padding: 5px;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
 }
 
 .backToHome button {
   background: #dc3545;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   color: black;
   border: 1px solid #dc3545;
   border-radius: 50%;
