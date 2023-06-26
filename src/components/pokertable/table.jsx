@@ -766,7 +766,7 @@ const PokerTable = (props) => {
       ) {
         joinInRunningRound = true;
       }
-      setCommunityCards(data?.communityCard);
+      setCommunityCards(roomData?.communityCard);
       if (roomData.hostId === userId) {
         setisAdmin(true);
         admin = true;
