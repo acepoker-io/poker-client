@@ -510,15 +510,18 @@ const PokerTable = (props) => {
     });
     socket.on("eliminatedPlayer", (data) => {
       const { tournamentId, eliminated } = data;
-      if (eliminated?.length > 0) {
-        if (
-          eliminated?.find(
-            (el) => el?.userid?.toString() === userId?.toString()
-          )
-        ) {
-          history.push(`/leaderboard?tournamentId=${ tournamentId }`);
-        }
+      if (eliminated.includes(userId?.toString())) {
+        history.push(`/`);
       }
+      // if (eliminated?.length > 0) {
+      //   if (
+      //     eliminated?.find(
+      //       (el) => el?.userid?.toString() === userId?.toString()
+      //     )
+      //   ) {
+      //     history.push(`/leaderboard?tournamentId=${ tournamentId }`);
+      //   }
+      // }
     });
     socket.on("newhand", (data) => {
       if (data) {
