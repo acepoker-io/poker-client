@@ -66,7 +66,7 @@ const Notifications = () => {
       <div className='notificationMssg'>
         {notifiCations?.length > 0 ? (
           notifiCations.map((el) => (
-            <h6>{`${ el.message } ${ getTime(el.startDate) }`}</h6>
+            <h6>{`${ el?.message } ${ el?.startDate ? getTime(el?.startDate) : "" }`}</h6>
           ))
         ) : showSpinner ? (
           <Spinner animation='border' />
