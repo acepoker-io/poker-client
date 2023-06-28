@@ -4635,29 +4635,29 @@ ul.btn-list > li > button > img {
   z-index: 999;
 }
 
-/* .game-started-join:after {
+.game-started-join:after {
   content: "Game has been already started, please wait for next round";
   position: fixed;
-  top: 50%;
-  left: 50%;
+  bottom: 0;
+  left: 0;
   color: #fff;
   z-index: 999;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
+  transform: translate(0%, -50%);
+  font-size: 20px;
   text-shadow: 2px 4px 6px #000;
   font-family: "Poppins", sans-serif !important;
   font-weight: 300;
   line-height: 1.4;
   max-width: 400px;
   text-align: center;
-  background: #1919199c;
+  background: transparent;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(6px);
   padding: 15px 10px;
   border-radius: 12px;
   font-weight: 600;
   color: #ffff;
-} */
+}
 
 .tooltip-box {
   padding: 10px;
@@ -9235,8 +9235,12 @@ img.coinWinning-animation {
   }
 
   .game-started-join:after {
-    font-size: 20px;
+    font-size: 14px;
     max-width: 280px;
+    left: 50%;
+    bottom: unset;
+    top: 60%;
+    transform: translate(-50%, -50%);
   }
 
   .stats-heading h6 {
