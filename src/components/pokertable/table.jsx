@@ -1088,6 +1088,15 @@ const PokerTable = (props) => {
       tPlayer = data.id;
       tRound = data.runninground;
     });
+
+    socket.on("playerUpgraded", (data) => {
+      console.log("player upgraded ==>", data, userId);
+      if (data.userId.toString() === userId.toString()) {
+        console.log("player Entered", userId);
+        window.location.href = "/";
+        toast.success("You have upgraded for next round", { toastId: "playerUpgraded" });
+      }
+    });
   }, []);
 
   useEffect(() => {
