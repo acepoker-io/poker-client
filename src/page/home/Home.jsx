@@ -1335,17 +1335,24 @@ const GameTournament = ({
   const { user } = useContext(UserContext);
 
   useEffect(() => {
+    let count = 0;
     socket.on("alreadyInTournament", (data) => {
+      console.log("Count ==>", count++)
       const { message, code } = data;
       if (code === 200) {
         if (data?.user && Object.keys(data?.user)?.length > 0) {
           setUserData(data?.user);
+          console.log("messagemessagemessagemessage ==>", message);
+          toast.success(message, { toastId: "Nofull" });
         }
-        toast.success(message, { id: "Nofull" });
       } else {
-        toast.error(message, { id: "full" });
+        toast.error(message, { toastId: "full" });
       }
+      // return () => {
+      //   socket.off("alreadyInTournament");
+      // };
     });
+
     socket.on("notEnoughAmount", (data) => {
       const { message, code } = data;
       if (code === 200) {
@@ -1358,6 +1365,9 @@ const GameTournament = ({
     socket.on("tournamentSlotFull", (data) => {
       toast.error("Tournament slot is full", { id: "slot-full" });
     });
+
+
+
   }, []);
 
   const joinTournament = async (tournamentId, fees) => {
@@ -1381,7 +1391,6 @@ const GameTournament = ({
     } else {
       toast.error("Tournament is not started yet", { toastId: "tournamentStarted" })
     }
-
   };
 
   // const enterRoom = async (tournamentId) => {
@@ -1460,7 +1469,7 @@ const GameTournament = ({
             joinTournament(data?._id, data?.tournamentFee)
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
-          {user &&
+          {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? null : user &&
             !data?.waitingArray.find(
               (el) => el.id === (user?.id || user?._id)
             ) ? (
