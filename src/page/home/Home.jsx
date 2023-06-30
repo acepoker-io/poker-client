@@ -1456,12 +1456,13 @@ const GameTournament = ({
               {data?.havePlayers}
             </div>
           </div>
-          <div className="cardTournament-Fee">
-            <p>Prize Pool</p>
-            <div className="extraDetail-container">
-              <FaTrophy />
-              10
-            </div>
+
+        </div>
+        <div className="cardTournament-Fee bottom-fee-detail winning-amt">
+          <p>Winning amount</p>
+          <div className="extraDetail-container">
+            <FaTrophy />
+            {data?.winnerAmount}
           </div>
         </div>
         <div className="tournamentCard-buttonDetail">
@@ -1469,7 +1470,14 @@ const GameTournament = ({
             joinTournament(data?._id, data?.tournamentFee)
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
-          {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? null : user &&
+          {console.log("usressssss ===>", data)}
+          {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? data.isFinished ? (<div className="cardTournament-Fee bottom-fee-detail">
+            <p>{data?.winPlayer[0]?.username}</p>
+            <div className="extraDetail-container">
+              <FaTrophy />
+              Winner
+            </div>
+          </div>) : null : user &&
             !data?.waitingArray.find(
               (el) => el.id === (user?.id || user?._id)
             ) ? (
@@ -1482,7 +1490,7 @@ const GameTournament = ({
             >
               Join game
             </Button>
-          ) : (
+          ) : user ? (
             <Button
               type="text"
               onClick={() => {
@@ -1496,7 +1504,7 @@ const GameTournament = ({
             >
               Enter game
             </Button>
-          )}
+          ) : null}
 
           {/* <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} /> */}
         </div>
