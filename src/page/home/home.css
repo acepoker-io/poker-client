@@ -952,7 +952,11 @@ div#clockdiv h4 {
 
 .cardTournament-Fee {
   padding: 14px;
+  text-align: center;
   width: 100%;
+}
+.winning-amt {
+  border-bottom: 2px solid rgba(237, 184, 255, 0.19);
 }
 .tournamentCard-extraDetail .cardTournament-Fee + .cardTournament-Fee {
   border-left: 2px solid rgba(237, 184, 255, 0.19);
@@ -1671,6 +1675,14 @@ ul.social-links li + li {
 .menubtn-mobile {
   display: none;
 }
+.cardTournament-Fee.bottom-fee-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tournamentCard-buttonDetail .cardTournament-Fee.bottom-fee-detail {
+  padding: 0px 6px !important;
+}
 @media screen and (max-width: 1600px) {
   .footerLeftImage {
     max-width: 10vw;
@@ -1881,6 +1893,7 @@ ul.social-links li + li {
   }
   .cardTournament-Fee {
     padding: 11px;
+    text-align: center;
   }
   .footer-logo img {
     max-width: 110px;
