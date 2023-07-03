@@ -326,6 +326,7 @@ const Home = () => {
       setTournaments(data?.tournaments || []);
     });
     socket.on("tournamentAction", (data) => {
+      console.log("tournament action ==>", data);
       setTournaments(data?.tournaments || []);
     });
   }, []);
