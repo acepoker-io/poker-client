@@ -167,7 +167,7 @@ const Home = () => {
       pokerRooms?.length > 0 &&
       pokerRooms.find(
         (el) =>
-          el.gameName.toLowerCase() === gameState.gameName.trim().toLowerCase()
+          el.gameName?.toLowerCase() === gameState.gameName?.trim().toLowerCase()
       );
 
     let valid = true;
@@ -1475,7 +1475,7 @@ const GameTournament = ({
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
           {console.log("usressssss ===>", data)}
-          {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? data.isFinished ? (<div className="cardTournament-Fee bottom-fee-detail">
+          {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? data.isFinished && data?.winPlayer ? (<div className="cardTournament-Fee bottom-fee-detail">
             <p>{data?.winPlayer[0]?.username}</p>
             <div className="extraDetail-container">
               <FaTrophy />
