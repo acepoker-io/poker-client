@@ -19,7 +19,7 @@ const getAuthUserData = async () => {
   } catch (error) {
     console.log(error);
     // disconnect();
-    localStorage.clear();
+    // localStorage.clear();
     // history.push("/");
     window.location.href = "/";
     return { success: false };
