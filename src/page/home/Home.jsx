@@ -325,6 +325,9 @@ const Home = () => {
     socket.on("updatedTournaments", (data) => {
       setTournaments(data?.tournaments || []);
     });
+    socket.on("tournamentAction", (data) => {
+      setTournaments(data?.tournaments || []);
+    });
   }, []);
 
   const checkAuth = async () => {
