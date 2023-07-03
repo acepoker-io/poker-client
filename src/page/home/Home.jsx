@@ -379,9 +379,9 @@ const Home = () => {
       }),
     [allUsers]
   );
-
-  const filterRoom = pokerRooms.filter((el) =>
-    el.gameName.toLowerCase().includes(searchText?.toLowerCase())
+  console.log("poker rooms", pokerRooms);
+  const filterRoom = pokerRooms?.filter((el) =>
+    el.gameName?.toLowerCase().includes(searchText?.toLowerCase())
   );
 
   const handleSendTransaction = async (amount, type) => {
