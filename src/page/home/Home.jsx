@@ -70,7 +70,7 @@ const Home = () => {
   }, [user]);
 
   useEffect(() => {
-    if (!address && localStorage.getItem("token")) {
+    if (!address && !localStorage.getItem("token")) {
       connectWithMetamask({ chainId: ChainId.Arbitrum });
     }
   }, [address]);
