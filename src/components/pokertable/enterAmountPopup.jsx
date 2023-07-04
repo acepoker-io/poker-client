@@ -17,7 +17,7 @@ const EnterAmountPopup = ({
   const [tableData, setTableData] = useState(null);
   const { search } = useLocation();
   const tableId = new URLSearchParams(search).get("tableid");
-  console.log("tableId ==>", tableId);
+  // console.log("tableId ==>", tableId);
 
   useEffect(() => {
     (async () => {
@@ -119,7 +119,7 @@ const EnterAmountPopup = ({
                 ? "Close"
                 : "Lobby"}
             </Button>
-            {console.log("is loading =======", isLoading)}
+            {/* {console.log("is loading =======", isLoading)} */}
             <Button className="exit-btn" type="submit" onClick={joinGame} disabled={disable}>
               {isLoading ? <Spinner animation="border" /> : submitButtonText}
             </Button>

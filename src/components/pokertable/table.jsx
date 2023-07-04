@@ -85,7 +85,7 @@ let tablePlayers = [];
 
 const numFormatter = (num) => {
   if (num < 999) {
-    console.log("num =====>", num);
+    // console.log("num =====>", num);
     return num.toString().includes(".") ? (num / 1)?.toFixed(4) : (num / 1)?.toFixed(0)
     // return (num / 1)?.toFixed(4); // convert to K for number from > 1000 < 1 million
   } else if (num > 999 && num < 1000000) {
@@ -1768,7 +1768,7 @@ const PokerTable = (props) => {
     <div className="poker" id={players.length}>
       <Helmet>
         <html
-          className={`game-page ${ !(players && players.find((ele) => ele.id === userId)) &&
+          className={`game-page ${ !(players && (players.find((ele) => ele.id === userId) && !roomData?.leavereq.find(el => el.toString() === userId.toString()))) &&
             roomData &&
             roomData.players.find((ele) => ele.userid === userId)
             ? "game-started-join"
