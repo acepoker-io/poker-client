@@ -329,6 +329,24 @@ const Home = () => {
       console.log("tournament action ==>", data);
       setTournaments(data?.tournaments || []);
     });
+
+    socket.on("status", (data) => {
+      const { code, message } = data;
+      if (code === 200) {
+        toast.success(message, { toastId: "status" });
+      } else {
+        toast.error(message, { toastId: "status" });
+      }
+    });
+
+    socket.on("userUpdate", (data) => {
+      console.log("user update ==>", data);
+      if (data?.user) {
+        setUser(data?.user);
+      }
+    });
+
+
   }, []);
 
   const checkAuth = async () => {
@@ -1397,6 +1415,14 @@ const GameTournament = ({
     }
   };
 
+  const handleLeaveGame = (userData, tournamentId) => {
+    console.log(userData, user);
+    socket.emit("leaveTournament", {
+      tournamentId: tournamentId,
+      user,
+    });
+  }
+
   // const enterRoom = async (tournamentId) => {
   //   const res = await tournamentInstance().post("/enterroom", {
   //     tournamentId: tournamentId,
@@ -1495,19 +1521,30 @@ const GameTournament = ({
               Join game
             </Button>
           ) : user ? (
-            <Button
-              type="text"
-              onClick={() => {
-                handleEnterGame(
-                  data?.waitingArray.find(
-                    (el) => el.id === (user?.id || user?._id)
-                  ).roomId
-                );
-              }}
-              className="red-btnPrimary"
-            >
-              Enter game
-            </Button>
+            <>
+              <Button
+                type="text"
+                onClick={() => {
+                  handleEnterGame(
+                    data?.waitingArray.find(
+                      (el) => el.id === (user?.id || user?._id)
+                    ).roomId
+                  );
+                }}
+                className="red-btnPrimary"
+              >Enter game</Button>
+              {!data.isStart ? (
+                <Button
+                  type="text"
+                  onClick={() => {
+                    handleLeaveGame(
+                      data?.waitingArray.find(
+                        (el) => el.id === (user?.id || user?._id)
+                      ), data._id);
+                  }}
+                  className="red-btnPrimary"
+                >Leave game</Button>) : null}
+            </>
           ) : null}
 
           {/* <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} /> */}
