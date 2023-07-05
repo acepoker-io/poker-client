@@ -990,6 +990,10 @@ const PokerTable = (props) => {
       }, 500);
     });
 
+    socket.on("tournamentLeave", () => {
+      window.location.href = window.location.origin
+    });
+
   }, [isAdmin]);
 
   const handleTentativeActionAuto = (player) => {
