@@ -21,7 +21,7 @@ const getAuthUserData = async () => {
     // disconnect();
     // localStorage.clear();
     // history.push("/");
-    window.location.href = "/";
+    // window.location.href = "/";
     return { success: false };
   }
 };
