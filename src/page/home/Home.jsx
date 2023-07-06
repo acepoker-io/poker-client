@@ -1501,16 +1501,73 @@ const GameTournament = ({
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
           {console.log("usressssss ===>", data)}
-          {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? data.isFinished && data?.winPlayer ? (<div className="cardTournament-Fee bottom-fee-detail">
-            <p>{data?.winPlayer[0]?.username}</p>
-            <div className="extraDetail-container">
-              <FaTrophy />
-              Winner
-            </div>
-          </div>) : null : user &&
-            !data?.waitingArray.find(
-              (el) => el.id === (user?.id || user?._id)
-            ) ? (
+          {
+            user ? (
+              <>
+                {!data.isStart && !data.isFinished && !data?.waitingArray.find(
+                  (el) => el.id === (user?.id || user?._id)
+                ) ? (<Button
+                  type="text"
+                  onClick={() => {
+                    joinTournament(data?._id, data?.tournamentFee);
+                  }}
+                  className="red-btnPrimary"
+                >
+                  Join game
+                </Button>) :
+                  (<>
+                    {!data.isFinished && data?.waitingArray.find(
+                      (el) => el.id === (user?.id || user?._id)
+                    ) ? (
+                      <>
+                        <Button
+                          type="text"
+                          onClick={() => {
+                            handleEnterGame(
+                              data?.waitingArray.find(
+                                (el) => el.id === (user?.id || user?._id)
+                              ).roomId
+                            );
+                          }}
+                          className="red-btnPrimary"
+                        >Enter game</Button>
+                        {!data.isStart ? (<Button
+                          type="text"
+                          onClick={() => {
+                            handleLeaveGame(
+                              data?.waitingArray.find(
+                                (el) => el.id === (user?.id || user?._id)
+                              ), data._id);
+                          }}
+                          className="red-btnPrimary"
+                        >Leave game</Button>) : null}
+                      </>) :
+                      (<>
+                        {data.isFinished ? (<div className="cardTournament-Fee bottom-fee-detail">
+                          <p>{data?.winPlayer[0]?.username}</p>
+                          <div className="extraDetail-container">
+                            <FaTrophy />
+                            Winner
+                          </div>
+                        </div>) : null}
+                      </>)
+                    }
+                  </>)
+                }
+              </>
+            ) : (<></>)
+          }
+          {/* {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? data.isFinished && data?.winPlayer ?
+            (<div className="cardTournament-Fee bottom-fee-detail">
+              <p>{data?.winPlayer[0]?.username}</p>
+              <div className="extraDetail-container">
+                <FaTrophy />
+                Winner
+              </div>
+            </div>) : null : user &&
+              !data?.waitingArray.find(
+                (el) => el.id === (user?.id || user?._id)
+              ) ? (
             <Button
               type="text"
               onClick={() => {
@@ -1545,7 +1602,7 @@ const GameTournament = ({
                   className="red-btnPrimary"
                 >Leave game</Button>) : null}
             </>
-          ) : null}
+          ) : null} */}
 
           {/* <img src={ranking} alt="" onClick={() => { handleFlip(data._id) }} /> */}
         </div>
