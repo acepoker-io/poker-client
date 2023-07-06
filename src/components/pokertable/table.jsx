@@ -1820,12 +1820,12 @@ const PokerTable = (props) => {
               <span>{roomData?.smallBlind + "/" + roomData?.bigBlind}</span>
             </h4>
           </div> : ""}
-
+          {/* roomData?.isGameRunning && */}
           {roomData?.gameType === "poker-tournament" &&
-            roomData?.isGameRunning && (
+            (
               <div className="table-blindTimer">
                 <h4>
-                  SB/BB will change in :{" "}
+                  {roomData?.isGameRunning ? `SB/BB will change in : ` : `Game will start in : `}
                   <span>{blindTimer ? blindTimer : ""}</span>
                 </h4>
               </div>
