@@ -79,6 +79,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     let loginCall;
     const connectHandler = async () => {
       try {
+        console.log("address ==>", address);
         if (address) {
           // console.log("last adreess ==>", lastAddres);
           // console.log("adreess ==>", address);
@@ -110,6 +111,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
             toast.error(message, { toastId: "toastId" });
             setOpenRegister(true);
           }
+          // await getAllRequiredData()
           // }, 1000);
         }
       } catch (err) {
@@ -217,8 +219,9 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     setShowNotifications(!showNotifications);
     setNotificationCount(0);
     if (!showNotifications && notificationCount) {
-      const resp = await userInstance().get("/seenAllNotifications");
-      console.log("response ==>", resp);
+      await userInstance().get("/seenAllNotifications");
+      // const resp =
+      // console.log("response ==>", resp);
     }
   };
   useEffect(() => {
@@ -428,7 +431,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
             </div>
           </div>
 
-          <div className={`navCol-responsive ${show ? `active` : ``}`}>
+          <div className={`navCol-responsive ${ show ? `active` : `` }`}>
             {/* <div class='navCol-responsive'> */}
             {user ? (
               <>
