@@ -69,11 +69,11 @@ const Home = () => {
     }
   }, [user]);
 
-  useEffect(() => {
-    if (!address && !localStorage.getItem("token")) {
-      connectWithMetamask({ chainId: ChainId.Arbitrum });
-    }
-  }, [address]);
+  // useEffect(() => {
+  //   if (!address && !localStorage.getItem("token")) {
+  //     connectWithMetamask({ chainId: ChainId.Arbitrum });
+  //   }
+  // }, [address]);
 
   const gameInit = {
     gameName: "",
@@ -364,20 +364,42 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    // (async () => {
+    //   try {
+    //     const response = await pokerInstance().get("/rooms");
+    //     setPokerRooms(response.data.rooms || []);
+    //   } catch (error) { }
+    // })();
+    // (async () => {
+    //   try {
+    //     const response = await pokerInstance().get("/AllTournament");
+    //     console.log("response ==>", response);
+    //     setTournaments(response.data.tournament || []);
+    //   } catch (error) { }
+    // })();
+    (async () => { await getAllRequiredData() })()
+  }, []);
+
+  const getAllRequiredData = async () => {
     (async () => {
       try {
         const response = await pokerInstance().get("/rooms");
         setPokerRooms(response.data.rooms || []);
-      } catch (error) { }
+      } catch (error) {
+        console.log("error in get all rooms", error);
+      }
     })();
     (async () => {
       try {
         const response = await pokerInstance().get("/AllTournament");
-        console.log("response ==>", response);
+        // console.log("response ==>", response);
         setTournaments(response.data.tournament || []);
-      } catch (error) { }
+      } catch (error) {
+        console.log("error in get all tournaments", error);
+      }
     })();
-  }, []);
+  }
+
 
   const getTournamentDetails = async () => {
     try {
@@ -401,7 +423,7 @@ const Home = () => {
       }),
     [allUsers]
   );
-  console.log("poker rooms", pokerRooms);
+  // console.log("poker rooms", pokerRooms);
   const filterRoom = pokerRooms?.filter((el) =>
     el.gameName?.toLowerCase().includes(searchText?.toLowerCase())
   );
@@ -530,19 +552,19 @@ const Home = () => {
 
   const handleWithdraw = async (amount) => {
     try {
-      let l = 1;
-      console.log("================================", l);
+      // let l = 1;
+      // console.log("================================", l);
       if (activeChain?.chainId !== ChainId.Arbitrum) {
         const vart = await connectWithMetamask({ chainId: ChainId.Arbitrum });
-        l = 2;
+        // l = 2;
         console.log("var =====>", vart);
       }
-      console.log("================================", l);
+      // console.log("================================", l);
       const resp = await pokerInstance().post("/withdrawTransaction", {
         userId: user._id || user.id,
         amount,
       });
-      console.log("response ==>", resp);
+      // console.log("response ==>", resp);
       if (resp?.data.success) {
         toast.success(resp.data.message, { toastId: "withdrawTransaction" });
         setUser(resp.data.user);
@@ -602,6 +624,7 @@ const Home = () => {
         handleShow={handleShow}
         handleDeposit={handleDeposit}
         handleWithdraw={handleWithdraw}
+      // getAllRequiredData={getAllRequiredData}
       />
       {/* <Tabs
         id="controlled-tab-example"
@@ -1500,7 +1523,7 @@ const GameTournament = ({
             joinTournament(data?._id, data?.tournamentFee)
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
-          {console.log("usressssss ===>", data)}
+          {/* {console.log("usressssss ===>", data)} */}
           {
             user ? (
               <>
