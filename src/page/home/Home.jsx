@@ -9,7 +9,7 @@ import "./home.css";
 import { useEffect } from "react";
 import userUtils from "../../utils/user";
 import loaderImg from "../../assets/chat/loader1.webp";
-import casino from "../../assets/headerLogo.png";
+import casino from "../../assets/newlogo.png";
 import { pokerInstance } from "../../utils/axios.config";
 import { toast } from "react-toastify";
 import { useMemo } from "react";
@@ -142,7 +142,11 @@ const Home = () => {
         });
       }
     } else if (name === "minchips") {
-      setGameState({ ...gameState, [name]: value, maxchips: (parseInt(value) * 2) });
+      setGameState({
+        ...gameState,
+        [name]: value,
+        maxchips: parseInt(value) * 2,
+      });
     } else {
       setGameState({ ...gameState, [name]: value });
     }
@@ -167,7 +171,8 @@ const Home = () => {
       pokerRooms?.length > 0 &&
       pokerRooms.find(
         (el) =>
-          el.gameName?.toLowerCase() === gameState.gameName?.trim().toLowerCase()
+          el.gameName?.toLowerCase() ===
+          gameState.gameName?.trim().toLowerCase()
       );
 
     let valid = true;
@@ -345,8 +350,6 @@ const Home = () => {
         setUser(data?.user);
       }
     });
-
-
   }, []);
 
   const checkAuth = async () => {
@@ -377,7 +380,9 @@ const Home = () => {
     //     setTournaments(response.data.tournament || []);
     //   } catch (error) { }
     // })();
-    (async () => { await getAllRequiredData() })()
+    (async () => {
+      await getAllRequiredData();
+    })();
   }, []);
 
   const getAllRequiredData = async () => {
@@ -398,8 +403,7 @@ const Home = () => {
         console.log("error in get all tournaments", error);
       }
     })();
-  }
-
+  };
 
   const getTournamentDetails = async () => {
     try {
@@ -409,7 +413,7 @@ const Home = () => {
         const { tournament } = response.data;
         setTournaments(tournament || []);
       }
-    } catch (error) { }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -624,7 +628,7 @@ const Home = () => {
         handleShow={handleShow}
         handleDeposit={handleDeposit}
         handleWithdraw={handleWithdraw}
-      // getAllRequiredData={getAllRequiredData}
+        // getAllRequiredData={getAllRequiredData}
       />
       {/* <Tabs
         id="controlled-tab-example"
@@ -878,11 +882,8 @@ const CreateTable = ({
               <p className="text-danger">{errors?.sitInAmount}</p>
             )}
           </div> */}
-
-          {/* <div> */}
-          {" "}
+          {/* <div> */}{" "}
           <div className="blindFields-box">
-
             {" "}
             <Form.Label>Small Blind / Big Blind</Form.Label>
             {/* <Form.Control
@@ -906,7 +907,6 @@ const CreateTable = ({
               <option value={40}>40 (SB) / 80 (BB)</option>
               <option value={100}>100 (SB) / 200 (BB)</option>
             </Form.Control>
-
             {/* <div>
                 {" "}
                 <Form.Label>Big Blind</Form.Label>
@@ -1098,7 +1098,7 @@ const GameTable = ({
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
+    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
   };
 
   const [cardFlip, setCardFlip] = useState(false);
@@ -1165,7 +1165,7 @@ const GameTable = ({
         {/* {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null} */}
         <div
           className={`tournamentCard-inner
-         ${ cardFlip && gameType === "Poker" ? "rotate" : "" }
+         ${cardFlip && gameType === "Poker" ? "rotate" : ""}
          `}
         >
           <VerifyPasswordPopup
@@ -1194,7 +1194,7 @@ const GameTable = ({
                           {" "}
                           {(gameType === "Tournament"
                             ? data?.rooms?.filter((el) => el?.players)[0]
-                              ?.players?.length || 0
+                                ?.players?.length || 0
                             : data?.players?.length) || 0}
                         </span>
                       </p>
@@ -1305,7 +1305,7 @@ const GameTable = ({
                 <span>
                   {(gameType === "Tournament"
                     ? data?.rooms?.filter((el) => el?.players)[0]?.players
-                      ?.length || 0
+                        ?.length || 0
                     : data?.players?.length) || 0}
                 </span>
               </h4>
@@ -1382,7 +1382,7 @@ const GameTournament = ({
   useEffect(() => {
     let count = 0;
     socket.on("alreadyInTournament", (data) => {
-      console.log("Count ==>", count++)
+      console.log("Count ==>", count++);
       const { message, code } = data;
       if (code === 200) {
         if (data?.user && Object.keys(data?.user)?.length > 0) {
@@ -1410,9 +1410,6 @@ const GameTournament = ({
     socket.on("tournamentSlotFull", (data) => {
       toast.error("Tournament slot is full", { id: "slot-full" });
     });
-
-
-
   }, []);
 
   const joinTournament = async (tournamentId, fees) => {
@@ -1432,9 +1429,13 @@ const GameTournament = ({
     console.log("enter game ", window.location.origin, roomId);
     if (roomId) {
       window.location.href =
-        window.location.origin + "/table?gamecollection=poker&tableid=" + roomId;
+        window.location.origin +
+        "/table?gamecollection=poker&tableid=" +
+        roomId;
     } else {
-      toast.error("Tournament is not started yet", { toastId: "tournamentStarted" })
+      toast.error("Tournament is not started yet", {
+        toastId: "tournamentStarted",
+      });
     }
   };
 
@@ -1444,7 +1445,7 @@ const GameTournament = ({
       tournamentId: tournamentId,
       user,
     });
-  }
+  };
 
   // const enterRoom = async (tournamentId) => {
   //   const res = await tournamentInstance().post("/enterroom", {
@@ -1509,7 +1510,6 @@ const GameTournament = ({
               {data?.havePlayers}
             </div>
           </div>
-
         </div>
         <div className="cardTournament-Fee bottom-fee-detail winning-amt">
           <p>Winning amount</p>
@@ -1524,12 +1524,14 @@ const GameTournament = ({
           }>join game</Button>} */}
           {/* {console.log("crr player", data?.waitingArray.find(el => el.id === user?.id), user?.id)} */}
           {/* {console.log("usressssss ===>", data)} */}
-          {
-            user ? (
-              <>
-                {!data.isStart && !data.isFinished && !data?.waitingArray.find(
-                  (el) => el.id === (user?.id || user?._id)
-                ) ? (<Button
+          {user ? (
+            <>
+              {!data.isStart &&
+              !data.isFinished &&
+              !data?.waitingArray.find(
+                (el) => el.id === (user?.id || user?._id)
+              ) ? (
+                <Button
                   type="text"
                   onClick={() => {
                     joinTournament(data?._id, data?.tournamentFee);
@@ -1537,49 +1539,63 @@ const GameTournament = ({
                   className="red-btnPrimary"
                 >
                   Join game
-                </Button>) :
-                  (<>
-                    {!data.isFinished && data?.waitingArray.find(
-                      (el) => el.id === (user?.id || user?._id)
-                    ) ? (
-                      <>
+                </Button>
+              ) : (
+                <>
+                  {!data.isFinished &&
+                  data?.waitingArray.find(
+                    (el) => el.id === (user?.id || user?._id)
+                  ) ? (
+                    <>
+                      <Button
+                        type="text"
+                        onClick={() => {
+                          handleEnterGame(
+                            data?.waitingArray.find(
+                              (el) => el.id === (user?.id || user?._id)
+                            ).roomId
+                          );
+                        }}
+                        className="red-btnPrimary"
+                      >
+                        Enter game
+                      </Button>
+                      {!data.isStart ? (
                         <Button
-                          type="text"
-                          onClick={() => {
-                            handleEnterGame(
-                              data?.waitingArray.find(
-                                (el) => el.id === (user?.id || user?._id)
-                              ).roomId
-                            );
-                          }}
-                          className="red-btnPrimary"
-                        >Enter game</Button>
-                        {!data.isStart ? (<Button
                           type="text"
                           onClick={() => {
                             handleLeaveGame(
                               data?.waitingArray.find(
                                 (el) => el.id === (user?.id || user?._id)
-                              ), data._id);
+                              ),
+                              data._id
+                            );
                           }}
                           className="red-btnPrimary"
-                        >Leave game</Button>) : null}
-                      </>) :
-                      (<>
-                        {data.isFinished ? (<div className="cardTournament-Fee bottom-fee-detail">
+                        >
+                          Leave game
+                        </Button>
+                      ) : null}
+                    </>
+                  ) : (
+                    <>
+                      {data.isFinished ? (
+                        <div className="cardTournament-Fee bottom-fee-detail">
                           <p>{data?.winPlayer[0]?.username}</p>
                           <div className="extraDetail-container">
                             <FaTrophy />
                             Winner
                           </div>
-                        </div>) : null}
-                      </>)
-                    }
-                  </>)
-                }
-              </>
-            ) : (<></>)
-          }
+                        </div>
+                      ) : null}
+                    </>
+                  )}
+                </>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
           {/* {data.isFinished || data?.eleminatedPlayers.includes(userId?.toString()) ? data.isFinished && data?.winPlayer ?
             (<div className="cardTournament-Fee bottom-fee-detail">
               <p>{data?.winPlayer[0]?.username}</p>
