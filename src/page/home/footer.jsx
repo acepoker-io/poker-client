@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/headerLogo.png";
+import logo from "../../assets/newlogo.png";
 // import {
 //   FaDiscord,
 //   FaEnvelope,

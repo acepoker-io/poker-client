@@ -14,7 +14,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 // import { Tooltip } from "react-bootstrap";
-import logo from "../../assets/headerLogo.png";
+import logo from "../../assets/newlogo.png";
 // import { FaQuestionCircle } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { authInstance, userInstance } from "../../utils/axios.config";
@@ -241,77 +241,77 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
 
   return (
     <>
-      <div className='user-header'>
-        <div className='user-header-grid'>
-          <div className='casino-logo'>
+      <div className="user-header">
+        <div className="user-header-grid">
+          <div className="casino-logo">
             <a href={clientUrl}>
-              <img src={logo} alt='' />
+              <img src={logo} alt="" />
             </a>
           </div>
 
-          <div className='user-header-left'>
+          <div className="user-header-left">
             {!user && (
-              <div className='header-navlink-desktop-content'>
-                <div class='navLink'>
+              <div className="header-navlink-desktop-content">
+                <div class="navLink">
                   <ul>
                     <li>
-                      <a href='https://acepoker.io/'>Homepage</a>
+                      <a href="https://acepoker.io/">Homepage</a>
                     </li>
                     <li>
-                      <a href='https://acepoker.io/#about-us'>About us</a>
+                      <a href="https://acepoker.io/#about-us">About us</a>
                     </li>
                     <li>
-                      <a href='https://acepoker.io/#playPoker'>Play Poker</a>
+                      <a href="https://acepoker.io/#playPoker">Play Poker</a>
                     </li>
                     <li>
-                      <a href='https://acepoker.io/#WPT_Token'>ACE Token</a>
+                      <a href="https://acepoker.io/#WPT_Token">ACE Token</a>
                     </li>
                     <li>
-                      <a href='https://docs.acepoker.io'>Docs</a>
+                      <a href="https://docs.acepoker.io">Docs</a>
                     </li>
-                    <li class='ddparent'>
-                      <a href='/'>Security &amp; Privacy</a>
-                      <span class='menuDdIcon'>
+                    <li class="ddparent">
+                      <a href="/">Security &amp; Privacy</a>
+                      <span class="menuDdIcon">
                         <img
-                          src='https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg'
-                          alt='...'
+                          src="https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg"
+                          alt="..."
                         />
                       </span>
-                      <ul class='ddstyle'>
+                      <ul class="ddstyle">
                         <li>
-                          <a href='https://acepoker.io/privacy/'>
+                          <a href="https://acepoker.io/privacy/">
                             Privacy Policy
                           </a>
                         </li>
                         <li>
-                          <a href='https://acepoker.io/cookie-policy-2/'>
+                          <a href="https://acepoker.io/cookie-policy-2/">
                             Cookie Policy
                           </a>
                         </li>
                         <li>
-                          <a href='https://acepoker.io/tearm-of-use/'>
+                          <a href="https://acepoker.io/tearm-of-use/">
                             Tearm of use
                           </a>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href='https://acepoker.io/service/'>Services</a>
+                      <a href="https://acepoker.io/service/">Services</a>
                     </li>
                     <li>
-                      <a href='https://acepoker.io/#footer'>Contact</a>
+                      <a href="https://acepoker.io/#footer">Contact</a>
                     </li>
                   </ul>
                 </div>
               </div>
             )}
 
-            <div className='create-game-box'>
+            <div className="create-game-box">
               {user ? (
                 <>
                   {/* <a href={`${landingClient}profile`}> */}
-                  <div className='create-game-box-login'>
-                    <div className='create-game-box-avtar'>
+                  <div className="create-game-box-login">
+                    <div className="create-game-box-avtar">
                       {/* <img
                                     src={
                                         user?.profile ||
@@ -323,7 +323,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                       <h5>{user?.username}</h5>
                     </div>
                     <div
-                      className='create-game-box-avtar'
+                      className="create-game-box-avtar"
                       onClick={handleNotifiationShow}
                     >
                       <FaBell />
@@ -333,11 +333,11 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                       {showNotifications ? <Notifications /> : null}
                     </div>
                     {/* </a> */}
-                    <div className='walletTicket-box'>
+                    <div className="walletTicket-box">
                       <Dropdown as={ButtonGroup}>
                         <Button>
-                          <div className='pokerWallet-box'>
-                            <img src={token} alt='' className='pokerWallet' />
+                          <div className="pokerWallet-box">
+                            <img src={token} alt="" className="pokerWallet" />
                             <span>
                               {numFormatter(user?.wallet.toFixed(2) || 0)}
                             </span>
@@ -352,8 +352,8 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                                         </OverlayTrigger> */}
                           </div>
                         </Button>
-                        <Dropdown.Toggle split id='dropdown-split-basic' />
-                        <Dropdown.Menu flip='True' align='start'>
+                        <Dropdown.Toggle split id="dropdown-split-basic" />
+                        <Dropdown.Menu flip="True" align="start">
                           <Dropdown.Item onClick={handleShowDepositPopUp}>
                             Deposit
                           </Dropdown.Item>
@@ -379,15 +379,15 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                     </div>
 
                     <button
-                      type='button'
-                      className='create-game-boxBtn'
+                      type="button"
+                      className="create-game-boxBtn"
                       onClick={handleShow}
                     >
                       Create Game
                     </button>
                     <button
-                      type='button'
-                      className='create-game-boxBtn'
+                      type="button"
+                      className="create-game-boxBtn"
                       onClick={handleLogOut}
                     >
                       Logout
@@ -397,33 +397,33 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
               ) : (
                 <>
                   <button
-                    type='button'
-                    className='connect-meta red-btnPrimary'
+                    type="button"
+                    className="connect-meta red-btnPrimary"
                     onClick={() =>
                       connectWithMetamask({ chainId: ChainId.Arbitrum })
                     }
                   >
                     Connect
                   </button>
-                  <div className='menubtn' onClick={handleclickShow}>
-                    <div class='switch'>
-                      <input type='checkbox' />
+                  <div className="menubtn" onClick={handleclickShow}>
+                    <div class="switch">
+                      <input type="checkbox" />
                       <div>
-                        <span class='line-1'></span>
-                        <span class='line-2'></span>
-                        <span class='line-3'></span>
+                        <span class="line-1"></span>
+                        <span class="line-2"></span>
+                        <span class="line-3"></span>
                       </div>
                     </div>
                   </div>
                 </>
               )}
-              <div className='menubtn-mobile' onClick={handleclickShow}>
-                <div class='switch'>
-                  <input type='checkbox' />
+              <div className="menubtn-mobile" onClick={handleclickShow}>
+                <div class="switch">
+                  <input type="checkbox" />
                   <div>
-                    <span class='line-1'></span>
-                    <span class='line-2'></span>
-                    <span class='line-3'></span>
+                    <span class="line-1"></span>
+                    <span class="line-2"></span>
+                    <span class="line-3"></span>
                   </div>
                 </div>
               </div>
@@ -431,18 +431,18 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
             </div>
           </div>
 
-          <div className={`navCol-responsive ${ show ? `active` : `` }`}>
+          <div className={`navCol-responsive ${show ? `active` : ``}`}>
             {/* <div class='navCol-responsive'> */}
             {user ? (
               <>
-                <div className='create-game-box-sidebar'>
-                  <div className='create-game-box'>
-                    <div className='create-game-box-avtar'>
+                <div className="create-game-box-sidebar">
+                  <div className="create-game-box">
+                    <div className="create-game-box-avtar">
                       <h6>User Name</h6>
                       <h5>{user?.username}</h5>
                     </div>
                     <div
-                      className='create-game-box-avtar'
+                      className="create-game-box-avtar"
                       onClick={handleNotifiationShow}
                     >
                       <FaBell />
@@ -452,18 +452,18 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                       {showNotifications ? <Notifications /> : null}
                     </div>
 
-                    <div className='walletTicket-box'>
+                    <div className="walletTicket-box">
                       <Dropdown as={ButtonGroup}>
                         <Button>
-                          <div className='pokerWallet-box'>
-                            <img src={token} alt='' className='pokerWallet' />
+                          <div className="pokerWallet-box">
+                            <img src={token} alt="" className="pokerWallet" />
                             <span>
                               {numFormatter(user?.wallet.toFixed(2) || 0)}
                             </span>
                           </div>
                         </Button>
-                        <Dropdown.Toggle split id='dropdown-split-basic' />
-                        <Dropdown.Menu flip='True' align='start'>
+                        <Dropdown.Toggle split id="dropdown-split-basic" />
+                        <Dropdown.Menu flip="True" align="start">
                           <Dropdown.Item onClick={handleShowDepositPopUp}>
                             Deposit
                           </Dropdown.Item>
@@ -475,15 +475,15 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                     </div>
 
                     <button
-                      type='button'
-                      className='create-game-boxBtn'
+                      type="button"
+                      className="create-game-boxBtn"
                       onClick={handleShow}
                     >
                       Create Game
                     </button>
                     <button
-                      type='button'
-                      className='create-game-boxBtn'
+                      type="button"
+                      className="create-game-boxBtn"
                       onClick={handleLogOut}
                     >
                       Logout
@@ -492,67 +492,67 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
                 </div>
               </>
             ) : (
-              <div class='row align-items-center'>
-                <div class='col-lg'>
-                  <div class='navLink-content'>
+              <div class="row align-items-center">
+                <div class="col-lg">
+                  <div class="navLink-content">
                     <ul>
                       <li>
-                        <a href='https://acepoker.io/'>Homepage</a>
+                        <a href="https://acepoker.io/">Homepage</a>
                       </li>
                       <li>
-                        <a href='https://acepoker.io/#about-us'>About us</a>
+                        <a href="https://acepoker.io/#about-us">About us</a>
                       </li>
                       <li>
-                        <a href='https://acepoker.io/#playPoker'>Play Poker</a>
+                        <a href="https://acepoker.io/#playPoker">Play Poker</a>
                       </li>
                       <li>
-                        <a href='https://acepoker.io/#WPT_Token'>ACE Token</a>
+                        <a href="https://acepoker.io/#WPT_Token">ACE Token</a>
                       </li>
                       <li>
-                        <a href='https://docs.acepoker.io'>Docs</a>
+                        <a href="https://docs.acepoker.io">Docs</a>
                       </li>
-                      <li class='ddparent'>
-                        <a href='/'>Security &amp; Privacy</a>
-                        <span class='menuDdIcon'>
+                      <li class="ddparent">
+                        <a href="/">Security &amp; Privacy</a>
+                        <span class="menuDdIcon">
                           <img
-                            src='https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg'
-                            alt='...'
+                            src="https://acepoker.io/wp-content/themes/harsol/assets/images/PrivacyIcon.svg"
+                            alt="..."
                           />
                         </span>
-                        <ul class='ddstyle'>
+                        <ul class="ddstyle">
                           <li>
-                            <a href='https://acepoker.io/privacy/'>
+                            <a href="https://acepoker.io/privacy/">
                               Privacy Policy
                             </a>
                           </li>
                           <li>
-                            <a href='https://acepoker.io/cookie-policy-2/'>
+                            <a href="https://acepoker.io/cookie-policy-2/">
                               Cookie Policy
                             </a>
                           </li>
                           <li>
-                            <a href='https://acepoker.io/tearm-of-use/'>
+                            <a href="https://acepoker.io/tearm-of-use/">
                               Tearm of use
                             </a>
                           </li>
                         </ul>
                       </li>
                       <li>
-                        <a href='https://acepoker.io/service/'>Services</a>
+                        <a href="https://acepoker.io/service/">Services</a>
                       </li>
                       <li>
-                        <a href='https://acepoker.io/#footer'>Contact</a>
+                        <a href="https://acepoker.io/#footer">Contact</a>
                       </li>
                     </ul>
                   </div>
                 </div>
-                <div class='col-lg-auto d-sm-none  d-xl-block'>
-                  <div class='headerRightCol'>
+                <div class="col-lg-auto d-sm-none  d-xl-block">
+                  <div class="headerRightCol">
                     <span
                       onClick={() =>
                         connectWithMetamask({ chainId: ChainId.Arbitrum })
                       }
-                      class='btn btnPrimary minWdBtn'
+                      class="btn btnPrimary minWdBtn"
                     >
                       Connect
                     </span>
@@ -616,11 +616,11 @@ const DepositModal = ({
     <Modal
       show={showTransactionModal}
       centered
-      className='transaction-modalPopup fade casino-popup'
+      className="transaction-modalPopup fade casino-popup"
     >
       <Form.Label>Currency Type</Form.Label>
-      <Modal.Body className='transaction-validatingTranction'>
-        <img src={deposit} alt='deposit' />
+      <Modal.Body className="transaction-validatingTranction">
+        <img src={deposit} alt="deposit" />
         {/* <Form.Label>Currency type</Form.Label>
                 <Form.Select size="sm">
                     <option>USDT</option>
@@ -634,16 +634,16 @@ const DepositModal = ({
         />
         <Form.Label>Deposit USDT</Form.Label>
         <Form.Control
-          name='Deposit'
+          name="Deposit"
           onInput={handleDepositAmt}
           value={depositAmt}
-          type='number'
-          placeholder='Ex : 50'
+          type="number"
+          placeholder="Ex : 50"
         />
       </Modal.Body>
       <Modal.Footer>
         <Button
-          variant='secondary'
+          variant="secondary"
           onClick={() => {
             setShowTransactionModal(false);
           }}
@@ -651,12 +651,12 @@ const DepositModal = ({
           Close
         </Button>
         <Button
-          variant='primary'
-          type='submit'
+          variant="primary"
+          type="submit"
           onClick={handleDepositTransaction}
           disabled={showSpinner}
         >
-          {showSpinner ? <Spinner animation='border' /> : "Deposit"}
+          {showSpinner ? <Spinner animation="border" /> : "Deposit"}
         </Button>
       </Modal.Footer>
     </Modal>
@@ -677,23 +677,23 @@ const WithdrawlModal = ({
     <Modal
       show={showWithdrawTransaction}
       centered
-      className='transaction-modalPopup fade casino-popup'
+      className="transaction-modalPopup fade casino-popup"
     >
-      <Modal.Body className='transaction-validatingTranction'>
-        <img src={withdraw} alt='' />
+      <Modal.Body className="transaction-validatingTranction">
+        <img src={withdraw} alt="" />
         <Form.Label>Withdraw USDT</Form.Label>
         <Form.Control
-          name='Deposit'
+          name="Deposit"
           onInput={handleWithdrawAmt}
           // onKeyDown={handleWithdrawAmt}
           value={withdrawAmt}
-          type='text'
-          placeholder='Ex : 50'
+          type="text"
+          placeholder="Ex : 50"
         />
       </Modal.Body>
       <Modal.Footer>
         <Button
-          variant='secondary'
+          variant="secondary"
           onClick={() => {
             setShowWithdrawTransaction(false);
           }}
@@ -701,12 +701,12 @@ const WithdrawlModal = ({
           Close
         </Button>
         <Button
-          variant='primary'
-          type='submit'
+          variant="primary"
+          type="submit"
           onClick={handleWithdrawTransaction}
           disabled={showSpinner}
         >
-          {showSpinner ? <Spinner animation='border' /> : "Withdraw"}
+          {showSpinner ? <Spinner animation="border" /> : "Withdraw"}
         </Button>
       </Modal.Footer>
     </Modal>
