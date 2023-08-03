@@ -741,11 +741,13 @@ const Home = ({ openChatData = {} }) => {
         </div>
       </div>
       <Footer />
-      <Chat
-        openChatData={openChatData}
-        open={chatShow}
-        handleClick={() => setChatShow(!chatShow)}
-        chatRef={chatRef} />
+      {userId &&
+        <Chat
+          openChatData={openChatData}
+          open={chatShow}
+          handleClick={() => setChatShow(!chatShow)}
+          chatRef={chatRef} />
+      }
     </div>
   );
 };
