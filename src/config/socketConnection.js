@@ -9,6 +9,10 @@ const socket = io(CONSTANTS.serverUrl, {
 });
 socket.on("connect", () => {
   console.log("connected");
+  const userid = localStorage.getItem("userId");
+  if (userid) {
+    socket.emit("join", userid);
+  }
 });
 socket.on("disconnect", () => {
   window.location.href =

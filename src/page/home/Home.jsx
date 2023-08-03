@@ -37,10 +37,11 @@ import dice from "../../assets/dice.png";
 import cards from "../../assets/cards.svg";
 import hLeft from "../../assets/p-left-shape.svg";
 import hRight from "../../assets/p-right-shape.svg";
+import Chat from "../../components/chat/chat";
 // import { ethers } from "ethers";
 
 let userId;
-const Home = () => {
+const Home = ({ openChatData = {} }) => {
   // inital state
 
   const { userInAnyGame, setUserInAnyGame, user, setUser } =
@@ -87,10 +88,14 @@ const Home = () => {
   };
   // States//userInAnyGame,
   const [searchText, setSearchText] = useState("");
+  const chatRef = useRef();
+
   const [loader, setLoader] = useState(true);
   const [userData, setUserData] = useState({});
   const [gameState, setGameState] = useState({ ...gameInit });
   const [show, setShow] = useState(false);
+  const [chatShow, setChatShow] = useState(false);
+
   const [errors, setErrors] = useState({});
   const [pokerRooms, setPokerRooms] = useState([]);
   const [tournaments, setTournaments] = useState([]);
@@ -413,7 +418,7 @@ const Home = () => {
         const { tournament } = response.data;
         setTournaments(tournament || []);
       }
-    } catch (error) {}
+    } catch (error) { }
   };
 
   useEffect(() => {
@@ -628,7 +633,7 @@ const Home = () => {
         handleShow={handleShow}
         handleDeposit={handleDeposit}
         handleWithdraw={handleWithdraw}
-        // getAllRequiredData={getAllRequiredData}
+      // getAllRequiredData={getAllRequiredData}
       />
       {/* <Tabs
         id="controlled-tab-example"
@@ -736,6 +741,11 @@ const Home = () => {
         </div>
       </div>
       <Footer />
+      <Chat
+        openChatData={openChatData}
+        open={chatShow}
+        handleClick={() => setChatShow(!chatShow)}
+        chatRef={chatRef} />
     </div>
   );
 };
@@ -1098,7 +1108,7 @@ const GameTable = ({
     let date = d.getDate();
     let month = d.getMonth() + 1;
     let year = d.getFullYear();
-    return `${date}/${month}/${year} ${hour12}:${minute} ${pm ? "pm" : "am"}`;
+    return `${ date }/${ month }/${ year } ${ hour12 }:${ minute } ${ pm ? "pm" : "am" }`;
   };
 
   const [cardFlip, setCardFlip] = useState(false);
@@ -1165,7 +1175,7 @@ const GameTable = ({
         {/* {user ? <FaInfoCircle className="leaderboardBtn" onClick={() => handleFlip(data.tournamentDate)} /> : null} */}
         <div
           className={`tournamentCard-inner
-         ${cardFlip && gameType === "Poker" ? "rotate" : ""}
+         ${ cardFlip && gameType === "Poker" ? "rotate" : "" }
          `}
         >
           <VerifyPasswordPopup
@@ -1194,7 +1204,7 @@ const GameTable = ({
                           {" "}
                           {(gameType === "Tournament"
                             ? data?.rooms?.filter((el) => el?.players)[0]
-                                ?.players?.length || 0
+                              ?.players?.length || 0
                             : data?.players?.length) || 0}
                         </span>
                       </p>
@@ -1305,7 +1315,7 @@ const GameTable = ({
                 <span>
                   {(gameType === "Tournament"
                     ? data?.rooms?.filter((el) => el?.players)[0]?.players
-                        ?.length || 0
+                      ?.length || 0
                     : data?.players?.length) || 0}
                 </span>
               </h4>
@@ -1527,10 +1537,10 @@ const GameTournament = ({
           {user ? (
             <>
               {!data.isStart &&
-              !data.isFinished &&
-              !data?.waitingArray.find(
-                (el) => el.id === (user?.id || user?._id)
-              ) ? (
+                !data.isFinished &&
+                !data?.waitingArray.find(
+                  (el) => el.id === (user?.id || user?._id)
+                ) ? (
                 <Button
                   type="text"
                   onClick={() => {
@@ -1543,9 +1553,9 @@ const GameTournament = ({
               ) : (
                 <>
                   {!data.isFinished &&
-                  data?.waitingArray.find(
-                    (el) => el.id === (user?.id || user?._id)
-                  ) ? (
+                    data?.waitingArray.find(
+                      (el) => el.id === (user?.id || user?._id)
+                    ) ? (
                     <>
                       <Button
                         type="text"

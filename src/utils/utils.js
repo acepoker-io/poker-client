@@ -16,6 +16,36 @@ const numFormatter = (num) => {
   else return num; // if value < 1000, nothing to do
 };
 
+export const timeDifference = (time1) => {
+  const current = new Date();
+  const previous = new Date(time1);
+  const msPerMinute = 60 * 1000;
+  const msPerHour = msPerMinute * 60;
+  const msPerDay = msPerHour * 24;
+  const msPerMonth = msPerDay * 30;
+  const msPerYear = msPerDay * 365;
+
+  const elapsed = current - previous;
+  // console.log("elapsed", Math.round(elapsed / 1000));
+
+  if (elapsed < msPerMinute) {
+    return `${Math.round(elapsed / 1000)} seconds ago`;
+  }
+  if (elapsed < msPerHour) {
+    return `${Math.round(elapsed / msPerMinute)} minutes ago`;
+  }
+  if (elapsed < msPerDay) {
+    return `${Math.round(elapsed / msPerHour)} hours ago`;
+  }
+  if (elapsed < msPerMonth) {
+    return `${Math.round(elapsed / msPerDay)} days ago`;
+  }
+  if (elapsed < msPerYear) {
+    return `${Math.round(elapsed / msPerMonth)} months ago`;
+  }
+  return `${Math.round(elapsed / msPerYear)} years ago`;
+};
+
 export const getCookie = (name) => {
   const nameEQ = `${name}=`;
   const ca = document.cookie.split(";");
