@@ -22,6 +22,8 @@ import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 const App = () => {
   const [userInAnyGame, setUserInAnyGame] = useState();
   const [user, setUser] = useState();
+  const [notificationCount, setNotificationCount] = useState(0);
+
   const getUser = async () => {
     let res = await userUtils.getAuthUserData();
     setUser(res?.data?.user);
@@ -44,6 +46,8 @@ const App = () => {
           setUserInAnyGame,
           user,
           setUser,
+          notificationCount,
+          setNotificationCount,
         }}>
         <ThirdwebProvider
           activeChain={ChainId.Arbitrum}
