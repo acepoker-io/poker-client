@@ -14,7 +14,7 @@ import EmojiPopup from "../emoji/emojiPopup";
 
 function Chat({ open, handleClick, chatRef, openChatData = {} }) {
     const messagesEndRef = useRef(null);
-    const { user } = useContext(UserContext);
+    const { user, notificationCount, setNotificationCount } = useContext(UserContext);
     const [show, setShow] = useState(true);
     const scrollToBottomRef = useRef(null);
     const [chatMessage, setChatMessage] = useState("");
@@ -56,7 +56,8 @@ function Chat({ open, handleClick, chatRef, openChatData = {} }) {
                         (a, b) => new Date(b.date) - new Date(a.date)
                     )
                 );
-                // setNotificationCount(users?.data?.unreadCount);
+                console.log("usersusersusersusers", users);
+                setNotificationCount(users?.data?.unreadCount);
             } catch (e) {
                 const { data, message } = e.response.data;
                 if (data !== 200) {
@@ -159,9 +160,10 @@ function Chat({ open, handleClick, chatRef, openChatData = {} }) {
                     >
                         <span
                             className={
-                                "unread-alert"
+                                notificationCount === 0 ? "unread-alert-hidden" : "unread-alert"
                             }
                         >
+                            {notificationCount}
                         </span>
                         <span className="chat-author">
                             <img
@@ -209,9 +211,9 @@ function Chat({ open, handleClick, chatRef, openChatData = {} }) {
                         searchData={searchData}
                         setSingleUserProfile={setSingleUserProfile}
                         setSingleUsername={setSingleUsername}
-                        // notificationCount={notificationCount}
+                        notificationCount={notificationCount}
                         user={user}
-                    // setNotificationCount={setNotificationCount}
+                        setNotificationCount={setNotificationCount}
                     />
                 ) : (
                     <SingleChatUser
@@ -250,7 +252,6 @@ function ChatUserList({
     handleSearch,
     searchData,
     allChatUsers,
-    setSingleUserProfile,
     setSingleUsername,
     scrollToBottomRef,
     user,
@@ -261,19 +262,18 @@ function ChatUserList({
         return { __html: text };
     }
 
-    // const handleNotificationSeen = async () => {
-    //     if (notificationCount !== 0 && user?.id) {
-    //         const res = await notificationInstance().put(
-    //             `/seenNotifications?id=${ user?.id }`,
-    //             { withCredentials: true, credentials: "include" }
-    //         );
-    //         const count = res?.data?.resData;
-    //         setNotificationCount(count);
-    //     }
-    // };
+    const handleNotificationSeen = async () => {
+        if (notificationCount !== 0 && user?.id) {
+            const res = await userInstance().put(
+                `/seenNotifications?id=${ user?.id }`,
+                { withCredentials: true, credentials: "include" }
+            );
+            const count = res?.data?.resData;
+            setNotificationCount(count);
+        }
+    };
 
     const scrollBottoInChatHIstory = () => {
-        // console.log("scrolling to");
         scrollToBottomRef.current?.scrollIntoView({ behavior: "smooth" });
     };
 
@@ -335,9 +335,8 @@ function ChatUserList({
                         <div
                             className="chat-list unread-msg"
                             onClick={() => {
-                                // handleNotificationSeen();
+                                handleNotificationSeen();
                                 handleChooseFriend(el?.user?._id, el?.user?.username);
-                                setSingleUserProfile(el?.user?.profile);
                                 setSingleUsername(el?.user?.username);
                                 scrollBottoInChatHIstory();
                             }}
@@ -356,6 +355,7 @@ function ChatUserList({
                                 </h4>
                                 <p dangerouslySetInnerHTML={createMarkup(el?.lastMessage)} />
                             </div>
+                            {console.log("ellll", el.count)}
                             {el?.count > 0 && (
                                 <span className="unread-alert">{el?.count}</span>
                             )}
@@ -442,8 +442,6 @@ function SingleChatUser({
                                             {chat?.sender?.firstName}
                                         </div>
                                         <div className="msg-info-time">
-                                            {/* {new Date(chat?.createdAt).toLocaleString()}
-                    {" "} */}
                                             {timeDifference(chat?.createdAt) === -1 ? 1 : timeDifference(chat?.createdAt)}
                                         </div>
                                     </div>
