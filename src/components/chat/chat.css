@@ -194,7 +194,7 @@
 }
 
 .unread-alert {
-  background: var(--primary-color);
+  background: yellow;
   width: 20px;
   height: 20px;
   line-height: 22px;
