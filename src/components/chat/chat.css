@@ -12,7 +12,8 @@
   z-index: 9999;
   background: #0e063d;
   border: 2px solid rgba(237, 184, 255, 0.19);
-  box-shadow: 0px 0px 51px rgba(255, 255, 255, 0.2), inset 0px 0px 34px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 51px rgba(255, 255, 255, 0.2),
+    inset 0px 0px 34px rgba(255, 255, 255, 0.2);
 }
 .modal-dialog {
   display: grid;
@@ -311,7 +312,7 @@
 
 .chat-search.chat-input .form-control {
   border: 1px solid rgba(237, 184, 255, 0.19);
-  width: auto !important;
+  width: calc(100% - 94px) !important;
 }
 
 .chat-search.chat-input .btn-primary,
@@ -363,6 +364,7 @@
   height: 38px;
   text-align: center;
   /* border: 1px solid #484848; */
+  color: #d22027;
 }
 .chatemoji .emojiPopupdiv p {
   width: 38px;
@@ -378,7 +380,7 @@
   position: absolute;
   top: -220px;
   right: -65px;
-  background: var(--light-grey);
+  background: #382862;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px #262626;
