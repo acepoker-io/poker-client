@@ -10,6 +10,7 @@ import { userInstance } from "../../utils/axios.config";
 import UserContext from "../../context/UserContext";
 import { socket } from "../../config/socketConnection";
 import { timeDifference } from "../../utils/utils";
+import EmojiPopup from "../emoji/emojiPopup";
 
 function Chat({ open, handleClick, chatRef, openChatData = {} }) {
     const messagesEndRef = useRef(null);
@@ -389,9 +390,9 @@ function SingleChatUser({
     handleSelectEmojiComment,
     handleBlur,
     scrollToBottomRef,
-    user
 }) {
     const wrapperRef = useRef();
+    const { user } = useContext(UserContext);
     const [emojiShow, setEmojiShow] = useState(false);
     const handleShowEmoji = () => {
         setEmojiShow(!emojiShow);
@@ -414,7 +415,7 @@ function SingleChatUser({
     function createMarkup(text) {
         return { __html: text };
     }
-    console.log("chatMessages", chatMessages);
+
     return (
         <div className="chat-content">
             <div className="chat-users chat-message-box" ref={messagesEndRef}>
@@ -438,10 +439,11 @@ function SingleChatUser({
                                 <div className="msg-bubble">
                                     <div className="msg-info">
                                         <div className="msg-info-name">
-                                            {chat?.sender?.username}
+                                            {chat?.sender?.firstName}
                                         </div>
                                         <div className="msg-info-time">
-                                            {new Date(chat?.createdAt).toLocaleString()}
+                                            {/* {new Date(chat?.createdAt).toLocaleString()}
+                    {" "} */}
                                             {timeDifference(chat?.createdAt) === -1 ? 1 : timeDifference(chat?.createdAt)}
                                         </div>
                                     </div>
@@ -488,9 +490,9 @@ function SingleChatUser({
                         >
                             <p>☺️</p>
                         </div>
-                        {/* {emojiShow && (
+                        {emojiShow && (
                             <EmojiPopup handleSelectEmoji={handleSelectEmojiComment} />
-                        )} */}
+                        )}
                     </div>
                 </Form>
             </div>
