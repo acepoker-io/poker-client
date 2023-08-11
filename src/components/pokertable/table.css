@@ -7008,7 +7008,7 @@ img.coinWinning-animation {
     }
   }
 
-  .chat-content h6 {
+  .chat-content1 h6 {
     font-size: 16px;
   }
 
@@ -7153,7 +7153,7 @@ img.coinWinning-animation {
     width: 100px;
   }
 
-  .chat-header .close-icon i {
+  .chat-header1 .close-icon i {
     font-size: 16px;
   }
 
@@ -7188,7 +7188,7 @@ img.coinWinning-animation {
     width: 90px;
   }
 
-  .chat-header .close-icon {
+  .chat-header1 .close-icon {
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -7534,7 +7534,7 @@ img.coinWinning-animation {
     height: 200px !important;
   }
 
-  .chat-content {
+  .chat-content1 {
     height: 155px !important;
   }
 
@@ -9251,7 +9251,7 @@ img.coinWinning-animation {
     font-size: 18px;
   }
 
-  .chat-content h6 {
+  .chat-content1 h6 {
     font-size: 16px;
   }
 
@@ -9334,7 +9334,7 @@ img.coinWinning-animation {
     max-width: 82px;
   }
 
-  .chat-content {
+  .chat-content1{
     padding: 15px 12px;
   }
 
@@ -9417,7 +9417,7 @@ img.coinWinning-animation {
     opacity: 0.12;
   }
 
-  .chat-header .close-icon i {
+  .chat-header1 .close-icon i {
     font-size: 16px;
   }
 
@@ -9449,7 +9449,7 @@ img.coinWinning-animation {
     width: 90px;
   }
 
-  .chat-header .close-icon {
+  .chat-header1 .close-icon {
     width: 30px;
     height: 30px;
     line-height: 30px;

@@ -1,4 +1,4 @@
-.chat-wrapper {
+.chat-wrapper1 {
     max-width: 350px;
     position: fixed;
     width: 100%;
@@ -9,11 +9,11 @@
     border-top-right-radius: 5px;
   }
   
-  .chat-section {
+  .chat-section1 {
     position: relative;
   }
   
-  .chat-header {
+  .chat-header1 {
     padding: 0;
     display: flex;
     justify-content: flex-end;
@@ -26,11 +26,11 @@
     z-index: 999;
   }
   
-  .chat-header .close-icon i {
+  .chat-header1 .close-icon i {
     font-size: 20px;
   }
   
-  .chat-header .close-icon {
+  .chat-header1 .close-icon {
     width: 25px;
     height: 25px;
     color: black;
@@ -50,16 +50,16 @@
     font-family: "FontAwesome";
   }
   
-  .chat-content-box {
+  .chat-content-box1 {
     height: 0;
   }
   
-  .chat-wrapper.expand .chat-content-box {
+  .chat-wrapper1.expand .chat-content-box1 {
     height: 100%;
     margin-bottom: 20px;
   }
   
-  .chat-content h6 {
+  .chat-content1 h6 {
     font-size: 20px;
     font-weight: 600;
     color: #ffffff;
@@ -67,7 +67,7 @@
     text-transform: capitalize;
   }
   
-  .chat-content {
+  .chat-content1 {
     transition: all 0.5s;
     position: relative;
     background: #141414;
@@ -77,7 +77,7 @@
     box-shadow: 0px 2px 10px #141414;
   }
   
-  .chat-content:before {
+  .chat-content1:before {
     content: "";
     /* background: url(../../assets/black.png); */
     background-repeat: repeat;
@@ -223,6 +223,7 @@
     /* border-radius: 20px; */
     font-size: 18px;
     font-weight: 700;
+    color: white;
   }
   
   .Gameplayer-count {
@@ -267,7 +268,7 @@
   }
   
   .playerComment-box.playerSelfMssg {
-    background: #0a0808;
+    color: #bababa;
     /* flex-direction: row-reverse; */
   }
   
@@ -286,6 +287,7 @@
     margin-top: 4px;
     font-size: 14px;
     font-weight: 600;
+    color: white;
   }
   
   .playerMssgtoDisplay p {
@@ -295,6 +297,7 @@
     margin-bottom: 0px !important;
     word-break: break-all;
     margin-top: 4px;
+    color: white;
   }
   
   .chatHistory-header .hamburger {

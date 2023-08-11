@@ -1,17 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from "react";
+
 import { socket } from '../../config/socketConnection';
 import avtar from "../../assets/profile_user.jpg";
-import WinHistoryPopup from "./winHistorypopup";
+// import WinHistoryPopup from "./winHistorypopup";
 import { useMediaQuery } from "react-responsive";
+import '../pokertable/RoomChat/RoomChat.css'
 
 const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistory, userId, roomData, chatMessages, scrollToBottom, scrollDownRef, leaveTable }) => {
   // const [message, setMessages] = useState([]);
   const [typingOnChat, setTypingOnChat] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
-  const [winHistoryData, setWinHistoryData] = useState([]);
+  // const [modalShow, setModalShow] = useState(false);
+  // const [winHistoryData, setWinHistoryData] = useState([]);
   const [typingPlayrName, setTypingPlayerName] = useState("");
-  const [winPopupData, setWinPopupData] = useState();
+  // const [winPopupData, setWinPopupData] = useState();
   const isDesktop = useMediaQuery({
     query: "(min-width: 1024px)",
   });
@@ -42,12 +44,12 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
       }
     });
     socket.on('winner', (data) => {
-      const room = data.updatedRoom;
-      setWinHistoryData(room.handWinner)
+      // const room = data.updatedRoom;
+      // setWinHistoryData(room.handWinner)
     });
     socket.on('updateGame', (data) => {
-      const room = data.game;
-      setWinHistoryData(room.handWinner)
+      // const room = data.game;
+      // setWinHistoryData(room.handWinner)
     })
   }, [])
 
@@ -61,10 +63,10 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
 
   useOutsideAlerter(wrapperRef);
 
-  const handleWinPopup = (data) => {
-    setModalShow(!modalShow)
-    setWinPopupData(data)
-  }
+  // const handleWinPopup = (data) => {
+  //   setModalShow(!modalShow)
+  //   setWinPopupData(data)
+  // }
 
   return (
     <div
@@ -100,7 +102,7 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
           )
         })
         }
-        {winHistoryData?.map((data, i) => (
+        {/* {winHistoryData?.map((data, i) => (
           <div className="playerComment-box" key={i} onClick={() => handleWinPopup(data)}>
             <div className="everyRoundData">
               {data.map(win => (
@@ -108,12 +110,12 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
               ))}
             </div>
           </div>
-        ))}
-        <div style={{ float: "left", clear: "both" }}
+        ))} */}
+        {/* <div style={{ float: "left", clear: "both" }}
           ref={scrollDownRef}>
-        </div>
+        </div> */}
       </div>
-      <WinHistoryPopup modalShow={modalShow} setModalShow={setModalShow} winPopupData={winPopupData} leaveTable={leaveTable} />
+      {/* <WinHistoryPopup modalShow={modalShow} setModalShow={setModalShow} winPopupData={winPopupData} leaveTable={leaveTable} /> */}
     </div>
   );
 };
