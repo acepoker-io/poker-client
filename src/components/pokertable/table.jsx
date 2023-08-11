@@ -1833,24 +1833,28 @@ const PokerTable = (props) => {
 
           <div className={`poker-table ${ winner ? "winner-show" : "" }`}>
             <div className="containerFor-chatHistory">
-              {/* <div className="chatHistory-icon" onClick={handleOpenChatHistory}>
-                {unReadMessages > 0 && (
-                  <p className="ChatHistory-count">{unReadMessages}</p>
-                )}
-                <img src={UsersComments} alt="" />
-              </div> */}
-              {/* <ChatHistory
-                setOpenChatHistory={setOpenChatHistory}
-                openChatHistory={openChatHistory}
-                handleOpenChatHistory={handleOpenChatHistory}
-                userId={userId}
-                roomData={roomData}
-                chatMessages={chatMessages}
-                scrollToBottom={scrollToBottom}
-                scrollDownRef={scrollDownRef}
-                leaveTable={leaveTable}
-              /> */}
-            </div>
+                  {!isWatcher ? (<div
+                    className="chatHistory-icon"
+                    onClick={handleOpenChatHistory}
+                  >
+                    {unReadMessages > 0 && (
+                      <p className="ChatHistory-count">{unReadMessages}</p>
+                    )}
+                    <img src={UsersComments} alt="" />
+                  </div>) : null}
+                  <ChatHistory
+                    setOpenChatHistory={setOpenChatHistory}
+                    openChatHistory={openChatHistory}
+                    handleOpenChatHistory={handleOpenChatHistory}
+                    userId={userId}
+                    roomData={roomData}
+                    chatMessages={chatMessages}
+                    scrollToBottom={scrollToBottom}
+                    scrollDownRef={scrollDownRef}
+                    leaveTable={leaveTable}
+                  />
+                </div>
+             
             {(players && players.find((ele) => ele.id === userId)) ||
               (roomData &&
                 roomData.players.find((ele) => ele.userid === userId)) ||
@@ -2057,7 +2061,7 @@ const PokerTable = (props) => {
                 </button>
               </OverlayTrigger>
             </li>
-            {/* {players &&
+            {players &&
               players.length > 0 &&
               players.find((ele) => ele.id === userId) && (
                 <li className="">
@@ -2075,7 +2079,7 @@ const PokerTable = (props) => {
                     </button>
                   </OverlayTrigger>
                 </li>
-              )} */}
+              )}
             {isWatcher ? (
               ""
             ) : players &&
@@ -2150,12 +2154,12 @@ const PokerTable = (props) => {
             </li>
           </ul>
         )}
-      {/* <RoomChat
+      <RoomChat
         handleClick={handleClick}
         open={open}
         userId={userId}
         tableId={tableId}
-      /> */}
+      />
       {/* <div className="play-pause-button leave-btn"><div className="pause-btn"><Button >Leave</Button> </div></div> */}
       {isWatcher && (
         <div className="bet-button">

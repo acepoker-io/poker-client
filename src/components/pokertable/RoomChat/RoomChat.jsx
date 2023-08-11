@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Form, Button } from "react-bootstrap"
 // import logo from "../../assets/game/logo-poker.png";
-// import "./RoomChat.css";
+ import "./RoomChat.css";
 import { socket } from '../../../config/socketConnection';
 import Picker from 'emoji-picker-react';
 
@@ -51,15 +51,15 @@ const RoomChat = ({ open, handleClick, userId, tableId,currentPlayer}) => {
     }
 
     return (
-        <div className={`chat-wrapper ${open && currentPlayer && currentPlayer.id === userId ? 'currentWithChat':''} ${ open ? `expand` : `` }`}>
+        <div className={`chat-wrapper1 ${open && currentPlayer && currentPlayer.id === userId ? 'currentWithChat':''} ${ open ? `expand` : `` }`}>
 
             {openEmoji ? <Picker emojiStyle={{ width: "100%" }} onEmojiClick={handleOnEmojiClick} /> : null}
-            <div className="chat-section">
-                {open ? <div className="chat-header">
+            <div className="chat-section1">
+                {open ? <div className="chat-header1">
                     <span className="close-icon" onClick={handleChatClose} role="presentation"><i className="fa fa-close" /></span>
                 </div> : ''}
-                <div className="chat-content-box">
-                    <div className="chat-content">
+                <div className="chat-content-box1">
+                    <div className="chat-content1">
                         {/* <div className="chat-logo">
                             <img src={logo} alt="logo" />
                         </div> */}
