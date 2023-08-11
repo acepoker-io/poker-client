@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import "animate.css";
 import back from "../../assets/game/red card.png";
 import { socket } from "../../config/socketConnection";
-import Chat from "../chat/chat";
 import winnerSound from "../../assets/Poker Sfx/winSoundPoker.mp3";
 import call from "../../assets/Poker Sfx/Chip Bet/bet.wav";
 import collect from "../../assets/Poker Sfx/Collect Chips/collect.wav";
@@ -56,6 +55,7 @@ import green from "../../assets/coin-4.png"
 import chipspokercard from "../../assets/spade-chip.png"
 // import UserContext from "../../context/UserContext";
 import ETHimage from "../../assets/ETHimage.jpg"
+import RoomChat from "./RoomChat/RoomChat";
 
 const getQueryParams = () => {
   const url = new URLSearchParams(window.location.search);
@@ -2150,12 +2150,12 @@ const PokerTable = (props) => {
             </li>
           </ul>
         )}
-      <Chat
+      {/* <RoomChat
         handleClick={handleClick}
         open={open}
         userId={userId}
         tableId={tableId}
-      />
+      /> */}
       {/* <div className="play-pause-button leave-btn"><div className="pause-btn"><Button >Leave</Button> </div></div> */}
       {isWatcher && (
         <div className="bet-button">

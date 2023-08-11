@@ -459,3 +459,8 @@
 .chat-content a:active {
   color: var(--primary-color);
 }
+
+button.search-btn.btn.btn-primary {
+  background-color: red;
+  border-color: red;
+}
