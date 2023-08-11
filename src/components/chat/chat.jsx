@@ -13,6 +13,10 @@ import { timeDifference } from "../../utils/utils";
 import EmojiPopup from "../emoji/emojiPopup";
 
 function Chat({ open, handleClick, chatRef, openChatData = {} }) {
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef);
+  
+
   const messagesEndRef = useRef(null);
   const { user, notificationCount, setNotificationCount } =
     useContext(UserContext);
@@ -28,7 +32,24 @@ function Chat({ open, handleClick, chatRef, openChatData = {} }) {
   const [allChatUsers, setAllChatUsers] = useState([]);
   const [singleUsername, setSingleUsername] = useState("");
   const [singleUserProfile, setSingleUserProfile] = useState("");
+  const [searchOpen, setSearchOpen]=useState(false);
 
+
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setSearchOpen(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+  
   const scrollToBottom = () => {
     scrollToBottomRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -148,6 +169,10 @@ function Chat({ open, handleClick, chatRef, openChatData = {} }) {
   const handleBlur = () => {
     window.scrollTo(0, 0);
   };
+
+  const openSearch=()=>{
+    setSearchOpen(!searchOpen)
+  }
   return (
     <div className={`chat-wrapper ${!open ? "expand" : ""}`} ref={chatRef}>
       <div className="chat-section">
@@ -204,6 +229,11 @@ function Chat({ open, handleClick, chatRef, openChatData = {} }) {
           >
             <i className={`las la-${!open ? "angle-up" : "angle-down"}`} />
           </span>
+          {open &&show &&
+          <Button className="search-btn" onClick={()=>openSearch()}>
+            <i className="las la-search" />
+          </Button>
+}
         </div>
 
         {show ? (
@@ -218,6 +248,8 @@ function Chat({ open, handleClick, chatRef, openChatData = {} }) {
             notificationCount={notificationCount}
             user={user}
             setNotificationCount={setNotificationCount}
+            searchOpen={searchOpen}
+            wrapperRef={wrapperRef}
           />
         ) : (
           <SingleChatUser
@@ -261,6 +293,8 @@ function ChatUserList({
   user,
   notificationCount,
   setNotificationCount,
+  searchOpen,
+  wrapperRef
 }) {
   function createMarkup(text) {
     return { __html: text };
@@ -284,16 +318,19 @@ function ChatUserList({
   return (
     <div className="chat-content">
       <div className="chat-search">
+        {/* <Button>
+            <i className="las la-search" />
+          </Button> */}
+          {searchOpen &&
         <Form inline>
           <Form.Control
             type="text"
             placeholder="Search User"
             onChange={(e) => handleSearch(e.target.value)}
           />
-          {/* <Button>
-            <i className="las la-search" />
-          </Button> */}
+          
         </Form>
+}
         {searchData.length > 0 && (
           <ul>
             {allFriends?.length > 0 ? (
