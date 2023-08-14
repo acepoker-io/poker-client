@@ -7,7 +7,7 @@ import avtar from "../../assets/profile_user.jpg";
 import { useMediaQuery } from "react-responsive";
 import '../pokertable/RoomChat/RoomChat.css'
 
-const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistory, userId, roomData, chatMessages, scrollToBottom, scrollDownRef, leaveTable }) => {
+const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistory, userId, roomData, chatMessages, leaveTable }) => {
   // const [message, setMessages] = useState([]);
   const [typingOnChat, setTypingOnChat] = useState(false);
   // const [modalShow, setModalShow] = useState(false);
@@ -20,6 +20,8 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
   // const isRoomData = roomData?.showdown?.length;
 
   const wrapperRef = useRef(null);
+  const scrollDownRef = useRef(null)
+
 
   const useOutsideAlerter = (ref) => {
     useEffect(() => {
@@ -55,11 +57,11 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
 
 
 
-  useEffect(() => {
-    if (openChatHistory) {
-      scrollToBottom();
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (openChatHistory) {
+  //     scrollToBottom();
+  //   }
+  // }, [openChatHistory])
 
   useOutsideAlerter(wrapperRef);
 
@@ -67,6 +69,23 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
   //   setModalShow(!modalShow)
   //   setWinPopupData(data)
   // }
+
+  // const scrollBottoInChatHIstory = () => {
+  //   console.log("hello", scrollToBottomRef);
+  //   scrollToBottomRef?.current?.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  // };
+  // useEffect(() => {
+  //   scrollBottoInChatHIstory()
+  //   console.log("abcccc");
+  // }, [openChatHistory])
+
+  const scrollToBottom = () => {
+    scrollDownRef?.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatMessages?.length, openChatHistory])
 
   return (
     <div
@@ -114,6 +133,7 @@ const ChatHistory = ({ openChatHistory, handleOpenChatHistory, setOpenChatHistor
         {/* <div style={{ float: "left", clear: "both" }}
           ref={scrollDownRef}>
         </div> */}
+        <span ref={scrollDownRef} />
       </div>
       {/* <WinHistoryPopup modalShow={modalShow} setModalShow={setModalShow} winPopupData={winPopupData} leaveTable={leaveTable} /> */}
     </div>
