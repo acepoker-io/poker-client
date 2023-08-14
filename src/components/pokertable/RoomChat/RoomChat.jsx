@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import { Form, Button } from "react-bootstrap"
 // import logo from "../../assets/game/logo-poker.png";
- import "./RoomChat.css";
+import "./RoomChat.css";
 import { socket } from '../../../config/socketConnection';
 import Picker from 'emoji-picker-react';
 
-const RoomChat = ({ open, handleClick, userId, tableId,currentPlayer}) => {
+const RoomChat = ({ open, handleClick, userId, tableId, currentPlayer, scrollToBottom }) => {
     const [message, setMessage] = useState('');
     const [openEmoji, setOpenEMoji] = useState(false);
     const ref = useRef(null);
@@ -51,7 +51,7 @@ const RoomChat = ({ open, handleClick, userId, tableId,currentPlayer}) => {
     }
 
     return (
-        <div className={`chat-wrapper1 ${open && currentPlayer && currentPlayer.id === userId ? 'currentWithChat':''} ${ open ? `expand` : `` }`}>
+        <div className={`chat-wrapper1 ${ open && currentPlayer && currentPlayer.id === userId ? 'currentWithChat' : '' } ${ open ? `expand` : `` }`}>
 
             {openEmoji ? <Picker emojiStyle={{ width: "100%" }} onEmojiClick={handleOnEmojiClick} /> : null}
             <div className="chat-section1">

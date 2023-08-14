@@ -185,11 +185,8 @@ const PokerTable = (props) => {
     setView(e);
   };
 
-  const scrollDownRef = useRef(null);
 
-  const scrollToBottom = () => {
-    scrollDownRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+
   useEffect(() => {
     let urlParams = new URLSearchParams(window.location.search);
     setTableId(urlParams.get("tableid"));
@@ -1850,8 +1847,6 @@ const PokerTable = (props) => {
                 userId={userId}
                 roomData={roomData}
                 chatMessages={chatMessages}
-                scrollToBottom={scrollToBottom}
-                scrollDownRef={scrollDownRef}
                 leaveTable={leaveTable}
               />
             </div>
