@@ -1,460 +1,459 @@
 .chat-wrapper1 {
-    max-width: 350px;
-    position: fixed;
-    width: 100%;
-    bottom: -12px;
-    right: 10px;
-    z-index: 99999;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  max-width: 350px;
+  position: fixed;
+  width: 100%;
+  bottom: -12px;
+  right: 10px;
+  z-index: 99999;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.chat-section1 {
+  position: relative;
+}
+
+.chat-header1 {
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: transparent;
+  background: transparent;
+  position: absolute;
+  top: 12px;
+  right: 4px;
+  z-index: 999;
+}
+
+.chat-header1 .close-icon i {
+  font-size: 20px;
+}
+
+.chat-header1 .close-icon {
+  width: 25px;
+  height: 25px;
+  color: black;
+  background: #f9ff00;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+  position: relative;
+  bottom: 10px;
+  display: grid;
+  place-content: center;
+}
+
+i.fa.fa-sign-out {
+  font-family: "FontAwesome";
+}
+
+.chat-content-box1 {
+  height: 0;
+}
+
+.chat-wrapper1.expand .chat-content-box1 {
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.chat-content1 h6 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 6px 0px;
+  text-transform: capitalize;
+}
+
+.chat-content1 {
+  transition: all 0.5s;
+  position: relative;
+  background: #141414;
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid #141414;
+  box-shadow: 0px 2px 10px #141414;
+}
+
+.chat-content1:before {
+  content: "";
+  /* background: url(../../assets/black.png); */
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+  position: relative;
+}
+
+.chat-users::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
+  background-color: #191b25;
+}
+
+.chat-users::-webkit-scrollbar {
+  width: 5px;
+  background-color: #222530;
+}
+
+.chat-users::-webkit-scrollbar-thumb {
+  background-color: #222530;
+}
+
+.chat-search.chat-input .form-inline .form-control {
+  border: 1px solid black;
+  width: calc(100% - 50px);
+  background: black;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.579);
+  margin-left: 0px;
+  color: #fff;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-size: 14px;
+  height: 40px;
+}
+
+.chat-search.chat-input .form-inline .form-control:focus {
+  box-shadow: none;
+}
+
+.chat-search.chat-input .form-inline .btn-primary,
+.chat-search.chat-input .form-inline .btn-primary:hover,
+.chat-search.chat-input .form-inline .btn-primary:focus {
+  background: #f9ff00;
+  color: #000;
+  font-size: 20px;
+  width: 50px;
+  height: 40px;
+  border-color: #f9ff00;
+  box-shadow: none;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.chat-logo img {
+  max-width: 100px;
+  margin: 0px auto;
+  display: block;
+}
+
+.chat-search.chat-input {
+  border-bottom: none;
+  padding: 5px 0px 10px;
+}
+
+.chat-search.chat-input .form-inline {
+  display: flex;
+  flex-wrap: unset;
+  gap: 4px;
+}
+
+.chat-back {
+  width: 25px;
+  height: 25px;
+  background: #2b2929;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 100%;
+  transition: all 0.5s;
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.chat-back:hover {
+  background: #f9ff00;
+}
+
+.triangle-isosceles.left {
+  word-break: break-word;
+}
+
+.start-game-btn p {
+  text-align: center;
+}
+
+span.msg-limit {
+  font-size: 10px;
+  color: #bababa;
+  display: block;
+  text-align: right;
+}
+
+/* chat history  */
+
+.chatHistory-Container {
+  position: fixed;
+  top: 0%;
+  left: calc(0% - 300px);
+  width: 300px;
+  height: 100vh;
+  background: #1f070682;
+  z-index: 99999;
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  border: 2px solid #1f070682;
+  transition: all 0.3s ease;
+  /* animation: expandHistory 0.3s ease; */
+}
+
+.chatHistory-Container.expand {
+  left: 0%;
+}
+
+.chatHistory-header {
+  position: relative;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid #525252;
+}
+
+.chatHistory-header .Chatgame-logo {
+  width: 66px;
+}
+
+.Chatgame-title {
+  /* margin-top: 10px; */
+  /* box-shadow: 0px 2px 6px rgb(165 165 0); */
+  padding: 5px 10px;
+  /* border-radius: 20px; */
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+.Gameplayer-count {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.Gameplayer-count .greendot {
+  background-color: rgb(0, 220, 0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.Gameplayer-count h4 {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 0px;
+  color: rgb(141, 141, 141);
+}
+
+.Gameplayer-count h3 {
+  font-size: 12px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: -2px;
+}
+
+.playerComment-box {
+  display: flex;
+  flex-direction: row;
+  padding: 5px 10px 5px 5px;
+  gap: 10px;
+  align-items: flex-start;
+  border-bottom: 1px solid #525252;
+  background-color: rgba(34, 34, 34, 0.773);
+}
+
+.playerComment-box.playerSelfMssg {
+  color: #bababa;
+  /* flex-direction: row-reverse; */
+}
+
+.chatHistory-comments {
+  height: calc(100% - 54px);
+  overflow-y: auto;
+}
+
+.playerAvtar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.playerName {
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.playerMssgtoDisplay p {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 0px !important;
+  word-break: break-all;
+  margin-top: 4px;
+  color: white;
+}
+
+.chatHistory-header .hamburger {
+  height: 30px;
+}
+
+.chatHistory-header .hamburger .line {
+  width: 20px;
+  height: 2px;
+  background-color: grey;
+  margin: 5px auto;
+  transition: all 0.3s ease;
+}
+
+.chatHistory-header .hamburger:hover {
+  cursor: pointer;
+}
+
+.hamburger .line:nth-child(1),
+.hamburger .line:nth-child(2) {
+  width: 14px;
+}
+
+.hamburger .line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger .line:nth-child(2) {
+  transform: translateY(3px) rotate(-45deg);
+}
+
+.chatHistory-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.containerFor-chatHistory {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 999999;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.chatHistory-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.ChatHistory-count {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #f9ff00;
+  border-radius: 50%;
+  color: black;
+  top: -8px;
+  left: 22px;
+  text-align: center;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.everyRoundData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-size: 12px;
+  cursor: pointer;
+  color: #f9ff00;
+}
+
+.chatBubble-typing {
+  position: absolute;
+  top: 33px;
+  left: 55%;
+  font-size: 12px;
+  color: #bfbfbf;
+}
+
+@media screen and (max-width: 1024px) {
+  .advaceActionBtn-container .form-check-input {
+    width: 10px;
+    height: 10px;
   }
-  
-  .chat-section1 {
-    position: relative;
-  }
-  
-  .chat-header1 {
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    border-bottom: transparent;
-    background: transparent;
-    position: absolute;
-    top: 12px;
-    right: 4px;
-    z-index: 999;
-  }
-  
-  .chat-header1 .close-icon i {
-    font-size: 20px;
-  }
-  
-  .chat-header1 .close-icon {
-    width: 25px;
-    height: 25px;
-    color: black;
-    background: #f9ff00;
-    text-align: center;
-    line-height: 44px;
-    border-radius: 100%;
-    transition: all 0.5s;
-    cursor: pointer;
-    position: relative;
-    bottom: 10px;
-    display: grid;
-    place-content: center;
-  }
-  
-  i.fa.fa-sign-out {
-    font-family: "FontAwesome";
-  }
-  
-  .chat-content-box1 {
-    height: 0;
-  }
-  
-  .chat-wrapper1.expand .chat-content-box1 {
-    height: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .chat-content1 h6 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #ffffff;
-    padding: 6px 0px;
-    text-transform: capitalize;
-  }
-  
-  .chat-content1 {
-    transition: all 0.5s;
-    position: relative;
-    background: #141414;
-    padding: 15px 20px;
-    border-radius: 10px;
-    border: 1px solid #141414;
-    box-shadow: 0px 2px 10px #141414;
-  }
-  
-  .chat-content1:before {
-    content: "";
-    /* background: url(../../assets/black.png); */
-    background-repeat: repeat;
-    background-position: center;
-    background-size: auto;
-    position: relative;
-  }
-  
-  .chat-users::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.3);
-    background-color: #191b25;
-  }
-  
-  .chat-users::-webkit-scrollbar {
-    width: 5px;
-    background-color: #222530;
-  }
-  
-  .chat-users::-webkit-scrollbar-thumb {
-    background-color: #222530;
-  }
-  
-  .chat-search.chat-input .form-inline .form-control {
-    border: 1px solid black;
-    width: calc(100% - 50px);
-    background: black;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.579);
-    margin-left: 0px;
-    color: #fff;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    font-size: 14px;
-    height: 40px;
-  }
-  
-  .chat-search.chat-input .form-inline .form-control:focus {
-    box-shadow: none;
-  }
-  
-  .chat-search.chat-input .form-inline .btn-primary,
-  .chat-search.chat-input .form-inline .btn-primary:hover,
-  .chat-search.chat-input .form-inline .btn-primary:focus {
-    background: #f9ff00;
-    color: #000;
-    font-size: 20px;
-    width: 50px;
-    height: 40px;
-    border-color: #f9ff00;
-    box-shadow: none;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-  }
-  
-  .chat-logo img {
-    max-width: 100px;
-    margin: 0px auto;
-    display: block;
-  }
-  
-  .chat-search.chat-input {
-    border-bottom: none;
-    padding: 5px 0px 10px;
-  }
-  
-  .chat-search.chat-input .form-inline {
-    display: flex;
-    flex-wrap: unset;
-    gap: 4px;
-  }
-  
-  .chat-back {
-    width: 25px;
-    height: 25px;
-    background: #2b2929;
-    text-align: center;
-    line-height: 25px;
-    border-radius: 100%;
-    transition: all 0.5s;
-    position: absolute;
-    right: 50px;
-    top: 20px;
-    cursor: pointer;
-  }
-  
-  .chat-back:hover {
-    background: #f9ff00;
-  }
-  
-  .triangle-isosceles.left {
-    word-break: break-word;
-  }
-  
-  .start-game-btn p {
-    text-align: center;
-  }
-  
-  span.msg-limit {
+
+  .advaceActionBtn-container .form-check-label {
+    margin-top: 4px;
     font-size: 10px;
-    color: #bababa;
-    display: block;
-    text-align: right;
   }
-  
-  /* chat history  */
-  
+
+  .advaceActionBtn-container .form-check-input:checked {
+    background-color: #c05454 !important;
+    border: 2px solid #ddd;
+  }
+
+  .playerMssgtoDisplay p {
+    font-size: 10px;
+    font-weight: 300;
+  }
+
+  .playerName {
+    margin-top: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .playerAvtar img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .Chatgame-title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .Chatgame-title {
+    scale: 0.9;
+  }
+
   .chatHistory-Container {
     position: fixed;
     top: 0%;
-    left: calc(0% - 300px);
-    width: 300px;
-    height: 100vh;
-    background: #1f070682;
-    z-index: 99999;
-    backdrop-filter: blur(5px);
-    box-shadow: 0px 0px 10px rgb(0, 0, 0);
-    border: 2px solid #1f070682;
-    transition: all 0.3s ease;
-    /* animation: expandHistory 0.3s ease; */
+    left: calc(0% - 250px);
+    width: 250px;
   }
-  
-  .chatHistory-Container.expand {
-    left: 0%;
-  }
-  
-  .chatHistory-header {
-    position: relative;
-    padding: 8px 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    border-bottom: 1px solid #525252;
-  }
-  
-  .chatHistory-header .Chatgame-logo {
-    width: 66px;
-  }
-  
-  .Chatgame-title {
-    /* margin-top: 10px; */
-    /* box-shadow: 0px 2px 6px rgb(165 165 0); */
-    padding: 5px 10px;
-    /* border-radius: 20px; */
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-  }
-  
-  .Gameplayer-count {
-    display: flex;
-    gap: 5px;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .Gameplayer-count .greendot {
-    background-color: rgb(0, 220, 0);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-  
-  .Gameplayer-count h4 {
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    font-size: 12px;
-    margin-bottom: 0px;
-    color: rgb(141, 141, 141);
-  }
-  
-  .Gameplayer-count h3 {
-    font-size: 12px;
-    color: #fff;
-    font-weight: 600;
-    margin-bottom: -2px;
-  }
-  
+
   .playerComment-box {
-    display: flex;
-    flex-direction: row;
-    padding: 5px 10px 5px 5px;
-    gap: 10px;
-    align-items: flex-start;
-    border-bottom: 1px solid #525252;
-    background-color: rgba(34, 34, 34, 0.773);
+    gap: 6px;
   }
-  
-  .playerComment-box.playerSelfMssg {
-    color: #bababa;
-    /* flex-direction: row-reverse; */
+
+  .Gameplayer-count {
+    margin-top: 8px;
   }
-  
+
   .chatHistory-comments {
-    height: calc(100% - 54px);
+    height: calc(100% - 48px);
     overflow-y: auto;
   }
-  
-  .playerAvtar img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-  
-  .playerName {
-    margin-top: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    color: white;
-  }
-  
-  .playerMssgtoDisplay p {
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 18px;
-    margin-bottom: 0px !important;
-    word-break: break-all;
-    margin-top: 4px;
-    color: white;
-  }
-  
-  .chatHistory-header .hamburger {
-    height: 30px;
-  }
-  
-  .chatHistory-header .hamburger .line {
-    width: 20px;
-    height: 2px;
-    background-color: grey;
-    margin: 5px auto;
-    transition: all 0.3s ease;
-  }
-  
-  .chatHistory-header .hamburger:hover {
-    cursor: pointer;
-  }
-  
-  .hamburger .line:nth-child(1),
-  .hamburger .line:nth-child(2) {
-    width: 14px;
-  }
-  
-  .hamburger .line:nth-child(1) {
-    transform: translateY(10px) rotate(45deg);
-  }
-  
-  .hamburger .line:nth-child(2) {
-    transform: translateY(3px) rotate(-45deg);
-  }
-  
-  .chatHistory-icon img {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .containerFor-chatHistory {
-    position: fixed;
-    bottom: 10px;
-    left: 10px;
-    z-index: 999999;
-    padding: 5px;
-    border-radius: 50%;
-  }
-  
-  .chatHistory-icon {
-    position: relative;
-    cursor: pointer;
-  }
-  
+}
+
+@media screen and (max-width: 767px) {
   .ChatHistory-count {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    background-color: #f9ff00;
-    border-radius: 50%;
-    color: black;
-    top: -8px;
+    width: 20px;
+    height: 20px;
     left: 22px;
-    text-align: center;
-    vertical-align: middle;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid black;
     font-size: 12px;
     font-weight: 600;
   }
-  
-  .everyRoundData {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    font-size: 12px;
-    cursor: pointer;
-    color: #f9ff00;
-  }
-  
-  .chatBubble-typing {
-    position: absolute;
-    top: 33px;
-    left: 64%;
-    font-size: 12px;
-    color: #bfbfbf;
-  }
-  
-  @media screen and (max-width: 1024px) {
-    .advaceActionBtn-container .form-check-input {
-      width: 10px;
-      height: 10px;
-    }
-  
-    .advaceActionBtn-container .form-check-label {
-      margin-top: 4px;
-      font-size: 10px;
-    }
-  
-    .advaceActionBtn-container .form-check-input:checked {
-      background-color: #c05454 !important;
-      border: 2px solid #ddd;
-    }
-  
-    .playerMssgtoDisplay p {
-      font-size: 10px;
-      font-weight: 300;
-    }
-  
-    .playerName {
-      margin-top: 4px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-  
-    .playerAvtar img {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-    }
-  
-    .Chatgame-title {
-      font-size: 14px;
-      font-weight: 600;
-    }
-  
-    .Chatgame-title {
-      scale: 0.9;
-    }
-  
-    .chatHistory-Container {
-      position: fixed;
-      top: 0%;
-      left: calc(0% - 250px);
-      width: 250px;
-    }
-  
-    .playerComment-box {
-      gap: 6px;
-    }
-  
-    .Gameplayer-count {
-      margin-top: 8px;
-    }
-  
-    .chatHistory-comments {
-      height: calc(100% - 48px);
-      overflow-y: auto;
-    }
-  }
-  
-  @media screen and (max-width: 767px) {
-    .ChatHistory-count {
-      width: 20px;
-      height: 20px;
-      left: 22px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-  }
-  
+}
