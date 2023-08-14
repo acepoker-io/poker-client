@@ -1774,7 +1774,8 @@ const PokerTable = (props) => {
         <html
           className={`game-page ${ !(players && (players.find((ele) => ele.id === userId) && !roomData?.leavereq.find(el => el.toString() === userId.toString()))) &&
             roomData &&
-            roomData.players.find((ele) => ele.userid === userId)
+            roomData.players.find((ele) => ele.userid === userId) &&
+            roomData.gamestart
             ? "game-started-join"
             : ""
             }`}
@@ -1833,28 +1834,28 @@ const PokerTable = (props) => {
 
           <div className={`poker-table ${ winner ? "winner-show" : "" }`}>
             <div className="containerFor-chatHistory">
-                  {!isWatcher ? (<div
-                    className="chatHistory-icon"
-                    onClick={handleOpenChatHistory}
-                  >
-                    {unReadMessages > 0 && (
-                      <p className="ChatHistory-count">{unReadMessages}</p>
-                    )}
-                    <img src={UsersComments} alt="" />
-                  </div>) : null}
-                  <ChatHistory
-                    setOpenChatHistory={setOpenChatHistory}
-                    openChatHistory={openChatHistory}
-                    handleOpenChatHistory={handleOpenChatHistory}
-                    userId={userId}
-                    roomData={roomData}
-                    chatMessages={chatMessages}
-                    scrollToBottom={scrollToBottom}
-                    scrollDownRef={scrollDownRef}
-                    leaveTable={leaveTable}
-                  />
-                </div>
-             
+              {!isWatcher ? (<div
+                className="chatHistory-icon"
+                onClick={handleOpenChatHistory}
+              >
+                {unReadMessages > 0 && (
+                  <p className="ChatHistory-count">{unReadMessages}</p>
+                )}
+                <img src={UsersComments} alt="" />
+              </div>) : null}
+              <ChatHistory
+                setOpenChatHistory={setOpenChatHistory}
+                openChatHistory={openChatHistory}
+                handleOpenChatHistory={handleOpenChatHistory}
+                userId={userId}
+                roomData={roomData}
+                chatMessages={chatMessages}
+                scrollToBottom={scrollToBottom}
+                scrollDownRef={scrollDownRef}
+                leaveTable={leaveTable}
+              />
+            </div>
+
             {(players && players.find((ele) => ele.id === userId)) ||
               (roomData &&
                 roomData.players.find((ele) => ele.userid === userId)) ||
