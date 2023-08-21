@@ -558,8 +558,7 @@ const Home = ({ openChatData = {} }) => {
       return false;
     }
   };
-
-  const handleWithdraw = async (amount) => {
+  const handleWithdrawRequest = async (amount) => {
     try {
       // let l = 1;
       // console.log("================================", l);
@@ -569,19 +568,16 @@ const Home = ({ openChatData = {} }) => {
         console.log("var =====>", vart);
       }
       // console.log("================================", l);
-      const resp = await pokerInstance().post("/withdrawTransaction", {
+      const resp = await pokerInstance().post("/withdrawRequsetTransaction", {
         userId: user._id || user.id,
         amount,
       });
-      // console.log("response ==>", resp);
       if (resp?.data.success) {
         toast.success(resp.data.message, { toastId: "withdrawTransaction" });
         setUser(resp.data.user);
         return true;
-      } else {
-        toast.error(resp.data.message, { toastId: "withdrawTransaction" });
-        return false;
       }
+      //
     } catch (err) {
       console.log("error in withdrawTransaction", err.response);
       toast.error(err.response.data.message, {
@@ -590,6 +586,38 @@ const Home = ({ openChatData = {} }) => {
       return false;
     }
   };
+
+  // const handleWithdraw = async (amount) => {
+  //   try {
+  //     // let l = 1;
+  //     // console.log("================================", l);
+  //     if (activeChain?.chainId !== ChainId.Arbitrum) {
+  //       const vart = await connectWithMetamask({ chainId: ChainId.Arbitrum });
+  //       // l = 2;
+  //       console.log("var =====>", vart);
+  //     }
+  //     // console.log("================================", l);
+  //     const resp = await pokerInstance().post("/withdrawTransaction", {
+  //       userId: user._id || user.id,
+  //       amount,
+  //     });
+  //     // console.log("response ==>", resp);
+  // if (resp?.data.success) {
+  //   toast.success(resp.data.message, { toastId: "withdrawTransaction" });
+  //   setUser(resp.data.user);
+  //   return true;
+  //     } else {
+  //       toast.error(resp.data.message, { toastId: "withdrawTransaction" });
+  //       return false;
+  //     }
+  //   } catch (err) {
+  //     console.log("error in withdrawTransaction", err.response);
+  //     toast.error(err.response.data.message, {
+  //       toastId: "withdrawTransaction",
+  //     });
+  //     return false;
+  //   }
+  // };
 
   const [openCardHeight, setOpenCardHeight] = useState(150);
   const pokerCard = useRef(null);
@@ -632,7 +660,7 @@ const Home = ({ openChatData = {} }) => {
         userData={userData}
         handleShow={handleShow}
         handleDeposit={handleDeposit}
-        handleWithdraw={handleWithdraw}
+        handleWithdrawRequest={handleWithdrawRequest}
       // getAllRequiredData={getAllRequiredData}
       />
       {/* <Tabs

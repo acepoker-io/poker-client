@@ -32,7 +32,7 @@ import Select from "react-select";
 import { FaBell } from "react-icons/fa";
 import Notifications from "./Notifications";
 
-const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
+const Header = ({ userData, handleShow, handleDeposit, handleWithdrawRequest }) => {
   const { user, setUser } = useContext(UserContext);
   const disconnect = useDisconnect();
   const connectWithMetamask = useMetamask();
@@ -189,7 +189,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
     try {
       setShowSpinner(true);
       if (withdrawAmt) {
-        const resp = await handleWithdraw(withdrawAmt);
+        const resp = await handleWithdrawRequest(withdrawAmt);
         if (resp) {
           setShowWithdrawTransaction(false);
         }
@@ -431,7 +431,7 @@ const Header = ({ userData, handleShow, handleDeposit, handleWithdraw }) => {
             </div>
           </div>
 
-          <div className={`navCol-responsive ${show ? `active` : ``}`}>
+          <div className={`navCol-responsive ${ show ? `active` : `` }`}>
             {/* <div class='navCol-responsive'> */}
             {user ? (
               <>
