@@ -681,7 +681,7 @@ const WithdrawlModal = ({
     >
       <Modal.Body className="transaction-validatingTranction">
         <img src={withdraw} alt="" />
-        <Form.Label>Withdraw USDT</Form.Label>
+        <Form.Label>Withdraw Request For USDT</Form.Label>
         <Form.Control
           name="Deposit"
           onInput={handleWithdrawAmt}
